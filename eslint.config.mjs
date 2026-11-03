@@ -4,7 +4,7 @@ import nextTs from "eslint-config-next/typescript";
 
 export default defineConfig([
   ...nextVitals, ...nextTs,
-  globalIgnores([".next/**", "node_modules/**", "public/renderer-frame.js", "lib/db/migrations/**", "playwright-report/**", "test-results/**", ".data/**", "next-env.d.ts"]),
+  globalIgnores([".next/**", "app/.well-known/workflow/**", "node_modules/**", "public/renderer-frame.js", "lib/db/migrations/**", "playwright-report/**", "test-results/**", ".data/**", "next-env.d.ts"]),
   {
     files: ["app/**/*.{ts,tsx}", "lib/**/*.{ts,tsx,js}"],
     ignores: ["lib/ai/**"],
@@ -41,4 +41,5 @@ export default defineConfig([
       "no-restricted-globals": ["error", "fetch", "XMLHttpRequest", "WebSocket", "window", "document", "process", "CWASA"],
     },
   },
+  {files:["app/api/projects/[[]projectId]/track/route.ts","app/api/tracks/[[]trackId]/manifest/route.ts"],rules:{"no-restricted-imports":["error",{patterns:[{group:["@/lib/ai/**","**/ai/**","openai","openai/*"],message:"Replay routes must remain model-free."}]}]}},
 ]);

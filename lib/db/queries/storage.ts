@@ -17,6 +17,7 @@ export interface MediaInit {projectId:string;declaredBytes:number;contentType:"v
 export async function reserveMedia(store:StateStore,input:MediaInit,now=new Date()) {
   if(!Number.isInteger(input.declaredBytes)||input.declaredBytes<1||input.declaredBytes>15728640||!["video/mp4","video/webm"].includes(input.contentType)||!Number.isInteger(input.clientDurationMs)||input.clientDurationMs<=0||input.clientDurationMs>90000||!/^[a-f0-9]{64}$/u.test(input.clientSha256))throw new StateError("media_limits");
   return store.transaction(async q=>{await lockProject(q,input.projectId,true);await allocate(q,input.declaredBytes,now);
+    await q.query(sql`UPDATE media SET status='rejected' WHERE project_id=${input.projectId} AND status='pending_upload'`);
     const id=randomUUID(),pathname=`v/${input.projectId}/${id}.${input.contentType==="video/mp4"?"mp4":"webm"}`;
     await q.query(sql`INSERT INTO media(id,project_id,blob_pathname,content_type,declared_bytes,client_sha256,client_duration_ms,reservation_expires_at,expires_at,pinned,created_at) VALUES (${id},${input.projectId},${pathname},${input.contentType},${input.declaredBytes},${input.clientSha256},${input.clientDurationMs},${new Date(now.getTime()+900_000)},${new Date(now.getTime()+259_200_000)},${input.pinned??false},${now})`);
     return {id,pathname,maximumSizeInBytes:input.declaredBytes,tokenExpiresAt:new Date(now.getTime()+600_000)};});

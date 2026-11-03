@@ -10,3 +10,5 @@ test-results/
 *.tsbuildinfo
 coverage/
 .codebase-memory/
+app/.well-known/workflow/
+/.swc

@@ -58,3 +58,9 @@ Native tests require PostgreSQL binaries (`C:/Program Files/PostgreSQL/16/bin` b
 Run `npm run db:migrate` for the two additive Phase 3 migrations in the local database. As always, ask before supplying or using a real database secret. The schema additions and upload-lease cleanup guard are recorded in `docs/DEVIATIONS.md`. All application transitions stay in `lib/db/queries`; the client bridge only adapts driver results, and the reconciler orchestrates those queries and the BlobStore.
 
 See `docs/phase-reports/phase-1.md`, `docs/phase-reports/phase-2.md` and `docs/phase-reports/phase-3.md` for per-phase results. `SYSTEM-DESIGN.md` is the immutable specification.
+
+## Phase 4 local pipeline
+
+After `npm run db:migrate` and `npm run db:seed:local`, set the nonsecret local `PROCESSING_ENABLED=true` and run `npm run dev`. The route pipeline defaults to a deterministic fake; manifests and cache keys say `fake/…`. Never use a real key without approval. Production requires explicit Neon, private Blob, OpenAI and Workflow adapters; it fails closed if these are absent. Player/workspace UI starts in Phase 5.
+
+Run `npm test`, `npm run test:race:native`, `npm run typecheck`, `npm run lint` and `npm run build`. `npx tsx scripts/phase4-live-smoke.ts` prints the dry-run contract; the real two-segment smoke needs approval, a locally configured key and `--live`, with a USD 0.20 cap. See [Phase 4 evidence](docs/evidence/phase-4/notes.md).

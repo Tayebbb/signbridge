@@ -5,7 +5,8 @@ import {StateError,lockProject,lockJob,failLocked,type ProjectRow} from "./commo
 import {dayScope} from "../../domain/limits";
 import {budgetSignalLocked} from "./spend";
 import {hash,segmentKey} from "../../domain/fingerprints";
-import {contextWindow,segmentCues,SEGMENTER_VERSION} from "../../domain/segmentation";
+import {contextWindow,SEGMENTER_VERSION} from "../../domain/segmentation";
+import {materializeSegments,type CueRange} from "../../domain/transcriptEdits";
 import {SOURCE_FORM_VERSION,retrievalForm} from "../../domain/captions/textForms";
 import {validateCues,type Cue} from "../../domain/captions/shared";
 
@@ -26,7 +27,8 @@ async function createJob(q:SqlSession,p:ProjectRow,tv:string,key:string,now:Date
   await q.query(sql`UPDATE jobs SET status='superseded',cancel_requested=true,finished_at=${now},updated_at=${now} WHERE project_id=${p.id} AND status IN ('queued','running')`);
   const id=randomUUID(),epoch=BigInt(p.processing_epoch)+1n,signal=await budgetSignalLocked(q,now);
   if(signal.closed)throw new StateError("spend_cap");
-  await q.query(sql`INSERT INTO jobs(id,project_id,transcript_version_id,processing_epoch,idempotency_key,driver,model_profile,progress,created_at,updated_at) VALUES (${id},${p.id},${tv},${epoch.toString()},${key},${options.driver??"workflows"},${signal.downgrade?"gpt-6.1-terra":options.modelProfile??"gpt-6.1-sol"},${JSON.stringify(progress)}::jsonb,${now},${now})`);
+  const [fallback]=await q.query<{value:boolean}>(sql`SELECT value FROM ops_settings WHERE key='sol_unavailable'`);
+  await q.query(sql`INSERT INTO jobs(id,project_id,transcript_version_id,processing_epoch,idempotency_key,driver,model_profile,progress,created_at,updated_at) VALUES (${id},${p.id},${tv},${epoch.toString()},${key},${options.driver??"workflows"},${signal.downgrade||fallback?.value===true?"gpt-6.1-terra":options.modelProfile??"gpt-6.1-sol"},${JSON.stringify(progress)}::jsonb,${now},${now})`);
   await q.query(sql`UPDATE projects SET active_job_id=${id},processing_epoch=${epoch.toString()} WHERE id=${p.id}`);
   return {id,epoch,transcriptVersionId:tv};
 }
@@ -68,19 +70,23 @@ export async function stallFence(store:StateStore,jobId:string,now=new Date()) {
 export async function failJob(store:StateStore,jobId:string,code:string,now=new Date()) {
   return store.transaction(async q=>{const locked=await lockJob(q,jobId);if(!locked||!["queued","running"].includes(locked.job.status))return false;await failLocked(q,locked.project,locked.job,code,now);return true;});
 }
-export async function submitTranscriptVersion(store:StateStore,input:{projectId:string;baseVersionId:string|null;idempotencyKey:string;cues:Cue[];source?:"srt"|"vtt"|"pasted";modelProfile?:string},now=new Date()) {
-  const cues=validateCues(input.cues,input.cues.map((_,i)=>i+1)),segs=segmentCues(cues);if(segs.length>20)throw new StateError("segment_limit");
+export async function submitTranscriptVersion(store:StateStore,input:{projectId:string;baseVersionId:string|null;idempotencyKey:string;cues:Cue[];layout?:CueRange[];autoStart?:boolean;source?:"srt"|"vtt"|"pasted";modelProfile?:string},now=new Date()) {
+  const cues=validateCues(input.cues,input.cues.map((_,i)=>i+1)),segs=materializeSegments(cues,input.layout),requestHash=hash({cues,layout:input.layout??null});if(segs.length>20)throw new StateError("segment_limit");
   return store.transaction(async q=>{
     const p=(await lockProject(q,input.projectId,true))!;
+    const replay=(await q.query<{id:string;request_hash:string}>(sql`SELECT id,request_hash FROM transcript_versions WHERE project_id=${p.id} AND request_key=${input.idempotencyKey}`))[0];
+    if(replay){if(replay.request_hash!==requestHash)throw new StateError("idempotency_conflict");const [job]=await q.query<{id:string;processing_epoch:string}>(sql`SELECT id,processing_epoch FROM jobs WHERE project_id=${p.id} AND idempotency_key=${input.idempotencyKey}`);return {id:job?.id??"",epoch:BigInt(job?.processing_epoch??p.processing_epoch),transcriptVersionId:replay.id};}
     const existing=(await q.query<{id:string;transcript_version_id:string;processing_epoch:string}>(sql`SELECT id,transcript_version_id,processing_epoch FROM jobs WHERE project_id=${p.id} AND idempotency_key=${input.idempotencyKey}`))[0];
     if(existing){const [version]=await q.query<{text_hash:string}>(sql`SELECT text_hash FROM transcript_versions WHERE id=${existing.transcript_version_id}`);if(version.text_hash!==hash(cues))throw new StateError("idempotency_conflict");return {id:existing.id,epoch:BigInt(existing.processing_epoch),transcriptVersionId:existing.transcript_version_id};}
     if(p.current_transcript_version_id!==input.baseVersionId)throw new StateError("version_conflict");
     const id=randomUUID(),[version]=await q.query<{n:number}>(sql`SELECT coalesce(max(version_no),0)::int+1 AS n FROM transcript_versions WHERE project_id=${p.id}`);
     await q.query(sql`INSERT INTO transcript_versions(id,project_id,version_no,parent_version_id,source,cues,segmenter_version,source_form_version,text_hash,created_at) VALUES (${id},${p.id},${version.n},${input.baseVersionId},${input.source??"pasted"},${JSON.stringify(cues)}::jsonb,${SEGMENTER_VERSION},${SOURCE_FORM_VERSION},${hash(cues)},${now})`);
+    await q.query(sql`UPDATE transcript_versions SET request_key=${input.idempotencyKey},request_hash=${requestHash} WHERE id=${id}`);
     const old=await q.query<{segment_key:string}>(sql`SELECT segment_key FROM segments WHERE transcript_version_id=${input.baseVersionId}`),oldKeys=new Set(old.map(s=>s.segment_key));let changed=0;
     for(let i=0;i<segs.length;i++){const s=segs[i],key=segmentKey(s,contextWindow(segs,i,p.title));if(!oldKeys.has(key))changed++;
       await q.query(sql`INSERT INTO segments(transcript_version_id,idx,start_ms,end_ms,cue_from,cue_to,source_text,retrieval_text,segment_key) VALUES (${id},${s.idx},${s.startMs},${s.endMs},${s.cueFrom},${s.cueTo},${s.sourceText},${retrievalForm(s.sourceText)},${key})`);}
-    const result=await createJob(q,p,id,input.idempotencyKey,now,{modelProfile:input.modelProfile,replanSegments:changed});
+    const result=input.autoStart===false?{id:"",epoch:BigInt(p.processing_epoch)+1n,transcriptVersionId:id}:await createJob(q,p,id,input.idempotencyKey,now,{modelProfile:input.modelProfile,replanSegments:changed});
+    if(input.autoStart===false){await q.query(sql`UPDATE jobs SET status='superseded',cancel_requested=true,finished_at=${now} WHERE project_id=${p.id} AND status IN ('queued','running')`);await q.query(sql`UPDATE projects SET active_job_id=NULL,processing_epoch=processing_epoch+1 WHERE id=${p.id}`);}
     await q.query(sql`UPDATE projects SET current_transcript_version_id=${id},lock_version=lock_version+1 WHERE id=${p.id}`);return result;
   });
 }

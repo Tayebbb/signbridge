@@ -16,3 +16,10 @@ test("Phase 2: pure modules reject filesystem/network/environment imports while 
   const [cpu]=await eslint.lintText("import { createHash } from 'node:crypto';\nexport { createHash };",{filePath:"lib/domain/purity-probe.ts"});
   expect(cpu.messages.filter(m=>m.ruleId==="no-restricted-imports")).toEqual([]);
 });
+test("Replay route modules reject model imports",async()=>{
+  const eslint=new ESLint();
+  for(const filePath of ["app/api/projects/[projectId]/track/route.ts","app/api/tracks/[trackId]/manifest/route.ts"]){
+    const [result]=await eslint.lintText("import { OpenAIModelClient } from '@/lib/ai/client';\nexport { OpenAIModelClient };",{filePath});
+    expect(result.messages.some(m=>m.ruleId==="no-restricted-imports")).toBe(true);
+  }
+});

@@ -47,11 +47,12 @@ export const storageLedger = pgTable("storage_ledger", {
   estTransferBytes: big("est_transfer_bytes").notNull().default(sql`0`), transferCapBytes: big("transfer_cap_bytes").notNull(),
 }, t => [check("storage_ledger_id_check", sql`${t.id} = 1`), check("storage_ledger_check", sql`${t.committedBytes} >= 0 AND ${t.pendingBytes} >= 0`)]);
 export const transcriptVersions = pgTable("transcript_versions", {
+  requestKey:text("request_key"),requestHash:text("request_hash"),
   id: uuid("id").primaryKey().defaultRandom(), projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }), versionNo: integer("version_no").notNull(),
   parentVersionId: uuid("parent_version_id").references((): AnyPgColumn => transcriptVersions.id, { onDelete: "set null" }), source: transcriptSource("source").notNull(),
   cues: jsonb("cues").notNull(), editSummary: jsonb("edit_summary"), segmenterVersion: text("segmenter_version").notNull(), sourceFormVersion: text("source_form_version").notNull(),
   textHash: text("text_hash").notNull(), createdAt: time("created_at").notNull().defaultNow(),
-}, t => [unique().on(t.projectId, t.versionNo)]);
+}, t => [unique().on(t.projectId, t.versionNo),unique().on(t.projectId,t.requestKey)]);
 export const segments = pgTable("segments", {
   id: uuid("id").primaryKey().defaultRandom(), transcriptVersionId: uuid("transcript_version_id").notNull().references(() => transcriptVersions.id, { onDelete: "cascade" }), idx: integer("idx").notNull(),
   startMs: integer("start_ms").notNull(), endMs: integer("end_ms").notNull(), cueFrom: integer("cue_from").notNull(), cueTo: integer("cue_to").notNull(),
@@ -120,3 +121,10 @@ export const anchorStorage=pgTable("anchor_storage",{
 export const renderEvents = pgTable("render_events", {
   id: bigserial("id", { mode: "bigint" }).primaryKey(), trackVersionId: uuid("track_version_id").references(() => trackVersions.id, { onDelete: "cascade" }), segmentIdx: integer("segment_idx"), kind: text("kind").notNull(), detail: jsonb("detail"), uaClass: text("ua_class"), createdAt: time("created_at").notNull().defaultNow(),
 });
+export const apiRequests=pgTable("api_requests",{
+  scope:text("scope").notNull(),key:text("key").notNull(),requestHash:text("request_hash").notNull(),response:jsonb("response").notNull(),createdAt:time("created_at").notNull().defaultNow(),
+},t=>[primaryKey({columns:[t.scope,t.key]})]);
+export const rateWindows=pgTable("rate_windows",{
+  scope:text("scope").notNull(),windowStart:time("window_start").notNull(),count:integer("count").notNull(),
+},t=>[primaryKey({columns:[t.scope,t.windowStart]}),check("rate_count_check",sql`${t.count} >= 0`)]);
+export const opsSettings=pgTable("ops_settings",{key:text("key").primaryKey(),value:jsonb("value").notNull()});

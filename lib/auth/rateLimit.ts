@@ -1,2 +1,1 @@
-// TODO(phase-3): implementation intentionally deferred.
-export type PendingImplementation = never;
+export {consumeRate as rateLimit} from "../db/queries/api";

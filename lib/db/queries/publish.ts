@@ -19,6 +19,8 @@ export async function publishTrack(store:StateStore,jobId:string,proof:RunProof,
     const row=(await q.query<{id:string}>(sql`SELECT id FROM track_versions WHERE project_id=${project.id} AND track_fingerprint=${fingerprint}`))[0];
     await q.query(sql`UPDATE projects SET current_track_version_id=${row.id},active_job_id=NULL WHERE id=${project.id}`);
     await q.query(sql`UPDATE jobs SET status=${technical==="complete"?"succeeded":"partial"},result_track_version_id=${row.id},finished_at=${now},updated_at=${now} WHERE id=${jobId}`);
+    const progress=manifest.segments.map(s=>({idx:s.idx,stage:"published",state:s.technicalStatus==="ready"?"ok":s.technicalStatus==="failed"?"failed":"partial_blocked",errorCode:s.technicalStatus==="failed"?"stage_failed":null}));
+    await q.query(sql`UPDATE jobs SET progress=jsonb_set(progress,'{segments}',${JSON.stringify(progress)}::jsonb) WHERE id=${jobId}`);
     return {status:"published" as const,trackVersionId:row.id};
   });
 }

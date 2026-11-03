@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { rendererCsp } from "./lib/player/csp";
+import {withWorkflow} from "workflow/next";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["@electric-sql/pglite"],
@@ -12,4 +13,4 @@ const nextConfig: NextConfig = {
     ] }];
   },
 };
-export default nextConfig;
+export default withWorkflow(nextConfig);

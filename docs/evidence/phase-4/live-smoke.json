@@ -1,0 +1,9 @@
+{
+  "status": "NOT RUN",
+  "reason": "No locally configured key and no approval to use one; dry-run contract verified without credentials.",
+  "fixtureSegments": 2,
+  "ceilingUsd": 0.2,
+  "model": null,
+  "tokens": null,
+  "costUsd": null
+}

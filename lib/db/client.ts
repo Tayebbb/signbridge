@@ -30,6 +30,7 @@ export async function createDatabase(options: { url?: string; dataDir?: string }
 export type Database = Awaited<ReturnType<typeof createDatabase>>;
 const shared = globalThis as typeof globalThis & { signbridgeDatabase?: Promise<Database> };
 export function getDatabase(): Promise<Database> {
+  if(process.env.VERCEL&&!process.env.DATABASE_URL)throw new Error("Production Neon database is not configured");
   shared.signbridgeDatabase ??= createDatabase({
     url: process.env.DATABASE_URL || undefined,
     dataDir: process.env.PGLITE_DATA_DIR || (process.env.VERCEL ? "/tmp/signbridge-postgres" : ".data/postgres"),

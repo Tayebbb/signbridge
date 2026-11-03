@@ -4,14 +4,14 @@ import { dirname, resolve, sep } from "node:path";
 export interface BlobStore {
   put(pathname: string, bytes: Uint8Array): Promise<void>;
   get(pathname: string): Promise<Uint8Array>;
-  head(pathname: string): Promise<{ size: number }>;
+  head(pathname: string): Promise<{ size: number;contentType?:string }>;
   remove(pathname: string): Promise<void>;
   list(prefix:string):Promise<{pathname:string;size:number}[]>;
 }
 /** Local adapter only. Browser uploads/presigning arrive in phase 4. */
 export class FilesystemBlobStore implements BlobStore {
   private readonly root: string;
-  constructor(root = ".data/blob") { this.root = resolve(root); }
+  constructor(root = ".data/blob") { this.root = resolve(/* turbopackIgnore: true */ root); }
   private path(pathname: string): string {
     if (!/^[a-zA-Z0-9][a-zA-Z0-9/_.-]*$/.test(pathname) || pathname.split("/").some(p => p === "." || p === ".." || !p)) {
       throw new Error("Invalid blob pathname");
@@ -25,6 +25,7 @@ export class FilesystemBlobStore implements BlobStore {
     await mkdir(dirname(path), { recursive: true });
     await writeFile(path, bytes);
   }
+  async putOnce(pathname:string,bytes:Uint8Array){const path=this.path(pathname);await mkdir(dirname(path),{recursive:true});await writeFile(path,bytes,{flag:"wx"});}
   async get(pathname: string) { return new Uint8Array(await readFile(this.path(pathname))); }
   async head(pathname: string) { return { size: (await stat(this.path(pathname))).size }; }
   async list(prefix:string) {

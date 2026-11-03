@@ -1,0 +1,886 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@esbuild-kit/core-utils": {
+      "name": "@esbuild-kit/core-utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [
+        "@esbuild-kit/esm-loader"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@esbuild-kit/core-utils"
+      ],
+      "fixAvailable": {
+        "name": "drizzle-kit",
+        "version": "0.18.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@esbuild-kit/esm-loader": {
+      "name": "@esbuild-kit/esm-loader",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@esbuild-kit/core-utils"
+      ],
+      "effects": [
+        "drizzle-kit"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@esbuild-kit/esm-loader"
+      ],
+      "fixAvailable": {
+        "name": "drizzle-kit",
+        "version": "0.18.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@eslint-community/eslint-utils": {
+      "name": "@eslint-community/eslint-utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "eslint"
+      ],
+      "effects": [
+        "@next/eslint-plugin-next",
+        "@typescript-eslint/utils",
+        "eslint"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@eslint-community/eslint-utils",
+        "node_modules/@next/eslint-plugin-next/node_modules/@eslint-community/eslint-utils"
+      ],
+      "fixAvailable": {
+        "name": "eslint",
+        "version": "4.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@eslint/config-array": {
+      "name": "@eslint/config-array",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "eslint"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@eslint/config-array"
+      ],
+      "fixAvailable": {
+        "name": "eslint",
+        "version": "4.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@eslint/eslintrc": {
+      "name": "@eslint/eslintrc",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "eslint"
+      ],
+      "range": "0.0.1 || >=0.1.1",
+      "nodes": [
+        "node_modules/@eslint/eslintrc"
+      ],
+      "fixAvailable": {
+        "name": "eslint",
+        "version": "4.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@next/eslint-plugin-next": {
+      "name": "@next/eslint-plugin-next",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@eslint-community/eslint-utils"
+      ],
+      "effects": [
+        "eslint-config-next"
+      ],
+      "range": ">=16.3.0-canary.0",
+      "nodes": [
+        "node_modules/@next/eslint-plugin-next"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@oclif/core": {
+      "name": "@oclif/core",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "ejs",
+        "minimatch"
+      ],
+      "effects": [
+        "@oclif/plugin-help",
+        "@workflow/cli"
+      ],
+      "range": ">=1.1.2",
+      "nodes": [
+        "node_modules/@oclif/core"
+      ],
+      "fixAvailable": true
+    },
+    "@oclif/plugin-help": {
+      "name": "@oclif/plugin-help",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@oclif/core"
+      ],
+      "effects": [],
+      "range": ">=6.0.18",
+      "nodes": [
+        "node_modules/@oclif/plugin-help"
+      ],
+      "fixAvailable": true
+    },
+    "@swc/cli": {
+      "name": "@swc/cli",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@workflow/nest"
+      ],
+      "range": ">=0.1.64",
+      "nodes": [
+        "node_modules/@swc/cli"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/eslint-plugin": {
+      "name": "@typescript-eslint/eslint-plugin",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils",
+        "eslint"
+      ],
+      "effects": [
+        "typescript-eslint"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@typescript-eslint/eslint-plugin"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/parser": {
+      "name": "@typescript-eslint/parser",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree",
+        "eslint"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@typescript-eslint/parser"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/type-utils": {
+      "name": "@typescript-eslint/type-utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils",
+        "eslint"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "range": ">=5.9.2-alpha.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/type-utils"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/typescript-estree": {
+      "name": "@typescript-eslint/typescript-estree",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils",
+        "typescript-eslint"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/typescript-estree"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/utils": {
+      "name": "@typescript-eslint/utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@eslint-community/eslint-utils",
+        "@typescript-eslint/typescript-estree",
+        "eslint"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/type-utils",
+        "typescript-eslint"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@typescript-eslint/utils"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "@vercel/queue": {
+      "name": "@vercel/queue",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@workflow/world-local",
+        "@workflow/world-vercel"
+      ],
+      "range": ">=0.1.2",
+      "nodes": [
+        "node_modules/@vercel/queue"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/astro": {
+      "name": "@workflow/astro",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders",
+        "@workflow/rollup",
+        "@workflow/vite"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/astro"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/builders": {
+      "name": "@workflow/builders",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/core"
+      ],
+      "effects": [
+        "@workflow/astro",
+        "@workflow/rollup",
+        "@workflow/sveltekit",
+        "@workflow/vite"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/builders"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/cli": {
+      "name": "@workflow/cli",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@oclif/core",
+        "@oclif/plugin-help",
+        "@workflow/builders",
+        "@workflow/core",
+        "@workflow/web",
+        "@workflow/world-local",
+        "@workflow/world-vercel"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/cli"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/core": {
+      "name": "@workflow/core",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/world-local",
+        "@workflow/world-vercel"
+      ],
+      "effects": [
+        "@workflow/builders",
+        "@workflow/next",
+        "@workflow/nitro"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/core"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/nest": {
+      "name": "@workflow/nest",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@swc/cli",
+        "@workflow/builders"
+      ],
+      "effects": [
+        "workflow"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/nest"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/next": {
+      "name": "@workflow/next",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders",
+        "@workflow/core"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/next"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/nitro": {
+      "name": "@workflow/nitro",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders",
+        "@workflow/core",
+        "@workflow/rollup",
+        "@workflow/vite",
+        "@workflow/web"
+      ],
+      "effects": [
+        "@workflow/nuxt",
+        "workflow"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/nitro"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/nuxt": {
+      "name": "@workflow/nuxt",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/nitro"
+      ],
+      "effects": [],
+      "range": ">=5.0.0-beta.0",
+      "nodes": [
+        "node_modules/@workflow/nuxt"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/rollup": {
+      "name": "@workflow/rollup",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/rollup"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/sveltekit": {
+      "name": "@workflow/sveltekit",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders",
+        "@workflow/rollup",
+        "@workflow/vite"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/sveltekit"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/vite": {
+      "name": "@workflow/vite",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/builders"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/vite"
+      ],
+      "fixAvailable": true
+    },
+    "@workflow/web": {
+      "name": "@workflow/web",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@workflow/world-local"
+      ],
+      "effects": [
+        "@workflow/cli",
+        "@workflow/nitro"
+      ],
+      "range": ">=5.0.0-beta.0",
+      "nodes": [
+        "node_modules/@workflow/web"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/world-local": {
+      "name": "@workflow/world-local",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@vercel/queue"
+      ],
+      "effects": [
+        "@workflow/core",
+        "@workflow/web"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/world-local"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    },
+    "@workflow/world-vercel": {
+      "name": "@workflow/world-vercel",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@vercel/queue"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@workflow/world-vercel"
+      ],
+      "fixAvailable": true
+    },
+    "drizzle-kit": {
+      "name": "drizzle-kit",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@esbuild-kit/esm-loader"
+      ],
+      "effects": [],
+      "range": "0.19.0 - 1.0.0-beta.1-fd8bfcc",
+      "nodes": [
+        "node_modules/drizzle-kit"
+      ],
+      "fixAvailable": {
+        "name": "drizzle-kit",
+        "version": "0.18.1",
+        "isSemVerMajor": true
+      }
+    },
+    "ejs": {
+      "name": "ejs",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "jake"
+      ],
+      "effects": [
+        "@oclif/core"
+      ],
+      "range": "3.1.2 - 4.0.1",
+      "nodes": [
+        "node_modules/ejs"
+      ],
+      "fixAvailable": true
+    },
+    "esbuild": {
+      "name": "esbuild",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102341,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=0.24.2"
+        }
+      ],
+      "effects": [
+        "@esbuild-kit/core-utils"
+      ],
+      "range": "<=0.24.2",
+      "nodes": [
+        "node_modules/@esbuild-kit/core-utils/node_modules/esbuild"
+      ],
+      "fixAvailable": {
+        "name": "drizzle-kit",
+        "version": "0.18.1",
+        "isSemVerMajor": true
+      }
+    },
+    "eslint": {
+      "name": "eslint",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@eslint-community/eslint-utils",
+        "@eslint/config-array",
+        "@eslint/eslintrc",
+        "minimatch"
+      ],
+      "effects": [
+        "@eslint-community/eslint-utils",
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils",
+        "eslint-config-next",
+        "typescript-eslint"
+      ],
+      "range": "0.7.1 - 2.0.0-rc.1 || >=4.1.0",
+      "nodes": [
+        "node_modules/eslint"
+      ],
+      "fixAvailable": {
+        "name": "eslint",
+        "version": "4.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "eslint-config-next": {
+      "name": "eslint-config-next",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@next/eslint-plugin-next",
+        "eslint",
+        "eslint-plugin-import",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-react",
+        "typescript-eslint"
+      ],
+      "effects": [],
+      "range": ">=10.2.1-canary.2",
+      "nodes": [
+        "node_modules/eslint-config-next"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "eslint-plugin-import": {
+      "name": "eslint-plugin-import",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [],
+      "range": ">=1.15.0",
+      "nodes": [
+        "node_modules/eslint-plugin-import"
+      ],
+      "fixAvailable": true
+    },
+    "eslint-plugin-jsx-a11y": {
+      "name": "eslint-plugin-jsx-a11y",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "eslint-config-next"
+      ],
+      "range": ">=6.5.0",
+      "nodes": [
+        "node_modules/eslint-plugin-jsx-a11y"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "eslint-plugin-react": {
+      "name": "eslint-plugin-react",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [],
+      "range": ">=7.23.0",
+      "nodes": [
+        "node_modules/eslint-plugin-react"
+      ],
+      "fixAvailable": true
+    },
+    "filelist": {
+      "name": "filelist",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "jake"
+      ],
+      "range": ">=0.0.2",
+      "nodes": [
+        "node_modules/filelist"
+      ],
+      "fixAvailable": true
+    },
+    "jake": {
+      "name": "jake",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "filelist"
+      ],
+      "effects": [
+        "ejs"
+      ],
+      "range": ">=10.6.1",
+      "nodes": [
+        "node_modules/jake"
+      ],
+      "fixAvailable": true
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1244012,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<11.0.1"
+        }
+      ],
+      "effects": [
+        "@eslint/config-array",
+        "@eslint/eslintrc",
+        "@oclif/core",
+        "@swc/cli",
+        "@typescript-eslint/typescript-estree",
+        "@vercel/queue",
+        "eslint",
+        "eslint-plugin-import",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-react",
+        "filelist"
+      ],
+      "range": "<11.0.1",
+      "nodes": [
+        "node_modules/@oclif/core/node_modules/minimatch",
+        "node_modules/@swc/cli/node_modules/minimatch",
+        "node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch",
+        "node_modules/@vercel/queue/node_modules/minimatch",
+        "node_modules/filelist/node_modules/minimatch",
+        "node_modules/minimatch"
+      ],
+      "fixAvailable": {
+        "name": "eslint",
+        "version": "4.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "typescript-eslint": {
+      "name": "typescript-eslint",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils",
+        "eslint"
+      ],
+      "effects": [
+        "eslint-config-next"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/typescript-eslint"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "workflow": {
+      "name": "workflow",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@workflow/astro",
+        "@workflow/cli",
+        "@workflow/core",
+        "@workflow/nest",
+        "@workflow/next",
+        "@workflow/nitro",
+        "@workflow/nuxt",
+        "@workflow/rollup",
+        "@workflow/sveltekit"
+      ],
+      "effects": [],
+      "range": ">=4.0.1-beta.0",
+      "nodes": [
+        "node_modules/workflow"
+      ],
+      "fixAvailable": {
+        "name": "workflow",
+        "version": "2.0.6",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 42,
+      "high": 0,
+      "critical": 0,
+      "total": 42
+    },
+    "dependencies": {
+      "prod": 433,
+      "dev": 425,
+      "optional": 199,
+      "peer": 25,
+      "peerOptional": 0,
+      "total": 978
+    }
+  }
+}
