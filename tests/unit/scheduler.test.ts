@@ -49,3 +49,9 @@ test("Two clocks: video holds at segment end, signing pause swaps context and re
 test("Stale map cancels the active segment; unrelated stale segments do not stop it",()=>{
   vi.useFakeTimers();const f=fixture();f.scheduler.playSegment(0);f.scheduler.onManifestStale([3]);expect(f.scheduler.state).toBe("SignLoading");f.scheduler.onManifestStale([0]);expect(f.scheduler.state).toBe("StaleWait");expect(f.host.replacements).toBeGreaterThan(0);f.scheduler.replaceManifest(structuredClone(f.manifest));expect(f.scheduler.state).toBe("Ready");f.scheduler.dispose();
 });
+test("Renderer retries use 5/15/45-second backoff, stop after three, and WebGL failures stay readable",()=>{
+  vi.useFakeTimers();const f=fixture();f.host.send("engineerror",{message:"engine_load_failed"},0);
+  for(const delay of [5000,15000,45000]){const replacements=f.host.replacements;vi.advanceTimersByTime(delay-1);expect(f.host.replacements).toBe(replacements);vi.advanceTimersByTime(1);expect(f.host.replacements).toBe(replacements+1);f.host.send("engineerror",{message:"engine_load_failed"},f.scheduler.gen);}
+  vi.advanceTimersByTime(300000);expect(f.host.replacements).toBe(3);expect(f.scheduler.state).toBe("RendererUnavailable");
+  f.scheduler.retryRenderer();f.host.send("engineerror",{message:"webgl_unavailable"},f.scheduler.gen);const replacements=f.host.replacements;vi.advanceTimersByTime(300000);expect(f.host.replacements).toBe(replacements);expect(f.scheduler.snapshot().message).toContain("WebGL");f.scheduler.browseSegment(0);expect(f.scheduler.state).toBe("RendererUnavailable");f.scheduler.dispose();
+});

@@ -7,7 +7,7 @@ export interface PlayerSnapshot {state:PlayerState;idx:number;gen:number;seen:st
 export interface PlayerTelemetry {kind:"played_complete"|"played_incomplete"|"skipped"|"engine_load_failed"|"retry";segmentIdx:number;detail:Record<string,string|number>}
 export class Scheduler {
   gen=0;state:PlayerState="EngineLoading";idx=0;autoAdvance=false;sourceAvailable=true;
-  private phase:"source"|"gap"|"signing"="source";private seen:string[]=[];private expected:string[]=[];private unexpected=false;private fps=23;private frames=0;private progress=0;private loadedUnits:number|null=null;private rawSigns=0;private step:number|null=null;private completed=new Set<number>();private message="Loading signing avatar…";private dropped=0;private watchdog:ReturnType<typeof setTimeout>|undefined;private sourceTimer:ReturnType<typeof setTimeout>|undefined;private frameRequest:number|undefined;private stale=new Set<number>();private disposed=false;
+  private phase:"source"|"gap"|"signing"="source";private seen:string[]=[];private expected:string[]=[];private unexpected=false;private fps=23;private frames=0;private progress=0;private loadedUnits:number|null=null;private rawSigns=0;private step:number|null=null;private completed=new Set<number>();private message="Loading signing avatar…";private dropped=0;private watchdog:ReturnType<typeof setTimeout>|undefined;private sourceTimer:ReturnType<typeof setTimeout>|undefined;private frameRequest:number|undefined;private stale=new Set<number>();private disposed=false;private engineRetries=0;private engineRetry:ReturnType<typeof setTimeout>|undefined;
   constructor(private readonly video:VideoPort,private readonly host:RendererPort,private manifest:PlaybackManifest,private readonly onChange:(snapshot:PlayerSnapshot)=>void,private readonly telemetry:(event:PlayerTelemetry)=>void=()=>{}){host.onEvent=e=>this.onEvent(e);this.emit();}
   snapshot():PlayerSnapshot{return {state:this.state,idx:this.idx,gen:this.gen,seen:[...this.seen],expected:[...this.expected],progress:this.progress,loadedUnits:this.loadedUnits,rawSigns:this.rawSigns,step:this.step,completed:[...this.completed],message:this.message,dropped:this.dropped};}
   private emit(){if(!this.disposed)this.onChange(this.snapshot());}
@@ -41,8 +41,8 @@ export class Scheduler {
   }
   onEvent(event:RendererEvent){
     if(this.disposed)return;
-    if(event.type==="engineerror"){this.bump();this.video.pause();this.telemetry({kind:"engine_load_failed",segmentIdx:this.idx,detail:{reason:event.payload.message}});this.transition("RendererUnavailable",event.payload.message==="webgl_unavailable"?"Signing avatar needs WebGL, which this browser has disabled.":"Signing avatar service (University of East Anglia) is unreachable. Your track is saved.");return;}
-    if(event.type==="avatarready"){if(this.state==="EngineLoading")this.transition("Ready");return;}
+    if(event.type==="engineerror"){this.bump();this.video.pause();clearTimeout(this.engineRetry);this.telemetry({kind:"engine_load_failed",segmentIdx:this.idx,detail:{reason:event.payload.message}});this.transition("RendererUnavailable",event.payload.message==="webgl_unavailable"?"Signing avatar needs WebGL, which this browser has disabled.":"Signing avatar service (University of East Anglia) is unreachable. Your track is saved.");if(event.payload.message!=="webgl_unavailable"&&this.engineRetries<3){const delay=[5000,15000,45000][this.engineRetries++];this.engineRetry=setTimeout(()=>{if(!this.disposed)this.retryRenderer(false);},delay);}return;}
+    if(event.type==="avatarready"){clearTimeout(this.engineRetry);this.engineRetries=0;if(this.state==="EngineLoading")this.transition("Ready");return;}
     if(event.gen!==this.gen){this.dropped++;this.emit();return;}
     if(event.type==="avatarfps"){this.fps=Math.max(8,event.payload);return;}
     if(event.type==="sigmlloaded"&&this.state==="SignLoading"){
@@ -72,14 +72,15 @@ export class Scheduler {
   pause(message="Resume restarts signing from the first sign."){if(["EngineLoading","RendererUnavailable"].includes(this.state)){this.video.pause();return;}this.bump();this.host.replaceInstance();this.video.pause();this.transition("Paused",message);}
   resume(){if(this.state!=="Paused")return;if(this.phase==="signing"){this.bump();this.startSigning();}else if(this.phase==="gap")this.transition("GapBlocking");else{const g=this.gen;this.transition("SourcePlaying");this.video.play().then(()=>{if(g===this.gen)this.waitForSourceEnd();}).catch(()=>this.transition("Paused","Tap Resume to start."));}}
   retry(){if(this.state==="SignIncomplete"){this.bump();this.host.replaceInstance();this.telemetry({kind:"retry",segmentIdx:this.idx,detail:{}});this.startSigning();}}
-  retryRenderer(){this.bump();this.transition("EngineLoading","Restarting signing…");this.host.replaceInstance();}
+  retryRenderer(manual=true){clearTimeout(this.engineRetry);if(manual)this.engineRetries=0;this.bump();this.transition("EngineLoading","Restarting signing…");this.host.replaceInstance();}
+  browseSegment(idx:number){if(!Number.isInteger(idx)||!this.manifest.segments[idx])return;if(["EngineLoading","RendererUnavailable"].includes(this.state)){this.idx=idx;this.emit();}else this.playSegment(idx);}
   replay(){this.pause();this.playSegment(this.idx);}
   next(){if(this.idx+1<this.manifest.segments.length){this.pause();this.playSegment(this.idx+1);}}
   prev(){this.pause();this.playSegment(Math.max(0,this.idx-1));}
   seek(ms:number){const index=this.manifest.segments.findIndex(s=>s.startMs<=ms&&s.endMs>ms);this.pause();this.playSegment(index<0?Math.max(0,this.manifest.segments.length-1):index);}
   setSourceSpeed(speed:number){if(![0.5,0.75,1].includes(speed))throw Error("Unsupported source speed");this.video.playbackRate=speed;}
   onVisibilityHidden(){this.pause("Paused while in background. Resume restarts signing from its first sign.");}
-  onManifestStale(indices:number[]){for(const idx of indices){this.stale.add(idx);this.completed.delete(idx);}if(indices.includes(this.idx)){this.pause();this.transition("StaleWait","Updating this segment…");}else this.emit();}
-  replaceManifest(manifest:PlaybackManifest){this.pause();this.manifest=manifest;this.stale.clear();this.completed.clear();this.idx=Math.min(this.idx,Math.max(0,manifest.segments.length-1));this.transition("Ready","Updated track ready.");}
-  dispose(){this.disposed=true;this.clear();this.video.pause();this.host.dispose();}
+  onManifestStale(indices:number[]){for(const idx of indices){this.stale.add(idx);this.completed.delete(idx);}if(indices.includes(this.idx)&&this.state!=="StaleWait"){this.pause();this.transition("StaleWait","Updating this segment…");}else this.emit();}
+  replaceManifest(manifest:PlaybackManifest){const waiting=["EngineLoading","RendererUnavailable"].includes(this.state);if(!waiting)this.pause();this.manifest=manifest;this.stale.clear();this.completed.clear();this.idx=Math.min(this.idx,Math.max(0,manifest.segments.length-1));if(waiting)this.emit();else this.transition("Ready","Updated track ready.");}
+  dispose(){this.disposed=true;clearTimeout(this.engineRetry);this.clear();this.video.pause();this.host.dispose();}
 }

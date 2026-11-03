@@ -18,8 +18,8 @@ export const playbackManifestSchema = z.strictObject({
   segments: z.array(manifestSegmentSchema), anchors: z.array(z.strictObject({ anchorId: z.string(), frameMs: indexSchema, segmentIdx: indexSchema, labelBn: z.string().nullable() })),
 });
 export const currentTrackResponseSchema = z.strictObject({
-  trackVersionId: z.string(), manifestHash: z.string(), overlays: z.strictObject({ sourceChecks: z.array(z.strictObject({ idx: indexSchema, state: z.enum(["unconfirmed", "creator_confirmed"]) })), review: z.strictObject({ status: z.enum(["unreviewed", "reviewed_acceptable", "reviewed_needs_changes", "reviewed_unacceptable"]), validFor: z.string().nullable() }) }),
-  media: z.strictObject({ state: z.enum(["available", "expired", "missing"]), url: z.string().nullable(), expiresAt: z.string().nullable() }),
+  trackVersionId: z.string(), manifestHash: z.string(), overlays: z.strictObject({ sourceChecks: z.array(z.strictObject({ idx: indexSchema, state: z.enum(["unconfirmed", "creator_confirmed"]),confirmedAt:z.string().nullable() })), review: z.strictObject({ status: z.enum(["unreviewed", "reviewed_acceptable", "reviewed_needs_changes", "reviewed_unacceptable"]), validFor: z.string().nullable() }) }),
+  media: z.strictObject({ state: z.enum(["available", "expired", "missing"]), url: z.string().nullable(), expiresAt: z.string().nullable(),reason:z.enum(["transfer_cap","storage_unavailable"]).nullable() }),
 });
 export type ManifestSegment = z.infer<typeof manifestSegmentSchema>;
 export type PlaybackManifest = z.infer<typeof playbackManifestSchema>;

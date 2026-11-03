@@ -19,7 +19,8 @@
     "corpus:probe": "node scripts/corpus-render-probe.cjs",
     "test:race:native": "vitest run --config vitest.native.config.ts",
     "db:seed:local": "tsx scripts/seed-local.ts",
-    "test:workspace": "playwright test --config playwright.workspace.config.ts"
+    "test:workspace": "playwright test --config playwright.workspace.config.ts",
+    "test:product": "playwright test --config playwright.product.config.ts"
   },
   "keywords": [],
   "author": "",

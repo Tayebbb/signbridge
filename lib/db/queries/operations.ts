@@ -1,0 +1,33 @@
+import {sql} from "drizzle-orm";
+import type {StateStore} from "../session";
+import {dayScope} from "../../domain/limits";
+import {applicationStore,processingAllowed} from "./api";
+export async function publicOperationalNotice(){try{const store=await applicationStore();const [r]=await store.query<{n:number}>(sql`SELECT count(*)::int AS n FROM render_events WHERE kind='engine_load_failed' AND created_at>now()-interval '15 minutes'`);if(r.n>5)return "Recent viewers reported avatar-load failures. Saved captions and gap markers remain readable; retry the avatar connection later.";if(!await processingAllowed(store,process.env.PROCESSING_ENABLED==="true"))return "Processing is paused. Existing saved tracks remain available.";return null;}catch{return "The service is temporarily unavailable. Retry later.";}}
+export async function operationsStatus(store:StateStore,now=new Date()){
+  const since=new Date(now.getTime()-86_400_000),tenMinutes=new Date(now.getTime()-600_000),fifteenMinutes=new Date(now.getTime()-900_000);
+  const jobs=await store.query(sql`SELECT status,count(*)::int AS count FROM jobs WHERE created_at>=${since} GROUP BY status ORDER BY status`);
+  const [duration]=await store.query(sql`SELECT percentile_cont(0.5) WITHIN GROUP(ORDER BY extract(epoch FROM(finished_at-created_at))*1000) AS "p50Ms",percentile_cont(0.95) WITHIN GROUP(ORDER BY extract(epoch FROM(finished_at-created_at))*1000) AS "p95Ms" FROM jobs WHERE created_at>=${since} AND finished_at>=created_at`);
+  const [stages]=await store.query<{attempts:number;cacheHits:number;repairs:number;refusals:number;errors:number}>(sql`SELECT count(*) FILTER(WHERE outcome NOT IN ('cache_hit','reserved','repair_reserved'))::int AS attempts,count(*) FILTER(WHERE outcome='cache_hit')::int AS "cacheHits",count(*) FILTER(WHERE outcome LIKE 'repair_%')::int AS repairs,count(*) FILTER(WHERE outcome IN ('refusal','repair_refusal'))::int AS refusals,count(*) FILTER(WHERE regexp_replace(outcome,'^repair_','') NOT IN ('completed','usage','cache_hit','reserved'))::int AS errors FROM stage_attempts WHERE provider='openai' AND created_at>=${since}`);
+  const budgets=await store.query<{scope:string;cap_micros:string;spent_micros:string;reserved_micros:string}>(sql`SELECT * FROM spend_budgets WHERE scope IN ('lifetime',${dayScope(now)}) ORDER BY scope`);
+  const [storage]=await store.query<{committed_bytes:string;pending_bytes:string;cap_bytes:string}>(sql`SELECT * FROM storage_ledger WHERE id=1`);
+  const segments=await store.query(sql`SELECT s->>'technicalStatus' AS status,count(*)::int AS count FROM track_versions t JOIN projects p ON p.current_track_version_id=t.id CROSS JOIN LATERAL jsonb_array_elements(t.manifest->'segments') s WHERE p.status='active' GROUP BY s->>'technicalStatus'`);
+  const renderEvents=await store.query(sql`SELECT kind,ua_class AS "uaClass",count(*)::int AS count FROM render_events WHERE created_at>=${since} GROUP BY kind,ua_class ORDER BY kind,ua_class`);
+  const [recent]=await store.query<{calls:number;errors:number}>(sql`SELECT count(*)::int AS calls,count(*) FILTER(WHERE regexp_replace(outcome,'^repair_','') NOT IN ('completed','usage'))::int AS errors FROM stage_attempts WHERE provider='openai' AND created_at>=${tenMinutes} AND outcome NOT IN ('cache_hit','reserved','repair_reserved')`);
+  const [warnings]=await store.query<{uncertain:number;pending:number;stalled:number;engineFailures:number;plays:number;incomplete:number}>(sql`SELECT (SELECT count(*) FROM spend_reservations WHERE state='held_uncertain')::int AS uncertain,(SELECT count(*) FROM jobs WHERE dispatch_state='pending' AND status IN ('queued','running') AND created_at<${new Date(now.getTime()-120000)})::int AS pending,(SELECT count(*) FROM jobs WHERE status='running' AND created_at<${tenMinutes})::int AS stalled,(SELECT count(*) FROM render_events WHERE kind='engine_load_failed' AND created_at>=${fifteenMinutes})::int AS "engineFailures",(SELECT count(*) FROM render_events WHERE kind IN ('played_complete','played_incomplete') AND created_at>=${since})::int AS plays,(SELECT count(*) FROM render_events WHERE kind='played_incomplete' AND created_at>=${since})::int AS incomplete`);
+  const alerts:string[]=[];
+  if(budgets.some(b=>(BigInt(b.spent_micros)+BigInt(b.reserved_micros))*100n>=BigInt(b.cap_micros)*80n))alerts.push("spend_80_percent");
+  if(warnings.uncertain)alerts.push("uncertain_spend");if(warnings.pending)alerts.push("dispatch_pending");if(warnings.stalled)alerts.push("stalled_job");if(warnings.engineFailures>5)alerts.push("renderer_outage");if(warnings.plays&&warnings.incomplete/warnings.plays>.2)alerts.push("incomplete_plays");if(storage&&BigInt(storage.committed_bytes)+BigInt(storage.pending_bytes)>600_000_000n)alerts.push("blob_600_mb");
+  if(recent.calls&&recent.errors/recent.calls>.2)alerts.push("model_error_rate");
+  const [allAttempts]=await store.query<{n:number}>(sql`SELECT count(*)::int AS n FROM stage_attempts`);
+  return {windowStart:since.toISOString(),stageAttemptCount:allAttempts.n,jobs,duration,stages:{...stages,errorRate:stages.attempts?stages.errors/stages.attempts:0,repairRate:stages.attempts?stages.repairs/stages.attempts:0,cacheHitRate:stages.attempts+stages.cacheHits?stages.cacheHits/(stages.attempts+stages.cacheHits):0},budgets,storage:storage??null,segments,renderEvents,alerts,warningCounts:warnings};
+}
+/** Automatic fail-closed processing switch; replay is unaffected. No external calls. */
+export async function applyErrorKillSwitch(store:StateStore,now=new Date()){
+  return store.transaction(async q=>{const [r]=await q.query<{calls:number;errors:number}>(sql`SELECT count(*)::int AS calls,count(*) FILTER(WHERE regexp_replace(outcome,'^repair_','') NOT IN ('completed','usage'))::int AS errors FROM stage_attempts WHERE provider='openai' AND created_at>=greatest(${new Date(now.getTime()-600000)}::timestamptz,coalesce((SELECT (value#>>'{}')::timestamptz FROM ops_settings WHERE key='error_acknowledged_at'),'-infinity'::timestamptz)) AND outcome NOT IN ('cache_hit','reserved','repair_reserved')`);
+    if(!r.calls||r.errors/r.calls<=.2)return false;await q.query(sql`INSERT INTO ops_settings(key,value) VALUES ('processing','false') ON CONFLICT(key) DO UPDATE SET value='false'`);return true;
+  });
+}
+export async function sweepOperations(store:StateStore,now=new Date()){
+  await store.transaction(async q=>{await q.query(sql`DELETE FROM render_events WHERE created_at<${new Date(now.getTime()-14*86_400_000)}`);await q.query(sql`DELETE FROM rate_windows WHERE window_start<${new Date(now.getTime()-2*86_400_000)}`);});
+  return applyErrorKillSwitch(store,now);
+}

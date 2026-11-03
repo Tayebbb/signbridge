@@ -3,7 +3,7 @@ import { existsSync } from "node:fs";
 const edgeAvailable = existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe") || existsSync("C:/Program Files/Microsoft/Edge/Application/msedge.exe");
 export default defineConfig({
   testDir: "./tests/e2e", timeout: 120_000, workers: 1, retries: 0,
-  reporter: [["list"], ["json", { outputFile: "docs/evidence/playwright-results.json" }]],
+  reporter: [["list"], ["json", { outputFile: process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6/foundation-browser-results.json":"docs/evidence/playwright-results.json" }]],
   use: { baseURL: "http://127.0.0.1:43181", viewport: { width: 1400, height: 1100 },
     launchOptions: { args: ["--use-angle=swiftshader", "--enable-webgl", "--enable-unsafe-swiftshader"] } },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }, ...(edgeAvailable ? [{ name: "msedge", use: { ...devices["Desktop Edge"], channel: "msedge" } }] : [])],

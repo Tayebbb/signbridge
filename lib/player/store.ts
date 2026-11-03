@@ -2,12 +2,13 @@ import {playbackManifestSchema,currentTrackResponseSchema,type PlaybackManifest,
 export class TrackStore {
   manifest:PlaybackManifest|null=null;current:CurrentTrackResponse|null=null;stale=new Set<number>();
   private manifests=new Map<string,{etag:string;manifest:PlaybackManifest}>();
-  constructor(private readonly projectId:string,private readonly fetcher:typeof fetch=(input,init)=>fetch(input,init)){}
+  constructor(private readonly projectId:string,private readonly fetcher:typeof fetch=(input,init)=>fetch(input,init),private readonly shareToken?:string){}
+  private path(path:string){return this.shareToken?`${path}?s=${encodeURIComponent(this.shareToken)}`:path;}
   markStale(indices:number[]){indices.forEach(i=>this.stale.add(i));}
   async refresh(signal?:AbortSignal){
-    const response=await this.fetcher(`/api/projects/${this.projectId}/track`,{cache:"no-store",signal});if(response.status===404)return null;if(!response.ok)throw Error("Saved track could not be loaded. Retry.");
+    const response=await this.fetcher(this.path(`/api/projects/${this.projectId}/track`),{cache:"no-store",signal});if(response.status===404){this.current=null;this.manifest=null;this.manifests.clear();return null;}if(!response.ok)throw Error("Saved track could not be loaded. Retry.");
     const current=currentTrackResponseSchema.parse(await response.json()),cached=this.manifests.get(current.trackVersionId);
-    const manifestResponse=await this.fetcher(`/api/tracks/${current.trackVersionId}/manifest`,{cache:"no-cache",signal,headers:cached?{"If-None-Match":cached.etag}:{}});
+    const manifestResponse=await this.fetcher(this.path(`/api/tracks/${current.trackVersionId}/manifest`),{cache:"no-cache",signal,headers:cached?{"If-None-Match":cached.etag}:{}});
     let manifest:PlaybackManifest;
     if(manifestResponse.status===304&&cached){if(cached.etag!==`"${current.manifestHash}"`)throw Error("Manifest identity did not match revalidation.");manifest=cached.manifest;}
     else{if(!manifestResponse.ok)throw Error("Saved track is no longer available.");const parsed=playbackManifestSchema.parse(await manifestResponse.json()),etag=manifestResponse.headers.get("etag");if(etag!==`"${current.manifestHash}"`)throw Error("Manifest identity did not match the current track.");

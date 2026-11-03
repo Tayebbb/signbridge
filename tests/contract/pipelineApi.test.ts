@@ -14,8 +14,9 @@ import {ModelFailure} from "@/lib/ai/protocol";
 import {claimPipeline,processStage,finishPipeline,runPipeline,type Pipeline} from "@/lib/jobs/steps";
 import {createOwnerCapability,ownerCookieHeader} from "@/lib/auth/ownerCookie";
 import {deleteProject} from "@/lib/db/queries/authority";
+import {reconcile} from "@/lib/ops/reconcile";
 import {configureBudgets} from "@/lib/db/queries/spend";
-import {stageAttemptsFor,loadJob} from "@/lib/db/queries/api";
+import {stageAttemptsFor,loadJob,ensureOwner} from "@/lib/db/queries/api";
 import {asset} from "../fixtures/domain";
 let db:Database,root:string,blobs:LocalSignedBlobs,pipeline:Pipeline,model:FakeModelClient,api:ReturnType<typeof makeApi>,cookie:string;
 let deferred:(()=>Promise<void>)[]=[];
@@ -131,6 +132,51 @@ test("Transcript and job idempotency survive a newer version and a disabled proc
 });
 test("Sol unavailability selects Terra on the next recovery job and keeps separate cache provenance",async()=>{
   const f=await project();pipeline.model={kind:"openai",respond:async()=>{throw new ModelFailure("model_http_404",false);}};const {jobId}=await start(f);await drain();
-  pipeline.model=deterministicFake();const retried=await request("retryJob","/retry","POST",undefined,{jobId});expect(retried.status).toBe(202);const id=(await retried.json()).jobId;await drain();
+  pipeline.model=deterministicFake();expect((await request("retryJob","/retry","POST",undefined,{jobId})).status).toBe(503);await request("killSwitch","/kill","POST",{processing:true},{},{authorization:"Bearer fixture-admin"});const retried=await request("retryJob","/retry","POST",undefined,{jobId});expect(retried.status).toBe(202);const id=(await retried.json()).jobId;await drain();
   expect((await loadJob(db.state,id)).job.model_profile).toBe("gpt-6.1-terra");expect((await current(f)).manifest.provenance.modelProfile).toBe("fake/gpt-6.1-terra");
+});
+
+test("T2 / T12 / T18: read-only share replay makes no model calls, revocation beats ETag, and every mutation stays owner-only",async()=>{
+ const f=await project();await start(f);await drain();const currentTrack=await current(f),before=await db.state.query(sql`SELECT id FROM stage_attempts`),calls=model.calls.length;
+ const shared=await request('share','/share','POST',{enable:true},f.params);expect(shared.status).toBe(200);const link=new URL((await shared.json()).shareUrl),token=link.searchParams.get('s')!,query='?s='+token;
+ const read=await request('getProject','/project'+query,'GET',undefined,f.params,{cookie:''});expect(read.status).toBe(200);expect((await read.json()).job).toBeNull();
+ const pointer=await request('track','/track'+query,'GET',undefined,f.params,{cookie:''});expect(pointer.status).toBe(200);expect((await pointer.json()).manifestHash).toBe(currentTrack.pointer.manifestHash);
+ const manifest=await request('manifest','/manifest'+query,'GET',undefined,{trackId:currentTrack.pointer.trackVersionId},{cookie:''});expect(manifest.status).toBe(200);const etag=manifest.headers.get('etag')!;
+ expect((await request('manifest','/manifest'+query,'GET',undefined,{trackId:currentTrack.pointer.trackVersionId},{cookie:'',etag})).status).toBe(304);
+ const foreignCapability=createOwnerCapability();await ensureOwner(db.state,foreignCapability.tokenHash);const foreign=ownerCookieHeader(foreignCapability.token);
+ for(const [action,params,method,input] of [
+  ['transcripts',f.params,'POST',{baseVersionId:f.transcriptVersionId,edits:[{segmentIdx:0,text:'forged'}]}],['sourceCheck',{...f.params,idx:'0'},'PATCH',{transcriptVersionId:f.transcriptVersionId,state:'creator_confirmed'}],
+  ['mediaInit',f.params,'POST',{}],['mediaFinalize',f.params,'POST',{}],['startJob',f.params,'POST',{transcriptVersionId:f.transcriptVersionId}],
+  ['retryJob',{jobId:(await loadJob(db.state,(await db.state.query<{id:string}>(sql`SELECT id FROM jobs WHERE project_id=${f.projectId} ORDER BY created_at LIMIT 1`))[0].id)).job.id},'POST',undefined],
+  ['cancelJob',{jobId:(await db.state.query<{id:string}>(sql`SELECT id FROM jobs WHERE project_id=${f.projectId} LIMIT 1`))[0].id},'POST',undefined],['share',f.params,'POST',{enable:true}],['deleteProject',f.params,'DELETE',undefined],
+ ] as [Action,Record<string,string>,string,unknown][]){expect((await request(action,'/mutation'+query,method,input,params,{cookie:foreign})).status).toBe(404);}
+ expect(await db.state.query(sql`SELECT id FROM stage_attempts`)).toEqual(before);expect(model.calls).toHaveLength(calls);
+ await request('share','/share','POST',{enable:false},f.params);expect((await request('manifest','/manifest'+query,'GET',undefined,{trackId:currentTrack.pointer.trackVersionId},{cookie:'',etag})).status).toBe(404);
+ expect((await request('track','/track','GET',undefined,f.params)).status).toBe(200);
+});
+test("T24 API deletion fences visibility immediately and reconciliation removes files after upload grace",async()=>{
+ const f=await project();await start(f);await drain();const saved=await current(f),shared=await request('share','/share','POST',{enable:true},f.params),token=new URL((await shared.json()).shareUrl).searchParams.get('s')!;
+ const deleted=await request('deleteProject','/project','DELETE',undefined,f.params);expect(deleted.status).toBe(202);expect(await deleted.json()).toEqual({status:'deleting'});
+ expect((await request('getProject','/project','GET',undefined,f.params)).status).toBe(404);expect((await request('track','/track?s='+token,'GET',undefined,f.params,{cookie:''})).status).toBe(404);expect((await request('manifest','/manifest','GET',undefined,{trackId:saved.pointer.trackVersionId})).status).toBe(404);
+ await drain();await reconcile(db.state,blobs,new LocalPipelineDispatcher(pipeline),{now:new Date(Date.now()+900001),opportunistic:false});
+ expect(await db.state.query(sql`SELECT id FROM projects WHERE id=${f.projectId}`)).toEqual([]);expect(await blobs.list('v/'+f.projectId+'/')).toEqual([]);expect((await db.state.query<{n:number}>(sql`SELECT count(*)::int AS n FROM spend_reservations`))[0].n).toBeGreaterThan(0);
+});
+test("Source confirmation has an idempotent timestamp overlay; transfer closure preserves model-free captions and manifest",async()=>{
+ const f=await project();await start(f);await drain();const saved=await current(f);
+ for(let i=0;i<2;i++)expect((await request('sourceCheck','/source-check','PATCH',{transcriptVersionId:f.transcriptVersionId,state:'creator_confirmed'},{...f.params,idx:'0'})).status).toBe(200);
+ const checked=await current(f);expect(checked.pointer.overlays.sourceChecks[0].confirmedAt).toMatch(/^\d{4}-/u);expect(checked.pointer.manifestHash).toBe(saved.pointer.manifestHash);
+ await db.state.query(sql`UPDATE storage_ledger SET est_transfer_bytes=transfer_cap_bytes`);const limited=await request('track','/track','GET',undefined,f.params);expect(limited.status).toBe(200);expect((await limited.json()).media).toMatchObject({state:'missing',url:null,reason:'transfer_cap'});expect((await request('mediaUrl','/url','GET',undefined,f.params)).status).toBe(503);expect(model.calls).toHaveLength(2);
+});
+test("Kill switch prevents the next reserved model attempt and admin metrics expose bounded observations",async()=>{
+ const f=await project(),{jobId}=await start(f);await request('killSwitch','/kill','POST',{processing:false},{},{authorization:'Bearer fixture-admin'});await drain();expect(model.calls).toHaveLength(0);expect((await loadJob(db.state,jobId)).job.status).toBe('failed');
+ const status=await request('adminStatus','/admin','GET',undefined,{},{authorization:'Bearer fixture-admin'});expect(status.status).toBe(200);const metrics=await status.json();expect(metrics).toMatchObject({processing:false,duration:{p50Ms:expect.any(Number),p95Ms:expect.any(Number)},stages:{attempts:0,cacheHits:0},alerts:expect.any(Array)});expect(metrics).toHaveProperty('renderEvents');expect(metrics).toHaveProperty('segments');
+});
+
+test("Environment processing switch fences a queued job before a model call",async()=>{
+ const f=await project(),{jobId}=await start(f);pipeline.processingEnabled=()=>false;await drain();expect(model.calls).toHaveLength(0);expect((await loadJob(db.state,jobId)).job.status).toBe('failed');expect(await stageAttemptsFor(db.state,jobId,0,'meaning')).toHaveLength(0);
+});
+
+test("H7 long-running jobs alert even when their heartbeat is fresh",async()=>{
+ const f=await project(),{jobId}=await start(f);await claimPipeline(pipeline,jobId,'metric-fixture-run');await db.state.query(sql`UPDATE jobs SET created_at=now()-interval '11 minutes',heartbeat_at=now() WHERE id=${jobId}`);
+ const response=await request('adminStatus','/admin','GET',undefined,{},{authorization:'Bearer fixture-admin'});expect(response.status).toBe(200);const metrics=await response.json();expect(metrics.alerts).toContain('stalled_job');expect(metrics.warningCounts.stalled).toBe(1);
 });

@@ -1,2 +1,3 @@
-// TODO(phase-3): implementation intentionally deferred.
-export type PendingImplementation = never;
+import {createOwnerCapability,hashOwnerToken} from "./ownerCookie";
+export const createShareCapability=createOwnerCapability;
+export const hashShareToken=hashOwnerToken;

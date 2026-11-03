@@ -5,7 +5,7 @@ import type {SignedBlobs} from "../storage/urls";
 import type {Dispatcher} from "../jobs/dispatcher";
 import * as q from "../db/queries/api";
 import {StateError} from "../db/queries/common";
-import {startJob,retryJob,cancelJob,submitTranscriptVersion,failJob} from "../db/queries/authority";
+import {startJob,retryJob,cancelJob,submitTranscriptVersion,failJob,deleteProject} from "../db/queries/authority";
 import {finalizeMedia,admitTransfer} from "../db/queries/storage";
 import {budgetSignal} from "../db/queries/spend";
 import {recordDispatchFailure} from "../db/queries/execution";
@@ -19,11 +19,15 @@ import {CaptionError} from "../domain/captions/shared";
 import {editTranscript} from "../domain/transcriptEdits";
 import {createOwnerCapability,hashOwnerToken,OWNER_COOKIE_NAME,ownerCookieHeader} from "../auth/ownerCookie";
 import {requestOrigin} from "./origin";
+import {accessibleProject,projectForDelete,setSharing} from "../db/queries/sharing";
+import {createShareCapability,hashShareToken} from "../auth/share";
+import {purgeProject} from "../ops/purge";
+import {operationsStatus,applyErrorKillSwitch} from "../db/queries/operations";
 export interface ApiDependencies {
   store:StateStore;blobs:SignedBlobs;processingEnabled:boolean;adminToken?:string;cronSecret?:string;
   dispatcher:()=>Promise<Dispatcher>;defer:(work:()=>Promise<void>)=>void;
 }
-export type Action="createProject"|"getProject"|"mediaInit"|"mediaFinalize"|"mediaUrl"|"transcripts"|"sourceCheck"|"startJob"|"getJob"|"retryJob"|"cancelJob"|"track"|"manifest"|"cron"|"telemetry"|"adminStatus"|"killSwitch";
+export type Action="createProject"|"getProject"|"mediaInit"|"mediaFinalize"|"mediaUrl"|"transcripts"|"sourceCheck"|"startJob"|"getJob"|"retryJob"|"cancelJob"|"track"|"manifest"|"cron"|"telemetry"|"adminStatus"|"killSwitch"|"share"|"deleteProject";
 const uuid=z.uuid(),idx=z.coerce.number().int().min(0).max(19),keySchema=z.string().min(8).max(120).regex(/^[A-Za-z0-9_.:-]+$/u);
 const edit=z.strictObject({segmentIdx:z.number().int().min(0).max(19),text:z.string().min(1).max(65536).optional(),startMs:z.number().int().min(0).max(89999).optional(),endMs:z.number().int().min(1).max(90000).optional()});
 const transcriptInput=z.union([
@@ -46,6 +50,7 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     const isAdmin=["adminStatus","killSwitch"].includes(action),isCron=action==="cron";
     if(isAdmin&&!bearer(r,d.adminToken)||isCron&&!bearer(r,d.cronSecret))throw new StateError("unauthorized");
     let ownerId:string|null=null;const token=ownerToken(r);if(token){try{ownerId=await q.ownerForToken(d.store,hashOwnerToken(token));}catch{/* An invalid capability never authorizes access. */}}
+    let shareHash:Buffer|null=null;try{const share=new URL(r.url).searchParams.get("s");if(share)shareHash=hashShareToken(share);}catch{/* Invalid share tokens grant no access. */}
     if(mutation){const ip=process.env.VERCEL?r.headers.get("x-forwarded-for")?.split(",")[0]?.trim()??"unknown":"local",scope=action==="telemetry"?"render":"mutation";await q.consumeRate(d.store,[`${scope}:ip:${sha256(ip)}`,...(ownerId?[`${scope}:owner:${ownerId}`]:[])],action==="telemetry"?60:120);}
     if(params.projectId)projectId=uuid.parse(params.projectId);
     if(params.jobId)projectId=await q.jobProjectId(d.store,uuid.parse(params.jobId))??undefined;
@@ -53,20 +58,23 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     if(action==="manifest"){track=await q.trackRow(d.store,uuid.parse(params.trackId));projectId=track?.project_id;}
     if(action==="telemetry"){
       const input=z.strictObject({trackVersionId:uuid,segmentIdx:z.number().int().min(0).max(19),kind:z.enum(["played_complete","played_incomplete","renderer_error","renderer_timeout","stale_message_dropped","retry","skip","skipped","engine_load_failed"]),detail:z.record(z.string().max(40),z.union([z.string().max(200),z.number().finite(),z.boolean(),z.null()])),uaClass:z.string().max(60)}).parse(await body(r));
-      track=await q.trackRow(d.store,input.trackVersionId);if(!track)throw new StateError("not_found");await q.ownedProject(d.store,track.project_id,ownerId);if(!track.manifest.segments.some(s=>s.idx===input.segmentIdx))throw new StateError("not_found");
+      track=await q.trackRow(d.store,input.trackVersionId);if(!track)throw new StateError("not_found");await accessibleProject(d.store,track.project_id,ownerId,shareHash);if(!track.manifest.segments.some(s=>s.idx===input.segmentIdx))throw new StateError("not_found");
       await q.recordRenderEvent(d.store,input);return new Response(null,{status:204,headers:{"Cache-Control":"no-store"}});
     }
-    const p=projectId?await q.ownedProject(d.store,projectId,ownerId):null;
+    const sharedRead=["getProject","track","manifest","mediaUrl"].includes(action);
+    const p=projectId?(action==="deleteProject"?await projectForDelete(d.store,projectId,ownerId):sharedRead?await accessibleProject(d.store,projectId,ownerId,shareHash):await q.ownedProject(d.store,projectId,ownerId)):null;
     if(!p&&!["createProject","cron","adminStatus","killSwitch"].includes(action))throw new StateError("not_found");
     const requireKey=()=>keySchema.parse(r.headers.get("idempotency-key"));
-    const canProcess=async()=>{if(!await q.processingAllowed(d.store,d.processingEnabled))throw new StateError("processing_disabled");const signal=await budgetSignal(d.store);if(signal.closed)throw new StateError("spend_cap");};
+    const canProcess=async()=>{await applyErrorKillSwitch(d.store);if(!await q.processingAllowed(d.store,d.processingEnabled))throw new StateError("processing_disabled");const signal=await budgetSignal(d.store);if(signal.closed)throw new StateError("spend_cap");};
     const dispatch=(jobId:string)=>d.defer(async()=>{try{await (await d.dispatcher()).dispatch(jobId);}catch(error){await recordDispatchFailure(d.store,jobId);console.error(JSON.stringify({code:"dispatch_interrupted",jobId,error:error instanceof StateError?error.code:"internal"}));}});
     if(action==="createProject"){
       const input=z.strictObject({title:z.string().trim().min(1).max(120),rightsAttested:z.literal(true)}).parse(await body(r)),key=requireKey();
       const capability=ownerId?null:createOwnerCapability();ownerId??=await q.ensureOwner(d.store,capability!.tokenHash);
       return json(await q.createProject(d.store,ownerId,input.title,key),201,capability?{"Set-Cookie":ownerCookieHeader(capability.token)}:{});
     }
-    if(action==="getProject")return json(await q.projectDetails(d.store,p!));
+    if(action==="getProject")return json(await q.projectDetails(d.store,p!,p!.owner_id===ownerId));
+    if(action==="share"){const {enable}=z.strictObject({enable:z.boolean()}).parse(await body(r)),cap=enable?createShareCapability():null;await setSharing(d.store,p!.id,cap?.tokenHash??null);return json({shareUrl:cap?`${requestOrigin(r)}/s/${p!.id}?s=${encodeURIComponent(cap.token)}`:null});}
+    if(action==="deleteProject"){await deleteProject(d.store,p!.id);d.defer(async()=>{await purgeProject(d.store,d.blobs,p!.id);});return json({status:"deleting"},202);}
     if(action==="mediaInit"){
       const input=z.strictObject({contentType:z.enum(["video/mp4","video/webm"]),sizeBytes:z.number().int().positive().max(15_728_640),sha256:z.string().regex(/^[a-f0-9]{64}$/u),durationMs:z.number().int().positive().max(90000),width:z.number().int().positive().max(8192),height:z.number().int().positive().max(8192)}).parse(await body(r));
       const media=await initMedia(d.store,d.blobs,{projectId:p!.id,declaredBytes:input.sizeBytes,contentType:input.contentType,clientSha256:input.sha256,clientDurationMs:input.durationMs});
@@ -110,14 +118,14 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     }
     if(action==="track"||action==="mediaUrl"){
       const saved=action==="track"&&p!.current_track_version_id?await q.trackRow(d.store,p!.current_track_version_id):null;if(action==="track"&&!saved)throw new StateError("not_found");
-      const media=await q.readyMedia(d.store,p!.id,saved?.manifest.media.contentSha256);let state:"available"|"expired"|"missing"=media?"available":"missing",mediaUrl:string|null=null,expiresAt:string|null=null;
-      if(media){if(!media.pinned&&new Date(media.expires_at)<=new Date())state="expired";else{await admitTransfer(d.store,media.id);expiresAt=new Date(Date.now()+900000).toISOString();mediaUrl=await d.blobs.sign(media.blob_pathname,"get",new Date(expiresAt));}}
+      const media=await q.readyMedia(d.store,p!.id,saved?.manifest.media.contentSha256);let state:"available"|"expired"|"missing"=media?"available":await q.expiredMediaExists(d.store,p!.id,saved?.manifest.media.contentSha256)?"expired":"missing",mediaUrl:string|null=null,expiresAt:string|null=null,reason:"transfer_cap"|"storage_unavailable"|null=null;
+      if(media){if(!media.pinned&&new Date(media.expires_at)<=new Date())state="expired";else{try{await admitTransfer(d.store,media.id);expiresAt=new Date(Date.now()+900000).toISOString();mediaUrl=await d.blobs.sign(media.blob_pathname,"get",new Date(expiresAt));}catch(error){if(action==="mediaUrl")throw error;state="missing";expiresAt=null;reason=error instanceof StateError&&error.code==="transfer_cap"?"transfer_cap":"storage_unavailable";}}}
       if(action==="mediaUrl"){if(!mediaUrl)throw new StateError("media_unavailable");return json({url:mediaUrl,expiresAt});}
-      return json({trackVersionId:saved!.id,manifestHash:saved!.manifest_hash,overlays:await q.trackOverlays(d.store,saved!.transcript_version_id),media:{state,url:mediaUrl,expiresAt}});
+      return json({trackVersionId:saved!.id,manifestHash:saved!.manifest_hash,overlays:await q.trackOverlays(d.store,saved!.transcript_version_id),media:{state,url:mediaUrl,expiresAt,reason}});
     }
     if(action==="cron")return json(await reconcile(d.store,d.blobs,await d.dispatcher(),{opportunistic:false}));
     if(action==="killSwitch"){const input=z.strictObject({processing:z.boolean()}).parse(await body(r));await q.setProcessing(d.store,input.processing);return json({processing:await q.processingAllowed(d.store,d.processingEnabled)});}
-    if(action==="adminStatus")return json({processing:await q.processingAllowed(d.store,d.processingEnabled),...await q.adminStatus(d.store)});
+    if(action==="adminStatus")return json({processing:await q.processingAllowed(d.store,d.processingEnabled),...await operationsStatus(d.store)});
     throw new StateError("not_found");
   }catch(error){
     if(error instanceof ZodError)return json({error:{code:"validation",message:"Request does not match the required shape",retryable:false}},400);

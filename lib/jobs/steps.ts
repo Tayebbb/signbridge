@@ -14,26 +14,27 @@ import {segmentPlanSchema,createPlanSchema,planJsonSchema} from "../contracts/pl
 import {PROMPT_VERSIONS,type ModelId} from "../ai/models";
 import type {ModelClient} from "../ai/protocol";
 import {runStage,StageFailure,type StageHooks} from "../ai/runStage";
-export interface Pipeline {store:StateStore;model:ModelClient;hooks?:StageHooks}
+export interface Pipeline {store:StateStore;model:ModelClient;hooks?:StageHooks;processingEnabled?:()=>boolean}
 function profile(p:Pipeline,model:string){return p.model.kind==="fake"?`fake/${model}`:model;}
 function config(model:string,stage:"meaning"|"plan"){return {model,effort:"medium",promptVersion:PROMPT_VERSIONS[stage],validatorVersion:VALIDATOR_VERSION};}
 export function emptyMeaning(text:string):SegmentMeaning{return {schemaVersion:"meaning-v2",clauseType:"fragment",polarity:"affirmative",referents:[],concepts:[],propositions:[],ambiguities:[{conceptId:null,description:`Meaning analysis unavailable for this segment (${text.length} characters)`,blocking:true}]};}
 const emptyPlan=()=>({schemaVersion:"plan-v2" as const,strategy:"no_signing_possible" as const,steps:[],uncoveredConceptIds:[],notes:"Processing failed"});
 export async function claimPipeline(p:Pipeline,jobId:string,runId:string){if(!await claimRun(p.store,jobId,runId))return null;await acknowledgeRun(p.store,jobId,runId);const data=await loadJob(p.store,jobId);return data.segments.map(s=>s.idx);}
 export async function processStage(p:Pipeline,jobId:string,runId:string,idx:number,stage:"meaning"|"plan"){
+  if(p.processingEnabled?.()===false){await failJob(p.store,jobId,"processing_disabled");return false;}
   const proof={runId};if(!await heartbeat(p.store,jobId,proof))return false;
   const data=await loadJob(p.store,jobId),segment=data.segments[idx];if(!segment)throw new StateError("not_found");
   const context=contextWindow(data.segments,idx,data.project.title),model=data.job.model_profile as ModelId;
   const mKey=meaningKey(segmentKey(segment,context),config(profile(p,model),"meaning"));
   try{
-    if(stage==="meaning")await runStage(p.store,p.model,{jobId,proof,idx,stage,key:mKey,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},context_before:context.before,context_after:context.after,title:context.title},schema:segmentMeaningSchema,jsonSchema:meaningJsonSchema,validate:(m,final)=>validateMeaning(m,segment.sourceText,context.before,{final})},p.hooks);
+    if(stage==="meaning")await runStage(p.store,p.model,{processingEnabled:p.processingEnabled,jobId,proof,idx,stage,key:mKey,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},context_before:context.before,context_after:context.after,title:context.title},schema:segmentMeaningSchema,jsonSchema:meaningJsonSchema,validate:(m,final)=>validateMeaning(m,segment.sourceText,context.before,{final})},p.hooks);
     else{
       const record=await stageRecord(p.store,mKey);if(!record)throw new StageFailure("meaning_failed");const meaning=segmentMeaningSchema.parse(record.output),candidates=retrieveCandidates(segment.sourceText,meaning,await eligibleAssets(p.store));
       const key=planKey(hash(meaning),candidatesHash(candidates.map(c=>({id:c.asset.id,derivedSha256:c.asset.derivedSha256}))),config(profile(p,model),"plan"));
-      await runStage(p.store,p.model,{jobId,proof,idx,stage,key,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},meaning,context_before:context.before,context_after:context.after,candidates:candidates.map(c=>({id:c.asset.id,label_bn:c.asset.labelBn,kind:c.asset.kind,unit_count:c.asset.unitCount,concept_ids:c.conceptIds,exact_phrase:c.exactPhrase}))},schema:createPlanSchema(candidates.map(c=>c.asset.id)),jsonSchema:planJsonSchema(candidates.map(c=>c.asset.id)),validate:m=>validatePlan(m,meaning,candidates)},p.hooks);
+      await runStage(p.store,p.model,{processingEnabled:p.processingEnabled,jobId,proof,idx,stage,key,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},meaning,context_before:context.before,context_after:context.after,candidates:candidates.map(c=>({id:c.asset.id,label_bn:c.asset.labelBn,kind:c.asset.kind,unit_count:c.asset.unitCount,concept_ids:c.conceptIds,exact_phrase:c.exactPhrase}))},schema:createPlanSchema(candidates.map(c=>c.asset.id)),jsonSchema:planJsonSchema(candidates.map(c=>c.asset.id)),validate:m=>validatePlan(m,meaning,candidates)},p.hooks);
     }
     return true;
-  }catch(error){if(error instanceof StageFailure){await updateProgress(p.store,jobId,proof,idx,stage,"failed",error.code);return false;}if(error instanceof StateError&&["fenced","spend_cap"].includes(error.code))return false;throw error;}
+  }catch(error){if(error instanceof StateError&&error.code==="processing_disabled")await failJob(p.store,jobId,error.code);if(error instanceof StageFailure){await updateProgress(p.store,jobId,proof,idx,stage,"failed",error.code);return false;}if(error instanceof StateError&&["fenced","spend_cap","processing_disabled"].includes(error.code))return false;throw error;}
 }
 export async function finishPipeline(p:Pipeline,jobId:string,runId:string){
   const proof={runId};if(!await heartbeat(p.store,jobId,proof))return {status:"fenced" as const};

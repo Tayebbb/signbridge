@@ -16,6 +16,7 @@ beforeAll(async () => {
   await reference.exec(sql);
   await reference.exec(await readFile("tests/fixtures/phase-3-schema.sql","utf8"));
   await reference.exec(await readFile("tests/fixtures/phase-4-schema.sql","utf8"));
+  await reference.exec(await readFile("tests/fixtures/phase-6-schema.sql","utf8"));
 });
 afterAll(async () => { await database?.close(); await reference?.close(); });
 

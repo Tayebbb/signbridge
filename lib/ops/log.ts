@@ -1,0 +1,1 @@
+export function operationLog(event:{jobId:string;segmentIdx:number;stage:string;cacheKey:string;outcome:string;latencyMs:number}){const {jobId,segmentIdx,stage,cacheKey,outcome,latencyMs}=event;console.info(JSON.stringify({jobId,segmentIdx,stage,cacheKey,outcome,latencyMs}));}

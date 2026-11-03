@@ -87,10 +87,11 @@ export const stageResultRefs = pgTable("stage_result_refs", {
   projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }), cacheKey: text("cache_key").notNull().references(() => stageResults.cacheKey, { onDelete: "cascade" }),
 }, t => [primaryKey({ columns: [t.projectId, t.cacheKey] })]);
 export const stageAttempts = pgTable("stage_attempts", {
+  provider:text("provider").notNull().default("unknown"),
   id: bigserial("id", { mode: "bigint" }).primaryKey(), jobId: uuid("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }), segmentIdx: integer("segment_idx").notNull(),
   stage: stageKind("stage").notNull(), cacheKey: text("cache_key").notNull(), attemptNo: integer("attempt_no").notNull(), outcome: text("outcome").notNull(), errorCode: text("error_code"), latencyMs: integer("latency_ms"),
   inputTokens: integer("input_tokens"), outputTokens: integer("output_tokens"), reasoningTokens: integer("reasoning_tokens"), reservationId: uuid("reservation_id"), costUsdMicros: big("cost_usd_micros").notNull().default(sql`0`), createdAt: time("created_at").notNull().defaultNow(),
-}, t => [check("stage_attempts_attempt_no_check", sql`${t.attemptNo} BETWEEN 1 AND 4`), unique().on(t.jobId, t.segmentIdx, t.stage, t.attemptNo)]);
+}, t => [check("stage_provider_check",sql`${t.provider} IN ('unknown','openai','fake')`),check("stage_attempts_attempt_no_check", sql`${t.attemptNo} BETWEEN 1 AND 4`), unique().on(t.jobId, t.segmentIdx, t.stage, t.attemptNo)]);
 export const spendBudgets = pgTable("spend_budgets", {
   scope: text("scope").primaryKey(), capMicros: big("cap_micros").notNull(), reservedMicros: big("reserved_micros").notNull().default(sql`0`), spentMicros: big("spent_micros").notNull().default(sql`0`),
 });

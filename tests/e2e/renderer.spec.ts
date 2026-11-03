@@ -24,7 +24,7 @@ test("T23: opaque-origin CWASA animates, relays instance hooks and sends no owne
   const origin = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   page.on("console", message => { if (["error", "warning"].includes(message.type())) consoleMessages.push(message.text()); });
   page.on("pageerror", error => errors.push(error.message));
-  const prefix = `docs/evidence/t23-${testInfo.project.name}`;
+  const prefix = `${process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6/foundation-t23":"docs/evidence/t23"}-${testInfo.project.name}`;
   let events: RendererEvent[] = [];
   let passed = false;
   let csp: string | undefined;

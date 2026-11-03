@@ -9,10 +9,12 @@ import {sweepSpend} from "../db/queries/spend";
 import {deletingProjects,sweepOrphanStages} from "../db/queries/purge";
 import {sweepStorage} from "./storage";
 import {purgeProject} from "./purge";
+import {sweepOperations} from "../db/queries/operations";
 export async function reconcile(store:StateStore,blobs:BlobStore,dispatcher:Pick<Dispatcher,"dispatch">,options:{now?:Date;projectId?:string;opportunistic?:boolean;onError?:(code:string,id:string)=>void}={}) {
   const now=options.now??new Date(),limit=options.opportunistic===false?100:5;
   const reportError=options.onError??((code:string,id:string)=>console.error(JSON.stringify({code,id})));
   const counters={redispatched:0,fenced:0,reservationsConverted:0,storageReleased:0,purged:0};
+  await sweepOperations(store,now);
   for(const job of await pendingDispatches(store,now,options.projectId))try{await dispatcher.dispatch(job.id);counters.redispatched++;}catch{await recordDispatchFailure(store,job.id);reportError("dispatch_failed",job.id);}
   for(const job of await stalledJobs(store,now,options.projectId))counters.fenced+=Number(await stallFence(store,job.id,now));
   counters.reservationsConverted=await sweepSpend(store,now);

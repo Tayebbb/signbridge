@@ -4,6 +4,7 @@ import nextTs from "eslint-config-next/typescript";
 
 export default defineConfig([
   ...nextVitals, ...nextTs,
+  {files:["app/EventSticker.tsx"],rules:{"@next/next/no-img-element":"off"}},
   globalIgnores([".next/**", "app/.well-known/workflow/**", "node_modules/**", "public/renderer-frame.js", "lib/db/migrations/**", "playwright-report/**", "test-results/**", ".data/**", "next-env.d.ts"]),
   {
     files: ["app/**/*.{ts,tsx}", "lib/**/*.{ts,tsx,js}"],

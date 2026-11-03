@@ -15,11 +15,12 @@ export async function configureBudgets(store:StateStore,lifetime:bigint,daily:bi
   if(lifetime<0n||daily<0n)throw new StateError("invalid_budget");
   await store.transaction(async q=>{const rows=await budgetsLocked(q,now);for(const row of rows){const cap=row.scope==="lifetime"?lifetime:daily;if(cap<BigInt(row.spent_micros)+BigInt(row.reserved_micros))throw new StateError("budget_below_usage");await q.query(sql`UPDATE spend_budgets SET cap_micros=${cap.toString()} WHERE scope=${row.scope}`);}});
 }
-export interface ReserveAttempt {jobId:string;segmentIdx:number;stage:"meaning"|"plan";cacheKey:string;attemptNo:number;upperBound:bigint;repair?:boolean;proof:RunProof}
+export interface ReserveAttempt {jobId:string;segmentIdx:number;stage:"meaning"|"plan";cacheKey:string;attemptNo:number;upperBound:bigint;repair?:boolean;proof:RunProof;provider?:"openai"|"fake"}
 export async function reserveAttempt(store:StateStore,input:ReserveAttempt,now=new Date()) {
   if(!Number.isInteger(input.attemptNo)||input.attemptNo<1||input.attemptNo>4||input.upperBound<0n||!Number.isInteger(input.segmentIdx)||input.segmentIdx<0)throw new StateError("attempt_cap");
   return store.transaction(async q=>{
     const locked=await lockJob(q,input.jobId);if(!locked||!hasAuthority(locked.project,locked.job)||!validProof(locked.job,input.proof,now))return {status:"fenced" as const};
+    const [switchRow]=await q.query<{value:boolean}>(sql`SELECT value FROM ops_settings WHERE key='processing'`);if(switchRow?.value===false){await failLocked(q,locked.project,locked.job,"processing_disabled",now);return {status:"processing_disabled" as const};}
     const key=`${input.jobId}|${input.segmentIdx}|${input.stage}|${input.attemptNo}`;
     const existing=(await q.query<{id:string;state:string;amount_micros:string}>(sql`SELECT * FROM spend_reservations WHERE attempt_key=${key} FOR UPDATE`))[0];
     if(existing)return {status:"reserved" as const,id:existing.id,created:false,state:existing.state,upperBound:BigInt(existing.amount_micros)};
@@ -30,7 +31,7 @@ export async function reserveAttempt(store:StateStore,input:ReserveAttempt,now=n
     if(updated.length!==2){await failLocked(q,locked.project,locked.job,"spend_cap",now);return {status:"spend_cap" as const};}
     const id=randomUUID();
     await q.query(sql`INSERT INTO spend_reservations(id,attempt_key,day_scope,amount_micros,created_at) VALUES (${id},${key},${day},${bound},${now})`);
-    await q.query(sql`INSERT INTO stage_attempts(job_id,segment_idx,stage,cache_key,attempt_no,outcome,reservation_id,created_at) VALUES (${input.jobId},${input.segmentIdx},${input.stage},${input.cacheKey},${input.attemptNo},${input.repair?"repair_reserved":"reserved"},${id},${now})`);
+    await q.query(sql`INSERT INTO stage_attempts(job_id,segment_idx,stage,cache_key,attempt_no,outcome,reservation_id,created_at,provider) VALUES (${input.jobId},${input.segmentIdx},${input.stage},${input.cacheKey},${input.attemptNo},${input.repair?"repair_reserved":"reserved"},${id},${now},${input.provider??"unknown"})`);
     return {status:"reserved" as const,id,created:true,state:"reserved",upperBound:input.upperBound};
   });
 }
@@ -43,7 +44,7 @@ export async function settleLocked(q:SqlSession,row:ReservationRow,mode:"settled
   const budgets=await q.query(sql`UPDATE spend_budgets SET reserved_micros=reserved_micros-${bound.toString()},spent_micros=spent_micros+${cost.toString()} WHERE scope IN ('lifetime',${row.day_scope}) AND reserved_micros>=${bound.toString()} RETURNING scope`);
   if(budgets.length!==2)throw new StateError("ledger_inconsistent");
   await q.query(sql`UPDATE spend_reservations SET state=${mode},actual_micros=${mode==="settled"?cost.toString():null},resolved_at=${now} WHERE id=${row.id}`);
-  await q.query(sql`UPDATE stage_attempts SET outcome=CASE WHEN outcome LIKE 'repair_%' THEN 'repair_'||${outcome} ELSE ${outcome} END,cost_usd_micros=${cost.toString()},input_tokens=${usage?.inputTokens??null},output_tokens=${usage?.outputTokens??null},reasoning_tokens=${usage?.reasoningTokens??null} WHERE reservation_id=${row.id}`);return true;
+  await q.query(sql`UPDATE stage_attempts SET outcome=CASE WHEN outcome LIKE 'repair_%' THEN 'repair_'||${outcome} ELSE ${outcome} END,cost_usd_micros=${cost.toString()},input_tokens=${usage?.inputTokens??null},output_tokens=${usage?.outputTokens??null},reasoning_tokens=${usage?.reasoningTokens??null},latency_ms=greatest(0,least(2147483647,floor(extract(epoch FROM(${now}::timestamptz-created_at))*1000)))::int,error_code=${["usage","completed","cache_hit"].includes(outcome)?null:outcome} WHERE reservation_id=${row.id}`);return true;
 }
 export async function settleAttempt(store:StateStore,reservationId:string,proof:RunProof,mode:"settled"|"held_uncertain"|"released",actual=0n,now=new Date(),usage?:{inputTokens:number;outputTokens:number;reasoningTokens?:number},outcome="usage") {
   const reference=(await store.query<{attempt_key:string}>(sql`SELECT attempt_key FROM spend_reservations WHERE id=${reservationId}`))[0];if(!reference)return false;

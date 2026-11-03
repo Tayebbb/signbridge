@@ -1,1 +1,2 @@
-export default function PendingWorkspace() { return <p>TODO(phase-3): project workspace is not available in this foundation build.</p>; }
+import SharedView from "@/app/components/SharedView";
+export default async function SharedPage({params,searchParams}:{params:Promise<{projectId:string}>;searchParams:Promise<{s?:string|string[]}>}){const [{projectId},query]=await Promise.all([params,searchParams]);return <SharedView projectId={projectId} token={typeof query.s==="string"?query.s:undefined} />;}
