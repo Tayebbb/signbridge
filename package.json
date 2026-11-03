@@ -13,7 +13,10 @@
     "test:e2e": "playwright test",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx scripts/migrate.ts",
-    "check:secrets": "node scripts/check-secrets.mjs"
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "corpus:download": "node scripts/download-corpus.mjs",
+    "corpus:import": "tsx scripts/corpus-import.ts",
+    "corpus:probe": "node scripts/corpus-render-probe.cjs"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +25,7 @@
     "@electric-sql/pglite": "^0.5.14",
     "@neondatabase/serverless": "^1.2.0",
     "drizzle-orm": "^0.45.4",
+    "fast-xml-parser": "^5.11.2",
     "next": "^16.4.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

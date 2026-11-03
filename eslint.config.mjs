@@ -32,4 +32,13 @@ export default defineConfig([
     ] },
   },
   { files: ["lib/player/**"], rules: { "no-restricted-syntax": ["error", { selector: "CallExpression[callee.property.name=/^(insert|update|delete)$/][callee.object.name=/^(db|tx|database)$/]", message: "State transitions belong in lib/db/queries." }] } },
+  {
+    files: ["lib/domain/**/*.ts", "lib/contracts/**/*.ts"],
+    rules: {
+      "no-restricted-imports": ["error", { patterns: [
+        { group: ["node:*", "!node:crypto", "fs", "fs/*", "http", "https", "net", "child_process", "openai", "openai/*", "drizzle-orm", "drizzle-orm/*", "@neondatabase/*", "@electric-sql/*", "**/db/**", "**/ai/**", "**/storage/**", "**/jobs/**", "**/player/**"], message: "Domain/contracts must be I/O-free; only CPU hashing from node:crypto is permitted." },
+      ] }],
+      "no-restricted-globals": ["error", "fetch", "XMLHttpRequest", "WebSocket", "window", "document", "process", "CWASA"],
+    },
+  },
 ]);

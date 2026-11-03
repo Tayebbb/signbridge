@@ -1,0 +1,1300 @@
+{
+  "files": 3990,
+  "distinctHashes": 3108,
+  "assets": 2934,
+  "aliases": 5908,
+  "units": 5037,
+  "eligible": 20,
+  "manifestSha256": "a59156829c11a6a5096824f59a3f00a122dad81b42ffb719cb0e7097f416df13",
+  "rejected": [
+    {
+      "originalSha256": "017e52c75130c9447f6f1cb03baa0ac939d8fc13a6f9a68be187c5a219e33212",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/মরিচ (Chili).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "033862556c4e53c0ca4bae5acd1a997837f6af69a539b8e24185c27f9dcd0745",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/ভগবান (God).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "0353100038d0dcf34aaece43a150c148c11abca87a0eee448a4ff455694700bc",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/বাহ (Wow).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "04589d56a2255d40d889fb4bb7f2e574205c2f841cd85a451a7bc061b7174deb",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/মাটির_চুলা (Translation not available).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "05cb62e378134bd09831c231f938bae730386af3e7f2bebde7b39e42c3fc2142",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/সিন্দুক (Sinduk).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "06d069d877ed5db4a7ccc154c22426d553f14eed451014c4cc2a8797586901df",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কোলাকুলি (Agitated).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "07904c1f224fd99847c291265424e2edc736b91ba8b03bb007d6d80e32ad3b9b",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/কচু শাক (Taro Leaves).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "0861e7623d884f4747b1b797f9747a79dfe78d9c31320b02be04c89e14b86e80",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/বিষ (Poison).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "0ae02ab27135d203f5d6177a472a23e28676f1ee059e5dd9685e3924f99b58d2",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ঔষধ (Medicine).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "0fbdf827e14a07021e3fef9e265254f6fc94a70bb61dfdee0639c77f7cadd4a6",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/দরকষা (Bargaining).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "10052968f10e19514507f351e5f2899e54f80de035a773d99d38a71cb7b80667",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/লোভ (Greed).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "112f224d5d9aa153ba866224f500e4c263870231b6235e2643f304677de0c1fd",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/দারু-চিনি (Cinnamon).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_shoulder"
+    },
+    {
+      "originalSha256": "118fde71081289db7a398c1ae94c46c67587daaf1e8a5adb330b3e4ea624c074",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/স্বপ্ন (Dream).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/স্বপ্নদেখা (Dream).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "12e9669a98a46b3fcd787163684c8c113ce6c3a3bfeebcce72711eed15514bb5",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/আমি (I).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "1958801bd931ddd5b84b3ebf4d5c138b4d654271bb2628351839cd041c56d87d",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/ভিজা পাক্কনপিঠা (Dried Cooked Cake).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "1d0034c6eacccb5ad27577e399a5087d39b52db2cd8dd71dc493393412d7abbb",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কৌতূহল (Curiosity).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "1e99eeb217649f186cf636ca72345a544f3fefe92f622a3a8c9cc8c61988d63b",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/স্বাদ (Taste).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "1ea28f4567df5f2dd1c11d93aed45ba0b83e6cf60a5788fc380ab7caefe0ca27",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/গোশত (Meat).sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/গোশত.sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/মাংস (Meat).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "20fd8771353f2e99921279c29ca26f35413746fdb17460088d6a1850e8d3e310",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কুঁজো (Hunchback).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_shoulder"
+    },
+    {
+      "originalSha256": "268e2904f46704f4d15f7fc6e16f731eac23d09c732e1843cdcf20d52b641d51",
+      "sourcePaths": [
+        "28 অন্যান্য - ১ (Others - 1)/নিবাসস্থান (dwelling place).sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/আবাসিক (resident).sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/বাসস্থান.sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/বাসস্থান_Residence.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "2761884268d665783db6583162a1ddf663530f621af44288dd60c48f86a67090",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/হোমিওপ্যাথ (Homeopathy).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "28238deece18b971fea47145dbac9197b1f00b20b3e771b8a67ea7e84cd74b72",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/ট্যাবলেট (Tablet).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "2834f11843550be68d9dea01215dd6de6682583da67aea5f9dc60306b9d010e2",
+      "sourcePaths": [
+        "3 রাজনীতি (Politics)/ধন্যবাদ.sigml"
+      ],
+      "reason": "SigmlError: SiGML root required"
+    },
+    {
+      "originalSha256": "299bc3dc0dd3d3be75704b1d085442ab2ffd77fad014ec6c3f41c046788111a7",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/একুরিয়াম (Aquarium).sigml"
+      ],
+      "reason": "SigmlError: Sign must be a direct root child"
+    },
+    {
+      "originalSha256": "2c71e6542d655927d62da889ba9e277a257be2aba1d4c08f17cffd073b3a7841",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/থাবা (Claw).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/থামানো (Stop).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "2dadfc44729567926e455e688e03a11a35c91ca4f02366a42c2208c6f7026117",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/কফ (Cough).sigml",
+        "12 রোগ ও চিকিৎসা (Unknown)/কফ.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "2e25afc424535dc7e6b26f7b7b187d6d7ba7ad439de2f562fb7254a8a28f801b",
+      "sourcePaths": [
+        "26 পেশা (Profession)/কোচওয়ান (Coachman).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "2e6eb65af2db42233089d37f83b8a570d99314bc0eaf47fa483f66569c5103f9",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/ওখানে (There).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "2e7be8f89125814ab66ca4b08ec4f6c6404f2c614fe1be217764f824b4d2425c",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/বড়ই (Eggplant).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "2edd76adb5830f9420ff1e90d0f9fb6c7656f97e501e2c28a1c54dc54b5632bd",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/হায় (Alas).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "2f67c38b0c595ad600393450d4d24fe44fb8e2ac545b216d52fb161eb36ddfde",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/দুঃসাধ্য (Impossible).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "2f6cfaf40a0f498b11fde29677121b3a83e2b05a2b0e694060429a27c2fb41ce",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/মাথা ব্যাথা.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "316377002227d336c3b65b60b9dac6bb7d6858c6222f679e29d8257990ff1261",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/বোম্বাই মরিচ (Bombay Chili).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "316db0abcc716e2a49eceb61d9de6b8dafa5efe73d73f652e62c79a232263c4c",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/আঁকড়ে ধরা (Capture).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_body"
+    },
+    {
+      "originalSha256": "31d396e084003434555f926c7f302a80e466959d8db0620fd7b4f6dc28ddab73",
+      "sourcePaths": [
+        "17 শরীরের অঙ্গ (Body Parts)/নাদুস-নুদুস (Buxomy).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_body"
+    },
+    {
+      "originalSha256": "32cf835c1e2ebb0304f9af200e495e2928d251791209fad4b8b66897d565d092",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/এখানে (Here).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "343f7762b737985aefaa054964a50d34c3922e8de36a8435d8bbf562ba7731c3",
+      "sourcePaths": [
+        "14 শিক্ষা (Education)/চাঁদা (Geometric Angle).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "34bff3579a492dd12fa726f1e81c40a420cfa92a44eaa7633387f19704bfa794",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/ভোদর (Rhinoceros).sigml",
+        "26 পেশা (Profession)/পেশা চাকুরি (Job).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "38c11d24700541554e1a22b31a696807a31b345735e4c7614606ac1d06908fb9",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অনুকরণ (Imitation).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "3a635467543a44ff3e90e949a8da2bfed463a8d53f4ae319d5e980f27a85d9f5",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/ছার পোকা (Beetle).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "3b5840257541f94403c397993a91f5123240115107e17d45069d511bfb54ef05",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/শোক দিবস (Mourning Day).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "3b75b413c25d1391461e2f763f6b74bf069450e18b05ab6f1de051fc0cf3ecd7",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/কামরাঙ্গা (Starfruit).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "3baa283ad75472175d6a6a776f56617d5d7a1c205987b9ed917b970c202a81aa",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কুটনামি করা (To slander).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "3c286f8e3c4adafa9cd5240320e12c03f5e360222c300b2a5fb59a4c02a195b3",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/কালী পূজা (Kali Puja).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "3d439369bac5a3dee662a83b9a8df2076f0fa325a71cfc866e90f2e2491e9586",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/তুমি (You).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "3dc04dccb37a5f825546a39a612a585bb282fa2d0d13e0457eeb539e9619e3b8",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/ঈশ্বর (God).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "3ec66c7a8f838025136aa69758f1f360c62f4377bc7dd6d456c8944b058288fe",
+      "sourcePaths": [
+        "28 অন্যান্য - ১ (Others - 1)/কতটুকু_How Much.sigml",
+        "29 অন্যান্য - ২ (Others - 2)/মাত্র (only).sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/কতটা (How much).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "3f39a4c2c8128b3818e42795a3e1b6bf58557e0271fa3e69b2eb6d147837c2ef",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/কী (What).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "3f3c1287340c7bebe47484ff2465bcd346fa2194dc6ff9ed86b1b5bd2bb62956",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/কাটা তালু (Appendicitis).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "40bfdd590b953267c9821d5423076740f0bf67c9203200d1a22494bdaecbb43a",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/এলাচি (Cardamom).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_shoulder"
+    },
+    {
+      "originalSha256": "41e9ec4d958f9970ccef8d58ac136ceb9ebfb2d43c924368229e2e579c54a96f",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কানাকানি (Whispering).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "42cef0e676c04283d5216e0ac5ae44f14afd45414fc37af9b6ebddf5d02756fa",
+      "sourcePaths": [
+        "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/আর্সেনিক (Arsenic).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "435d48ba683cc3ec96b4b56fed86a5d61c93ba77d0aeaa6d3086a8c7c02dd89b",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/তেতুল (Palmyra Palm).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "4364d6e419b1c490c0894ad24fe6b682eaa27a5c11b4fb2f540ce8373ab4f9f1",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/কেশর (Saffron).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "43c7fb792854f7c2207412f713cc057dece4b85cac1b20f55c4ff83560d6821f",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/মানসিক রোগ (Mental Illness).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "44ad6cf14ad966275fd881c9fc4ec38ee87789de30c5a89b61a43b94309782c6",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/নির্ঘুম_Noon.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "466447a95a237799d9081bd725b91bbcbe2d3a8ef57345ceeb6923458dc78d5c",
+      "sourcePaths": [
+        "17 শরীরের অঙ্গ (Body Parts)/দাঁত (Tooth).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "4685b7a2ae8101ebb7c06361f28f64012aecab0d90c5e296049ba906990c3a5b",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/মোয়াজ্জিন (Translation not available).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "482be56a075716e0f8c1ebc80d39cc9013f8b31482319cb67ec443b260c11986",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/আক্ষেপ (Regret).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_eyebrows"
+    },
+    {
+      "originalSha256": "4a2ba49cb9e9c7b5e63c0314767e0c9fc0dd2428bece2b4c1458d20f75bf4b78",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অশ্লীল (Indecent).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "4a7c5b4702b11b08072168e023a742849a86d8f19357bf697927248b66ae3986",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/কাশি (Caugh).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/যক্ষ্মা (Tuberculosis).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "4b0c971700eb1158103564145781d5ef271381cce2f6c2d2d27034fa7c2caf6e",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/টুথব্রাশ (Toothbrush).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/টুথব্রাশ.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "4b259da0382ba5c3994cf1f36c76e15cfd6d6b4255713ced94d9681fa0d187bb",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/পান (Betel Leaf).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "4b7f54b5e7f64dbdad5dfd61baaa5c87090ffef4ebc15b31e00b0be180433ccf",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/একাকী (Lone).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "4dfc2ed3090ad9a4b75fbc43364e265644a527e097d857563c7796b9cefa1a5f",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/বিমর্ষকরা (Criticize).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "530dcbee788604c13b41b013713d4b560b23cd020ce89ea6dd86f6a4f1a9b9a4",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ডাবর (Cloth).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "54573915900efa850faa4be9f1aa267b49917ee39837c273ee5c287cdb1ede42",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ঘষা (To rub).sigml"
+      ],
+      "reason": "SigmlError: Derived attribute values must be literal ASCII"
+    },
+    {
+      "originalSha256": "56a31ba94fe5b275ff3c9ccc0c62192e177d09a45f3e19dec9f3ae8e719124e7",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/লেজ (Tail).sigml",
+        "14 শিক্ষা (Education)/বোচকা (Conical).sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/তেলের পিঠা (Oil Cake).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "59f2b472a58c55ebb4c9b001a7e4c141dbc458bd726a2dfc3313641498474eec",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/দা (Gift).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "5eaedb69bf2d1dc28466d58e6d9066c7c578abe3cb64b8717ac48048b1c69637",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/এখন (Now).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "5f85c9d2cc16eac95cb2eeae4ffec037fff495d9714cfa188c90173247ae3206",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অনুনয় (Sympathy).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "61d7c6fa9e35eac9ad054558df1f7a10b6029e58b734912f3259fcfa3686e1ae",
+      "sourcePaths": [
+        "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/গ্রিন হাউস (Greenhouse).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "623dc463db05ad91ed1ab640e7170398bef5cdfa55a8d2f0dd61350040cba597",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/দুধ চিতই (Milk Pudding).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "63477dafcd239513dbfd95ad7f364b165f1e7afa4847f4b654ff2204c223a116",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/শোকাহত (Mourner).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "64103bb5b18914c9952e044ff66e639348e2a843fecfcb2cca99bb081c294d4d",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/সুখ (Happiness).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "65093213ebcad32ee983f13a263cbf9a4f666f842814a2a0ad295b6e9f78b683",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/হৃদয় (Heart).sigml"
+      ],
+      "reason": "SigmlError: SiGML root required"
+    },
+    {
+      "originalSha256": "6958acf4e8d37b1ef161ffd100efd1ff073fefd434a74974df1cc6b9a6836179",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/সাবানের_কেস (Soap case).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "69e435cb551083d31bc4095a780c43d0c27f97f293fa00f8a5a8923582a6c55c",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/বউকথা কও (Indian Cuckoo).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "6c44274a071ac3d51ec62909605e1f02da80d94d41f09a16a09e5ba8081c468a",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/রাম_দা (Translation not available).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "6ce0bbccf2ef8ced7a7ef5faf6cb285c097a48ccd940966ec82ae1e4476f03eb",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/বিছানা (Bed).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "6db504481c21f48a27c8bd7b4b7993881d157d3d36cd06bfa13de686bea72d47",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/টাচ স্ক্রিন (Touch Screen).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "6ee47f21ee4bd3a5d9f4ab5befc48277ab7fc8652ffa52be83c92d6eda66cdc2",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/গুহা (Cave).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "716ecf4cade37f66ff23d6fca5c3f3d39ae560629f7743f6ce485133e444dde4",
+      "sourcePaths": [
+        "14 শিক্ষা (Education)/উচ্চতা (Height).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "74bb0de8e20fcfdc80a083ed0f1fbb664ec948d8be9fccde81263a7ee781ec6e",
+      "sourcePaths": [
+        "17 শরীরের অঙ্গ (Body Parts)/আলজিহবা (Epiglottis).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "74eba9221d5b54059e23c55ce0e07b1d10f495ec33d44a0c9624f3db23985f4b",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অগ্রসর হওয়া (Advance).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "750ecdffcf625e2a1e2a97da91e11e901079f75d991ae4a339c0446f5844540a",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/এলোপ্যাথি (Allopathy).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "75e3f06a5a0dc1307388f21065a3814aa8bd9e00cba1b9308b31242075bfa9db",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/জাবর কাটা (Chew the cud).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "78330d01c1d91f0456847dd0e34b291d1a06d5141d7c5a00e0f4287d211837e9",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/ঔষধ (Medicine).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "78b885c2c219a97491b7aa8ab33bd3e532c0025d589f59de2fd3394f5f30cb68",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ধান (Rice).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ধান ভানা (Rice Drying).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "78f1f2e216c747bcb2b1ada4af829af7948504ff02119b46670e8fdd98e9cd0d",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ভাল (Good).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ভাললাগা (Like).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "7c6e1b65a8004d7fc55693d411baf029df7aaf55fcf43b5c19c45713ded09fea",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ইঙ্গিত (Gesture).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "7f791e860f1943b9f93b41075e1f99193150d5363dd88461458d003ef4c0c08c",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/পুঁটি মাছ (Guppy Fish).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "7f9b483a3ccebe5d427cc80e1e7a9073f4f406aa304039827fd6ebad20983e5b",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/কুঁড়ে_ঘর (Hut).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "81f04acb0665e8d855a2ed1c5bdfafd7e46b13811e720d35bd73ea89e3c53288",
+      "sourcePaths": [
+        "17 শরীরের অঙ্গ (Body Parts)/মাড়ি (Gum).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "832f143ba65453281b1b2d954ebd7408544092d9243302f690be8a53c781dff7",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/আমলকি (Indian Gooseberry).sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/আমলকি.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "8435b58abb6d9b1c3aac66dfc957a441395737ad64ae69413f1f75dd34ec6bbd",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অক্ষম (Incompetent).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "857e6fea33fc37ebfa28e3407cd730f57653fcd6d2dcf5d0a666f1a4a2046e50",
+      "sourcePaths": [
+        "26 পেশা (Profession)/সহিস (Tolerant).sigml",
+        "26 পেশা (Profession)/সহিস-ঘোড়সওয়ার_Stableman.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "87539bc585b9209b48b72c0b14ca544e5cd18aa803f448c7cd540d2ff3926a72",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/দাঁত_মাজা (Toothbrush).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "87dda61994304fcdf5f149dfa9b73144624bac8cc2a258ab68519b0613114edb",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অজুহাত (Careless).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "880ea17f52ae30f82369811ea4e484e21ffb4de90bcc4d51f215be0b11183335",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/পেখম (Prawn).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "89e29a6b176ac549b00e521f923bc323a6d09779ecc6f2e32cc9238792e30eb8",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/পানির ফিল্টার (Water filter).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "8d393abfba71e7e9a4e6a09b12d6744e60aae0290cd89864da36d7aad56961f2",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অনাহার (Hungry).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "8e5a2bc2cd68ac0ecbff805d6dfd86983dc10f8eed6101bedd26eb09ca9b6c06",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/মানসিক রোগ.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "8e843f2f038d489432312351330fcb550d4cd36a18f76c714f1b7f68453b1ef8",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ট্যাবলেট (Tablet).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "8ff8a30d3031ef2f797c901c8a2fa2399484947d1f8fe540423e7bcdb26640e5",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/লাঠি (Stick).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "917fbbe8518807279872d3d59a3f2356abf68c610eaec53f901f93707a8ab55c",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/খাদক (Eater).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "9312e867d5b4e5678ff93bb4cc46f2d770eebeae1f12ce3fc526a54a4d9b2965",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/মধু (Sweet).sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/মধু.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "9353eb837a54f8699df12b8522c82ccc77a3e8f7c5207e472eead45e6302ebf9",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/আখ (Sugercane).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "9378548a2f2eeff8f8fab3eed5ce479ea01c9efda65deda39118afb5f5d379ca",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ছাই (Broom).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "94527f1c8bcbd067010e176c96c0963ef460a5c1f19191c32da26f4bc108edab",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/পোষা (Baby).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "956de0925b2a35b4163fe3669e25e393c2e8beaf91748db3605569fb106b7558",
+      "sourcePaths": [
+        "26 পেশা (Profession)/ভাষ্যকার (Fortuneteller).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "95da8fb310c06d19e09e60e11677a61ec30b9ffa0968f68fef3105e3d98adb86",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/চিতাবাঘ (Leopard).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "981c38457432972be42d7f05688cbe62afcee6370598c4e7264236067672292b",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/কোথায় (Where).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "98d55bae4339f172cfa5864ce352136716b1f3425f5ceb0b556905bbd6bffba5",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/লাজুক (Shy).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "99d90f842973ff3b4d3f29ea0d84af4f326592bba1926cd6c49d124dd10fd2da",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/দুঃখভোগী (Sorrowful).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/দুঃখিত (Sorry).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "9b85aafe8ccccce50ffa7047bcb331c39aa4844f0d821b5ac40c205f74b280b1",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ঘাড় মটকানো (To slam the door).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "9d6d2eeef797bb7cfd63ba6511e85afcb51858f2f8ceffba31c15a841ca56813",
+      "sourcePaths": [
+        "26 পেশা (Profession)/ওঝা (Ozha).sigml",
+        "4 খাবার ও পানীয় (Food and Drinks)/ম্যারা পিঠা (Mara Pitha).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "a231227e2b39c68d8906612bf1e2dab2f966caeb79bb53ac23696f01c0a7532f",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/বালিশ (Bed).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "a246fce089a02c41def5a9c953d055527bd3e345fdd1aa00718800e43a4c6246",
+      "sourcePaths": [
+        "28 অন্যান্য - ১ (Others - 1)/ঠিক (Correct).sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/হ্যাঁ_Yes.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "a566625a50b14367b62ff002871e338ce0a4dd62ef78694aa9af1c3db9f63488",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/নিন্দা করা (To criticize).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "a6388a9665d08eeda4c0916faf8cfc3b03df7162d1aa96b9043641655bd15738",
+      "sourcePaths": [
+        "28 অন্যান্য - ১ (Others - 1)/আবাসিক_Residential.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "a651406b49cba74017c2e280f9506fa9f35b03baa9a764bd16f54e6e925a6cff",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ক্ষমা চাওয়া (To ask for forgiveness).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "a8f2a1a44fd6b898a74147a2d1ad012e79c914848a4829bb8ad14435581e4623",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/খ্যাপা (Loony).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/সংগ্রহ করা (Collect).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "abc451f5c275ac86fa8c9a8fa8acf3933a11695656d813409399b277af50405f",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/চিবানো (To chew).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "adf26ff082cc5d5540f09bb08180e468fd5f4f833f4777f080438da49b2bf469",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/ঝিলমিল পিঠা (Jhilmil Pitha).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "af6da2bea03ff296f0a41449bdad8c3b10d8afa897e9fa662af192605cd584ea",
+      "sourcePaths": [
+        "1 কাজ (Work)/হাসা (Laugh).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "b2ad5d948eb04c8094f29e7da53bdc89b2c2aa1a437d685d508d34a251fb2957",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/কাশি (Cough).sigml",
+        "12 রোগ ও চিকিৎসা (Unknown)/যক্ষ্মা (Tuberculosis).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "b4ee7c4452ac52f3bd247d47a8cb0a95dc779cfc17840a9a3444c02be55c0799",
+      "sourcePaths": [
+        "21 অপরাধ ও আইন (Crime and Law)/ছাঁটাই_Boycott.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "b5115af4852f26705e11e8509c2eeca79685ec644008a5be0155db4fc74b28ab",
+      "sourcePaths": [
+        "1 কাজ (Work)/ঘুম (Sleep).sigml",
+        "1 কাজ (Work)/ঘুমানো (Sleeping).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "b6cf5096b2e61f963b2a527846f9fdfb409a99a865afe9806ace6b80d0b6a6ec",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/সেবা করা (Serve).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "b76c9da041b7749be2c99ee89f3733e75f6184d9d6fb7afc2fd03c3ec5b1f1a6",
+      "sourcePaths": [
+        "26 পেশা (Profession)/পাহারা (Guard).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "ba153b677b66fb3a581695ec66a2cf8280b869998547413e7868dcd51ad2647c",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/টনসিল (Tonsils).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "ba5c617e393866f683334824cf1a83bea2e7627f047913a5a9ea97b16e14c42b",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/দম্ভ (Falsehood).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ভণ্ড (Mockery).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "bc1e40a220a78fc8d6975ae8ee4acfb5e6344c5460b1734e6c863fe6df959c84",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/কুলবরই (Water Chestnut).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "bd42afa29d1c8c30e2f44bad63b2243364ddc6252b0d10ca36fd76a2acfa456e",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/ধনেশ পাখি (Peacock).sigml",
+        "10 পশুপাখি (Animals and Birds)/হাস (Duck).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "beadb0475aa3b792fa8b47f747e440ed4ce67b9f2c8c7d497c9bdca7511b42af",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/গোল্ড ফিশ (Goldfish).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "c19de2c7b7975a0d8e3a84afc002f80d827384af26b4b6bf4649671259fb8946",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/আল্লাহ (Allah).sigml",
+        "15 ধর্ম (Religion)/আল্লাহ.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "c581e154b2c519d0c3b68e54f269c6b15988799ea968944e8e143df3a62be7a6",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/মাছের_চাই (Translation not available).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "c7e6ff40568749a4cd2c845df34100c4cb45a973dcc77cd084d284b9a0e9c33f",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/ক্যাপসুল (Capsule).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "c95a3e9ca4022476587beb16860d48da25950d24257ce557832fc3cd9805926d",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/ভুট্টা (Corn).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "cbab88c31d2d3116c6c0083b4cb27649cf2c4b7289a5683bf2892e5df7be271e",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/সবেদা (Sapodilla).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "cbaee3eea05588c67fbc852d4ad3b044d099fc39a9d55273554d352b58fd5f06",
+      "sourcePaths": [
+        "14 শিক্ষা (Education)/পড়া.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "cf1c7379ae45f74f854b2181966d4399fdf567504ce4a2d447108a252bbce393",
+      "sourcePaths": [
+        "5 পোষাক পরিচ্ছেদ (Unknown)/কাচের চুড়ি (Bangles).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "cf7c531a07da26c1f55f223ee0e67f6d19f50f159a6cd3106baf8d6c49fb1bce",
+      "sourcePaths": [
+        "28 অন্যান্য - ১ (Others - 1)/এমনি_Likewise.sigml",
+        "29 অন্যান্য - ২ (Others - 2)/সাধু (Saint).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "d067fb270f561976e78e375848922b1c21d35b8fd0f7f673ba2e5c8a9178f7aa",
+      "sourcePaths": [
+        "9 পরিবহন (Transport)/গুন_টানা (Accelerate).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_body"
+    },
+    {
+      "originalSha256": "d079237c01dc1475e63f02d7ea2e14c874fbe58fddd3ea8e22074f379fef2d46",
+      "sourcePaths": [
+        "26 পেশা (Profession)/চাষাবাদ (Farming).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "d144542ff0cc69f06050610c99911c048d2bea970dbf2e35d2e8536cafcbec44",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/রসুন (Garlic).sigml"
+      ],
+      "reason": "SigmlError: Only signs may be root children"
+    },
+    {
+      "originalSha256": "d171817d4772e908c5b4fd82170537cb822268d2e359eb8a64a591e6b0b040ad",
+      "sourcePaths": [
+        "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/বজ্রপাত (Lightning).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_eyelids"
+    },
+    {
+      "originalSha256": "d269784f452293c585278f9747ed9776bb1af2e7fc961e37b9c3c7baa7c9f468",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/বনবিড়াল (Wildcat).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "d3f818f827501dbe50fdfe669c128b8c4ab10757950d099e03cbcf591795e1d9",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অবমাননা (Disrespect).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অসম্মান (Disrespect).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "d49b2e320bcf06b575053a69326bcc8c0ae33139d9f70abfd43a6efa7f1e32d4",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/কসম (Oath).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "d585b68c3b5060788c52eda08ae9bced0436f06670a69e8cdb2a169b2b8eaf5d",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/তিরস্কার করা (To insult).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "d828f61b1ef187a02c317bb918ad51dc8f226809d4ab7a7a9ecf72e29379ed54",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/তেজপাতা (Bay Leaf).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_shoulder"
+    },
+    {
+      "originalSha256": "d9548f8585e0f1d8dd1eb294baf562f6c695707a6f54b39ac7f1528a8aa42232",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/অচল (Immovable).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "d9914e5b0a8992953facf05df45b6a2a5e98f03a867e3baa58015873e9c97c64",
+      "sourcePaths": [
+        "Sentence Sentence (Unknown)/তার পোষা কুকুরটির রং কালো.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "dd539b2c5ca9ffe2cd6df1c511432b71163d3fa849633fa6656b4d74e5dfac78",
+      "sourcePaths": [
+        "5 পোষাক পরিচ্ছেদ (Unknown)/পোষাক (Clothing).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "dd6f67b014501428d4f076c639b414b4c247fe7b4beb7c9e52f812657650a1b0",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/হোমিওপ্যাথ (Homiopath).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "df4305208422048615bedaf4a5813c6909d862310535f3e9736fd501df144163",
+      "sourcePaths": [
+        "12 রোগ ও চিকিৎসা (Unknown)/মাথা ব্যাথা (Headache).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "df6e3646729faf98d3dd37c4bade92f51300c8c0e9d23c682a56d2953cc736f7",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/সেজদানামাযের (Translation not available).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "e207bc80e636ab8969c33faf1cd0516b80e4eabdaedd7ab3636ed73a9f72ca38",
+      "sourcePaths": [
+        "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/চুনাপাথর (Limestone).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "e3975b61205ffc0629f8a16c9ac4ba64cdb603302fe887043a14705bf165abca",
+      "sourcePaths": [
+        "5 পোষাক পরিচ্ছেদ (Unknown)/চুমকি (Tinsel).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourcePaths": [
+        "10 পশুপাখি (Animals and Birds)/ক্যাঙ্গারু (Kangaroo).sigml",
+        "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/ধানের শীষ (Sheaf of paddy).sigml",
+        "12 রোগ ও চিকিৎসা (Unknown)/স্পিচ থেরাপিস্ট (Speech Therapist).sigml",
+        "12 রোগ ও চিকিৎসা (Unknown)/স্বাস্থ্যকর (Healthy).sigml",
+        "12 রোগ ও চিকিৎসা (Unknown)/হাঁচি (Sneeze).sigml",
+        "14 শিক্ষা (Education)/ভর্তি (Admission).sigml",
+        "14 শিক্ষা (Education)/সমাবর্তন (Exchange).sigml",
+        "14 শিক্ষা (Education)/স্নাতকোত্তর (Postgraduate).sigml",
+        "15 ধর্ম (Religion)/কাঙালি_ভোজ (Vegan Feast).sigml",
+        "15 ধর্ম (Religion)/ঝাড়ফুঁক (Fasting (Iftar)).sigml",
+        "15 ধর্ম (Religion)/তাবিজ (Amulet).sigml",
+        "17 শরীরের অঙ্গ (Body Parts)/টেকো (Bald).sigml",
+        "18 দেশ (Country)/আফগানিস্তান (Afghanistan).sigml",
+        "18 দেশ (Country)/থাইল্যান্ড (Thailand).sigml",
+        "18 দেশ (Country)/মক্কা (Mecca).sigml",
+        "23 উৎসব (Festival)/ঘাতক (Lethal).sigml",
+        "28 অন্যান্য - ১ (Others - 1)/অনিয়ম_Irregularity.sigml",
+        "28 অন্যান্য - ১ (Others - 1)/দলবদ্ধ (organized).sigml",
+        "28 অন্যান্য - ১ (Others - 1)/বন্ধন (bond).sigml",
+        "28 অন্যান্য - ১ (Others - 1)/বাঁধানো (tie).sigml",
+        "29 অন্যান্য - ২ (Others - 2)/শিরোনাম (Title).sigml",
+        "29 অন্যান্য - ২ (Others - 2)/সংঘবদ্ধ (United).sigml",
+        "3 রাজনীতি (Politics)/অধিকাংশ (Majority).sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/সমগ্র_Whole.sigml",
+        "7 কর্মী (Unknown)/বাউল (Mystic).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/আলমিরা (Almira).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ওয়াশিং_মেশিন (Washing Machine).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/টব (Tub).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/টোষ্টার (Toaster).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/প্রেসার_কুকার (Pressure cooker).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ফ্রাই প্যান (Fry pan).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/বস্তা (Basket).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/ব্লেন্ডার_মেশিন (Bleander machine).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/মশারী (Mosquito Net).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/মাইক্রোওয়েভ_ওভেন (Translation not available).sigml",
+        "8 গৃহস্থালী সামগ্রী (Household Items)/সসপ্যান (Saucepan).sigml",
+        "9 পরিবহন (Transport)/ডুবোজাহাজ (Ferry).sigml",
+        "9 পরিবহন (Transport)/প্লাটফর্ম (Platform).sigml",
+        "9 পরিবহন (Transport)/মাইল_ফলক (Milestone).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "e42fe765797ff1422aabbe97189e921f07b7abf6e718383e6cc0f916d4474489",
+      "sourcePaths": [
+        "15 ধর্ম (Religion)/মাজার (Sufi shrine).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_body"
+    },
+    {
+      "originalSha256": "ebffaec94acdde9d27135c7372b38e0ef53e99e54559448958850bd6e96178cc",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/নতুন (New).sigml",
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/নবান্ন (Nobanno).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "ed4f5a6c5f3789d35a150a0903e6e2125822ebec4851c42ec649f091d5ae317e",
+      "sourcePaths": [
+        "5 পোষাক পরিচ্ছেদ (Unknown)/চুল ঝরা (Loosing hair).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "ee154610827c6c942ee013eeda83c746681e52822c34b8e88ef23e57c252227d",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/ক্যাপসুল (Capsule).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "f0f5704a3499b1160dd6e641c499221675e9948b731e4664e2fbdeb33b6d5bde",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/পেয়ারা (Guava).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "f32df9baf4fa60497642fd0a8fae283e25cfb6bce74e09741ab3d3744540c1f3",
+      "sourcePaths": [
+        "26 পেশা (Profession)/চাকর (Worker).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    },
+    {
+      "originalSha256": "f4e834a69555b1f0be8984ded09ccaf18d8ff3c77d296c499db0935b72554a49",
+      "sourcePaths": [
+        "4 খাবার ও পানীয় (Food and Drinks)/খয়ের (Catechu).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthgesture"
+    },
+    {
+      "originalSha256": "f5ebf27bc8c324facf0c768b5a0c48ce6f4d17cc1717133730206d64bb449da4",
+      "sourcePaths": [
+        "2 মানুষের চারিত্রিক বৈশিষ্ট্য (Human Characteristics)/গোমড়া (Foolish).sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_head"
+    },
+    {
+      "originalSha256": "fb508a0f182fa7f515448a39278a655b92a1ee7749d96954970e1883aba4e908",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/ধানমন্ডি_Dhanmondi.sigml",
+        "30 অন্যান্য - ৩ (Others - 3)/জেলা (District).sigml"
+      ],
+      "reason": "SigmlError: Sign must be a direct root child"
+    },
+    {
+      "originalSha256": "fbeca796b1ff27ada174a18ba9f2b970ede24d883f87d3ff2a728b4e1100b13b",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/দফা_Oath.sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "fc75806b8c8877ca032f347293d7d678961dec3863e9746eb5738604ad1078dd",
+      "sourcePaths": [
+        "8 গৃহস্থালী সামগ্রী (Household Items)/পোলো (Pillow).sigml"
+      ],
+      "reason": "SigmlError: Malformed SiGML XML"
+    },
+    {
+      "originalSha256": "fd9c64185181fdad456404b98718b9da8af421af37fa90447c1edff5ee07f762",
+      "sourcePaths": [
+        "29 অন্যান্য - ২ (Others - 2)/তুতে পাতা_Leaves Falling.sigml"
+      ],
+      "reason": "SigmlError: Forbidden element hnm_mouthpicture"
+    }
+  ]
+}

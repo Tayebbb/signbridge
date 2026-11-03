@@ -1,2 +1,2 @@
-// TODO(phase-2): implementation intentionally deferred.
-export type PendingImplementation = never;
+import { timedBlocks } from "./shared";
+export function parseVtt(input: string) { return timedBlocks(input, "vtt"); }

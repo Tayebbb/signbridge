@@ -6,3 +6,7 @@
 - Official event sticker: not supplied. The placeholder identifies this missing asset and does not imitate it.
 
 The fixture combines unrelated corpus entries. Animation is technical evidence only; it is not evidence of correct BdSL or comprehension.
+
+Phase 2 additionally imports the public [IsharaKotha v2 release](https://data.mendeley.com/datasets/6ykgx65ks5/2), DOI 10.17632/6ykgx65ks5.2, under CC BY 4.0. Authors: MD. Ashikul Islam; Prato Dewan; Md Fuadul Islam; Md Ataullha Saim; M Shahidur Rahman. Each accepted asset retains original byte hash, source filenames/paths and public source URLs. The release row and emitted SQL retain author attribution and the license.
+
+Changes: original gloss attribute values are replaced with lowercase ASCII placeholders, and document-level wrappers are assembled. Motion XML inside sign units is retained byte-for-byte apart from those gloss values. Rejected inputs are quarantined with reasons rather than repaired or stripped of unsupported annotations. Rendering evidence does not establish correct BdSL or comprehension.

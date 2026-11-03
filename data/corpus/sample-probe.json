@@ -1,0 +1,142 @@
+[
+  {
+    "assetId": "ik2_02d78b82568d",
+    "labelBn": "অনাবৃষ্টি",
+    "derivedSha256": "4ce3e5ff3bc226889deae26e71f0bf254c3b9365deb202e33f5140d13921ea2b",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamfingerhookmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmd/>\n<hamrepeatfromstart/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamtwisting/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_0548a29664ba",
+    "labelBn": "আগামীকাল সকালে পররাষ্ট্রমন্ত্রী চীন সফরে যাবেন",
+    "derivedSha256": "4a5ec026f99dd550bc02689674c2409b9f062b70bf7516825a755fcf765b64fc",
+    "unitCount": 8,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingeri/>\n<hampalmd/>\n<hamcheek/>\n<hamtouch/>\n\n<hamparbegin/>\n<hamparbegin/>\n<hammoveo/>\n<hamcirclel/>\n\n<hamsmallmod/>\n<hamfast/>\n<hamrepeatfromstart/>\n<hamparend/>\n<hamreplace/>\n<hamextfingerul/>\n<hampalml/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hampinchall/>\n<hambetween/>\n<hampinchall/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamcheek/>\n<hamseqbegin/>\n<hamtouch/>\n<hamindexfinger/>\n<hamseqend/>\n<hamnomotion/>\n<hamparbegin/>\n<hammover/>\n<hamsmallmod/>\n<hamreplace/>\n<hamfinger2345/>\n<hamfingerhookmod/>\n<hamthumboutmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingerur/>\n<hampalmu/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u2\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumboutmod/>\n<hampinky/>\n<hamextfingero/>\n<hampalmd/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hammoveuo/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u3\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamfingerhookmod/>\n<hamthumboutmod/>\n<hamextfingerol/>\n<hampalmd/>\n<hamlrat/>\n<hamshoulders/>\n<hamclose/>\n<hammoved/>\n<hamparbegin/>\n<hammoveur/>\n<hamreplace/>\n<hamextfingero/>\n<hamparend/>\n<hammoved/>\n<hammoveur/>\n<hammoved/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u4\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerhookmod/>\n<hamextfingerul/>\n<hampalml/>\n<hamchin/>\n<hamseqbegin/>\n<hamclose/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamseqend/>\n<hamparbegin/>\n<hammoveu/>\n<hamarcu/>\n<hamreplace/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingerl/>\n<hampalmr/>\n<hamforehead/>\n<hamlrat/>\n<hamseqbegin/>\n<hamtouch/>\n<hamhandback/>\n<hamseqend/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u5\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hampalml/>\n<hamnose/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hamindexfinger/>\n<hamseqend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u6\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamcee12/>\n<hamextfingeru/>\n<hampalml/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u7\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamfinger2/>\n                        <hamthumbacrossmod/>\n                        <hampinky/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamheadtop/>\n                        <hambetween/>\n                        <hamhead/>\n                        <hamlrbeside/>\n                        <hamclose/>\n                        <hamcircleu/>\n                        <hamrepeatfromstart/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_082833e41b63",
+    "labelBn": "অকৃতকার্য",
+    "derivedSha256": "f8ae95860bcb791632dbd36e4b26981e9676a64fd9726a22c2c6998b42793817",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hampinchall/>\n<hamextfingeru/>\n<hampalmu/>\n<hamshouldertop/>\n<hamparbegin/>\n<hammoved/>\n<hammoveo/>\n<hamlargemod/>\n<hamarcd/>\n<hamreplace/>\n<hamfinger2345/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_19e48d12cb56",
+    "labelBn": "আই এম এফ",
+    "derivedSha256": "c4b0d275650dcc1ed13ca2e9ae5e1df14985a5630052a8bbcb1eec33da18382a",
+    "unitCount": 3,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamparbegin/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamplus/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingero/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamplus/>\n<hamfingerpad/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamparbegin/>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamindexfinger/>\n<hammiddlefinger/>\n<hamringfinger/>\n<hamplus/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingerl/>\n<hampalmd/>\n<hamplus/>\n<hamextfingero/>\n<hampalmr/>\n<hambetween/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u2\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamparbegin/>\n<hamextfingerl/>\n<hampalmd/>\n<hamplus/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n<hamparbegin/>\n<hamfingermidjoint/>\n<hammiddlefinger/>\n<hamhandback/>\n<hamplus/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_1fb25f90c11e",
+    "labelBn": "আঙুল",
+    "derivedSha256": "22544133be9e540ac9dd7a8b2b3e62f13b157d21cb2b6545aaba59cf40c1f68a",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamplus/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerbendmod/>\n<hambetween/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmd/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamplus/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_27c556f33a38",
+    "labelBn": "অতিথি",
+    "derivedSha256": "fbaf8030729ce1caad24c374e7b935d6f944f77c5d7e824c5d9042071e85e221",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmul/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmur/>\n<hamparend/>\n<hamparbegin/>\n<hamshouldertop/>\n<hamlrat/>\n<hamplus/>\n<hamchest/>\n<hamparend/>\n<hamparbegin/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hammoved/>\n<hamsmallmod/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmu/>\n<hamparend/>\n<hamplus/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingeror/>\n<hampalmu/>\n<hamparend/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_29be41e5f09d",
+    "labelBn": "আন্তর্জাতিক",
+    "derivedSha256": "15e389d8cf4153af9f7b645ba44b8149dc7e5a63c9c4301101c044f28bd0859b",
+    "unitCount": 2,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalmd/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamsmallmod/>\n<hamarcr/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparbegin/>\n<hamfingertip/>\n<hampinky/>\n<hamplus/>\n<hamfingertip/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2/>\n<hamthumboutmod/>\n<hampinky/>\n<hamextfingeru/>\n<hampalml/>\n<hamshoulders/>\n<hambetween/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hamparbegin/>\n<hamcirclel/>\n<hamsmallmod/>\n<hamclocku/>\n<hamparend/>\n<hamplus/>\n<hamparbegin/>\n<hamcirclel/>\n<hamsmallmod/>\n<hamclockd/>\n<hamparend/>\n<hamparend/>\n<hamrepeatfromstartseveral/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_39136eb55498",
+    "labelBn": "আট",
+    "derivedSha256": "f5885d38737dae4168fc6b9ebb15e3c27788fd92e815dfa5c83c2bdf8c7ce0a6",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\r\n                <hamnosys_nonmanual/>\r\n                <hamnosys_manual>\r\n                        <hamfinger23/>\r\n                        <hamthumboutmod/>\r\n                        <hamextfingeru/>\r\n                        <hampalmd/>\r\n                        <hamneck/>\r\n                </hamnosys_manual>\r\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_4bc93edb10a9",
+    "labelBn": "আকিকা_Newborn naming ceremony",
+    "derivedSha256": "c9975b65cf4ffbd4ca58ac357ab400bbf780537bac79b63d54ed28e4cd873881",
+    "unitCount": 3,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hambetween/>\n<hamflathand/>\n<hamfingerbendmod/>\n<hamextfingero/>\n<hampalmu/>\n<hamshoulders/>\n<hambetween/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hammoveo/>\n<hamsmallmod/>\n<hamslow/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamextfingerl/>\n<hambetween/>\n<hamextfingeril/>\n<hampalmr/>\n<hamlrat/>\n<hamshoulders/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamseqend/>\n<hamnomotion/>\n<hammover/>\n<hamslow/>\n<hamshoulders/>\n<hamlrat/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamseqend/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u2\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamceeall/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamparbegin/>\n<hamshoulders/>\n<hamclose/>\n<hamplus/>\n<hamshoulders/>\n<hamclose/>\n<hamparend/>\n<hamparbegin/>\n<hamcirclel/>\n<hamplus/>\n<hamcircler/>\n<hamparend/>\n<hamrepeatfromstartseveral/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_4cdc7b6126d7",
+    "labelBn": "অষ্ট্রেলিয়া_Australia",
+    "derivedSha256": "5d390142daa93b72c08da7b332a9a2c62e8bd0f0817390358b15b8240eaf69c9",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmlr/>\n<hamflathand/>\n<hambetween/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamextfingero/>\n<hampalmd/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamarcu/>\n<hamparend/>\n<hamrepeatfromstart/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_75775630aea1",
+    "labelBn": "কক্সবাজার",
+    "derivedSha256": "f5f8ca932a3339e728084359d398503b34d230443a6e33de1f87b0dcea130154",
+    "unitCount": 3,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingero/>\n<hampalmd/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovel/>\n<hamlargemod/>\n<hamnodding/>\n<hamswinging/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamcee12/>\n<hamextfingerul/>\n<hampalmd/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u2\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hampalmd/>\n<hamparbegin/>\n<hamfingermidjoint/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingermidjoint/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_836c3627b85d",
+    "labelBn": "অপহরণ",
+    "derivedSha256": "9e9a015f3d4aed01418a92070364478da354fe7e0005cd37161833419243f451",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamflathand/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamfingerbendmod/>\n                        <hamextfingerul/>\n                        <hambetween/>\n                        <hamextfingerl/>\n                        <hampalml/>\n                        <hamlips/>\n                        <hamtouch/>\n                        <hammoveo/>\n                        <hamlargemod/>\n                        <hamarcr/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_9414f7b69505",
+    "labelBn": "অঙ্গহানি",
+    "derivedSha256": "23e867b40c326cdb111758af15832205ab6b92b9139d6e7cdb75da502ab5544e",
+    "unitCount": 3,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingerd/>\n<hampalmd/>\n<hamplus/>\n<hamextfingerr/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamchest/>\n<hamplus/>\n<hamlrbeside/>\n<hamlowerarm/>\n<hamseqbegin/>\n<hamtouch/>\n<hampinkyside/>\n<hamseqend/>\n<hamparend/>\n<hamparbegin/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingerd/>\n<hampalmd/>\n<hamplus/>\n<hamparbegin/>\n<hammoveol/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingerol/>\n<hampalml/>\n<hamplus/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamparbegin/>\n<hampalm/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerside/>\n<hampinky/>\n<hamseqend/>\n<hamplus/>\n<hamshoulders/>\n<hamclose/>\n<hamparend/>\n<hamparbegin/>\n<hamparbegin/>\n<hammoveor/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n<hamplus/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u2\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfist/>\n<hamthumboutmod/>\n<hamextfingero/>\n<hampalml/>\n<hamforehead/>\n<hamlrbeside/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoved/>\n<hamlargemod/>\n<hamnodding/>\n<hamfast/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_951b8c6874e1",
+    "labelBn": "অধিনায়ক",
+    "derivedSha256": "23b4fada9de7870a83ed37fe2563af2524c6e9afb527040d5904644f2c9a0f00",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamcee12/>\n<hamextfingerl/>\n<hampalml/>\n<hamshoulders/>\n<hambetween/>\n<hamlrbeside/>\n<hamshoulders/>\n<hamseqbegin/>\n<hamtouch/>\n<hampalm/>\n<hamseqend/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_97b1ada16ed6",
+    "labelBn": "অনুষ্ঠান",
+    "derivedSha256": "ebcd61b61667113d2789827202ff6374010e86847880e1257acf2f3fd409f290",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamplus/>\n<hamflathand/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hampinky/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovedi/>\n<hamsmallmod/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_a322fd4bc59e",
+    "labelBn": "অভিযোগকারী_Complainant",
+    "derivedSha256": "76db8758ee0e2cc5bae05fdf26378672c648b317a057b28c253796bd641ba04e",
+    "unitCount": 2,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamlips/>\n<hamtouch/>\n<hamnomotion/>\n<hammoved/>\n<hamshoulders/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalmu/>\n<hamforehead/>\n<hamclose/>\n<hamcircleo/>\n<hamclockl/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_af561997a76a",
+    "labelBn": "অ",
+    "derivedSha256": "849acc0a56e9143bb60b39df6f0f192e5da8b8f210048a67ac7b96d48f2db24e",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\r\n                <hamnosys_nonmanual/>\r\n                <hamnosys_manual>\r\n                        <hamsymmpar/>\r\n                        <hamparbegin/>\r\n                        <hamfinger2/>\r\n                        <hamthumbacrossmod/>\r\n                        <hambetween/>\r\n                        <hamfinger2/>\r\n                        <hamthumbacrossmod/>\r\n                        <hamfingerstraightmod/>\r\n                        <hamextfingero/>\r\n                        <hambetween/>\r\n                        <hamextfingerl/>\r\n                        <hampalmd/>\r\n                        <hamplus/>\r\n                        <hamfinger2345/>\r\n                        <hamthumboutmod/>\r\n                        <hamextfingero/>\r\n                        <hampalmu/>\r\n                        <hamparend/>\r\n                        <hamparbegin/>\r\n                        <hampalm/>\r\n                        <hamplus/>\r\n                        <hamfingertip/>\r\n                        <hamthumb/>\r\n                        <hamparend/>\r\n                        <hamtouch/>\r\n                        <hamchest/>\r\n                </hamnosys_manual>\r\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_b6882c7f425a",
+    "labelBn": "অগ্নিশিখা",
+    "derivedSha256": "65e739614dee31eb24ebe844a1806af2fd2b92cd8e7066a59c057696f4582d45",
+    "unitCount": 2,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hampinch12open/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalml/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n<hamparbegin/>\n<hamparbegin/>\n<hammoveo/>\n<hamsmallmod/>\n<hammoved/>\n<hamsmallmod/>\n<hamfast/>\n<hamparend/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hampinchall/>\n<hamextfingero/>\n<hampalmu/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveu/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamfingerbendmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumbopenmod/>\n<hamfingerhookmod/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_cf2585735455",
+    "labelBn": "অভিশাপ",
+    "derivedSha256": "1bf4cd5b0cc9e34b5eadbbcdb7484461a1726863a60fb0e39a39e6931eac3ffb",
+    "unitCount": 2,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hambetween/>\n<hamflathand/>\n<hamextfingeru/>\n<hampalmu/>\n<hamtouch/>\n<hamlips/>\n<hambetween/>\n<hamneck/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n<hns_sign gloss=\"s0a0u1\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingeru/>\n<hampalmd/>\n<hamhead/>\n<hamlrat/>\n<hambetween/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamlargemod/>\n<hammovedo/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>"
+  },
+  {
+    "assetId": "ik2_dbba3a9e6c3b",
+    "labelBn": "অজগরসাপ",
+    "derivedSha256": "a5a82fa6e9c5cd8a94c2b77f68fac66dab6e809f80870463aeb1f3c70c629c30",
+    "unitCount": 1,
+    "xml": "<sigml>\n<hns_sign gloss=\"s0a0u0\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamsymmpar/>\n                        <hamparbegin/>\n                        <hamflathand/>\n                        <hamfingerbendmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamflathand/>\n                        <hamextfingerd/>\n                        <hampalmr/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamchin/>\n                        <hamlrat/>\n                        <hamclose/>\n                        <hamplus/>\n                        <hamlrat/>\n                        <hamstomach/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamnomotion/>\n                        <hamparend/>\n                        <hamreplace/>\n                        <hamflathand/>\n                        <hamfingerstraightmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamparbegin/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hampalmu/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamplus/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamparend/>\n                        <hamtouch/>\n                        <hamneck/>\n                        <hamnomotion/>\n                        <hamreplace/>\n                        <hamfinger2345/>\n                        <hamthumboutmod/>\n                        <hamparbegin/>\n                        <hamextfingeru/>\n                        <hambetween/>\n                        <hamextfingero/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingerd/>\n                        <hamparend/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  }
+]

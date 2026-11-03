@@ -1,0 +1,234 @@
+[
+  {
+    "sourcePath": "10 পশুপাখি (Animals and Birds)/অজগরসাপ (Python).sigml",
+    "sourceName": "অজগরসাপ (Python).sigml",
+    "category": "10 পশুপাখি (Animals and Birds)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/9a56f996-8e61-4bab-b927-15cd657f3cea/file_downloaded",
+    "sha256": "dbba3a9e6c3bf63ae2cfc4c8502a69ff1ff0261e416f456a7ce2642c3cb55b51",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n        <hns_sign gloss=\"অজগরসাপ\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamsymmpar/>\n                        <hamparbegin/>\n                        <hamflathand/>\n                        <hamfingerbendmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamflathand/>\n                        <hamextfingerd/>\n                        <hampalmr/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamchin/>\n                        <hamlrat/>\n                        <hamclose/>\n                        <hamplus/>\n                        <hamlrat/>\n                        <hamstomach/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamnomotion/>\n                        <hamparend/>\n                        <hamreplace/>\n                        <hamflathand/>\n                        <hamfingerstraightmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamparbegin/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hampalmu/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamplus/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamparend/>\n                        <hamtouch/>\n                        <hamneck/>\n                        <hamnomotion/>\n                        <hamreplace/>\n                        <hamfinger2345/>\n                        <hamthumboutmod/>\n                        <hamparbegin/>\n                        <hamextfingeru/>\n                        <hambetween/>\n                        <hamextfingero/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingerd/>\n                        <hamparend/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "sourcePath": "10 পশুপাখি (Animals and Birds)/অজগরসাপ.sigml",
+    "sourceName": "অজগরসাপ.sigml",
+    "category": "10 পশুপাখি (Animals and Birds)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/0bca5ceb-5f13-4515-9273-1f45d2463963/file_downloaded",
+    "sha256": "dbba3a9e6c3bf63ae2cfc4c8502a69ff1ff0261e416f456a7ce2642c3cb55b51",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n        <hns_sign gloss=\"অজগরসাপ\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamsymmpar/>\n                        <hamparbegin/>\n                        <hamflathand/>\n                        <hamfingerbendmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamflathand/>\n                        <hamextfingerd/>\n                        <hampalmr/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamchin/>\n                        <hamlrat/>\n                        <hamclose/>\n                        <hamplus/>\n                        <hamlrat/>\n                        <hamstomach/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamreplace/>\n                        <hamextfingerol/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamreplace/>\n                        <hamextfingeru/>\n                        <hampalmdl/>\n                        <hamplus/>\n                        <hamnomotion/>\n                        <hamparend/>\n                        <hamreplace/>\n                        <hamflathand/>\n                        <hamfingerstraightmod/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamparbegin/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hampalmu/>\n                        <hamparend/>\n                        <hamparbegin/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamplus/>\n                        <hamfingerpad/>\n                        <hammiddlefinger/>\n                        <hamparend/>\n                        <hamtouch/>\n                        <hamneck/>\n                        <hamnomotion/>\n                        <hamreplace/>\n                        <hamfinger2345/>\n                        <hamthumboutmod/>\n                        <hamparbegin/>\n                        <hamextfingeru/>\n                        <hambetween/>\n                        <hamextfingero/>\n                        <hamplus/>\n                        <hamextfingero/>\n                        <hambetween/>\n                        <hamextfingerd/>\n                        <hamparend/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "sourcePath": "11 প্রকৃতি ও পরিবেশ (Nature and Environment)/অগ্নিশিখা (Flame).sigml",
+    "sourceName": "অগ্নিশিখা (Flame).sigml",
+    "category": "11 প্রকৃতি ও পরিবেশ (Nature and Environment)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/9538f935-1bec-4352-9b89-5bba9edf5dae/file_downloaded",
+    "sha256": "b6882c7f425ae6a0b689a5a443e74a5bd12e1ff4a2cfd2075b71774256ce4f13",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hampinch12open/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalml/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n<hamparbegin/>\n<hamparbegin/>\n<hammoveo/>\n<hamsmallmod/>\n<hammoved/>\n<hamsmallmod/>\n<hamfast/>\n<hamparend/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hampinchall/>\n<hamextfingero/>\n<hampalmu/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveu/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamfingerbendmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumbopenmod/>\n<hamfingerhookmod/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "12 রোগ ও চিকিৎসা (Unknown)/অঙ্গহানি (Amputation).sigml",
+    "sourceName": "অঙ্গহানি (Amputation).sigml",
+    "category": "12 রোগ ও চিকিৎসা (Unknown)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/409a249f-6326-4926-aac7-1777a0f25157/file_downloaded",
+    "sha256": "9414f7b69505a354a9f844ea32e5ab989640676cbad362d95bc1059a7eae8e87",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingerd/>\n<hampalmd/>\n<hamplus/>\n<hamextfingerr/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamchest/>\n<hamplus/>\n<hamlrbeside/>\n<hamlowerarm/>\n<hamseqbegin/>\n<hamtouch/>\n<hampinkyside/>\n<hamseqend/>\n<hamparend/>\n<hamparbegin/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingerd/>\n<hampalmd/>\n<hamplus/>\n<hamparbegin/>\n<hammoveol/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingerol/>\n<hampalml/>\n<hamplus/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamparbegin/>\n<hampalm/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerside/>\n<hampinky/>\n<hamseqend/>\n<hamplus/>\n<hamshoulders/>\n<hamclose/>\n<hamparend/>\n<hamparbegin/>\n<hamparbegin/>\n<hammoveor/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n<hamplus/>\n<hamreplace/>\n<hamflathand/>\n<hamextfingeror/>\n<hampalmd/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfist/>\n<hamthumboutmod/>\n<hamextfingero/>\n<hampalml/>\n<hamforehead/>\n<hamlrbeside/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoved/>\n<hamlargemod/>\n<hamnodding/>\n<hamfast/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "13 শহর (City)/কক্সবাজার (Cox_s Bazar).sigml",
+    "sourceName": "কক্সবাজার (Cox_s Bazar).sigml",
+    "category": "13 শহর (City)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/2932cd48-dc18-4ebc-aa24-82033ea0b7fd/file_downloaded",
+    "sha256": "75775630aea1575062ef4902ad7f22540446547410fe97a410cc9d73e9275d7d",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingero/>\n<hampalmd/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovel/>\n<hamlargemod/>\n<hamnodding/>\n<hamswinging/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamcee12/>\n<hamextfingerul/>\n<hampalmd/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hampalmd/>\n<hamparbegin/>\n<hamfingermidjoint/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingermidjoint/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "14 শিক্ষা (Education)/অকৃতকার্য (Unsuccessful).sigml",
+    "sourceName": "অকৃতকার্য (Unsuccessful).sigml",
+    "category": "14 শিক্ষা (Education)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/e7607f72-92b1-41f2-8916-71ed38042695/file_downloaded",
+    "sha256": "082833e41b6332bdcc8be2c58bc6f0f402ec43493c1693c525a9af776d26e07f",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hampinchall/>\n<hamextfingeru/>\n<hampalmu/>\n<hamshouldertop/>\n<hamparbegin/>\n<hammoved/>\n<hammoveo/>\n<hamlargemod/>\n<hamarcd/>\n<hamreplace/>\n<hamfinger2345/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "14 শিক্ষা (Education)/ফেল (Fail).sigml",
+    "sourceName": "ফেল (Fail).sigml",
+    "category": "14 শিক্ষা (Education)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/31bdab57-39f1-4163-90af-b2f4c9819c88/file_downloaded",
+    "sha256": "082833e41b6332bdcc8be2c58bc6f0f402ec43493c1693c525a9af776d26e07f",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hampinchall/>\n<hamextfingeru/>\n<hampalmu/>\n<hamshouldertop/>\n<hamparbegin/>\n<hammoved/>\n<hammoveo/>\n<hamlargemod/>\n<hamarcd/>\n<hamreplace/>\n<hamfinger2345/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "15 ধর্ম (Religion)/অভিশাপ (Curse).sigml",
+    "sourceName": "অভিশাপ (Curse).sigml",
+    "category": "15 ধর্ম (Religion)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/9c4eb5fc-5442-4b0e-ba7a-512905e3dc93/file_downloaded",
+    "sha256": "cf2585735455540fb7d13621080563e897a62c694b3b752e331d4b63a02cc5fd",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hambetween/>\n<hamflathand/>\n<hamextfingeru/>\n<hampalmu/>\n<hamtouch/>\n<hamlips/>\n<hambetween/>\n<hamneck/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingeru/>\n<hampalmd/>\n<hamhead/>\n<hamlrat/>\n<hambetween/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamlargemod/>\n<hammovedo/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "15 ধর্ম (Religion)/অভিশাপ.sigml",
+    "sourceName": "অভিশাপ.sigml",
+    "category": "15 ধর্ম (Religion)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/3475a73a-bbae-4aab-8fc9-dcf0dcd10b4c/file_downloaded",
+    "sha256": "cf2585735455540fb7d13621080563e897a62c694b3b752e331d4b63a02cc5fd",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hambetween/>\n<hamflathand/>\n<hamextfingeru/>\n<hampalmu/>\n<hamtouch/>\n<hamlips/>\n<hambetween/>\n<hamneck/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingeru/>\n<hampalmd/>\n<hamhead/>\n<hamlrat/>\n<hambetween/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamlargemod/>\n<hammovedo/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "16 কৃষি (Agriculture)/অনাবৃষ্টি (Drought).sigml",
+    "sourceName": "অনাবৃষ্টি (Drought).sigml",
+    "category": "16 কৃষি (Agriculture)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/85d0dd91-6bbc-443c-9dac-697e6c8a1374/file_downloaded",
+    "sha256": "02d78b82568d6bb27d040b94eeb522130fc1f395f7aa8c612799dd5e398ff36f",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamfingerhookmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmd/>\n<hamrepeatfromstart/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamtwisting/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "16 কৃষি (Agriculture)/অনাবৃষ্টি.sigml",
+    "sourceName": "অনাবৃষ্টি.sigml",
+    "category": "16 কৃষি (Agriculture)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/d2fc5145-56d5-4bde-a7bf-7c94030e3fa9/file_downloaded",
+    "sha256": "02d78b82568d6bb27d040b94eeb522130fc1f395f7aa8c612799dd5e398ff36f",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamfingerhookmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmd/>\n<hamrepeatfromstart/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamtwisting/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "17 শরীরের অঙ্গ (Body Parts)/আঙুল.sigml",
+    "sourceName": "আঙুল.sigml",
+    "category": "17 শরীরের অঙ্গ (Body Parts)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/365366c1-b93e-4e21-a384-b7f8e07907de/file_downloaded",
+    "sha256": "1fb25f90c11eb460cf4218a9d21b1c31f3a81a7f2419ff53b3b44934eef3dbef",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamplus/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerbendmod/>\n<hambetween/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmd/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamplus/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "17 শরীরের অঙ্গ (Body Parts)/আঙ্গুল (Finger).sigml",
+    "sourceName": "আঙ্গুল (Finger).sigml",
+    "category": "17 শরীরের অঙ্গ (Body Parts)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/f4b65783-ffb7-4e2b-9326-19fb999d1b59/file_downloaded",
+    "sha256": "1fb25f90c11eb460cf4218a9d21b1c31f3a81a7f2419ff53b3b44934eef3dbef",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamplus/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerbendmod/>\n<hambetween/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmd/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamplus/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamplus/>\n<hamfingertip/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "18 দেশ (Country)/আন্তর্জাতিক (International).sigml",
+    "sourceName": "আন্তর্জাতিক (International).sigml",
+    "category": "18 দেশ (Country)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/67d89625-de13-4727-9089-50d3a8255182/file_downloaded",
+    "sha256": "29be41e5f09db04e57a4bae24a17f4c054ffe366beefc817a280e3a155e495ff",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalmd/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamsmallmod/>\n<hamarcr/>\n<hamreplace/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparbegin/>\n<hamfingertip/>\n<hampinky/>\n<hamplus/>\n<hamfingertip/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger2/>\n<hamthumboutmod/>\n<hampinky/>\n<hamextfingeru/>\n<hampalml/>\n<hamshoulders/>\n<hambetween/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hamparbegin/>\n<hamcirclel/>\n<hamsmallmod/>\n<hamclocku/>\n<hamparend/>\n<hamplus/>\n<hamparbegin/>\n<hamcirclel/>\n<hamsmallmod/>\n<hamclockd/>\n<hamparend/>\n<hamparend/>\n<hamrepeatfromstartseveral/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "19 অক্ষর (Letters)/অ.sigml",
+    "sourceName": "অ.sigml",
+    "category": "19 অক্ষর (Letters)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/a27d138c-fbbe-4c96-9285-9af86b95acbf/file_downloaded",
+    "sha256": "af561997a76a49ac7058ff5d1720a741e83fa30785c2a5c67ebdf56f8e493a41",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<sigml>\r\n        <hns_sign gloss=\"অ\">\r\n                <hamnosys_nonmanual/>\r\n                <hamnosys_manual>\r\n                        <hamsymmpar/>\r\n                        <hamparbegin/>\r\n                        <hamfinger2/>\r\n                        <hamthumbacrossmod/>\r\n                        <hambetween/>\r\n                        <hamfinger2/>\r\n                        <hamthumbacrossmod/>\r\n                        <hamfingerstraightmod/>\r\n                        <hamextfingero/>\r\n                        <hambetween/>\r\n                        <hamextfingerl/>\r\n                        <hampalmd/>\r\n                        <hamplus/>\r\n                        <hamfinger2345/>\r\n                        <hamthumboutmod/>\r\n                        <hamextfingero/>\r\n                        <hampalmu/>\r\n                        <hamparend/>\r\n                        <hamparbegin/>\r\n                        <hampalm/>\r\n                        <hamplus/>\r\n                        <hamfingertip/>\r\n                        <hamthumb/>\r\n                        <hamparend/>\r\n                        <hamtouch/>\r\n                        <hamchest/>\r\n                </hamnosys_manual>\r\n        </hns_sign>\r\n</sigml>"
+  },
+  {
+    "sourcePath": "1 কাজ (Work)/অপহরণ (Kidnapping).sigml",
+    "sourceName": "অপহরণ (Kidnapping).sigml",
+    "category": "1 কাজ (Work)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/ac27bcbe-91c7-41d6-a84d-7a5f3abd0ddc/file_downloaded",
+    "sha256": "836c3627b85d349e117e46e47256f6ef37b77d1a140f651b2c08d1b73cfc60fe",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n        <hns_sign gloss=\"অপহরণ\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamflathand/>\n                        <hambetween/>\n                        <hamflathand/>\n                        <hamfingerbendmod/>\n                        <hamextfingerul/>\n                        <hambetween/>\n                        <hamextfingerl/>\n                        <hampalml/>\n                        <hamlips/>\n                        <hamtouch/>\n                        <hammoveo/>\n                        <hamlargemod/>\n                        <hamarcr/>\n                </hamnosys_manual>\n        </hns_sign>\n</sigml>"
+  },
+  {
+    "sourcePath": "20 সংখ্যা (Numbers)/আট.sigml",
+    "sourceName": "আট.sigml",
+    "category": "20 সংখ্যা (Numbers)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/112ec6d7-1423-459e-aab5-5c102e868c26/file_downloaded",
+    "sha256": "39136eb5549838ccc060f6c885c1a67670ad6ca71610c1855dc891bfbcf185ec",
+    "xml": " <sigml>\r\n <hns_sign gloss=\"আট\">\r\n                <hamnosys_nonmanual/>\r\n                <hamnosys_manual>\r\n                        <hamfinger23/>\r\n                        <hamthumboutmod/>\r\n                        <hamextfingeru/>\r\n                        <hampalmd/>\r\n                        <hamneck/>\r\n                </hamnosys_manual>\r\n        </hns_sign>\r\n</sigml>"
+  },
+  {
+    "sourcePath": "21 অপরাধ ও আইন (Crime and Law)/অভিযোগকারী_Complainant.sigml",
+    "sourceName": "অভিযোগকারী_Complainant.sigml",
+    "category": "21 অপরাধ ও আইন (Crime and Law)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/5eb695b3-0b18-411c-b48b-2412c915e38d/file_downloaded",
+    "sha256": "a322fd4bc59e75879e43ae5c1a6a7f8828f6e28b86ec94983f90fdfda4dbf36a",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamlips/>\n<hamtouch/>\n<hamnomotion/>\n<hammoved/>\n<hamshoulders/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalmu/>\n<hamforehead/>\n<hamclose/>\n<hamcircleo/>\n<hamclockl/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "22 আন্তর্জাতিক (International)/অষ্ট্রেলিয়া_Australia.sigml",
+    "sourceName": "অষ্ট্রেলিয়া_Australia.sigml",
+    "category": "22 আন্তর্জাতিক (International)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/2f87ba3d-1c0a-4473-abe9-522185844183/file_downloaded",
+    "sha256": "4cdc7b6126d7842e1c1f027d4e7ab312708da4c8f98079f061385ec78f756b9b",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmlr/>\n<hamflathand/>\n<hambetween/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamextfingero/>\n<hampalmd/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hamarcu/>\n<hamparend/>\n<hamrepeatfromstart/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "23 উৎসব (Festival)/অনুষ্ঠান (Ceremony).sigml",
+    "sourceName": "অনুষ্ঠান (Ceremony).sigml",
+    "category": "23 উৎসব (Festival)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/6b37c42f-16c3-404f-9b21-2d567e3990a6/file_downloaded",
+    "sha256": "97b1ada16ed6ae1a8aef1523e8b10603a25447efa099345d520b8e9446e9e4a9",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamplus/>\n<hamflathand/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hampinky/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovedi/>\n<hamsmallmod/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "23 উৎসব (Festival)/অনুষ্ঠান.sigml",
+    "sourceName": "অনুষ্ঠান.sigml",
+    "category": "23 উৎসব (Festival)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/71e7453b-1983-415f-8ce3-c4eb974b9a1a/file_downloaded",
+    "sha256": "97b1ada16ed6ae1a8aef1523e8b10603a25447efa099345d520b8e9446e9e4a9",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamplus/>\n<hamflathand/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hampinky/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovedi/>\n<hamsmallmod/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "23 উৎসব (Festival)/প্রোগ্রাম (Ceremony).sigml",
+    "sourceName": "প্রোগ্রাম (Ceremony).sigml",
+    "category": "23 উৎসব (Festival)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/8197ef5b-fb43-41f5-b563-52aab51a6856/file_downloaded",
+    "sha256": "97b1ada16ed6ae1a8aef1523e8b10603a25447efa099345d520b8e9446e9e4a9",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamparbegin/>\n<hamflathand/>\n<hamfingerstraightmod/>\n<hamplus/>\n<hamflathand/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hampinky/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshouldertop/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammovedi/>\n<hamsmallmod/>\n<hamplus/>\n<hamnomotion/>\n<hamparend/>\n<hamnomotion/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingermidjoint/>\n<hampinky/>\n<hamparend/>\n<hamtouch/>\n<hamshoulders/>\n<hamclose/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "24 গুরুত্বপূর্ণ স্থান (Important Places)/আই এম এফ (IMF).sigml",
+    "sourceName": "আই এম এফ (IMF).sigml",
+    "category": "24 গুরুত্বপূর্ণ স্থান (Important Places)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/f5d7c6d5-fad3-4604-8a4b-ff58218e14de/file_downloaded",
+    "sha256": "19e48d12cb560e05eeab93668573bae6ab152450c23198093662a98a27ce0f98",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamparbegin/>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamplus/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingero/>\n<hampalml/>\n<hamplus/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingero/>\n<hampalmr/>\n<hamparend/>\n<hamparbegin/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamplus/>\n<hamfingerpad/>\n<hamindexfinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamparbegin/>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamindexfinger/>\n<hammiddlefinger/>\n<hamringfinger/>\n<hamplus/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamparend/>\n<hamparbegin/>\n<hamextfingeru/>\n<hambetween/>\n<hamextfingerl/>\n<hampalmd/>\n<hamplus/>\n<hamextfingero/>\n<hampalmr/>\n<hambetween/>\n<hampalmu/>\n<hamparend/>\n<hamparbegin/>\n<hampalm/>\n<hamplus/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamparbegin/>\n<hamextfingerl/>\n<hampalmd/>\n<hamplus/>\n<hamextfingero/>\n<hampalmd/>\n<hamparend/>\n<hamparbegin/>\n<hamfingermidjoint/>\n<hammiddlefinger/>\n<hamhandback/>\n<hamplus/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamparend/>\n<hamtouch/>\n<hamlrat/>\n<hamchest/>\n<hamclose/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "25 পরিবার ও আত্মীয় (Family and Relatives)/অতিথি (Guest).sigml",
+    "sourceName": "অতিথি (Guest).sigml",
+    "category": "25 পরিবার ও আত্মীয় (Family and Relatives)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/fe6824c5-aa9c-4d14-aee6-0063ee0c4ab8/file_downloaded",
+    "sha256": "27c556f33a38a967b8234fcffbf7d3ad9324f3218f0a4b9ace600d76c50f10e1",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmul/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmur/>\n<hamparend/>\n<hamparbegin/>\n<hamshouldertop/>\n<hamlrat/>\n<hamplus/>\n<hamchest/>\n<hamparend/>\n<hamparbegin/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hammoved/>\n<hamsmallmod/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmu/>\n<hamparend/>\n<hamplus/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingeror/>\n<hampalmu/>\n<hamparend/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "25 পরিবার ও আত্মীয় (Family and Relatives)/মেহমান (Guest).sigml",
+    "sourceName": "মেহমান (Guest).sigml",
+    "category": "25 পরিবার ও আত্মীয় (Family and Relatives)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/14ac4310-43ca-4d3b-82c2-9b31d72f25c1/file_downloaded",
+    "sha256": "27c556f33a38a967b8234fcffbf7d3ad9324f3218f0a4b9ace600d76c50f10e1",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamsymmpar/>\n<hamflathand/>\n<hamparbegin/>\n<hamextfingeru/>\n<hampalmul/>\n<hamplus/>\n<hamextfingerur/>\n<hampalmur/>\n<hamparend/>\n<hamparbegin/>\n<hamshouldertop/>\n<hamlrat/>\n<hamplus/>\n<hamchest/>\n<hamparend/>\n<hamparbegin/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hammoved/>\n<hamsmallmod/>\n<hamreplace/>\n<hamextfingerl/>\n<hampalmu/>\n<hamparend/>\n<hamplus/>\n<hamparbegin/>\n<hammovedl/>\n<hamlargemod/>\n<hamreplace/>\n<hamextfingeror/>\n<hampalmu/>\n<hamparend/>\n<hamparend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "26 পেশা (Profession)/অধিনায়ক (Captain).sigml",
+    "sourceName": "অধিনায়ক (Captain).sigml",
+    "category": "26 পেশা (Profession)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/02a91816-9c88-452f-8543-111cf991efba/file_downloaded",
+    "sha256": "951b8c6874e144a6ab46e6a2df764c91a1a9033dbcfbb9bc38755680a59f7144",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamcee12/>\n<hamextfingerl/>\n<hampalml/>\n<hamshoulders/>\n<hambetween/>\n<hamlrbeside/>\n<hamshoulders/>\n<hamseqbegin/>\n<hamtouch/>\n<hampalm/>\n<hamseqend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "26 পেশা (Profession)/ক্যাপ্টেন (Captain).sigml",
+    "sourceName": "ক্যাপ্টেন (Captain).sigml",
+    "category": "26 পেশা (Profession)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/e21fe41b-e94e-48d1-a1c8-bda87b9ea40f/file_downloaded",
+    "sha256": "951b8c6874e144a6ab46e6a2df764c91a1a9033dbcfbb9bc38755680a59f7144",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n\n</hamnosys_nonmanual>\n\n<hamnosys_manual>\n\n<hamcee12/>\n<hamextfingerl/>\n<hampalml/>\n<hamshoulders/>\n<hambetween/>\n<hamlrbeside/>\n<hamshoulders/>\n<hamseqbegin/>\n<hamtouch/>\n<hampalm/>\n<hamseqend/>\n</hamnosys_manual>\n\n</hns_sign>\n\n</sigml>\n"
+  },
+  {
+    "sourcePath": "27 সামাজিক কাজ (Social Work)/আকিকা_Newborn naming ceremony.sigml",
+    "sourceName": "আকিকা_Newborn naming ceremony.sigml",
+    "category": "27 সামাজিক কাজ (Social Work)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/efc23f34-d320-4ab1-9c99-9ee5f0ef60e9/file_downloaded",
+    "sha256": "4bc93edb10a9a6339bfa4a925b0f773df6a610d180938998fa154fd1febae3cb",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamflathand/>\n<hambetween/>\n<hamflathand/>\n<hamfingerbendmod/>\n<hamextfingero/>\n<hampalmu/>\n<hamshoulders/>\n<hambetween/>\n<hamshoulders/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hammoveo/>\n<hamsmallmod/>\n<hamslow/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamextfingerl/>\n<hambetween/>\n<hamextfingeril/>\n<hampalmr/>\n<hamlrat/>\n<hamshoulders/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamseqend/>\n<hamnomotion/>\n<hammover/>\n<hamslow/>\n<hamshoulders/>\n<hamlrat/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hammiddlefinger/>\n<hamseqend/>\n<hamnomotion/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamsymmlr/>\n<hamceeall/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamparbegin/>\n<hamshoulders/>\n<hamclose/>\n<hamplus/>\n<hamshoulders/>\n<hamclose/>\n<hamparend/>\n<hamparbegin/>\n<hamcirclel/>\n<hamplus/>\n<hamcircler/>\n<hamparend/>\n<hamrepeatfromstartseveral/>\n</hamnosys_manual>\n</hns_sign>\n</sigml>\n"
+  },
+  {
+    "sourcePath": "Sentence Sentence (Unknown)/আগামীকাল সকালে পররাষ্ট্রমন্ত্রী চীন সফরে যাবেন.sigml",
+    "sourceName": "আগামীকাল সকালে পররাষ্ট্রমন্ত্রী চীন সফরে যাবেন.sigml",
+    "category": "Sentence Sentence (Unknown)",
+    "sourceUrl": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/808ba05f-1d41-4efc-ae0d-bddb3d099da0/file_downloaded",
+    "sha256": "0548a29664bad6e249737821dd8d2c1d285f6aa16821416910cef7228ecaaf98",
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sigml>\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingeri/>\n<hampalmd/>\n<hamcheek/>\n<hamtouch/>\n\n<hamparbegin/>\n<hamparbegin/>\n<hammoveo/>\n<hamcirclel/>\n\n<hamsmallmod/>\n<hamfast/>\n<hamrepeatfromstart/>\n<hamparend/>\n<hamreplace/>\n<hamextfingerul/>\n<hampalml/>\n<hamparend/>\n</hamnosys_manual>\n</hns_sign>\n\n\n\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hampinchall/>\n<hambetween/>\n<hampinchall/>\n<hamfingerstraightmod/>\n<hamextfingeru/>\n<hampalml/>\n<hamcheek/>\n<hamseqbegin/>\n<hamtouch/>\n<hamindexfinger/>\n<hamseqend/>\n<hamnomotion/>\n<hamparbegin/>\n<hammover/>\n<hamsmallmod/>\n<hamreplace/>\n<hamfinger2345/>\n<hamfingerhookmod/>\n<hamthumboutmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hamextfingerur/>\n<hampalmu/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n\n\n\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumboutmod/>\n<hampinky/>\n<hamextfingero/>\n<hampalmd/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n<hamparbegin/>\n<hammoveo/>\n<hammoveuo/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2345/>\n<hamthumboutmod/>\n<hambetween/>\n<hamfinger2345/>\n<hamfingerhookmod/>\n<hamthumboutmod/>\n<hamextfingerol/>\n<hampalmd/>\n<hamlrat/>\n<hamshoulders/>\n<hamclose/>\n<hammoved/>\n<hamparbegin/>\n<hammoveur/>\n<hamreplace/>\n<hamextfingero/>\n<hamparend/>\n<hammoved/>\n<hammoveur/>\n<hammoved/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger2/>\n<hamthumbacrossmod/>\n<hamfingerhookmod/>\n<hamextfingerul/>\n<hampalml/>\n<hamchin/>\n<hamseqbegin/>\n<hamclose/>\n<hamfingertip/>\n<hamindexfinger/>\n<hamseqend/>\n<hamparbegin/>\n<hammoveu/>\n<hamarcu/>\n<hamreplace/>\n<hamextfingerul/>\n<hambetween/>\n<hamextfingerl/>\n<hampalmr/>\n<hamforehead/>\n<hamlrat/>\n<hamseqbegin/>\n<hamtouch/>\n<hamhandback/>\n<hamseqend/>\n<hamparend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n\n\n\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamfinger23/>\n<hamthumbacrossmod/>\n<hamextfingerul/>\n<hampalml/>\n<hamnose/>\n<hamseqbegin/>\n<hamtouch/>\n<hamfingerpad/>\n<hamindexfinger/>\n<hamseqend/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n<hns_sign gloss=\"\">\n<hamnosys_nonmanual>\n</hamnosys_nonmanual>\n<hamnosys_manual>\n<hamcee12/>\n<hamextfingeru/>\n<hampalml/>\n<hamshouldertop/>\n<hamlrat/>\n<hamclose/>\n<hamnomotion/>\n</hamnosys_manual>\n</hns_sign>\n\n\n\n\n<hns_sign gloss=\"ভ্রমণ\">\n                <hamnosys_nonmanual/>\n                <hamnosys_manual>\n                        <hamfinger2/>\n                        <hamthumbacrossmod/>\n                        <hampinky/>\n                        <hamextfingeru/>\n                        <hampalmd/>\n                        <hamheadtop/>\n                        <hambetween/>\n                        <hamhead/>\n                        <hamlrbeside/>\n                        <hamclose/>\n                        <hamcircleu/>\n                        <hamrepeatfromstart/>\n                </hamnosys_manual>\n        </hns_sign>\n\n\n</sigml>\n"
+  }
+]

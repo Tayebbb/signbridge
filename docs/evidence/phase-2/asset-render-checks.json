@@ -1,0 +1,434 @@
+{
+  "checkedAt": "2026-11-03T06:57:16.635Z",
+  "renderer": "cwasa-vhg2026/anna/speed0",
+  "browser": "msedge",
+  "environment": {
+    "platform": "win32",
+    "headless": true,
+    "webgl": "SwiftShader"
+  },
+  "limitation": "Technical rendering only; no linguistic review or comprehension evidence.",
+  "passed": 20,
+  "attempted": 20,
+  "browserErrors": [],
+  "asset_render_checks": [
+    {
+      "assetId": "ik2_02d78b82568d",
+      "labelBn": "অনাবৃষ্টি",
+      "derivedSha256": "4ce3e5ff3bc226889deae26e71f0bf254c3b9365deb202e33f5140d13921ea2b",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 61,
+      "frameEvents": 61,
+      "elapsedMs": 2240,
+      "expectedIds": [
+        "g1_s0a0u0"
+      ],
+      "observedIds": [
+        "g1_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_0548a29664ba",
+      "labelBn": "আগামীকাল সকালে পররাষ্ট্রমন্ত্রী চীন সফরে যাবেন",
+      "derivedSha256": "4a5ec026f99dd550bc02689674c2409b9f062b70bf7516825a755fcf765b64fc",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 8,
+      "frames": 250,
+      "frameEvents": 250,
+      "elapsedMs": 8427,
+      "expectedIds": [
+        "g2_s0a0u0",
+        "g2_s0a0u1",
+        "g2_s0a0u2",
+        "g2_s0a0u3",
+        "g2_s0a0u4",
+        "g2_s0a0u5",
+        "g2_s0a0u6",
+        "g2_s0a0u7"
+      ],
+      "observedIds": [
+        "g2_s0a0u0",
+        "g2_s0a0u1",
+        "g2_s0a0u2",
+        "g2_s0a0u3",
+        "g2_s0a0u4",
+        "g2_s0a0u5",
+        "g2_s0a0u6",
+        "g2_s0a0u7"
+      ]
+    },
+    {
+      "assetId": "ik2_082833e41b63",
+      "labelBn": "অকৃতকার্য",
+      "derivedSha256": "f8ae95860bcb791632dbd36e4b26981e9676a64fd9726a22c2c6998b42793817",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 20,
+      "frameEvents": 20,
+      "elapsedMs": 724,
+      "expectedIds": [
+        "g3_s0a0u0"
+      ],
+      "observedIds": [
+        "g3_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_19e48d12cb56",
+      "labelBn": "আই এম এফ",
+      "derivedSha256": "c4b0d275650dcc1ed13ca2e9ae5e1df14985a5630052a8bbcb1eec33da18382a",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 3,
+      "frames": 60,
+      "frameEvents": 60,
+      "elapsedMs": 2071,
+      "expectedIds": [
+        "g4_s0a0u0",
+        "g4_s0a0u1",
+        "g4_s0a0u2"
+      ],
+      "observedIds": [
+        "g4_s0a0u0",
+        "g4_s0a0u1",
+        "g4_s0a0u2"
+      ]
+    },
+    {
+      "assetId": "ik2_1fb25f90c11e",
+      "labelBn": "আঙুল",
+      "derivedSha256": "22544133be9e540ac9dd7a8b2b3e62f13b157d21cb2b6545aaba59cf40c1f68a",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 28,
+      "frameEvents": 28,
+      "elapsedMs": 995,
+      "expectedIds": [
+        "g5_s0a0u0"
+      ],
+      "observedIds": [
+        "g5_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_27c556f33a38",
+      "labelBn": "অতিথি",
+      "derivedSha256": "fbaf8030729ce1caad24c374e7b935d6f944f77c5d7e824c5d9042071e85e221",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 18,
+      "frameEvents": 18,
+      "elapsedMs": 699,
+      "expectedIds": [
+        "g6_s0a0u0"
+      ],
+      "observedIds": [
+        "g6_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_29be41e5f09d",
+      "labelBn": "আন্তর্জাতিক",
+      "derivedSha256": "15e389d8cf4153af9f7b645ba44b8149dc7e5a63c9c4301101c044f28bd0859b",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 2,
+      "frames": 97,
+      "frameEvents": 97,
+      "elapsedMs": 3340,
+      "expectedIds": [
+        "g7_s0a0u0",
+        "g7_s0a0u1"
+      ],
+      "observedIds": [
+        "g7_s0a0u0",
+        "g7_s0a0u1"
+      ]
+    },
+    {
+      "assetId": "ik2_39136eb55498",
+      "labelBn": "আট",
+      "derivedSha256": "f5885d38737dae4168fc6b9ebb15e3c27788fd92e815dfa5c83c2bdf8c7ce0a6",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 9,
+      "frameEvents": 9,
+      "elapsedMs": 374,
+      "expectedIds": [
+        "g8_s0a0u0"
+      ],
+      "observedIds": [
+        "g8_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_4bc93edb10a9",
+      "labelBn": "আকিকা_Newborn naming ceremony",
+      "derivedSha256": "c9975b65cf4ffbd4ca58ac357ab400bbf780537bac79b63d54ed28e4cd873881",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 3,
+      "frames": 161,
+      "frameEvents": 161,
+      "elapsedMs": 5495,
+      "expectedIds": [
+        "g9_s0a0u0",
+        "g9_s0a0u1",
+        "g9_s0a0u2"
+      ],
+      "observedIds": [
+        "g9_s0a0u0",
+        "g9_s0a0u1",
+        "g9_s0a0u2"
+      ]
+    },
+    {
+      "assetId": "ik2_4cdc7b6126d7",
+      "labelBn": "অষ্ট্রেলিয়া_Australia",
+      "derivedSha256": "5d390142daa93b72c08da7b332a9a2c62e8bd0f0817390358b15b8240eaf69c9",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 42,
+      "frameEvents": 42,
+      "elapsedMs": 1473,
+      "expectedIds": [
+        "g10_s0a0u0"
+      ],
+      "observedIds": [
+        "g10_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_75775630aea1",
+      "labelBn": "কক্সবাজার",
+      "derivedSha256": "f5f8ca932a3339e728084359d398503b34d230443a6e33de1f87b0dcea130154",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 3,
+      "frames": 81,
+      "frameEvents": 81,
+      "elapsedMs": 2785,
+      "expectedIds": [
+        "g11_s0a0u0",
+        "g11_s0a0u1",
+        "g11_s0a0u2"
+      ],
+      "observedIds": [
+        "g11_s0a0u0",
+        "g11_s0a0u1",
+        "g11_s0a0u2"
+      ]
+    },
+    {
+      "assetId": "ik2_836c3627b85d",
+      "labelBn": "অপহরণ",
+      "derivedSha256": "9e9a015f3d4aed01418a92070364478da354fe7e0005cd37161833419243f451",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 20,
+      "frameEvents": 20,
+      "elapsedMs": 727,
+      "expectedIds": [
+        "g12_s0a0u0"
+      ],
+      "observedIds": [
+        "g12_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_9414f7b69505",
+      "labelBn": "অঙ্গহানি",
+      "derivedSha256": "23e867b40c326cdb111758af15832205ab6b92b9139d6e7cdb75da502ab5544e",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 3,
+      "frames": 89,
+      "frameEvents": 89,
+      "elapsedMs": 3038,
+      "expectedIds": [
+        "g13_s0a0u0",
+        "g13_s0a0u1",
+        "g13_s0a0u2"
+      ],
+      "observedIds": [
+        "g13_s0a0u0",
+        "g13_s0a0u1",
+        "g13_s0a0u2"
+      ]
+    },
+    {
+      "assetId": "ik2_951b8c6874e1",
+      "labelBn": "অধিনায়ক",
+      "derivedSha256": "23b4fada9de7870a83ed37fe2563af2524c6e9afb527040d5904644f2c9a0f00",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 9,
+      "frameEvents": 9,
+      "elapsedMs": 377,
+      "expectedIds": [
+        "g14_s0a0u0"
+      ],
+      "observedIds": [
+        "g14_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_97b1ada16ed6",
+      "labelBn": "অনুষ্ঠান",
+      "derivedSha256": "ebcd61b61667113d2789827202ff6374010e86847880e1257acf2f3fd409f290",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 35,
+      "frameEvents": 35,
+      "elapsedMs": 1252,
+      "expectedIds": [
+        "g15_s0a0u0"
+      ],
+      "observedIds": [
+        "g15_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_a322fd4bc59e",
+      "labelBn": "অভিযোগকারী_Complainant",
+      "derivedSha256": "76db8758ee0e2cc5bae05fdf26378672c648b317a057b28c253796bd641ba04e",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 2,
+      "frames": 60,
+      "frameEvents": 60,
+      "elapsedMs": 2101,
+      "expectedIds": [
+        "g16_s0a0u0",
+        "g16_s0a0u1"
+      ],
+      "observedIds": [
+        "g16_s0a0u0",
+        "g16_s0a0u1"
+      ]
+    },
+    {
+      "assetId": "ik2_af561997a76a",
+      "labelBn": "অ",
+      "derivedSha256": "849acc0a56e9143bb60b39df6f0f192e5da8b8f210048a67ac7b96d48f2db24e",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 9,
+      "frameEvents": 9,
+      "elapsedMs": 394,
+      "expectedIds": [
+        "g17_s0a0u0"
+      ],
+      "observedIds": [
+        "g17_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_b6882c7f425a",
+      "labelBn": "অগ্নিশিখা",
+      "derivedSha256": "65e739614dee31eb24ebe844a1806af2fd2b92cd8e7066a59c057696f4582d45",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 2,
+      "frames": 60,
+      "frameEvents": 60,
+      "elapsedMs": 2122,
+      "expectedIds": [
+        "g18_s0a0u0",
+        "g18_s0a0u1"
+      ],
+      "observedIds": [
+        "g18_s0a0u0",
+        "g18_s0a0u1"
+      ]
+    },
+    {
+      "assetId": "ik2_cf2585735455",
+      "labelBn": "অভিশাপ",
+      "derivedSha256": "1bf4cd5b0cc9e34b5eadbbcdb7484461a1726863a60fb0e39a39e6931eac3ffb",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 2,
+      "frames": 44,
+      "frameEvents": 44,
+      "elapsedMs": 1529,
+      "expectedIds": [
+        "g19_s0a0u0",
+        "g19_s0a0u1"
+      ],
+      "observedIds": [
+        "g19_s0a0u0",
+        "g19_s0a0u1"
+      ]
+    },
+    {
+      "assetId": "ik2_dbba3a9e6c3b",
+      "labelBn": "অজগরসাপ",
+      "derivedSha256": "a5a82fa6e9c5cd8a94c2b77f68fac66dab6e809f80870463aeb1f3c70c629c30",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-03T06:57:16.635Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 68,
+      "frameEvents": 68,
+      "elapsedMs": 2334,
+      "expectedIds": [
+        "g20_s0a0u0"
+      ],
+      "observedIds": [
+        "g20_s0a0u0"
+      ]
+    }
+  ]
+}
