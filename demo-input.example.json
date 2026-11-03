@@ -1,0 +1,7 @@
+{
+  "rightsAttested": false,
+  "clips": [
+    {"id":"sample-a","title":"Covered demonstration","video":"sample-a.mp4","captions":"sample-a.srt","durationMs":45000,"width":1280,"height":720,"expectUnsupported":false},
+    {"id":"unsupported-b","title":"Deliberately unsupported concept","video":"unsupported-b.mp4","captions":"unsupported-b.srt","durationMs":15000,"width":1280,"height":720,"expectUnsupported":true}
+  ]
+}

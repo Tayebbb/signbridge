@@ -6,7 +6,8 @@
  const http=await import('node:http');
  const {randomUUID}=await import('node:crypto');
  const list=JSON.parse(await fs.readFile(process.argv[2]||'data/corpus/sample-probe.json','utf8'));
- const checkedAt=new Date().toISOString();
+ if(!Array.isArray(list)||!list.length)throw Error('A nonempty corpus probe input is required');
+ const checkedAt=new Date().toISOString(), evidenceDir=process.argv[3]||'docs/evidence/phase-2';
  const html=await fs.readFile('public/renderer.html');
  const wrapper=await fs.readFile('lib/player/rendererFrame.js');
  const csp="default-src 'none'; script-src 'self' https://vhg.cmp.uea.ac.uk; script-src-attr 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://vhg.cmp.uea.ac.uk; connect-src 'self' https://vhg.cmp.uea.ac.uk; img-src https://vhg.cmp.uea.ac.uk blob: data:; worker-src blob:; frame-ancestors 'self'";
@@ -32,7 +33,7 @@
   },{instanceId,origin});
   await page.waitForFunction(()=>window.probe.events.some(e=>e.type==='avatarready'),null,{timeout:60000});
  };
- await fs.mkdir('docs/evidence/phase-2',{recursive:true});
+ await fs.mkdir(evidenceDir,{recursive:true});
  try{
   await reset();
   for(let i=0;i<list.length;i++){
@@ -48,8 +49,8 @@
    const frameEvents=events.filter(e=>e.type==='avatarframe').length;
    const passed=!timedOut&&loaded?.s===item.unitCount&&loaded?.f>0&&frameEvents>0&&JSON.stringify(observed)===JSON.stringify(expected)&&!events.some(e=>e.type==='cspviolation');
    const check={assetId:item.assetId,labelBn:item.labelBn,derivedSha256:item.derivedSha256,rendererProfile:'cwasa-vhg2026/anna/speed0',checkedAt,passed,timedOut,signs:loaded?.s??0,frames:loaded?.f??0,frameEvents,elapsedMs:Date.now()-started,expectedIds:expected,observedIds:observed};checks.push(check);
-   if(i===0||i===list.length-1)await page.screenshot({path:`docs/evidence/phase-2/corpus-${i+1}.png`});
-   await fs.writeFile('docs/evidence/phase-2/asset-render-checks.json',JSON.stringify({checkedAt,renderer:'cwasa-vhg2026/anna/speed0',browser:edge?'msedge':'chromium',environment:{platform:process.platform,headless:true,webgl:'SwiftShader'},limitation:'Technical rendering only; no linguistic review or comprehension evidence.',passed:checks.filter(c=>c.passed).length,attempted:checks.length,browserErrors:errors,asset_render_checks:checks},null,2)+'\n');
+   if(i===0||i===list.length-1)await page.screenshot({path:`${evidenceDir}/corpus-${i+1}.png`});
+   await fs.writeFile(`${evidenceDir}/asset-render-checks.json`,JSON.stringify({checkedAt,renderer:'cwasa-vhg2026/anna/speed0',browser:edge?'msedge':'chromium',environment:{platform:process.platform,headless:true,webgl:'SwiftShader'},limitation:'Technical rendering only; no linguistic review or comprehension evidence.',passed:checks.filter(c=>c.passed).length,attempted:checks.length,browserErrors:errors,asset_render_checks:checks},null,2)+'\n');
    console.log(JSON.stringify({item:i+1,assetId:item.assetId,passed,signs:check.signs,frames:check.frames}));
    if(!passed&&i<list.length-1)await reset();
   }

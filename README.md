@@ -82,3 +82,9 @@ Corrections stop affected signing before the request and preserve drafts on vers
 Evidence categories: technical renderability = 20/20 sampled files on one Windows host in headless Edge with software WebGL, plus the documented multi-unit Chromium/Edge fixture. Linguistic correctness = none. User comprehension = none. Captions, context and title go to OpenAI for real processing; `store:false` does not mean no provider retention.
 
 Feature freeze cuts optional anchors, learner pace presets, simultaneous overlay, embeddings and ASR. Deployment/content and fixes remain; the sticker is blocked, not cut. See `docs/phase-reports/phase-6.md` and `docs/DEVIATIONS.md`.
+
+## Production preparation (Phase 7 gate still open)
+
+See `docs/PRODUCTION-RUNBOOK.md`, `docs/MOBILE-TEST.md` and `docs/UEA-FALLBACK-CAPTURE.md`. `npx tsx scripts/seed-demo.ts --help` describes the dry-first content tool. Copy `demo-input.example.json` into ignored `demo-input/demo.json` only after supplying permitted real files and measured metadata. Apply requires explicit owner approval, an approved deployment/Neon URL and bounded SQL budgets; it never raises caps and does not automatically retry paid failures. Private owner/checkpoint data stays under ignored `.data`.
+
+The probe accepts a second positional evidence directory: `npm run corpus:probe -- .data/phase7-probe.json docs/evidence/phase-7`. Import Phase 7 checks with `npm run corpus:import -- --checks docs/evidence/phase-7/asset-render-checks.json --output-dir .data/phase7-corpus --evidence-dir docs/evidence/phase-7`; this preserves original corpus files, fixtures and earlier evidence. No curated demo selection or production result exists until the real inputs and approval arrive. Phase 8 remains gated.

@@ -57,15 +57,16 @@ async function main() {
   const checksPath=args.includes("--checks")?args[args.indexOf("--checks")+1]:null;
   const checks=checksPath?(JSON.parse(await readFile(checksPath,"utf8")) as {asset_render_checks:AssetRenderCheck[]}).asset_render_checks:[];
   const corpus=importCorpus(inputs,checks);
-  await mkdir("data/corpus",{recursive:true});await mkdir("docs/evidence/phase-2",{recursive:true});await mkdir("tests/fixtures",{recursive:true});
-  await writeFile("data/corpus/assets.json",JSON.stringify(corpus,null,2)+"\n");
-  await writeFile("data/corpus/seed.sql",corpusSeedSql(corpus));
+  const outputDir=args.includes("--output-dir")?args[args.indexOf("--output-dir")+1]:"data/corpus",evidenceDir=args.includes("--evidence-dir")?args[args.indexOf("--evidence-dir")+1]:"docs/evidence/phase-2";
+  await mkdir(outputDir,{recursive:true});await mkdir(evidenceDir,{recursive:true});await mkdir("tests/fixtures",{recursive:true});
+  await writeFile(`${outputDir}/assets.json`,JSON.stringify(corpus,null,2)+"\n");
+  await writeFile(`${outputDir}/seed.sql`,corpusSeedSql(corpus));
   const sampleIds=new Set(samples.map(s=>`ik2_${s.sha256.slice(0,12)}`));
   const probe=corpus.assets.filter(a=>sampleIds.has(a.id)).map(a=>({assetId:a.id,labelBn:a.labelBn,derivedSha256:a.derivedSha256,unitCount:a.unitCount,xml:buildSigml(0,[{stepIdx:0,derivedSigml:a.derivedSigml,unitCount:a.unitCount}]).text}));
-  await writeFile("data/corpus/sample-probe.json",JSON.stringify(probe,null,2)+"\n");
-  await writeFile("tests/fixtures/corpus-samples.json",JSON.stringify(inputs.filter(i=>sampleIds.has(`ik2_${i.sha256.slice(0,12)}`)),null,2)+"\n");
+  await writeFile(`${outputDir}/sample-probe.json`,JSON.stringify(probe,null,2)+"\n");
+  if(!args.includes("--output-dir"))await writeFile("tests/fixtures/corpus-samples.json",JSON.stringify(inputs.filter(i=>sampleIds.has(`ik2_${i.sha256.slice(0,12)}`)),null,2)+"\n");
   const summary={files:corpus.files,distinctHashes:corpus.distinctHashes,assets:corpus.assets.length,aliases:corpus.aliases.length,units:corpus.assets.reduce((s,a)=>s+a.unitCount,0),eligible:corpus.assets.filter(a=>a.eligible).length,manifestSha256:corpus.release.manifestSha256,rejected:corpus.rejected};
-  await writeFile("docs/evidence/phase-2/import.json",JSON.stringify(summary,null,2)+"\n");console.log(JSON.stringify({...summary,rejected:summary.rejected.length}));
+  await writeFile(`${evidenceDir}/import.json`,JSON.stringify(summary,null,2)+"\n");console.log(JSON.stringify({...summary,rejected:summary.rejected.length}));
   if(corpus.rejected.length)console.warn("Rejected unsafe/malformed assets are excluded; inspect import evidence.");
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)await main();

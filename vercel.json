@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["iad1"],
   "crons": [{"path":"/api/cron/reconcile","schedule":"0 18 * * *"}],
   "functions": {"app/api/**/route.ts":{"maxDuration":300},"app/.well-known/workflow/**/route.js":{"maxDuration":300}}
 }

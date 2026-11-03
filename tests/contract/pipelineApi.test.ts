@@ -18,6 +18,7 @@ import {reconcile} from "@/lib/ops/reconcile";
 import {configureBudgets} from "@/lib/db/queries/spend";
 import {stageAttemptsFor,loadJob,ensureOwner} from "@/lib/db/queries/api";
 import {asset} from "../fixtures/domain";
+import {pinDemo} from "@/lib/db/queries/demo";
 let db:Database,root:string,blobs:LocalSignedBlobs,pipeline:Pipeline,model:FakeModelClient,api:ReturnType<typeof makeApi>,cookie:string;
 let deferred:(()=>Promise<void>)[]=[];
 beforeAll(async()=>{db=await createDatabase();await db.migrate();await mkdir(".data",{recursive:true});root=await mkdtemp(resolve(".data","phase4-api-"));blobs=new LocalSignedBlobs(root);});
@@ -179,4 +180,17 @@ test("Environment processing switch fences a queued job before a model call",asy
 test("H7 long-running jobs alert even when their heartbeat is fresh",async()=>{
  const f=await project(),{jobId}=await start(f);await claimPipeline(pipeline,jobId,'metric-fixture-run');await db.state.query(sql`UPDATE jobs SET created_at=now()-interval '11 minutes',heartbeat_at=now() WHERE id=${jobId}`);
  const response=await request('adminStatus','/admin','GET',undefined,{},{authorization:'Bearer fixture-admin'});expect(response.status).toBe(200);const metrics=await response.json();expect(metrics.alerts).toContain('stalled_job');expect(metrics.warningCounts.stalled).toBe(1);
+});
+
+test("Phase 7 demo pinning rejects fake results, foreign ownership and wrong coverage; accepted pinning is idempotent",async()=>{
+ const fake=await project();await start(fake);await drain();const ownerId=(await loadJob(db.state,(await db.state.query<{id:string}>(sql`SELECT id FROM jobs WHERE project_id=${fake.projectId}`))[0].id)).project.owner_id;
+ const input={projectId:fake.projectId,ownerId,sha256:'a'.repeat(64),expectUnsupported:false};await expect(pinDemo(db.state,input)).rejects.toMatchObject({code:'demo_requires_real_model'});
+ // Injected offline OpenAI-shaped transport: this checks SQL policy, not a real API call.
+ pipeline.model={kind:'openai',respond:request=>model.respond(request)};
+ const real=await project();await start(real);await drain();const realInput={...input,projectId:real.projectId};
+ await expect(pinDemo(db.state,{...realInput,ownerId:randomUUID()})).rejects.toMatchObject({code:'demo_not_ready'});
+ await expect(pinDemo(db.state,{...realInput,sha256:'b'.repeat(64)})).rejects.toMatchObject({code:'demo_binding_mismatch'});
+ await expect(pinDemo(db.state,{...realInput,expectUnsupported:true})).rejects.toMatchObject({code:'demo_coverage_mismatch'});
+ const before=await db.state.query(sql`SELECT committed_bytes FROM storage_ledger`),pinned=await pinDemo(db.state,realInput);expect(pinned.pinnedMedia).toBe(1);expect(await pinDemo(db.state,realInput)).toEqual(pinned);expect(await db.state.query(sql`SELECT committed_bytes FROM storage_ledger`)).toEqual(before);
+ const gap=await project('আমি আসবে না।');await start(gap);await drain();await expect(pinDemo(db.state,{...input,projectId:gap.projectId,expectUnsupported:true})).resolves.toMatchObject({technicalStatus:'partial',pinnedMedia:1});
 });
