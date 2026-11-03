@@ -1,10 +1,10 @@
 # Phase 7 deployment and verification
 
-Prepared 2026-11-03, Asia/Dhaka. Status: BLOCKED pending owner approval and demo inputs. No credential, Vercel environment value, remote migration, model call or deployment has been used. Phase 6 is `093afbf`, tag `phase-6`; Phase 8 stays unstarted until this full gate passes.
+Prepared 2026-11-03, Asia/Dhaka. Status: BLOCKED for real-model production gates under the owner-directed USD 0 ceiling, with accounts and demo inputs unavailable. No credential, Vercel environment value, remote migration, model call or deployment has been used. Phase 6 is `093afbf`, tag `phase-6`; Phase 8 stays unstarted until this full gate passes.
 
 ## Required owner inputs
 
-- Approve credential use and all named Vercel settings below; identify the Vercel account/team/project, Neon project and approved total OpenAI ceiling for preview + production + redeploy checks. Proposed combined Phase 7 ceiling: USD 4, within the design's USD 5/day and USD 19 lifetime caps. Branch ledgers are separate: keep an additional combined spend record; never treat two branch caps as one global cap.
+- Owner requires everything free: current approved spending ceiling is USD 0. Do not execute real OpenAI processing or any chargeable deployment operation. The former USD 4 proposal is not approved. Free-tier accounts/projects and credential locations are unidentified; the secret/settings approval boundary still applies. Local labelled fake-model checks remain usable, but cannot satisfy real-model production gates. Branch ledgers are separate; never add their allowances as though they were one global cap.
 - Supply a local directory of permitted MP4/WebM and matching SRT/VTT, plus rights attestation. `demo-input.example.json` is a schema example, not real content. Copy to ignored `demo-input/demo.json`, set measured video metadata and real relative filenames. Sample A for T1 must be 45 seconds / six deterministic segments. Include a second demo with a deliberately unsupported critical concept; no hand-edited plan.
 - Official sticker remains missing by owner confirmation. Keep the explicit placeholder; install only the supplied official file at `public/event-sticker.png` when available. Do not synthesize or imitate it.
 
