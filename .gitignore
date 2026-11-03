@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.data/
+.vercel/
+.env*
+!.env.example
+demo-input/
+playwright-report/
+test-results/
+*.tsbuildinfo
+coverage/
+.codebase-memory/

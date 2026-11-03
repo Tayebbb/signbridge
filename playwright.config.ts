@@ -1,0 +1,11 @@
+import { defineConfig, devices } from "@playwright/test";
+import { existsSync } from "node:fs";
+const edgeAvailable = existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe") || existsSync("C:/Program Files/Microsoft/Edge/Application/msedge.exe");
+export default defineConfig({
+  testDir: "./tests/e2e", timeout: 120_000, workers: 1, retries: 0,
+  reporter: [["list"], ["json", { outputFile: "docs/evidence/playwright-results.json" }]],
+  use: { baseURL: "http://127.0.0.1:43181", viewport: { width: 1400, height: 1100 },
+    launchOptions: { args: ["--use-angle=swiftshader", "--enable-webgl", "--enable-unsafe-swiftshader"] } },
+  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }, ...(edgeAvailable ? [{ name: "msedge", use: { ...devices["Desktop Edge"], channel: "msedge" } }] : [])],
+  webServer: { command: "npm run build && npm run start -- --port 43181", url: "http://127.0.0.1:43181/api/health", reuseExistingServer: false, timeout: 120_000 },
+});

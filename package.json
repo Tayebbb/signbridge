@@ -1,0 +1,48 @@
+{
+  "name": "signbridge",
+  "version": "0.1.0",
+  "description": "SignBridge experimental technical foundation",
+  "scripts": {
+    "dev": "npm run prepare:renderer && next dev --hostname 127.0.0.1",
+    "build": "npm run prepare:renderer && next build",
+    "start": "next start --hostname 127.0.0.1",
+    "prepare:renderer": "node scripts/prepare-renderer.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "check:secrets": "node scripts/check-secrets.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.14",
+    "@neondatabase/serverless": "^1.2.0",
+    "drizzle-orm": "^0.45.4",
+    "next": "^16.4.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "ws": "^8.22.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.4",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  },
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "source": "E:/AIgnite-Lab/research/2026-11-03-signbridge/system-design-review/cross-file-case-1.sigml",
+  "sourceSha256": "ae8408655712a5d8f32667cfb8408e27816ad71541b8e591ee7a5b812bb34128",
+  "derivedSha256": "adc14d77190bf035cc03af9cb56dcd824728e6025c44b1708502c6838ba06b7b",
+  "transformation": "gloss attribute values converted to lowercase only",
+  "license": "CC BY 4.0",
+  "provenance": [
+    {
+      "name": "অঙ্গহানি (Amputation).sigml",
+      "source_url": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/409a249f-6326-4926-aac7-1777a0f25157/file_downloaded",
+      "original_sha256": "9414f7b69505a354a9f844ea32e5ab989640676cbad362d95bc1059a7eae8e87",
+      "signUnits": 3
+    },
+    {
+      "name": "অজগরসাপ (Python).sigml",
+      "source_url": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/9a56f996-8e61-4bab-b927-15cd657f3cea/file_downloaded",
+      "original_sha256": "dbba3a9e6c3bf63ae2cfc4c8502a69ff1ff0261e416f456a7ce2642c3cb55b51",
+      "signUnits": 1
+    },
+    {
+      "name": "অ.sigml",
+      "source_url": "https://data.mendeley.com/public-files/datasets/6ykgx65ks5/files/a27d138c-fbbe-4c96-9285-9af86b95acbf/file_downloaded",
+      "original_sha256": "af561997a76a49ac7058ff5d1720a741e83fa30785c2a5c67ebdf56f8e493a41",
+      "signUnits": 1
+    }
+  ],
+  "limitation": "Unrelated corpus entries; technical rendering only; no linguistic review or comprehension evidence."
+}
