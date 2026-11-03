@@ -1,10 +1,11 @@
 import {localBlobs} from "../storage/urls";
+import {requestOrigin} from "./origin";
 export async function localBlob(request:Request){return handleLocalBlob(request,localBlobs());}
 export async function handleLocalBlob(request:Request,blobs:ReturnType<typeof localBlobs>){
   if(process.env.VERCEL||process.env.BLOB_DRIVER==="vercel")return new Response(null,{status:404});
   try{const operation=request.method==="PUT"?"put":"get",cap=blobs.verify(new URL(request.url).searchParams.get("cap")??"",operation);
     if(operation==="put"){
-      if(request.headers.get("origin")!==new URL(request.url).origin)return new Response(null,{status:403});
+      if(request.headers.get("origin")!==requestOrigin(request))return new Response(null,{status:403});
       if(request.headers.get("content-type")!==cap.contentType||!cap.maximumSizeInBytes)return new Response(null,{status:422});
       const reader=request.body?.getReader();if(!reader)return new Response(null,{status:400});let length=0;const chunks:Uint8Array[]=[];
       for(;;){const r=await reader.read();if(r.done)break;length+=r.value.byteLength;if(length>cap.maximumSizeInBytes){await reader.cancel();return new Response(null,{status:413});}chunks.push(r.value);}

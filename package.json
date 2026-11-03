@@ -18,7 +18,8 @@
     "corpus:import": "tsx scripts/corpus-import.ts",
     "corpus:probe": "node scripts/corpus-render-probe.cjs",
     "test:race:native": "vitest run --config vitest.native.config.ts",
-    "db:seed:local": "tsx scripts/seed-local.ts"
+    "db:seed:local": "tsx scripts/seed-local.ts",
+    "test:workspace": "playwright test --config playwright.workspace.config.ts"
   },
   "keywords": [],
   "author": "",

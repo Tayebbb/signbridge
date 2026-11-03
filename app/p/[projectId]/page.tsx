@@ -1,1 +1,2 @@
-export default function PendingWorkspace() { return <p>TODO(phase-3): project workspace is not available in this foundation build.</p>; }
+import Workspace from "@/app/components/Workspace";
+export default async function ProjectPage({params}:{params:Promise<{projectId:string}>}){const {projectId}=await params;return <Workspace projectId={projectId} />;}

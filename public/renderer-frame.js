@@ -12,7 +12,7 @@
   addEventListener("message", async e => {
     if (e.source !== parent || e.origin !== parentOrigin || !e.data || e.data.instanceId !== instanceId) return;
     const command = e.data;
-    if (command.type === "play" && !busy && Number.isSafeInteger(command.gen) && command.gen > gen && typeof command.sigml === "string" && command.sigml.length <= 30_000) {
+    if (command.type === "play" && !busy && Number.isSafeInteger(command.gen) && command.gen > gen && typeof command.sigml === "string" && command.sigml.length <= 1_000_000) {
       gen = command.gen;
       busy = true;
       CWASA.playSiGMLText(command.sigml, 0);
@@ -24,12 +24,12 @@
     }
   });
   if (typeof CWASA === "undefined") { send("engineerror", { message: "Remote engine did not load" }); return; }
-  for (const type of ["avatarready", "sigmlloaded", "animactive", "animidle", "avatarsign", "avatarframe"]) {
+  for (const type of ["avatarready", "sigmlloaded", "animactive", "animidle", "avatarsign", "avatarframe", "avatarfps"]) {
     CWASA.addHook(type, e => {
       if (type === "animidle") busy = false;
       send(type, e.msg ?? null);
     }, 0);
   }
   CWASA.init({ jasBase: "https://vhg.cmp.uea.ac.uk/tech/jas/vhg2026/", useClientConfig: false, ambIdle: false,
-    avSettings: [{ width: 400, height: 420, avList: "avs", initAv: "anna", ambIdle: false, allowSiGMLText: true, initSiGMLURL: null, initSpeed: 0, rateSpeed: 5 }] });
+    avSettings: [{ width: 400, height: 480, avList: "avs", initAv: "anna", ambIdle: false, allowSiGMLText: true, initSiGMLURL: null, initSpeed: 0, rateSpeed: 5 }] });
 })();

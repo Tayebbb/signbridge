@@ -18,6 +18,7 @@ import {parsePasted} from "../domain/captions/parsePasted";
 import {CaptionError} from "../domain/captions/shared";
 import {editTranscript} from "../domain/transcriptEdits";
 import {createOwnerCapability,hashOwnerToken,OWNER_COOKIE_NAME,ownerCookieHeader} from "../auth/ownerCookie";
+import {requestOrigin} from "./origin";
 export interface ApiDependencies {
   store:StateStore;blobs:SignedBlobs;processingEnabled:boolean;adminToken?:string;cronSecret?:string;
   dispatcher:()=>Promise<Dispatcher>;defer:(work:()=>Promise<void>)=>void;
@@ -40,8 +41,8 @@ async function body(r:Request){const reader=r.body?.getReader();if(!reader)throw
 export function makeApi(d:ApiDependencies){return async function handle(r:Request,action:Action,params:Record<string,string>={}){
   let projectId:string|undefined;
   try{
-    const mutation=!["GET","HEAD"].includes(r.method),url=new URL(r.url);
-    if(mutation&&r.headers.get("origin")!==url.origin)throw new StateError("forbidden_origin");
+    const mutation=!["GET","HEAD"].includes(r.method);
+    if(mutation&&r.headers.get("origin")!==requestOrigin(r))throw new StateError("forbidden_origin");
     const isAdmin=["adminStatus","killSwitch"].includes(action),isCron=action==="cron";
     if(isAdmin&&!bearer(r,d.adminToken)||isCron&&!bearer(r,d.cronSecret))throw new StateError("unauthorized");
     let ownerId:string|null=null;const token=ownerToken(r);if(token){try{ownerId=await q.ownerForToken(d.store,hashOwnerToken(token));}catch{/* An invalid capability never authorizes access. */}}
@@ -51,7 +52,7 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     let track:Awaited<ReturnType<typeof q.trackRow>>|null=null;
     if(action==="manifest"){track=await q.trackRow(d.store,uuid.parse(params.trackId));projectId=track?.project_id;}
     if(action==="telemetry"){
-      const input=z.strictObject({trackVersionId:uuid,segmentIdx:z.number().int().min(0).max(19),kind:z.enum(["played_complete","played_incomplete","renderer_error","renderer_timeout","stale_message_dropped","retry","skip"]),detail:z.record(z.string().max(40),z.union([z.string().max(200),z.number().finite(),z.boolean(),z.null()])),uaClass:z.string().max(60)}).parse(await body(r));
+      const input=z.strictObject({trackVersionId:uuid,segmentIdx:z.number().int().min(0).max(19),kind:z.enum(["played_complete","played_incomplete","renderer_error","renderer_timeout","stale_message_dropped","retry","skip","skipped","engine_load_failed"]),detail:z.record(z.string().max(40),z.union([z.string().max(200),z.number().finite(),z.boolean(),z.null()])),uaClass:z.string().max(60)}).parse(await body(r));
       track=await q.trackRow(d.store,input.trackVersionId);if(!track)throw new StateError("not_found");await q.ownedProject(d.store,track.project_id,ownerId);if(!track.manifest.segments.some(s=>s.idx===input.segmentIdx))throw new StateError("not_found");
       await q.recordRenderEvent(d.store,input);return new Response(null,{status:204,headers:{"Cache-Control":"no-store"}});
     }

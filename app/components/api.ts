@@ -1,0 +1,7 @@
+export class RequestError extends Error {constructor(message:string,public readonly code:string,public readonly status:number){super(message);}}
+const messages:Record<string,string>={spend_cap:"Processing budget reached. Saved tracks still replay; a daily limit can be retried tomorrow.",processing_disabled:"Processing is paused. Saved tracks remain available.",version_conflict:"Another edit was saved first. Reload the transcript before editing again.",owner_quota:"Daily processing allowance reached. Try again tomorrow.",storage_cap:"Upload storage is full. Try again after expired media is cleaned up.",transfer_cap:"Source-video viewing is paused by the transfer limit. Captions and signs remain available.",not_found:"This project is unavailable or this browser does not own it.",rate_limited:"Too many requests. Wait a little, then retry."};
+export async function apiRequest<T>(url:string,method="GET",body?:unknown,key?:string):Promise<T>{
+  const response=await fetch(url,{method,cache:"no-store",headers:{...(body===undefined?{}:{"Content-Type":"application/json"}),...(method!=="GET"?{"Idempotency-Key":key??crypto.randomUUID()}:{} )},...(body===undefined?{}:{body:JSON.stringify(body)})});
+  if(!response.ok){let code="network";try{code=(await response.json()).error.code;}catch{}throw new RequestError(messages[code]??"Request could not be completed. Check the connection and retry.",code,response.status);}
+  return response.json() as Promise<T>;
+}

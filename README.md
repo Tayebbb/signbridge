@@ -64,3 +64,9 @@ See `docs/phase-reports/phase-1.md`, `docs/phase-reports/phase-2.md` and `docs/p
 After `npm run db:migrate` and `npm run db:seed:local`, set the nonsecret local `PROCESSING_ENABLED=true` and run `npm run dev`. The route pipeline defaults to a deterministic fake; manifests and cache keys say `fake/…`. Never use a real key without approval. Production requires explicit Neon, private Blob, OpenAI and Workflow adapters; it fails closed if these are absent. Player/workspace UI starts in Phase 5.
 
 Run `npm test`, `npm run test:race:native`, `npm run typecheck`, `npm run lint` and `npm run build`. `npx tsx scripts/phase4-live-smoke.ts` prints the dry-run contract; the real two-segment smoke needs approval, a locally configured key and `--live`, with a USD 0.20 cap. See [Phase 4 evidence](docs/evidence/phase-4/notes.md).
+
+## Creator workspace and player
+
+Create a project on `/`, upload a short MP4/WebM and paste SRT/VTT or timestamped captions, preview/merge/split, then build the companion. The workspace shows technical, source-confirmation and review states separately. Signing waits for each source segment; critical gaps block before play, and incomplete/skip outcomes never count as complete. Pause discards the renderer and Resume starts signing at the first sign. UEA remains a remote runtime dependency.
+
+`npm run test:workspace` runs the dedicated, isolated fake-model browser harness plus real CWASA technical rendering in Chromium/Edge. `npm test` includes the 1,000-interleaving scheduler matrix. See [Phase 5 evidence](docs/evidence/phase-5/notes.md). The sample-project button is a labelled placeholder until Phase 7 verifies demos.

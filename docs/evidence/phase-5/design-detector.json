@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-03",
+  "command": "impeccable detect --json app/page.tsx app/p/[projectId]/page.tsx app/components app/globals.css",
+  "observedWarnings": [
+    {
+      "rule": "side-tab",
+      "file": "app/globals.css",
+      "resolution": "Changed inherited 3px notice border to 1px in the UI fix batch."
+    },
+    {
+      "rule": "overused-font",
+      "file": "app/globals.css",
+      "resolution": "Retained incumbent Arial theme for this scoped feature extension; no visual rebrand was requested."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+"use client";
+import {useCallback,useEffect,useRef,useState} from "react";
+import Link from "next/link";
+import type {PlaybackManifest,CurrentTrackResponse} from "@/lib/contracts/manifest";
+import type {JobProgress} from "@/lib/contracts/progress";
+import type {Cue} from "@/lib/domain/captions/shared";
+import type {Segment} from "@/lib/domain/segmentation";
+import {TrackStore} from "@/lib/player/store";
+import {apiRequest} from "./api";
+import Player from "./Player";
+interface Details {project:{id:string;title:string};currentTranscript:{id:string;cues:Cue[]}|null;segments:(Segment&{sourceCheck:string})[];job:JobProgress|null;trackSummary:{id:string}|null}
+interface Version {transcriptVersion:{id:string;cues:Cue[]};segments:Details["segments"];staleSegments:number[];jobId:string|null}
+async function metadata(file:File){return new Promise<{durationMs:number;width:number;height:number}>((resolve,reject)=>{const url=URL.createObjectURL(file),video=document.createElement("video");const done=()=>{URL.revokeObjectURL(url);video.removeAttribute("src");clearTimeout(timer);};const timer=setTimeout(()=>{done();reject(Error("Video metadata could not be read. Try an MP4 or WebM clip."));},15000);video.preload="metadata";video.onloadedmetadata=()=>{const data={durationMs:Math.ceil(video.duration*1000),width:video.videoWidth,height:video.videoHeight};done();resolve(data);};video.onerror=()=>{done();reject(Error("This browser could not read the clip."));};video.src=url;});}
+export default function Workspace({projectId}:{projectId:string}){
+  const [details,setDetails]=useState<Details|null>(null),[error,setError]=useState(""),[busy,setBusy]=useState(""),[mediaReady,setMediaReady]=useState(false),[job,setJob]=useState<JobProgress|null>(null),[track,setTrack]=useState<{manifest:PlaybackManifest;current:CurrentTrackResponse}|null>(null),[stale,setStale]=useState<number[]>([]);
+  const store=useRef<TrackStore|null>(null);
+  const loadTrack=useCallback(async(signal?:AbortSignal)=>{store.current??=new TrackStore(projectId);const loaded=await store.current.refresh(signal);if(loaded){setTrack({manifest:loaded.manifest,current:loaded.current});if(loaded.changed)setStale([]);}},[projectId]);
+  const reload=useCallback(async()=>{const data=await apiRequest<Details>(`/api/projects/${projectId}`);setDetails(data);setJob(data.job);if(data.trackSummary)await loadTrack();},[projectId,loadTrack]);
+  useEffect(()=>{let active=true;const abort=new AbortController();void apiRequest<Details>(`/api/projects/${projectId}`).then(async data=>{if(!active)return;setDetails(data);setJob(data.job);if(data.trackSummary)await loadTrack(abort.signal);}).catch(e=>{if(active)setError((e as Error).message);});return()=>{active=false;abort.abort();};},[projectId,loadTrack]);
+  const jobId=job?.jobId??null;
+  useEffect(()=>{
+    if(!jobId||!["queued","running"].includes(job?.status??""))return;let cancelled=false,etag:string|null=null,timer:ReturnType<typeof setTimeout>,delay=1500;const controller=new AbortController();
+    const poll=async()=>{try{const response=await fetch(`/api/jobs/${jobId}`,{signal:controller.signal,cache:"no-store",headers:etag?{"If-None-Match":etag}:{}});if(cancelled)return;
+      if(response.status!==304){if(!response.ok)throw Error("Job progress is unavailable. Retry loading this project.");etag=response.headers.get("etag");const next=await response.json() as JobProgress;if(!["queued","running"].includes(next.status)){await loadTrack(controller.signal);setJob(next);return;}setJob(next);}
+      delay=Math.min(5000,delay+500);timer=setTimeout(poll,delay);
+    }catch(e){if(!cancelled){setError((e as Error).message);timer=setTimeout(poll,5000);}}};timer=setTimeout(poll,1500);return()=>{cancelled=true;controller.abort();clearTimeout(timer);};
+  },[jobId,job?.status,loadTrack]);
+  useEffect(()=>{const controller=new AbortController();const timer=setInterval(()=>{if(!document.hidden)void loadTrack(controller.signal).catch(()=>{});},10000);return()=>{clearInterval(timer);controller.abort();};},[loadTrack]);
+  async function run(label:string,work:()=>Promise<void>){setError("");setBusy(label);try{await work();}catch(e){setError((e as Error).message);}finally{setBusy("");}}
+  async function mutateTranscript(input:unknown){const next=await apiRequest<Version>(`/api/projects/${projectId}/transcripts`,"POST",input);setDetails(d=>d?{...d,currentTranscript:next.transcriptVersion,segments:next.segments}:d);if(next.jobId){setStale(next.staleSegments);store.current?.markStale(next.staleSegments);setJob({jobId:next.jobId,status:"queued",transcriptVersionId:next.transcriptVersion.id,segments:[],trackVersionId:null,retryable:false,message:null});}}
+  if(!details)return <section><h1>Creator workspace</h1><p role={error?"alert":"status"}>{error||"Loading your project…"}</p>{error&&<button onClick={()=>void run("Loading…",reload)}>Retry loading</button>}</section>;
+  const processing=job&&["queued","running"].includes(job.status),transcript=details.currentTranscript;
+  return <><div className="workspace-heading"><div><h1>{details.project.title}</h1><p className="field-note">Private creator workspace · keep this browser’s owner cookie to reopen it.</p></div><Link href="/">New project</Link></div>
+    {error&&<div className="error-note" role="alert">{error}</div>}{busy&&<p className="busy-note" role="status">{busy}</p>}
+    {!track&&<section className="upload-section" aria-labelledby="upload-heading"><h2 id="upload-heading">Attach your clip and captions</h2><form onSubmit={e=>{e.preventDefault();const form=e.currentTarget,data=new FormData(form);void run("Uploading clip and saving captions…",async()=>{
+      const file=data.get("clip") as File;if(!file?.size||file.size>15_728_640||!["video/mp4","video/webm"].includes(file.type))throw Error("Choose an MP4 or WebM file up to 15 MB.");
+      const meta=await metadata(file);if(!Number.isFinite(meta.durationMs)||meta.durationMs>90000)throw Error("Choose a clip no longer than 90 seconds.");
+      const sha256=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",await file.arrayBuffer()))).map(n=>n.toString(16).padStart(2,"0")).join("");
+      const init=await apiRequest<{mediaId:string;uploadUrl:string;method:"PUT"}>(`/api/projects/${projectId}/media/init`,"POST",{contentType:file.type,sizeBytes:file.size,sha256,...meta});
+      const uploaded=await fetch(init.uploadUrl,{method:"PUT",headers:{"Content-Type":file.type},body:file});if(!uploaded.ok)throw Error("Clip upload failed. Check the connection and retry.");await apiRequest(`/api/projects/${projectId}/media/finalize`,"POST",{mediaId:init.mediaId});setMediaReady(true);
+      await mutateTranscript({format:String(data.get("format")),text:String(data.get("captions")),...(transcript?{baseVersionId:transcript.id}:{})});
+    });}}>
+      <div className="form-columns"><label>Source video<input name="clip" type="file" accept="video/mp4,video/webm" required disabled={Boolean(busy)||Boolean(processing)} /></label><label>Caption format<select name="format" defaultValue="srt"><option value="srt">SRT</option><option value="vtt">WebVTT</option><option value="pasted">Timestamped lines [mm:ss.mmm]</option></select></label></div>
+      <label>Bangla captions<textarea name="captions" required maxLength={65536} rows={5} placeholder={"1\n00:00:00,000 --> 00:00:02,000\nবাংলা ক্যাপশন"} /></label>
+      <label className="check"><input name="rights" type="checkbox" required />I have permission to use this clip and captions.</label><p className="field-note">Captions are sent to OpenAI when real processing is enabled and may contain personal data. Source media expires after 72 hours; daily cleanup completes within 96 hours. This is an experimental companion, not a reviewed interpretation.</p>
+      <button disabled={Boolean(busy)||Boolean(processing)}>{mediaReady?"Replace clip and captions":"Upload and preview captions"}</button>
+    </form></section>}
+    {transcript&&<details className="transcript-section" open={!track}><summary>Transcript · {details.segments.length} {details.segments.length===1?"segment":"segments"}</summary><p className="field-note">Source confirmation is separate from signing quality.</p>
+      <ol className="transcript-list">{details.segments.map(s=><li key={s.idx}><div className="segment-heading"><strong>Segment {s.idx+1}</strong><span>{(s.startMs/1000).toFixed(1)}–{(s.endMs/1000).toFixed(1)} s</span><span>Source: {s.sourceCheck==="creator_confirmed"?"creator confirmed":"unconfirmed"}</span></div><p lang="bn">{s.sourceText}</p>
+        {!track&&!processing&&<div className="segment-tools"><button className="secondary" disabled={Boolean(busy)||s.idx+1===details.segments.length} onClick={()=>void run("Merging captions…",()=>mutateTranscript({baseVersionId:transcript.id,merge:[s.idx,s.idx+1]}))}>Merge with next</button>{s.cueTo>s.cueFrom&&<label>Split before cue <select aria-label={`Split segment ${s.idx+1}`} defaultValue="" onChange={e=>{const atCueIdx=Number(e.target.value);if(e.target.value)void run("Splitting captions…",()=>mutateTranscript({baseVersionId:transcript.id,split:{segmentIdx:s.idx,atCueIdx}}));}}><option value="">Choose cue</option>{Array.from({length:s.cueTo-s.cueFrom},(_,i)=>s.cueFrom+i+1).map(c=><option key={c} value={c}>Cue {c+1}</option>)}</select></label>}</div>}
+      </li>)}</ol>
+      {!track&&!processing&&<button disabled={Boolean(busy)} onClick={()=>void run("Starting processing…",async()=>{const result=await apiRequest<{jobId:string}>(`/api/projects/${projectId}/jobs`,"POST",{transcriptVersionId:transcript.id});setJob({jobId:result.jobId,status:"queued",transcriptVersionId:transcript.id,segments:[],trackVersionId:null,retryable:false,message:null});})}>Build signing companion</button>}
+    </details>}
+    {job&&<details className="job-section" aria-label="Processing progress" open={Boolean(processing)||job.status==="failed"}><summary>Processing: {job.status}</summary><p role="status">{processing?"Progress updates every 1.5–5 seconds. You can safely reopen this project.":job.message??"Saved results are bound to this transcript version."}</p>{job.segments.length>0&&<ul>{job.segments.map(s=><li key={s.idx}>Segment {s.idx+1} · {s.stage} · {s.state}{s.errorCode?` · ${s.errorCode}`:""}</li>)}</ul>}<div className="button-row">{processing&&<button className="secondary" onClick={()=>void run("Cancelling…",async()=>{await apiRequest(`/api/jobs/${job.jobId}/cancel`,"POST");await reload();})}>Cancel processing</button>}{job.retryable&&<button onClick={()=>void run("Retrying processing…",async()=>{const next=await apiRequest<{jobId:string}>(`/api/jobs/${job.jobId}/retry`,"POST");setJob({...job,jobId:next.jobId,status:"queued"});})}>Retry failed segments</button>}</div></details>}
+    {track&&<><div className="status-dimensions"><span>Technical: {track.manifest.segments.every(s=>s.technicalStatus==="ready")?"ready":"incomplete"}</span><span>Source: {track.current.overlays.sourceChecks.every(s=>s.state==="creator_confirmed")?"creator confirmed":"unconfirmed"}</span><span>Review: not reviewed by a BdSL signer</span><span>{track.manifest.provenance.modelProfile.startsWith("fake/")?"Deterministic fake model fixture":"Model-generated plan"}</span></div><Player manifest={track.manifest} current={track.current} stale={stale} /></>}
+  </>;
+}
