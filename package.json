@@ -16,7 +16,8 @@
     "check:secrets": "node scripts/check-secrets.mjs",
     "corpus:download": "node scripts/download-corpus.mjs",
     "corpus:import": "tsx scripts/corpus-import.ts",
-    "corpus:probe": "node scripts/corpus-render-probe.cjs"
+    "corpus:probe": "node scripts/corpus-render-probe.cjs",
+    "test:race:native": "vitest run --config vitest.native.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -35,12 +36,14 @@
   "devDependencies": {
     "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/ws": "^8.18.2",
     "drizzle-kit": "^0.31.11",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.4",
+    "pg": "^8.23.1",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "vitest": "^5.1.0"

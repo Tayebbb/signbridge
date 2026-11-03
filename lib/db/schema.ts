@@ -34,13 +34,15 @@ export const projects = pgTable("projects", {
   processingEpoch: big("processing_epoch").notNull().default(sql`0`), lockVersion: integer("lock_version").notNull().default(0), createdAt: time("created_at").notNull().defaultNow(),
 }, t => [check("projects_title_check", sql`length(${t.title}) <= 120`)]);
 export const media = pgTable("media", {
+  storageCharge:text("storage_charge").notNull().default("pending"),
   id: uuid("id").primaryKey().defaultRandom(), projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }),
   blobPathname: text("blob_pathname").notNull().unique(), contentType: text("content_type").notNull(), declaredBytes: integer("declared_bytes").notNull(),
   sizeBytes: integer("size_bytes"), clientSha256: text("client_sha256").notNull(), clientDurationMs: integer("client_duration_ms").notNull(), width: integer("width"), height: integer("height"),
   status: mediaStatus("status").notNull().default("pending_upload"), reservationExpiresAt: time("reservation_expires_at").notNull(), expiresAt: time("expires_at").notNull(),
   pinned: boolean("pinned").notNull().default(false), createdAt: time("created_at").notNull().defaultNow(),
-}, t => [check("media_content_type_check", sql`${t.contentType} IN ('video/mp4','video/webm')`), check("media_declared_bytes_check", sql`${t.declaredBytes} BETWEEN 1 AND 15728640`), check("media_client_duration_ms_check", sql`${t.clientDurationMs} <= 90000`)]);
+}, t => [check("media_storage_charge_check",sql`${t.storageCharge} IN ('pending','committed','released')`),check("media_content_type_check", sql`${t.contentType} IN ('video/mp4','video/webm')`), check("media_declared_bytes_check", sql`${t.declaredBytes} BETWEEN 1 AND 15728640`), check("media_client_duration_ms_check", sql`${t.clientDurationMs} <= 90000`)]);
 export const storageLedger = pgTable("storage_ledger", {
+  transferMonth:text("transfer_month").notNull().default("1970-01"),
   id: smallint("id").primaryKey(), capBytes: big("cap_bytes").notNull(), committedBytes: big("committed_bytes").notNull().default(sql`0`), pendingBytes: big("pending_bytes").notNull().default(sql`0`),
   estTransferBytes: big("est_transfer_bytes").notNull().default(sql`0`), transferCapBytes: big("transfer_cap_bytes").notNull(),
 }, t => [check("storage_ledger_id_check", sql`${t.id} = 1`), check("storage_ledger_check", sql`${t.committedBytes} >= 0 AND ${t.pendingBytes} >= 0`)]);
@@ -108,6 +110,13 @@ export const reviews = pgTable("reviews", {
   id: uuid("id").primaryKey().defaultRandom(), trackVersionId: uuid("track_version_id").notNull().references(() => trackVersions.id, { onDelete: "cascade" }), manifestHash: text("manifest_hash").notNull(), rendererProfile: text("renderer_profile").notNull(),
   segmentIdx: integer("segment_idx"), reviewerRef: text("reviewer_ref").notNull(), verdict: reviewVerdict("verdict").notNull(), notes: text("notes"), createdAt: time("created_at").notNull().defaultNow(),
 });
+// Phase 3 additive journals; original C.2 constraints remain unchanged.
+export const ownerDailyQuotas=pgTable("owner_daily_quotas",{
+  ownerId:uuid("owner_id").notNull().references(()=>owners.id,{onDelete:"cascade"}),dayScope:text("day_scope").notNull(),freshClips:integer("fresh_clips").notNull().default(0),replannedSegments:integer("replanned_segments").notNull().default(0),
+},t=>[primaryKey({columns:[t.ownerId,t.dayScope]}),check("owner_quota_fresh_check",sql`${t.freshClips} BETWEEN 0 AND 3`),check("owner_quota_replan_check",sql`${t.replannedSegments} BETWEEN 0 AND 10`)]);
+export const anchorStorage=pgTable("anchor_storage",{
+  anchorId:uuid("anchor_id").primaryKey().references(()=>visualAnchors.id,{onDelete:"cascade"}),declaredBytes:integer("declared_bytes").notNull(),sizeBytes:integer("size_bytes"),state:text("state").notNull().default("pending_upload"),reservationExpiresAt:time("reservation_expires_at").notNull(),
+},t=>[check("anchor_declared_bytes_check",sql`${t.declaredBytes} BETWEEN 1 AND 300000`),check("anchor_size_bytes_check",sql`${t.sizeBytes} IS NULL OR ${t.sizeBytes} BETWEEN 1 AND ${t.declaredBytes}`),check("anchor_state_check",sql`${t.state} IN ('pending_upload','ready','deleting')`)]);
 export const renderEvents = pgTable("render_events", {
   id: bigserial("id", { mode: "bigint" }).primaryKey(), trackVersionId: uuid("track_version_id").references(() => trackVersions.id, { onDelete: "cascade" }), segmentIdx: integer("segment_idx"), kind: text("kind").notNull(), detail: jsonb("detail"), uaClass: text("ua_class"), createdAt: time("created_at").notNull().defaultNow(),
 });

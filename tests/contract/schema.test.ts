@@ -14,6 +14,7 @@ beforeAll(async () => {
   const sql = section.match(/```sql\r?\n([\s\S]*?)```/)?.[1];
   if (!sql) throw new Error("Design C.2 SQL missing");
   await reference.exec(sql);
+  await reference.exec(await readFile("tests/fixtures/phase-3-schema.sql","utf8"));
 });
 afterAll(async () => { await database?.close(); await reference?.close(); });
 
@@ -24,10 +25,10 @@ async function sameCatalog(query: string) {
   expect(actual).toEqual(expected);
   return actual;
 }
-test("P1-SCHEMA: all 19 C.2 tables, columns, defaults and nullability match the specification", async () => {
+test("P1-SCHEMA: C.2 and explicit phase-3 journals match all columns, defaults and nullability", async () => {
   const rows = await sameCatalog(`select table_name, column_name, udt_name, is_nullable, column_default
     from information_schema.columns where table_schema='public' order by table_name, column_name`);
-  expect(new Set(rows.map(r => (r as { table_name: string }).table_name)).size).toBe(19);
+  expect(new Set(rows.map(r => (r as { table_name: string }).table_name)).size).toBe(21);
 });
 test("P1-SCHEMA: every primary, unique, check and foreign-key constraint including delete actions matches C.2", async () => {
   await sameCatalog(`select c.relname as table_name, con.contype, pg_get_constraintdef(con.oid) as definition

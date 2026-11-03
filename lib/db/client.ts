@@ -9,6 +9,7 @@ import ws from "ws";
 import { resolve } from "node:path";
 import { mkdir } from "node:fs/promises";
 import * as schema from "./schema";
+import { sqlSession, type StateStore } from "./session";
 
 export async function createDatabase(options: { url?: string; dataDir?: string } = {}) {
   const folder = resolve("lib/db/migrations");
@@ -16,13 +17,15 @@ export async function createDatabase(options: { url?: string; dataDir?: string }
     neonConfig.webSocketConstructor = ws;
     const pool = new Pool({ connectionString: options.url });
     const db = neonDrizzle(pool, { schema });
-    return { kind: "neon" as const, db, migrate: () => migrateNeon(db, { migrationsFolder: folder }), ping: async () => { await db.execute(sql`select 1`); }, close: () => pool.end() };
+    const state:StateStore={...sqlSession(q=>db.execute(q)),transaction:work=>db.transaction(tx=>work(sqlSession(q=>tx.execute(q))))};
+    return { kind: "neon" as const, db, state, migrate: () => migrateNeon(db, { migrationsFolder: folder }), ping: async () => { await db.execute(sql`select 1`); }, close: () => pool.end() };
   }
   const dataDir = options.dataDir ?? "memory://";
   if (dataDir !== "memory://") await mkdir(dataDir, { recursive: true });
   const client = new PGlite(dataDir);
   const db = pgliteDrizzle(client, { schema });
-  return { kind: "pglite" as const, db, client, migrate: () => migratePglite(db, { migrationsFolder: folder }), ping: async () => { await db.execute(sql`select 1`); }, close: () => client.close() };
+  const state:StateStore={...sqlSession(q=>db.execute(q)),transaction:work=>db.transaction(tx=>work(sqlSession(q=>tx.execute(q))))};
+  return { kind: "pglite" as const, db, state, client, migrate: () => migratePglite(db, { migrationsFolder: folder }), ping: async () => { await db.execute(sql`select 1`); }, close: () => client.close() };
 }
 export type Database = Awaited<ReturnType<typeof createDatabase>>;
 const shared = globalThis as typeof globalThis & { signbridgeDatabase?: Promise<Database> };

@@ -2,7 +2,7 @@
 
 Experimental · not reviewed by BdSL signers.
 
-Phase 2 adds pure caption parsers, text forms, segmentation/context windows, versioned fingerprints, strict Zod/JSON contracts, deterministic validators, retrieval, SiGML assembly and manifest construction to the Phase 1 foundation. Public IsharaKotha data is hash-verified and checked against the XML policy. Upload flows, model calls, business routes and the player scheduler remain later-phase work.
+Phase 3 adds transactional project authority, outbox/run claims, fenced publication, idempotent stage storage, spend/storage ledgers, owner quotas and reconciliation to the existing foundation and pure domain logic. Public IsharaKotha data is hash-verified and checked against the XML policy. Upload routes, model calls, Workflows integration, business UI and the player scheduler remain later-phase work.
 
 Requires Node 24 and npm.
 
@@ -47,4 +47,14 @@ The import emits `data/corpus/assets.json` and `data/corpus/seed.sql`; contract 
 
 Measured full-release import: 3,990 file entries, 3,108 verified distinct byte hashes, 2,934 accepted assets and 174 quarantined hashes. The design's fixed XML whitelist is retained; 131 rejected hashes use nonmanual elements outside it. These are not vocabulary or correctness counts. All 20 supplied technical samples render successfully; other accepted assets remain ineligible until probed.
 
-See `docs/phase-reports/phase-1.md` and `docs/phase-reports/phase-2.md` for per-phase results. `SYSTEM-DESIGN.md` is the immutable specification.
+The Phase 3 default suite runs all prior checks plus 50 shared state tests on PGlite. Independent row-lock contention is verified with the same 50 tests on a disposable PostgreSQL cluster:
+
+```powershell
+npm run test:race:native
+```
+
+Native tests require PostgreSQL binaries (`C:/Program Files/PostgreSQL/16/bin` by default; override their directory with `PG_TEST_BIN`). The harness creates its own loopback-only cluster and database, uses empty-password trust authentication for synthetic fixtures, and stops/removes that cluster after the suite. It never uses `DATABASE_URL` or an existing database credential. PostgreSQL 16.11 was used here with a 20-connection pool; PGlite itself has only one connection.
+
+Run `npm run db:migrate` for the two additive Phase 3 migrations in the local database. As always, ask before supplying or using a real database secret. The schema additions and upload-lease cleanup guard are recorded in `docs/DEVIATIONS.md`. All application transitions stay in `lib/db/queries`; the client bridge only adapts driver results, and the reconciler orchestrates those queries and the BlobStore.
+
+See `docs/phase-reports/phase-1.md`, `docs/phase-reports/phase-2.md` and `docs/phase-reports/phase-3.md` for per-phase results. `SYSTEM-DESIGN.md` is the immutable specification.

@@ -35,3 +35,5 @@ export function candidatesHash(candidates: readonly { id: string; derivedSha256:
 export function planKey(meaningOutputHash: string, candidatesHash: string, config: ModelKeyConfig) { return `p2:${hash({ meaningOutputHash, candidatesHash, stage: "plan", ...config, schemaVersion: "plan-v2" })}`; }
 export const manifestHash = (manifest: unknown) => hash(manifest);
 export function trackFingerprint(manifest: { trackVersionId: string; [key: string]: unknown }) { const copy = { ...manifest }; Reflect.deleteProperty(copy, "trackVersionId"); return `t2:${hash(copy)}`; }
+/** Deterministic custom UUID (version 8), allocated before embedding the track identity. */
+export function trackIdFor(jobId:string,fingerprint:string) {const bytes=hash({jobId,fingerprint}).slice(0,32).split("");bytes[12]="8";bytes[16]=((parseInt(bytes[16],16)&3)|8).toString(16);const hex=bytes.join("");return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;}

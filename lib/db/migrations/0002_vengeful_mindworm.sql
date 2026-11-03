@@ -1,0 +1,2 @@
+ALTER TABLE "media" ADD COLUMN "storage_charge" text DEFAULT 'pending' NOT NULL;--> statement-breakpoint
+ALTER TABLE "media" ADD CONSTRAINT "media_storage_charge_check" CHECK ("media"."storage_charge" IN ('pending','committed','released'));

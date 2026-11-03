@@ -10,7 +10,8 @@ test("P1-ADAPTERS: duplicate delivery/reconcile claims an outbox job once agains
     await database.client.exec(`insert into owners(id,token_hash) values ('00000000-0000-4000-8000-000000000001',decode('ab','hex'));
       insert into projects(id,owner_id,title,rights_attested_at) values ('00000000-0000-4000-8000-000000000002','00000000-0000-4000-8000-000000000001','dispatch',now());
       insert into transcript_versions(id,project_id,version_no,source,cues,segmenter_version,source_form_version,text_hash) values ('00000000-0000-4000-8000-000000000003','00000000-0000-4000-8000-000000000002',1,'pasted','[]','test','test','test');
-      insert into jobs(id,project_id,transcript_version_id,processing_epoch,idempotency_key,model_profile) values ('00000000-0000-4000-8000-000000000004','00000000-0000-4000-8000-000000000002','00000000-0000-4000-8000-000000000003',0,'dispatch','fake');`);
+      insert into jobs(id,project_id,transcript_version_id,processing_epoch,idempotency_key,model_profile) values ('00000000-0000-4000-8000-000000000004','00000000-0000-4000-8000-000000000002','00000000-0000-4000-8000-000000000003',0,'dispatch','fake');
+      update projects set current_transcript_version_id='00000000-0000-4000-8000-000000000003',active_job_id='00000000-0000-4000-8000-000000000004' where id='00000000-0000-4000-8000-000000000002';`);
     const calls: string[] = [];
     const store = dispatchStore(database);
     const runner = new InProcessDispatcher(store, async id => { calls.push(id); });
