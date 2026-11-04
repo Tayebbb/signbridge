@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-04T19:44:37.509Z",
+  "origin": "https://signbridge-5kvn7y3tj-mdtayebibne-4755s-projects.vercel.app",
+  "projectId": "55300c05-f6d3-4da1-8ce2-12a70965f16a",
+  "jobId": "5be79e58-b891-40d7-9985-19a61f127911",
+  "health": {
+    "db": "ok",
+    "processing": "enabled",
+    "renderer": "remote"
+  },
+  "realProfile": "gpt-6.1-sol",
+  "jobStatus": "succeeded",
+  "technicalStatus": "ready",
+  "manifestHash": "fe25ccd51cb5db34e2cb462ae98f81393206c4cd454c66eb92bd16c0be52c536",
+  "newStageRows": 2,
+  "newSpentMicros": "2590",
+  "rangeStatus": 206,
+  "rangeBytes": 16,
+  "savedReplayUnchanged": true,
+  "idleTransferUnchanged": true,
+  "linguisticEvidence": "NONE",
+  "comprehensionEvidence": "NONE"
+}

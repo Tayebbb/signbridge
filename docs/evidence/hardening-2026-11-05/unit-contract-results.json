@@ -1,0 +1,1080 @@
+{
+  "success": true,
+  "total": 214,
+  "passed": 214,
+  "failed": 0,
+  "skipped": 0,
+  "startTime": 1793819247619,
+  "tests": [
+    {
+      "title": "Corpus: 20 real sample hashes dedupe, preserve attribution/aliases and derive exact units",
+      "status": "passed",
+      "durationMs": 60.38170000000002
+    },
+    {
+      "title": "Corpus: render eligibility requires successful evidence bound to the exact derived bytes",
+      "status": "passed",
+      "durationMs": 96.36540000000002
+    },
+    {
+      "title": "Corpus: unsafe files are quarantined rather than repaired or silently dropped",
+      "status": "passed",
+      "durationMs": 0.7888000000000375
+    },
+    {
+      "title": "Full public corpus seed migrates into empty PGlite and remains idempotent with correct eligibility",
+      "status": "passed",
+      "durationMs": 3870.5224999999996
+    },
+    {
+      "title": "T14: all 20 derived sample assets have successful exact-unit render checks; only these become eligible",
+      "status": "passed",
+      "durationMs": 73.21259999999984
+    },
+    {
+      "title": "P1-ADAPTERS: duplicate delivery/reconcile claims an outbox job once against real SQL",
+      "status": "passed",
+      "durationMs": 1929.7376
+    },
+    {
+      "title": "Stable pointer polling neither reissues video URLs nor consumes transfer bytes",
+      "status": "passed",
+      "durationMs": 377.8729999999996
+    },
+    {
+      "title": "One failed expiry deletion leaves its charge intact and does not block unrelated admission",
+      "status": "passed",
+      "durationMs": 110.61909999999989
+    },
+    {
+      "title": "Circuit cooldown needs a sample, expires automatically, and never reverses an admin stop",
+      "status": "passed",
+      "durationMs": 66.28210000000036
+    },
+    {
+      "title": "Read rate windows renew independently of the existing hourly mutation limit",
+      "status": "passed",
+      "durationMs": 38.64249999999993
+    },
+    {
+      "title": "A new budget day inherits the smaller configured cap instead of restoring a larger default",
+      "status": "passed",
+      "durationMs": 41.279399999999896
+    },
+    {
+      "title": "Recovery revokes old creator sessions, replaces old recovery keys and rejects foreign/CSRF requests",
+      "status": "passed",
+      "durationMs": 102.50210000000015
+    },
+    {
+      "title": "Video stream checks authorization on every range read and debits only actual upstream access",
+      "status": "passed",
+      "durationMs": 134.64559999999983
+    },
+    {
+      "title": "P1-HEALTH: success matches G.1, processing remains disabled",
+      "status": "passed",
+      "durationMs": 21.460999999999984
+    },
+    {
+      "title": "P1-HEALTH: DB failure returns 503 without leaking connection details",
+      "status": "passed",
+      "durationMs": 0.549999999999983
+    },
+    {
+      "title": "Real SDK transport: maxRetries zero, bounded AbortSignal, strict JSON, no storage or tools",
+      "status": "passed",
+      "durationMs": 14.299000000000092
+    },
+    {
+      "title": "Real SDK transport preserves incomplete usage including reasoning within output",
+      "status": "passed",
+      "durationMs": 2.2356000000000904
+    },
+    {
+      "title": "T4 through routes: upload, draft, job and fully supported published manifest",
+      "status": "passed",
+      "durationMs": 709.3814000000002
+    },
+    {
+      "title": "T5 through routes: missing critical content in আমি আসবে না। remains blocked",
+      "status": "passed",
+      "durationMs": 364.6239999999998
+    },
+    {
+      "title": "T5 through routes: missing critical content in আমি ২ আসবে। remains blocked",
+      "status": "passed",
+      "durationMs": 335.8266000000003
+    },
+    {
+      "title": "T5 through routes: missing critical content in আমি নক্ষত্র আসবে। remains blocked",
+      "status": "passed",
+      "durationMs": 344.16479999999956
+    },
+    {
+      "title": "T6: an older in-flight result cannot replace a newer edit's current artifact",
+      "status": "passed",
+      "durationMs": 494.9944000000005
+    },
+    {
+      "title": "T8: crash after response before stage insert, then two replays produce one stage pair and track",
+      "status": "passed",
+      "durationMs": 371.47890000000007
+    },
+    {
+      "title": "T13: route returns 402 spend_cap while an existing saved manifest still replays",
+      "status": "passed",
+      "durationMs": 245.65610000000015
+    },
+    {
+      "title": "T17: A→B→A versions bind distinct artifacts, reuse stages, and source checks remain overlays",
+      "status": "passed",
+      "durationMs": 625.5864999999994
+    },
+    {
+      "title": "T18: strong manifest revalidation follows authorization and deletion; fresh media is no-store",
+      "status": "passed",
+      "durationMs": 236.86589999999978
+    },
+    {
+      "title": "API security: origin, owner, strict JSON, project idempotency, kill switch and rate gate",
+      "status": "passed",
+      "durationMs": 97.36479999999938
+    },
+    {
+      "title": "Explicit retries settle every attempt; refusal is not retried and schema instructions isolate captions",
+      "status": "passed",
+      "durationMs": 411.1391999999996
+    },
+    {
+      "title": "Local signed transport enforces scope, type, size, expiry, no-overwrite and ranged reads",
+      "status": "passed",
+      "durationMs": 33.245200000001205
+    },
+    {
+      "title": "Transcript merge and split preserve cue boundaries and require current-version CAS",
+      "status": "passed",
+      "durationMs": 109.64990000000034
+    },
+    {
+      "title": "Transcript and job idempotency survive a newer version and a disabled processing switch",
+      "status": "passed",
+      "durationMs": 344.6836999999996
+    },
+    {
+      "title": "Sol unavailability selects Terra on the next recovery job and keeps separate cache provenance",
+      "status": "passed",
+      "durationMs": 395.29949999999917
+    },
+    {
+      "title": "T2 / T12 / T18: read-only share replay makes no model calls, revocation beats ETag, and every mutation stays owner-only",
+      "status": "passed",
+      "durationMs": 278.1170000000002
+    },
+    {
+      "title": "T24 API deletion fences visibility immediately and reconciliation removes files after upload grace",
+      "status": "passed",
+      "durationMs": 312.4204000000009
+    },
+    {
+      "title": "Source confirmation has an idempotent timestamp overlay; transfer closure preserves model-free captions and manifest",
+      "status": "passed",
+      "durationMs": 294.8618999999999
+    },
+    {
+      "title": "Kill switch prevents the next reserved model attempt and admin metrics expose bounded observations",
+      "status": "passed",
+      "durationMs": 143.01180000000022
+    },
+    {
+      "title": "Environment processing switch fences a queued job before a model call",
+      "status": "passed",
+      "durationMs": 128.2572999999993
+    },
+    {
+      "title": "H7 long-running jobs alert even when their heartbeat is fresh",
+      "status": "passed",
+      "durationMs": 117.76130000000012
+    },
+    {
+      "title": "Phase 7 demo pinning rejects fake results, foreign ownership and wrong coverage; accepted pinning is idempotent",
+      "status": "passed",
+      "durationMs": 514.1071999999986
+    },
+    {
+      "title": "P1-SCHEMA: C.2 and explicit phase-3 journals match all columns, defaults and nullability",
+      "status": "passed",
+      "durationMs": 51.96399999999994
+    },
+    {
+      "title": "P1-SCHEMA: every primary, unique, check and foreign-key constraint including delete actions matches C.2",
+      "status": "passed",
+      "durationMs": 18.782600000000457
+    },
+    {
+      "title": "P1-SCHEMA: every enum, including unused reviewer_kind, matches C.2",
+      "status": "passed",
+      "durationMs": 7.516200000000026
+    },
+    {
+      "title": "P1-SCHEMA: both partial indexes have the exact C.2 predicates",
+      "status": "passed",
+      "durationMs": 5.527900000000045
+    },
+    {
+      "title": "P1-SCHEMA: migrations are idempotent",
+      "status": "passed",
+      "durationMs": 21.93539999999939
+    },
+    {
+      "title": "Hardening query indexes match the independent schema reference",
+      "status": "passed",
+      "durationMs": 13.338599999999133
+    },
+    {
+      "title": "P1-SCHEMA: circular pointers SET NULL, project cascade and retained spend/shared results work",
+      "status": "passed",
+      "durationMs": 29.737199999999575
+    },
+    {
+      "title": "T11: meaning generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 5.811399999999992
+    },
+    {
+      "title": "T11: plan generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 1.5862999999999658
+    },
+    {
+      "title": "T11: emptyPlan generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 1.7169999999999845
+    },
+    {
+      "title": "T11: manifest generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 5.765100000000018
+    },
+    {
+      "title": "T11: current generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 1.3847999999999843
+    },
+    {
+      "title": "T11: progress generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 1.0095000000000027
+    },
+    {
+      "title": "T11: error generated JSON Schema satisfies the current strict subset",
+      "status": "passed",
+      "durationMs": 0.5807000000000357
+    },
+    {
+      "title": "T11: dynamic asset enum is bounded and rejects foreign IDs, duplicate candidates and overflow",
+      "status": "passed",
+      "durationMs": 7.054400000000044
+    },
+    {
+      "title": "All contracts reject missing/unknown fields and stage outputs never accept segmentIdx",
+      "status": "passed",
+      "durationMs": 5.6422000000000025
+    },
+    {
+      "title": "P1-ADAPTERS: filesystem blob put/get/head/delete and path confinement",
+      "status": "passed",
+      "durationMs": 10.17760000000004
+    },
+    {
+      "title": "P1-ADAPTERS: fake is deterministic, validates the contract and returns independent values",
+      "status": "passed",
+      "durationMs": 4.641799999999989
+    },
+    {
+      "title": "SRT: CRLF/BOM, multiline formatting and punctuation preserve source meaning",
+      "status": "passed",
+      "durationMs": 2.299900000000008
+    },
+    {
+      "title": "VTT: header, identifier, NOTE/STYLE and cue settings are isolated from text",
+      "status": "passed",
+      "durationMs": 0.41610000000000014
+    },
+    {
+      "title": "Pasted: next cue closes previous and supplied duration closes final",
+      "status": "passed",
+      "durationMs": 0.6939000000000135
+    },
+    {
+      "title": "T12: script markup is literal text, never interpreted by a parser",
+      "status": "passed",
+      "durationMs": 0.5903000000000134
+    },
+    {
+      "title": "T12: 10 MB payload rejected before line parsing",
+      "status": "passed",
+      "durationMs": 0.47749999999999204
+    },
+    {
+      "title": "T12: 10 MB payload rejected before line parsing",
+      "status": "passed",
+      "durationMs": 0.1296000000000106
+    },
+    {
+      "title": "T12: 10 MB payload rejected before line parsing",
+      "status": "passed",
+      "durationMs": 0.10499999999998977
+    },
+    {
+      "title": "Caption byte limit counts UTF-8 rather than JavaScript characters",
+      "status": "passed",
+      "durationMs": 0.2804000000000144
+    },
+    {
+      "title": "T12: 1,000 SRT cues rejected with cue and line diagnostics",
+      "status": "passed",
+      "durationMs": 1.4268999999999892
+    },
+    {
+      "title": "T12: VTT and pasted reject 1,000 cues",
+      "status": "passed",
+      "durationMs": 1.9435000000000002
+    },
+    {
+      "title": "300 cues and exactly 90 seconds are accepted",
+      "status": "passed",
+      "durationMs": 1.8659000000000106
+    },
+    {
+      "title": "Parser error carries precise code: 1\n00:00:60,000 --> 00:00:02,000\na\n",
+      "status": "passed",
+      "durationMs": 0.7361999999999966
+    },
+    {
+      "title": "Parser error carries precise code: 1\n00:00:02,000 --> 00:00:01,000\na\n",
+      "status": "passed",
+      "durationMs": 0.18420000000000414
+    },
+    {
+      "title": "Parser error carries precise code: 1\n00:00,000 --> 00:00:02,000\na\n",
+      "status": "passed",
+      "durationMs": 0.20340000000001623
+    },
+    {
+      "title": "Parser error carries precise code: 1\n00:00:00,000 --> 00:01:30,001\na\n",
+      "status": "passed",
+      "durationMs": 0.20060000000000855
+    },
+    {
+      "title": "Parser error carries precise code: 1\n00:00:00,000 --> 00:00:02,000\n<b> </b>\n",
+      "status": "passed",
+      "durationMs": 0.8884999999999934
+    },
+    {
+      "title": "Parser error carries precise code: ",
+      "status": "passed",
+      "durationMs": 0.20209999999997308
+    },
+    {
+      "title": "Malformed VTT and pasted formats report a source line",
+      "status": "passed",
+      "durationMs": 0.3558999999999912
+    },
+    {
+      "title": "Demo preflight requires attested rights, unique IDs and a deliberately unsupported clip",
+      "status": "passed",
+      "durationMs": 6.774900000000002
+    },
+    {
+      "title": "Demo dry preparation binds real file bytes and deterministic segmentation, and rejects timing beyond the clip",
+      "status": "passed",
+      "durationMs": 17.335199999999986
+    },
+    {
+      "title": "Compression's weak validator retains the exact SHA identity; other or malformed hashes fail",
+      "status": "passed",
+      "durationMs": 2.12439999999998
+    },
+    {
+      "title": "T15: source/phrase and all neighbour positions stay distinct: সে আসবে। / সে আসবে?",
+      "status": "passed",
+      "durationMs": 3.7764999999999986
+    },
+    {
+      "title": "T15: source/phrase and all neighbour positions stay distinct: আমি কিনেছি / আমি কিনিনি",
+      "status": "passed",
+      "durationMs": 0.5796999999999741
+    },
+    {
+      "title": "T15: source/phrase and all neighbour positions stay distinct: দুটো আম / তিনটে আম",
+      "status": "passed",
+      "durationMs": 0.3824000000000183
+    },
+    {
+      "title": "Lossy retrieval collisions cannot become cache-key collisions",
+      "status": "passed",
+      "durationMs": 0.8795000000000073
+    },
+    {
+      "title": "Canonical JSON sorts keys, normalizes NFC, preserves array order and rejects invalid JSON",
+      "status": "passed",
+      "durationMs": 1.8573999999999842
+    },
+    {
+      "title": "Every versioned key includes its exact dependency graph and type prefix",
+      "status": "passed",
+      "durationMs": 1.362799999999993
+    },
+    {
+      "title": "t2 binds every artifact binding, excludes only trackVersionId and never includes overlays",
+      "status": "passed",
+      "durationMs": 1.3757999999999981
+    },
+    {
+      "title": "HTTP ranges reject malformed, empty and unsatisfiable values and support suffix/open ranges",
+      "status": "passed",
+      "durationMs": 1.9668999999999812
+    },
+    {
+      "title": "Range delivery spans chunks, stops early and cancels its upstream",
+      "status": "passed",
+      "durationMs": 18.348399999999998
+    },
+    {
+      "title": "Downstream cancellation propagates to the upstream",
+      "status": "passed",
+      "durationMs": 0.47059999999999036
+    },
+    {
+      "title": "Structured operation logs include only the six permitted metadata fields",
+      "status": "passed",
+      "durationMs": 2.54079999999999
+    },
+    {
+      "title": "P1-COOKIE: random 256-bit capabilities persist only a SHA-256 digest",
+      "status": "passed",
+      "durationMs": 4.175999999999988
+    },
+    {
+      "title": "P1-COOKIE: host-only cookie is HttpOnly, Secure, SameSite=Lax",
+      "status": "passed",
+      "durationMs": 0.5724999999999909
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected ()",
+      "status": "passed",
+      "durationMs": 0.7236999999999796
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected (invalid)",
+      "status": "passed",
+      "durationMs": 0.2539999999999907
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)",
+      "status": "passed",
+      "durationMs": 0.18369999999998754
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)",
+      "status": "passed",
+      "durationMs": 0.13300000000000978
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;)",
+      "status": "passed",
+      "durationMs": 0.14789999999999281
+    },
+    {
+      "title": "P1-COOKIE: malformed/noncanonical capability rejected (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab)",
+      "status": "passed",
+      "durationMs": 0.13970000000000482
+    },
+    {
+      "title": "P1-BOUNDARIES: lint rejects OpenAI, database transitions and CWASA outside owners",
+      "status": "passed",
+      "durationMs": 3065.7066
+    },
+    {
+      "title": "Phase 2: pure modules reject filesystem/network/environment imports while allowing CPU hashes",
+      "status": "passed",
+      "durationMs": 55.660199999999804
+    },
+    {
+      "title": "Replay route modules reject model imports",
+      "status": "passed",
+      "durationMs": 57.43769999999995
+    },
+    {
+      "title": "T23: source, instance and payload are all validated",
+      "status": "passed",
+      "durationMs": 4.599100000000021
+    },
+    {
+      "title": "Browser origin uses validated Host when Next normalizes its internal URL",
+      "status": "passed",
+      "durationMs": 21.654599999999988
+    },
+    {
+      "title": "Configured canonical origin wins and rejects a path or trailing slash",
+      "status": "passed",
+      "durationMs": 0.6681000000000097
+    },
+    {
+      "title": "T15: a statement can never exact-match a question asset",
+      "status": "passed",
+      "durationMs": 4.2714
+    },
+    {
+      "title": "Retrieval only eligible assets; top eight per concept, deduped, deterministic and bounded to 150",
+      "status": "passed",
+      "durationMs": 44.36500000000001
+    },
+    {
+      "title": "Numeric quantity retrieval uses digit and number-word aliases",
+      "status": "passed",
+      "durationMs": 0.7969999999999686
+    },
+    {
+      "title": "SiGML derivation rewrites only gloss values, keeping every byte of motion unchanged",
+      "status": "passed",
+      "durationMs": 5.779599999999959
+    },
+    {
+      "title": "Multi-asset SiGML, gaps in step numbers, generations and range mappings are exact",
+      "status": "passed",
+      "durationMs": 3.153700000000015
+    },
+    {
+      "title": "T12: unsafe XML rejected with exact error code",
+      "status": "passed",
+      "durationMs": 0.6594000000000051
+    },
+    {
+      "title": "T12: unsafe XML rejected with exact error code",
+      "status": "passed",
+      "durationMs": 0.7067000000000121
+    },
+    {
+      "title": "T12: unsafe XML rejected with exact error code",
+      "status": "passed",
+      "durationMs": 0.37829999999996744
+    },
+    {
+      "title": "T12: unsafe XML rejected with exact error code",
+      "status": "passed",
+      "durationMs": 0.5567999999999529
+    },
+    {
+      "title": "T12: unsafe XML rejected with exact error code",
+      "status": "passed",
+      "durationMs": 0.39599999999995816
+    },
+    {
+      "title": "Visibility changes preserve idle readiness and completion without replacing the renderer",
+      "status": "passed",
+      "durationMs": 34.22440000000006
+    },
+    {
+      "title": "T7: 1,000 randomized interleavings reject removed instances and old generations with zero stale transitions",
+      "status": "passed",
+      "durationMs": 583.3000000000001
+    },
+    {
+      "title": "T22: missing unit sequence never completes; terminal consecutive duplicate is allowed",
+      "status": "passed",
+      "durationMs": 3.1357000000000426
+    },
+    {
+      "title": "T22: extra unit sequence never completes; terminal consecutive duplicate is allowed",
+      "status": "passed",
+      "durationMs": 1.0833000000000084
+    },
+    {
+      "title": "T22: order unit sequence never completes; terminal consecutive duplicate is allowed",
+      "status": "passed",
+      "durationMs": 0.9947999999999411
+    },
+    {
+      "title": "T22: malformed unit sequence never completes; terminal consecutive duplicate is allowed",
+      "status": "passed",
+      "durationMs": 0.7846999999999298
+    },
+    {
+      "title": "T22: silence in load and playback fires honest watchdogs; Retry and Skip never manufacture completion",
+      "status": "passed",
+      "durationMs": 1.9697000000001026
+    },
+    {
+      "title": "T22: gap card holds before every play; available signs never count a critical-gap segment complete",
+      "status": "passed",
+      "durationMs": 2.2455999999999676
+    },
+    {
+      "title": "Two clocks: video holds at segment end, signing pause swaps context and resumes from first unit",
+      "status": "passed",
+      "durationMs": 5.361699999999928
+    },
+    {
+      "title": "Stale map cancels the active segment; unrelated stale segments do not stop it",
+      "status": "passed",
+      "durationMs": 1.2820999999999003
+    },
+    {
+      "title": "Renderer retries use 5/15/45-second backoff, stop after three, and WebGL failures stay readable",
+      "status": "passed",
+      "durationMs": 1.9104999999999563
+    },
+    {
+      "title": "P1-BOUNDARIES: scanner rejects new markers even inside baseline documents",
+      "status": "passed",
+      "durationMs": 7.758499999999998
+    },
+    {
+      "title": "Binary artifacts permit incidental marker bytes but reject embedded credential tokens",
+      "status": "passed",
+      "durationMs": 0.5652000000000044
+    },
+    {
+      "title": "Byte-based entry point preserves strict text markers and the immutable design baseline",
+      "status": "passed",
+      "durationMs": 3.864399999999989
+    },
+    {
+      "title": "Device grouping is coarse and bounded (iPhone Version/18 Safari/605)",
+      "status": "passed",
+      "durationMs": 1.5655999999999892
+    },
+    {
+      "title": "Device grouping is coarse and bounded (iPhone CriOS/140 Safari/605)",
+      "status": "passed",
+      "durationMs": 0.23550000000000182
+    },
+    {
+      "title": "Device grouping is coarse and bounded (iPad FxiOS/140 Safari/605)",
+      "status": "passed",
+      "durationMs": 0.12330000000000041
+    },
+    {
+      "title": "Device grouping is coarse and bounded (Android Chrome/140 Safari/537)",
+      "status": "passed",
+      "durationMs": 0.11499999999998067
+    },
+    {
+      "title": "Device grouping is coarse and bounded (Windows Chrome/140 Edg/140)",
+      "status": "passed",
+      "durationMs": 0.1155000000000257
+    },
+    {
+      "title": "Device grouping is coarse and bounded (unknown)",
+      "status": "passed",
+      "durationMs": 0.09109999999998308
+    },
+    {
+      "title": "src-v1 NFC, caption markup, whitespace, U+09F7 and meaningful punctuation",
+      "status": "passed",
+      "durationMs": 2.1666000000000167
+    },
+    {
+      "title": "phraseForm removes just one trailing period/danda and joiners",
+      "status": "passed",
+      "durationMs": 0.95829999999998
+    },
+    {
+      "title": "retrieval deliberately conflates inflections, folds digits and Latin, but exact/source do not",
+      "status": "passed",
+      "durationMs": 0.9254999999999995
+    },
+    {
+      "title": "segmenter minimum duration, terminators and original cue bounds are deterministic",
+      "status": "passed",
+      "durationMs": 0.9514000000000067
+    },
+    {
+      "title": "segmenter bounds long runs without splitting cues; oversize singleton is preserved",
+      "status": "passed",
+      "durationMs": 1.114200000000011
+    },
+    {
+      "title": "context is two previous and one next source texts plus title; no outputs or positions",
+      "status": "passed",
+      "durationMs": 0.8757999999999981
+    },
+    {
+      "title": "Saved polling revalidates the manifest, keeps the playing media URL stable, and rejects revoked manifests",
+      "status": "passed",
+      "durationMs": 68.1644
+    },
+    {
+      "title": "A delayed pointer cannot replace a newer response or clear stale edit markers",
+      "status": "passed",
+      "durationMs": 4.568899999999985
+    },
+    {
+      "title": "An older 404 cannot erase an accepted newer manifest",
+      "status": "passed",
+      "durationMs": 2.2520000000000664
+    },
+    {
+      "title": "Compressed edge responses retain manifest identity across weak and strong ETags",
+      "status": "passed",
+      "durationMs": 2.908200000000079
+    },
+    {
+      "title": "Independent detectors preserve signed decimal numeric values and Bangla number words",
+      "status": "passed",
+      "durationMs": 4.555399999999963
+    },
+    {
+      "title": "T4: fully supported engineering fixture is ready, with no gap card and immutable inputs",
+      "status": "passed",
+      "durationMs": 11.771299999999997
+    },
+    {
+      "title": "T5: unsupported negation is partial_blocked, with a card before signing and forced captions",
+      "status": "passed",
+      "durationMs": 2.0896000000000186
+    },
+    {
+      "title": "T5: unsupported quantity is partial_blocked, with a card before signing and forced captions",
+      "status": "passed",
+      "durationMs": 1.5767999999999915
+    },
+    {
+      "title": "T5: unsupported object is partial_blocked, with a card before signing and forced captions",
+      "status": "passed",
+      "durationMs": 1.3537000000000035
+    },
+    {
+      "title": "T5 / M3: mocked output forgetting negation requests repair; exhausted repair fails closed",
+      "status": "passed",
+      "durationMs": 1.8455999999999904
+    },
+    {
+      "title": "M1: surface/ID/referential errors cannot become ready",
+      "status": "passed",
+      "durationMs": 1.8799000000000206
+    },
+    {
+      "title": "M1 strips no markup from model surface claims; only NFC/whitespace can normalize",
+      "status": "passed",
+      "durationMs": 0.3990000000000009
+    },
+    {
+      "title": "M1 context references are limited to supplied previous segments; unresolved actors block",
+      "status": "passed",
+      "durationMs": 1.100999999999999
+    },
+    {
+      "title": "M2 forced criticality overrides all six protected roles without mutating output cache",
+      "status": "passed",
+      "durationMs": 0.9451999999999998
+    },
+    {
+      "title": "M3 catches independent number/question evidence in আমি ২ আসবে।",
+      "status": "passed",
+      "durationMs": 0.4701000000000022
+    },
+    {
+      "title": "M3 catches independent number/question evidence in আমি দুটো আসবে।",
+      "status": "passed",
+      "durationMs": 0.2711999999999648
+    },
+    {
+      "title": "M3 catches independent number/question evidence in আমি আসবে?",
+      "status": "passed",
+      "durationMs": 0.29120000000000346
+    },
+    {
+      "title": "M3 catches independent number/question evidence in কেন আমি আসবে।",
+      "status": "passed",
+      "durationMs": 0.19570000000004484
+    },
+    {
+      "title": "P1: foreign, ineligible and null asset IDs become explicit gaps",
+      "status": "passed",
+      "durationMs": 2.107599999999991
+    },
+    {
+      "title": "P2: recompute uncovered difference, synthesize missing gap, reject foreign concept references",
+      "status": "passed",
+      "durationMs": 0.5882000000000289
+    },
+    {
+      "title": "P3: claimed support needs retrieval provenance or an exact concept label; lossy keys are not validators",
+      "status": "passed",
+      "durationMs": 0.3686999999999898
+    },
+    {
+      "title": "P4: exact phrase requires precisely one exact sentence candidate and only one step",
+      "status": "passed",
+      "durationMs": 0.558400000000006
+    },
+    {
+      "title": "P5: duration/unit/step bounds fail closed and cannot generate playable oversized manifests",
+      "status": "passed",
+      "durationMs": 2.3204999999999814
+    },
+    {
+      "title": "No-signing and explicit failure remain honest and excluded from ready counts",
+      "status": "passed",
+      "durationMs": 0.7117000000000075
+    },
+    {
+      "title": "Manifest binds current transcript positions, source/media/provenance and embedded XML; overlays are separate",
+      "status": "passed",
+      "durationMs": 7.752900000000011
+    },
+    {
+      "title": "T16: cancel × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 327.8214000000007
+    },
+    {
+      "title": "T16: cancel × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 181.5060000000003
+    },
+    {
+      "title": "T16: cancel × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 161.85009999999966
+    },
+    {
+      "title": "T16: retry × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 137.7501999999995
+    },
+    {
+      "title": "T16: retry × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 174.60770000000048
+    },
+    {
+      "title": "T16: retry × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 172.6318999999994
+    },
+    {
+      "title": "T16: edit × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 143.8047000000006
+    },
+    {
+      "title": "T16: edit × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 157.60140000000047
+    },
+    {
+      "title": "T16: edit × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 138.9988999999996
+    },
+    {
+      "title": "T16: delete × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 78.41939999999977
+    },
+    {
+      "title": "T16: delete × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 71.42019999999957
+    },
+    {
+      "title": "T16: delete × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 62.087000000000444
+    },
+    {
+      "title": "T16: stall × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 119.94040000000041
+    },
+    {
+      "title": "T16: stall × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 116.9366
+    },
+    {
+      "title": "T16: stall × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 77.66799999999967
+    },
+    {
+      "title": "T16: second_start × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 85.72739999999976
+    },
+    {
+      "title": "T16: second_start × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 77.09449999999924
+    },
+    {
+      "title": "T16: second_start × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 105.39510000000064
+    },
+    {
+      "title": "T16: duplicate starts and competing transcript edits are atomic and idempotent",
+      "status": "passed",
+      "durationMs": 122.65250000000015
+    },
+    {
+      "title": "T19: post-commit/pre-start crash is repaired once after 30 seconds",
+      "status": "passed",
+      "durationMs": 105.05799999999999
+    },
+    {
+      "title": "F4: another job with the same fingerprint reuses the stored artifact identity",
+      "status": "passed",
+      "durationMs": 76.10210000000006
+    },
+    {
+      "title": "T19: lost run ID and concurrent duplicate starts retain the first run claim",
+      "status": "passed",
+      "durationMs": 97.45870000000014
+    },
+    {
+      "title": "T19: failed redispatches stop at five attempts",
+      "status": "passed",
+      "durationMs": 145.89469999999983
+    },
+    {
+      "title": "F5: concurrent cache writers converge, references protect shared rows, and hits spend nothing",
+      "status": "passed",
+      "durationMs": 88.92059999999947
+    },
+    {
+      "title": "T13: a one-cent cap fails the new attempt while saved replay stays available",
+      "status": "passed",
+      "durationMs": 93.05609999999979
+    },
+    {
+      "title": "T20: usage settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 79.08659999999963
+    },
+    {
+      "title": "T20: incomplete settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 73.7558999999992
+    },
+    {
+      "title": "T20: timeout settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 70.11830000000009
+    },
+    {
+      "title": "T20: crash settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 77.8796999999995
+    },
+    {
+      "title": "T20: never_sent settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 69.44460000000072
+    },
+    {
+      "title": "T20: 30 concurrent reservations at the boundary never overspend either budget",
+      "status": "passed",
+      "durationMs": 950.8220000000001
+    },
+    {
+      "title": "T20: three ordinary attempts plus one repair, duplicate settlement and amount capping",
+      "status": "passed",
+      "durationMs": 131.29960000000028
+    },
+    {
+      "title": "T20: Asia/Dhaka rollover settles the original day and 80 percent forces Terra for new jobs",
+      "status": "passed",
+      "durationMs": 97.28290000000015
+    },
+    {
+      "title": "Owner quotas serialize across projects, survive deletion and reset by Dhaka day",
+      "status": "passed",
+      "durationMs": 180.97980000000098
+    },
+    {
+      "title": "Owner quota admits only ten concurrent segment replans and leaves one active job",
+      "status": "passed",
+      "durationMs": 225.8112000000001
+    },
+    {
+      "title": "T21: 60 concurrent 15 MB inits against 800 MB admit exactly 50; smaller finalize releases the difference",
+      "status": "passed",
+      "durationMs": 346.9876999999997
+    },
+    {
+      "title": "T21: abandoned and rejected uploads release only after Blob deletion; opportunistic sweep is bounded to five",
+      "status": "passed",
+      "durationMs": 174.84330000000045
+    },
+    {
+      "title": "T21: transfer gate includes pinned reads and monthly rollover occurs exactly once",
+      "status": "passed",
+      "durationMs": 239.71759999999995
+    },
+    {
+      "title": "Anchor reservations share the cap and finalized/abandoned bytes remain exact",
+      "status": "passed",
+      "durationMs": 76.1219000000001
+    },
+    {
+      "title": "T21: 72-hour media retention releases actual bytes while pinned demo media survives",
+      "status": "passed",
+      "durationMs": 83.4302000000007
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 1",
+      "status": "passed",
+      "durationMs": 200.6912999999986
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 2",
+      "status": "passed",
+      "durationMs": 185.52719999999863
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 3",
+      "status": "passed",
+      "durationMs": 178.38900000000103
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption sql",
+      "status": "passed",
+      "durationMs": 230.85779999999977
+    },
+    {
+      "title": "F8: expired lease holders cannot reserve, settle, write cache or publish",
+      "status": "passed",
+      "durationMs": 93.32420000000093
+    },
+    {
+      "title": "T24: deletion waits out issued upload leases, then removes a late object",
+      "status": "passed",
+      "durationMs": 69.89559999999983
+    },
+    {
+      "title": "T24: a concurrent new reference survives exclusive-cache purge",
+      "status": "passed",
+      "durationMs": 126.08309999999983
+    },
+    {
+      "title": "Reconciler removes only unreferenced stage content older than 30 days",
+      "status": "passed",
+      "durationMs": 82.95970000000125
+    },
+    {
+      "title": "Spend math includes request/schema bytes, output reasoning once, and integer upper bounds",
+      "status": "passed",
+      "durationMs": 47.862199999999575
+    },
+    {
+      "title": "Daily reconciliation drains a 107-object retention backlog rather than stopping after one batch",
+      "status": "passed",
+      "durationMs": 1762.9871000000003
+    }
+  ]
+}

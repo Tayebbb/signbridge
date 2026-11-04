@@ -1,0 +1,275 @@
+{
+  "success": true,
+  "total": 53,
+  "passed": 53,
+  "failed": 0,
+  "skipped": 0,
+  "startTime": 1793824379413,
+  "tests": [
+    {
+      "title": "Deployment verification cannot mix project-before with job-after atomic publication",
+      "status": "passed",
+      "durationMs": 588.0764000000001
+    },
+    {
+      "title": "Local native PostgreSQL: 20 concurrent viewers and representative media history remain bounded",
+      "status": "passed",
+      "durationMs": 1169.9749000000002
+    },
+    {
+      "title": "A restored snapshot keeps immutable manifests but quarantines stale access and spending",
+      "status": "passed",
+      "durationMs": 2203.6574
+    },
+    {
+      "title": "T16: cancel × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 209.37090000000012
+    },
+    {
+      "title": "T16: cancel × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 162.8086000000003
+    },
+    {
+      "title": "T16: cancel × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 188.8710000000001
+    },
+    {
+      "title": "T16: retry × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 154.54329999999982
+    },
+    {
+      "title": "T16: retry × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 168.88889999999992
+    },
+    {
+      "title": "T16: retry × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 174.09680000000026
+    },
+    {
+      "title": "T16: edit × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 165.66400000000021
+    },
+    {
+      "title": "T16: edit × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 166.62440000000015
+    },
+    {
+      "title": "T16: edit × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 173.49260000000004
+    },
+    {
+      "title": "T16: delete × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 137.88009999999986
+    },
+    {
+      "title": "T16: delete × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 143.51850000000013
+    },
+    {
+      "title": "T16: delete × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 161.48090000000002
+    },
+    {
+      "title": "T16: stall × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 163.23320000000012
+    },
+    {
+      "title": "T16: stall × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 160.42880000000014
+    },
+    {
+      "title": "T16: stall × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 178.10019999999986
+    },
+    {
+      "title": "T16: second_start × before_claim fences the old job",
+      "status": "passed",
+      "durationMs": 149.5536000000002
+    },
+    {
+      "title": "T16: second_start × during_stage fences the old job",
+      "status": "passed",
+      "durationMs": 161.28060000000005
+    },
+    {
+      "title": "T16: second_start × at_publish fences the old job",
+      "status": "passed",
+      "durationMs": 175.8070000000007
+    },
+    {
+      "title": "T16: duplicate starts and competing transcript edits are atomic and idempotent",
+      "status": "passed",
+      "durationMs": 234.70070000000032
+    },
+    {
+      "title": "T19: post-commit/pre-start crash is repaired once after 30 seconds",
+      "status": "passed",
+      "durationMs": 160.4281000000001
+    },
+    {
+      "title": "F4: another job with the same fingerprint reuses the stored artifact identity",
+      "status": "passed",
+      "durationMs": 145.89290000000074
+    },
+    {
+      "title": "T19: lost run ID and concurrent duplicate starts retain the first run claim",
+      "status": "passed",
+      "durationMs": 176.77690000000075
+    },
+    {
+      "title": "T19: failed redispatches stop at five attempts",
+      "status": "passed",
+      "durationMs": 182.98340000000007
+    },
+    {
+      "title": "F5: concurrent cache writers converge, references protect shared rows, and hits spend nothing",
+      "status": "passed",
+      "durationMs": 159.64140000000043
+    },
+    {
+      "title": "T13: a one-cent cap fails the new attempt while saved replay stays available",
+      "status": "passed",
+      "durationMs": 150.3721999999998
+    },
+    {
+      "title": "T20: usage settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 152.07220000000052
+    },
+    {
+      "title": "T20: incomplete settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 150.6310000000003
+    },
+    {
+      "title": "T20: timeout settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 142.8120000000008
+    },
+    {
+      "title": "T20: crash settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 152.59479999999985
+    },
+    {
+      "title": "T20: never_sent settlement is conservative and idempotent",
+      "status": "passed",
+      "durationMs": 152.28970000000027
+    },
+    {
+      "title": "T20: 30 concurrent reservations at the boundary never overspend either budget",
+      "status": "passed",
+      "durationMs": 465.7419999999993
+    },
+    {
+      "title": "T20: three ordinary attempts plus one repair, duplicate settlement and amount capping",
+      "status": "passed",
+      "durationMs": 161.70669999999973
+    },
+    {
+      "title": "T20: Asia/Dhaka rollover settles the original day and 80 percent forces Terra for new jobs",
+      "status": "passed",
+      "durationMs": 151.32350000000042
+    },
+    {
+      "title": "Owner quotas serialize across projects, survive deletion and reset by Dhaka day",
+      "status": "passed",
+      "durationMs": 200.35599999999977
+    },
+    {
+      "title": "Owner quota admits only ten concurrent segment replans and leaves one active job",
+      "status": "passed",
+      "durationMs": 344.2460000000001
+    },
+    {
+      "title": "T21: 60 concurrent 15 MB inits against 800 MB admit exactly 50; smaller finalize releases the difference",
+      "status": "passed",
+      "durationMs": 277.34079999999994
+    },
+    {
+      "title": "T21: abandoned and rejected uploads release only after Blob deletion; opportunistic sweep is bounded to five",
+      "status": "passed",
+      "durationMs": 180.82350000000042
+    },
+    {
+      "title": "T21: transfer gate includes pinned reads and monthly rollover occurs exactly once",
+      "status": "passed",
+      "durationMs": 180.3047000000006
+    },
+    {
+      "title": "Anchor reservations share the cap and finalized/abandoned bytes remain exact",
+      "status": "passed",
+      "durationMs": 142.2543999999998
+    },
+    {
+      "title": "T21: 72-hour media retention releases actual bytes while pinned demo media survives",
+      "status": "passed",
+      "durationMs": 135.79659999999967
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 1",
+      "status": "passed",
+      "durationMs": 197.85000000000036
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 2",
+      "status": "passed",
+      "durationMs": 190.1908000000003
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption 3",
+      "status": "passed",
+      "durationMs": 189.86519999999837
+    },
+    {
+      "title": "T24: deletion purge resumes after interruption sql",
+      "status": "passed",
+      "durationMs": 199.15560000000005
+    },
+    {
+      "title": "F8: expired lease holders cannot reserve, settle, write cache or publish",
+      "status": "passed",
+      "durationMs": 151.98289999999906
+    },
+    {
+      "title": "T24: deletion waits out issued upload leases, then removes a late object",
+      "status": "passed",
+      "durationMs": 136.33780000000115
+    },
+    {
+      "title": "T24: a concurrent new reference survives exclusive-cache purge",
+      "status": "passed",
+      "durationMs": 187.01380000000063
+    },
+    {
+      "title": "Reconciler removes only unreferenced stage content older than 30 days",
+      "status": "passed",
+      "durationMs": 146.46490000000085
+    },
+    {
+      "title": "Spend math includes request/schema bytes, output reasoning once, and integer upper bounds",
+      "status": "passed",
+      "durationMs": 113.54509999999937
+    },
+    {
+      "title": "Daily reconciliation drains a 107-object retention backlog rather than stopping after one batch",
+      "status": "passed",
+      "durationMs": 591.9557000000004
+    }
+  ]
+}

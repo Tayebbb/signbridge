@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "environment": "Windows headless software WebGL",
+  "orderedDistinctIds": [
+    "g1_s0a0u0",
+    "g1_s0a0u1",
+    "g1_s0a0u2",
+    "g1_s0a1u0",
+    "g1_s0a2u0"
+  ],
+  "expectedUnits": 5,
+  "readable": false,
+  "requests": [
+    {
+      "origin": "http://127.0.0.1:60734",
+      "cookie": false,
+      "status": 201
+    },
+    {
+      "origin": "null",
+      "cookie": false,
+      "status": 403
+    }
+  ]
+}

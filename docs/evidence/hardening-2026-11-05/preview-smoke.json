@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-04T19:37:36.380Z",
+  "origin": "https://signbridge-1uokpg42k-mdtayebibne-4755s-projects.vercel.app",
+  "healthStatus": 200,
+  "health": {
+    "db": "ok",
+    "processing": "disabled",
+    "renderer": "remote"
+  },
+  "homeStatus": 200,
+  "responsiveImage": true,
+  "savedSegments": 6,
+  "manifestHash": "ff582405ed3c84ebedd008749f8cfb3a418dede1aa71648f594fa4bc0958a350",
+  "rangeStatus": 206,
+  "rangeBytes": 8,
+  "modelAccountingUnchanged": true,
+  "newModelCalls": 0
+}

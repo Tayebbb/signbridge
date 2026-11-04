@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-04T20:33:23.799Z",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "status": "PASS",
+  "environment": "GitHub-hosted Linux headless software WebGL",
+  "results": [
+    {
+      "profile": "Chromium desktop",
+      "browserVersion": "156.0.8078.4",
+      "health": {
+        "db": "ok",
+        "processing": "enabled",
+        "renderer": "remote"
+      },
+      "readyMs": 7287,
+      "manifestHash": "939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc",
+      "initialRendererFrames": 1,
+      "optimizedImageBytes": 8746,
+      "visibleAvatarPixelsDuringSigning": null,
+      "observations": [
+        {
+          "segment": 0,
+          "seen": [
+            "g2_s0a0u0"
+          ],
+          "expected": [
+            "g2_s0a0u0"
+          ],
+          "loaded": 1
+        },
+        {
+          "segment": 1,
+          "seen": [
+            "g4_s1a0u0"
+          ],
+          "expected": [
+            "g4_s1a0u0"
+          ],
+          "loaded": 1
+        },
+        {
+          "segment": 2,
+          "seen": [
+            "g6_s2a0u0"
+          ],
+          "expected": [
+            "g6_s2a0u0"
+          ],
+          "loaded": 1
+        },
+        {
+          "segment": 3,
+          "seen": [
+            "g8_s3a0u0"
+          ],
+          "expected": [
+            "g8_s3a0u0"
+          ],
+          "loaded": 1
+        },
+        {
+          "segment": 4,
+          "seen": [
+            "g10_s4a0u0"
+          ],
+          "expected": [
+            "g10_s4a0u0"
+          ],
+          "loaded": 1
+        },
+        {
+          "segment": 5,
+          "seen": [
+            "g12_s5a0u0"
+          ],
+          "expected": [
+            "g12_s5a0u0"
+          ],
+          "loaded": 1
+        }
+      ],
+      "idleVisibilityPreserved": true,
+      "reloadIdentityPreserved": true
+    },
+    {
+      "profile": "Chromium mobile emulation + synthesized touch; not physical hardware",
+      "browserVersion": "156.0.8078.4",
+      "health": {
+        "db": "ok",
+        "processing": "enabled",
+        "renderer": "remote"
+      },
+      "readyMs": 5119,
+      "manifestHash": "939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc",
+      "initialRendererFrames": 1,
+      "optimizedImageBytes": 3324,
+      "visibleAvatarPixelsDuringSigning": 420,
+      "observations": [
+        {
+          "segment": 0,
+          "seen": [
+            "g2_s0a0u0"
+          ],
+          "expected": [
+            "g2_s0a0u0"
+          ],
+          "loaded": 1
+        }
+      ],
+      "idleVisibilityPreserved": true,
+      "reloadIdentityPreserved": true
+    }
+  ],
+  "scope": "Read-only saved production playback; no job creation or share mutation",
+  "linguisticEvidence": "NONE",
+  "comprehensionEvidence": "NONE"
+}

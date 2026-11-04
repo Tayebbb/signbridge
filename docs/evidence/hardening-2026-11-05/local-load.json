@@ -3,9 +3,9 @@
   "viewers": 20,
   "requests": 200,
   "mediaRows": 10000,
-  "elapsedMs": 590.4852999999998,
-  "p95Ms": 270.16470000000004,
-  "requestsPerSecond": 338.70445208373525,
+  "elapsedMs": 409.54690000000005,
+  "p95Ms": 169.76649999999995,
+  "requestsPerSecond": 488.34455833996054,
   "transferBytes": 0,
   "modelCalls": 0,
   "plan": [
@@ -20,8 +20,8 @@
             "Total Cost": 0.59,
             "Plan Rows": 1,
             "Plan Width": 175,
-            "Actual Startup Time": 0.009,
-            "Actual Total Time": 0.009,
+            "Actual Startup Time": 0.01,
+            "Actual Total Time": 0.01,
             "Actual Rows": 1,
             "Actual Loops": 1,
             "Shared Hit Blocks": 4,
@@ -45,14 +45,14 @@
                 "Relation Name": "media",
                 "Alias": "media",
                 "Startup Cost": 0.41,
-                "Total Cost": 1785.79,
+                "Total Cost": 1809.79,
                 "Plan Rows": 10000,
                 "Plan Width": 175,
-                "Actual Startup Time": 0.008,
-                "Actual Total Time": 0.008,
+                "Actual Startup Time": 0.009,
+                "Actual Total Time": 0.009,
                 "Actual Rows": 1,
                 "Actual Loops": 1,
-                "Index Cond": "((project_id = 'acc015d1-4950-4574-a56b-b94920ef0ebd'::uuid) AND (status = 'ready'::media_status) AND (client_sha256 = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'::text))",
+                "Index Cond": "((project_id = '62907a6e-6490-4e24-80d0-43dd2fa05910'::uuid) AND (status = 'ready'::media_status) AND (client_sha256 = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'::text))",
                 "Rows Removed by Index Recheck": 0,
                 "Shared Hit Blocks": 4,
                 "Shared Read Blocks": 0,
@@ -79,9 +79,9 @@
             "Temp Read Blocks": 0,
             "Temp Written Blocks": 0
           },
-          "Planning Time": 0.079,
+          "Planning Time": 0.065,
           "Triggers": [],
-          "Execution Time": 0.025
+          "Execution Time": 0.024
         }
       ]
     }

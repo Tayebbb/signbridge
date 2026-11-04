@@ -1,5 +1,8 @@
 # SignBridge
 
+[![Release checks](https://github.com/Tayebbb/signbridge/actions/workflows/quality.yml/badge.svg)](https://github.com/Tayebbb/signbridge/actions/workflows/quality.yml)
+[![Live health and recovery](https://github.com/Tayebbb/signbridge/actions/workflows/operations.yml/badge.svg)](https://github.com/Tayebbb/signbridge/actions/workflows/operations.yml)
+
 **Bangla captions. Saved signing companions. Visible gaps.**
 
 SignBridge pairs a short captioned video with sequential avatar signing. The source plays first, then holds while the avatar signs. Missing critical concepts block completion, and corrections produce a new saved track while older work is fenced out.
@@ -87,6 +90,8 @@ npm run check:secrets
 Native tests require PostgreSQL binaries through `PG_TEST_BIN`; the Windows default is `C:/Program Files/PostgreSQL/16/bin`. They create disposable loopback clusters, never production connections. Browser checks need Playwright Chromium/Edge, WebGL and UEA access for real-engine integration. Install browsers with `npx playwright install chromium msedge`.
 
 CI uses fake/local processing without model credentials. The separate operations workflow monitors and reconciles the live service using approved encrypted secrets. Exact results and boundaries are in the [release report](docs/HARDENING-REPORT.md).
+
+The manual public-browser workflow verifies the saved production sample with the real remote avatar, including all six desktop segments and touch playback in mobile emulation. It uses no private credential and creates no processing job.
 
 ## Reliability and privacy
 

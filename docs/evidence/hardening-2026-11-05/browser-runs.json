@@ -1,0 +1,19 @@
+{
+  "fixtureIsolation": "Fresh dedicated local fixture database for each browser; production limits unchanged",
+  "requestedProjects": [
+    "chromium",
+    "msedge"
+  ],
+  "runs": [
+    {
+      "project": "chromium",
+      "exitCode": 0,
+      "evidence": "docs/evidence/hardening-2026-11-05/browser-chromium.json"
+    },
+    {
+      "project": "msedge",
+      "exitCode": 0,
+      "evidence": "docs/evidence/hardening-2026-11-05/browser-msedge.json"
+    }
+  ]
+}

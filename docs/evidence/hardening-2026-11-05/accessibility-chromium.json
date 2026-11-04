@@ -1,0 +1,27 @@
+{
+  "scope": "Selected parent-document checks; opaque rendering frame excluded; not WCAG certification or physical-device evidence",
+  "results": [
+    {
+      "path": "/",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr"
+      ]
+    },
+    {
+      "path": "/recover",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr"
+      ]
+    },
+    {
+      "path": "/p/:id",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "video-caption"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-04T19:37:44.043Z",
+  "target": "production",
+  "additiveMigration": true,
+  "accountingUnchanged": true,
+  "indexes": [
+    "media_cleanup",
+    "media_project_ready",
+    "render_events_kind_time",
+    "render_events_time",
+    "render_events_track",
+    "spend_reservations_state_time",
+    "stage_attempts_provider_time",
+    "stage_refs_cache_key"
+  ],
+  "newModelCalls": 0
+}
