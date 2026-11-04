@@ -1,0 +1,9 @@
+{
+  "kind": "Disposable local PostgreSQL logical backup/restore; not Neon PITR",
+  "manifestHashPreserved": true,
+  "staleAccessRevoked": true,
+  "processingPaused": true,
+  "budgetHeadroomZero": true,
+  "dumpBytes": 63300,
+  "modelCalls": 0
+}
