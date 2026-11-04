@@ -1,15 +1,12 @@
-# Deployment input is independent of Git's ignore rules. Never upload local credentials or state.
-.data/
+.git
+.github
+.data
+.vercel
 .env*
-.vercel/
-.git/
-.next/
-app/.well-known/workflow/
-*.tsbuildinfo
-node_modules/
-demo-input/
-test-results/
-playwright-report/
-docs/evidence/
-tests/
-submission/
+node_modules
+.next
+docs/evidence
+docs/audits
+submission/*.pdf
+*.dump
+*.log

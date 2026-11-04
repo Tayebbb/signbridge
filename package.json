@@ -20,7 +20,7 @@
     "test:race:native": "vitest run --config vitest.native.config.ts",
     "db:seed:local": "tsx scripts/seed-local.ts",
     "test:workspace": "playwright test --config playwright.workspace.config.ts",
-    "test:product": "playwright test --config playwright.product.config.ts"
+    "test:product": "node scripts/test-product.mjs"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.2",
     "@types/pg": "^8.23.1",
@@ -59,6 +60,9 @@
     "node": "24.x"
   },
   "overrides": {
+    "workflow": {
+      "minimatch": "11.0.4"
+    },
     "zod": "$zod",
     "undici@7.30.0": "7.30.1"
   }
