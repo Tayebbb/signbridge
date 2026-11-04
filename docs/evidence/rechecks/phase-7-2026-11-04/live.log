@@ -1,0 +1,4 @@
+{"scenario":"production-chrome","status":"PASS","segmentsPlayed":6,"sharesUnchanged":true}
+{"scenario":"production-msedge","status":"PASS","segmentsPlayed":6,"sharesUnchanged":true}
+{"scenario":"preview-chrome","status":"PASS","segmentsPlayed":1,"sharesUnchanged":true}
+{"status":"PASS","currentCountedMicros":"101634","additionalModelCalls":0,"health":200,"admin":200,"cron":200,"curlHead":200}

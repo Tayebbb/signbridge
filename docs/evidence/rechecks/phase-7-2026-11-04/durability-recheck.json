@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-04T11:35:39.485Z",
+  "status": "PASS",
+  "mode": "Read-only verification of the original actual deployment cutover; no fresh job/redeploy",
+  "jobId": "39453a8d-4b26-4337-9a19-2a2564a41793",
+  "workflowRunId": "wrun_41M6JQGTVY0GXGMABZQ8JX4QTR",
+  "projectId": "12288fac-938e-4875-ab5f-1cd045f94dd4",
+  "trackVersionId": "3b560b73-2f13-86a3-8c6d-fb68b93d87c5",
+  "manifestHash": "dbd9467cec43882ef8d557ec82f380898330ed1638dd9c9acc35a0de2aa1b991",
+  "publishedTracks": 1,
+  "originalNewDeploymentId": "dpl_2PPwyy3KZCeSFrAABuZStyEWYrBc",
+  "originalEvidenceSha256": "cb4416de344e9e1cdc9160b9bfd602f0cebd33ddc915e31a3a04a521b20b9c74"
+}

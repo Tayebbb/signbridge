@@ -1,15 +1,15 @@
 # Phase 7 deployment and verification
 
-Updated 2026-11-04, Asia/Dhaka. T1/T2/T9/T14 PASS. Public production: https://signbridge-mdtayebibne-4755s-projects.vercel.app. Preview and production each processed/pinned A (six ready segments) and deliberately unsupported B. Total measured use is USD 0.101634, zero outstanding reservations; USD 4 existing-credit ceiling. Phase 8 may begin after the Phase 7 commit/tag; official sticker remains missing.
+Updated 2026-11-04, Asia/Dhaka. Original Phase 7 T1/T2/T9/T14 PASS. Public production: https://signbridge-mdtayebibne-4755s-projects.vercel.app. Preview and production each processed/pinned A (six ready segments) and deliberately unsupported B. The original verification used USD 0.101634, zero outstanding reservations; USD 4 existing-credit ceiling. Phase 8 is committed/tagged and resolved the sticker blocker with the owner's official asset. Repeat-check evidence is recorded separately under docs/evidence/rechecks/phase-7-2026-11-04/.
 
 ## Required owner inputs
 
 - Owner approved up to USD 4 total of existing OpenAI credits, with minimum practical use, and identified the local credential file privately. No credit purchases, upgrades or billing-setting changes. Actual metered smoke cost: USD 0.018616; count subsequent use across both databases against the single ceiling.
 - Owner approved new Vercel/Neon free projects, account access and the listed environment settings. Vercel Hobby `signbridge` is linked under `mdtayebibne-4755s-projects`. Neon `signbridge-db` is production-only and `signbridge-preview-db` preview-only, both Free/iad1. A separate free preview project replaces the requested branch: the native integration CLI cannot configure automatic branches and both browser runtimes fail to initialize. This deviation is explicit; database URLs are verified different.
 - No owner clips were available. `scripts/prepare-demo-inputs.ts` generated original, silent, clearly labelled technical source fixtures and matching captions in ignored `demo-input/`, with measured metadata, hashes and CC0 source provenance. Sample A is 45 seconds / six segments; sample B deliberately includes unsupported negation. No people, linguistic validation or comprehension evidence is claimed. No plan is hand-edited.
-- Official sticker remains missing by owner confirmation. Keep the explicit placeholder; install only the supplied official file at `public/event-sticker.png` when available. Do not synthesize or imitate it.
+- The owner supplied `public/event-sticker.png` and explicitly confirmed it is the official organizer asset. Phase 8 deployed the original bytes and verified visibility on every page family. Preserve that image unchanged; its provenance/hash is in docs/evidence/final/sticker-provenance.json.
 
-## Configuration to approve before any action
+## Approved configuration
 
 Use Node 24/npm, Next 16.4.4, Workflow 5.3.0 and private Blob 2.8.2 adapters. Functions and resources are in `iad1`. Production and Preview `DATABASE_URL` point to isolated free Neon projects. Private `signbridge-private` Blob is connected to this project only. CLI login and these settings are already approved. The Blob SDK prefers managed OIDC when available; the integration initially supplied a read-write fallback. Its OIDC-only connection update returned HTTP 500, so authentication must be verified on deployment before claiming success.
 
@@ -45,3 +45,9 @@ Local-only PGLITE_DATA_DIR, LOCAL_BLOB_DIR, PG_TEST_BIN and test evidence routin
 - [Vercel deploy / staged production](https://vercel.com/docs/cli/deploy), [promote](https://vercel.com/docs/cli/promote), [Workflows](https://vercel.com/docs/workflows), [Blob SDK](https://vercel.com/docs/vercel-blob/using-blob-sdk).
 - [Neon branch management](https://neon.com/docs/manage/branches). Plan-specific limits still require account verification after approval.
 - [Hobby cron](https://vercel.com/docs/cron-jobs/usage-and-pricing): daily with hourly precision; cleanup timing is a conditional target.
+
+## Repeat verification after completion
+
+The original phase-7 tag and phase report remain historical records. A repeated phase request checks the existing production deployment, isolated databases, pinned demos, stable owner/shared replay, budget settlement, current environment-key presence, real renderer assets and operational endpoints. Existing public demo links must be reused, not rotated by the original saved-demo test's share-creation step.
+
+Recheck the original T1 provider/token rows and T9 publication/deployment chronology through read-only SQL, and verify every archived evidence hash. Do not describe that as a new fresh-processing run or redeployment. With unchanged app code and passing original gates, repeating paid processing adds no necessary evidence; preserve the owner's request for minimum credit use. A real gate failure still stops the release and must be fixed before proceeding. Record current results in a dated supplemental report/tag while preserving phase-1 through phase-8.

@@ -1,0 +1,5 @@
+
+> signbridge@0.1.0 test
+> vitest run --reporter=json --outputFile=E:\AIgnite-Lab\signbridge\docs\evidence\rechecks\phase-7-2026-11-04\release-vitest-results.json
+
+JSON report written to E:/AIgnite-Lab/signbridge/docs/evidence/rechecks/phase-7-2026-11-04/release-vitest-results.json

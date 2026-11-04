@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-04T11:34:35.439Z",
+  "projectId": "prj_VDwFXfilMBeY57c9r3FN3bRXmOuV",
+  "name": "signbridge",
+  "productionDeploymentId": "dpl_DaNDUZQ8KeS1qDsAh9rooxtioUXZ",
+  "productionReadyState": "READY",
+  "plan": "hobby",
+  "nodeVersion": "24.x",
+  "framework": "nextjs",
+  "productionKeyConfigured": true,
+  "previewKeyAbsent": true,
+  "readOnlyAccountInspection": true,
+  "environmentChanges": false,
+  "purchasesOrUpgrades": false
+}

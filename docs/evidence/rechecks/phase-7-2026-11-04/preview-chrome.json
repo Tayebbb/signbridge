@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-04T11:39:35.771Z",
+  "status": "PASS",
+  "browser": "chrome",
+  "browserVersion": "157.0.8103.38",
+  "environment": "Windows headless software WebGL",
+  "target": "preview",
+  "projectId": "cb3b672c-02e2-4ba8-8599-458e92b19d44",
+  "manifestHash": "ff582405ed3c84ebedd008749f8cfb3a418dede1aa71648f594fa4bc0958a350",
+  "historicalProcessing": {
+    "jobId": "99b923f0-dd1b-4829-9a89-f8066d66005a",
+    "workflowRunId": "wrun_41M6JNEJJN0GRHW2ZRQDBEVV61",
+    "realOpenAICalls": 12,
+    "repairs": 0,
+    "freshUploadNotRepeated": true
+  },
+  "observations": [
+    {
+      "idx": 0,
+      "seen": [
+        "g2_s0a0u0"
+      ],
+      "expected": [
+        "g2_s0a0u0"
+      ]
+    }
+  ],
+  "ownerReloadAndExistingShareSameHash": true,
+  "shareRotated": false,
+  "blockingGapBeforeSigning": true,
+  "conditionalStatus": 304,
+  "rangeStatus": 206,
+  "processing": "disabled",
+  "additionalModelCalls": 0
+}

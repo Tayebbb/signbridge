@@ -1,0 +1,40 @@
+{
+  "revision": "c051eeb",
+  "results": [
+    {
+      "name": "typecheck",
+      "command": "node C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js run typecheck",
+      "exitCode": 0,
+      "started": "2026-11-04T11:35:20.639Z",
+      "finished": "2026-11-04T11:35:23.836Z"
+    },
+    {
+      "name": "lint",
+      "command": "node C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js run lint",
+      "exitCode": 0,
+      "started": "2026-11-04T11:35:20.646Z",
+      "finished": "2026-11-04T11:35:29.215Z"
+    },
+    {
+      "name": "curated-probe",
+      "command": "node scripts/corpus-render-probe.cjs .data/phase7-recheck-probe.json docs/evidence/rechecks/phase-7-2026-11-04/probe",
+      "exitCode": 0,
+      "started": "2026-11-04T11:35:29.223Z",
+      "finished": "2026-11-04T11:35:50.348Z"
+    },
+    {
+      "name": "unit",
+      "command": "node C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js test -- --reporter=json --outputFile=docs/evidence/rechecks/phase-7-2026-11-04/vitest-results.json",
+      "exitCode": 0,
+      "started": "2026-11-04T11:35:29.215Z",
+      "finished": "2026-11-04T11:36:46.018Z"
+    },
+    {
+      "name": "live",
+      "command": "node node_modules/tsx/dist/cli.mjs .data/recheck-phase7-live.ts --live",
+      "exitCode": 0,
+      "started": "2026-11-04T11:35:29.230Z",
+      "finished": "2026-11-04T11:39:50.639Z"
+    }
+  ]
+}

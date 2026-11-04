@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-04T11:37:13.962Z",
+  "status": "PASS",
+  "browser": "chrome",
+  "browserVersion": "157.0.8103.38",
+  "environment": "Windows headless software WebGL",
+  "target": "production",
+  "projectId": "b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+  "manifestHash": "939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc",
+  "historicalProcessing": {
+    "jobId": "7123079b-3873-41ff-aa2b-2f11ec4f2187",
+    "workflowRunId": "wrun_41M6JPTFRJ0GPYB86P3EEX5XM3",
+    "realOpenAICalls": 12,
+    "repairs": 0,
+    "freshUploadNotRepeated": true
+  },
+  "observations": [
+    {
+      "idx": 0,
+      "seen": [
+        "g2_s0a0u0"
+      ],
+      "expected": [
+        "g2_s0a0u0"
+      ]
+    },
+    {
+      "idx": 1,
+      "seen": [
+        "g4_s1a0u0"
+      ],
+      "expected": [
+        "g4_s1a0u0"
+      ]
+    },
+    {
+      "idx": 2,
+      "seen": [
+        "g6_s2a0u0"
+      ],
+      "expected": [
+        "g6_s2a0u0"
+      ]
+    },
+    {
+      "idx": 3,
+      "seen": [
+        "g8_s3a0u0"
+      ],
+      "expected": [
+        "g8_s3a0u0"
+      ]
+    },
+    {
+      "idx": 4,
+      "seen": [
+        "g10_s4a0u0"
+      ],
+      "expected": [
+        "g10_s4a0u0"
+      ]
+    },
+    {
+      "idx": 5,
+      "seen": [
+        "g12_s5a0u0"
+      ],
+      "expected": [
+        "g12_s5a0u0"
+      ]
+    }
+  ],
+  "ownerReloadAndExistingShareSameHash": true,
+  "shareRotated": false,
+  "blockingGapBeforeSigning": true,
+  "conditionalStatus": 304,
+  "rangeStatus": 206,
+  "processing": "enabled",
+  "additionalModelCalls": 0
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-04T11:35:37.317Z",
+  "isolatedDatabases": true,
+  "targets": [
+    {
+      "target": "preview",
+      "eligible": 12,
+      "allSuccessfulHashBoundEvidence": true,
+      "pinnedDemoProjects": [
+        "cb3b672c-02e2-4ba8-8599-458e92b19d44",
+        "e1a2208f-d281-4e67-9e56-1fdf7ea42a1d"
+      ]
+    },
+    {
+      "target": "production",
+      "eligible": 12,
+      "allSuccessfulHashBoundEvidence": true,
+      "pinnedDemoProjects": [
+        "b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+        "1ad052e9-bb09-4132-a98a-995917bfb86b"
+      ]
+    }
+  ]
+}
