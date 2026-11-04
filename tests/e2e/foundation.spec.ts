@@ -6,7 +6,7 @@ test("P1-HEALTH: live DB round trip and honest global banner/footer", async ({ p
   for (const path of ["/", "/about", "/p/foundation", "/s/foundation"]) {
     await page.goto(path);
     await expect(page.getByText("Experimental · not reviewed by BdSL signers", { exact: true })).toBeVisible();
-    await expect(page.getByLabel("Official event sticker slot")).toContainText("Awaiting official asset");
+    await expect(page.getByAltText("Official event sticker")).toBeVisible();
     await expect(page.locator("footer")).toContainText("IsharaKotha v2");
     await expect(page.locator("footer")).toContainText("UEA CWASA");
   }

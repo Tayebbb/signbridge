@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-04T11:16:29.069Z",
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exitCode": 0
+  },
+  "lint": {
+    "command": "npm run lint",
+    "exitCode": 0
+  },
+  "tests": {
+    "command": "npm test -- --reporter=json --outputFile=docs/evidence/final/vitest-results.json",
+    "exitCode": 0,
+    "pass": 194,
+    "fail": 0,
+    "skip": 0
+  },
+  "foundation": {
+    "command": "SIGNBRIDGE_EVIDENCE_PHASE=8 npm run test:e2e",
+    "exitCode": 0,
+    "pass": 2,
+    "fail": 0,
+    "skip": 0
+  },
+  "production": {
+    "command": "npx tsx scripts/final-smoke.ts --live",
+    "exitCode": 0,
+    "routeCaptures": 8,
+    "modelCalls": 0
+  },
+  "pdf": {
+    "command": "bundled Python scripts/export-submission-deck.py; pdftoppm -scale-to 1440 -png submission/deck.pdf docs/evidence/final/deck-slide",
+    "exitCode": 0,
+    "pages": 5,
+    "visualReview": "PASS"
+  },
+  "claims": {
+    "command": "node scripts/audit-submission-claims.mjs + manual review",
+    "exitCode": 0,
+    "files": 21,
+    "hits": 20,
+    "unresolved": 0
+  },
+  "inheritedPhase7ReportsChanged": false
+}

@@ -1,0 +1,20 @@
+{
+  "source": "submission/deck.md",
+  "output": "submission/deck.pdf",
+  "pages": 5,
+  "format": "960 x 540 pt landscape",
+  "markdownSlides": 5,
+  "requiredTextPresent": true,
+  "visualReview": "PASS",
+  "review": {
+    "date": "2026-11-04T11:12:17.507Z",
+    "renderedPagesInspected": 5,
+    "checks": [
+      "All five full-page PNG renders read at 1440px width",
+      "No clipped text, overlap, missing glyphs or blank pages",
+      "Production signing/gap captures readable; source citations and page numbers visible"
+    ],
+    "sourceSha256": "937cc6f0aef2bfce834aa8d257f83188cc968c28adcd8a3386ac35729a485aee",
+    "pdfSha256": "443650b14132485640ad65003b53767bd0adb52fdc5145ec6b2a4f453cf1de20"
+  }
+}
