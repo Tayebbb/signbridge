@@ -1,28 +1,64 @@
 # SignBridge
 
-Experimental - not reviewed by a BdSL signer.
+**Bangla captions. Saved signing companions. Visible gaps.**
 
-A companion for short Bangla clips with supplied captions: source playback holds for signing, critical gaps appear before play, and the saved track reopens without another model call. Source-caption edits fence stale work. This is an unreviewed prototype; its intended audience has not been validated with participants.
+SignBridge pairs a short captioned video with sequential avatar signing. The source plays first, then holds while the avatar signs. Missing critical concepts block completion, and corrections produce a new saved track while older work is fenced out.
 
-[Open the public application](https://signbridge-mdtayebibne-4755s-projects.vercel.app) · [Play covered sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg) · [See unsupported sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs)
+[Live application](https://signbridge-mdtayebibne-4755s-projects.vercel.app) · [Architecture](SYSTEM-DESIGN.md) · [Release verification](docs/HARDENING-REPORT.md) · [Operations](docs/OPERATIONS.md)
 
-The two public samples use original silent synthetic source clips, not participant footage. A is 45 seconds with six technically ready segments; B deliberately contains unsupported negation. The owner supplied the official organizer sticker, used unchanged in the top banner.
+> Signing remains experimental and unreviewed. Rendering an animation does not establish correct BdSL or user comprehension. No qualified language review or comprehension study is claimed.
 
-## Evidence categories
+## What works
 
-| Category | Evidence |
-|---|---|
-| Technical renderability | Phase 2: 20/20 sampled corpus files. Phase 7: 12/12 curated assets and six production segments replayed in Chrome/Edge. One Windows host, software WebGL; these sets may overlap. |
-| Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered versions. |
-| User comprehension | None. No evaluation using tasks with Deaf/BdSL users. |
+- Upload an MP4/WebM clip with Bangla SRT, WebVTT or timestamped captions.
+- Preview and edit segments, build a companion, and follow source-first sequential playback.
+- See unsupported concepts before signing; retry or skip incomplete playback without falsely counting it as complete.
+- Reopen saved tracks without another model call. Publication and browser response fences reject stale work.
+- Share a view-only link, revoke it, or delete the project. Every source-video request checks current authorization, including byte ranges.
+- Save a creator recovery key and restore access after losing the browser cookie.
 
-[Phase reports](docs/phase-reports/) trace every engineering claim. The verified release has 194 default tests, 51 native PostgreSQL tests, 16 local browser regressions, and passing production T1/T2/T9/T14. The dated Phase 6/7 rechecks preserve the original gates and distinguish fresh playback from retained processing/deployment evidence. Counts overlap across backends and do not measure language quality. Physical Android/iPhone testing remains NOT RUN; [checklist](docs/MOBILE-TEST.md).
+## Connected services
 
-## Local development
+| Responsibility | Production | Local development / tests |
+|---|---|---|
+| UI and HTTP API | Next.js on Vercel, Node 24 | Next.js on loopback |
+| Durable records and accounting | Neon PostgreSQL + Drizzle | PGlite; native PostgreSQL for contention tests |
+| Source video | Private Vercel Blob through authorized streaming | Filesystem adapter |
+| Meaning extraction and sign planning | OpenAI Responses with strict schemas and bounded reservations | Deterministic fake with labelled provenance |
+| Background execution | Vercel Workflows with SQL outbox/run claims | In-process dispatcher using the same contracts |
+| Avatar | UEA CWASA vhg2026 / Anna in an opaque sandbox | Real integration checks and an intercepted deterministic test engine |
 
-Use Node 24 and npm. The local fake model is explicitly labelled in provenance.
+```mermaid
+flowchart LR
+  U[Creator: video + captions] --> W[Next.js workspace / API]
+  W --> D[(Neon: versions, jobs, budgets)]
+  W --> B[Private video storage]
+  D --> J[Workflow: plan + validate]
+  J --> M[OpenAI]
+  J --> D
+  D --> P[Saved immutable manifest]
+  P --> V[Viewer: source, signing, visible gaps]
+  B --> S[Authorized range stream]
+  S --> V
+  V --> R[Isolated UEA renderer]
+```
+
+The public application uses real production adapters. Fake fixtures are a local testing tool and are labelled in provenance.
+
+## Public examples
+
+- [Covered technical sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg): six isolated nouns in a 45-second clip.
+- [Unsupported-concept sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs): a blocking critical gap.
+
+These use original silent synthetic source cards and real saved processing results. They are technical examples, not participant recordings or evidence of natural-language coverage. Their creator can revoke them, and operational limits apply.
+
+## Run locally
+
+Requirements: **Node 24**, **npm**, and a WebGL-capable browser. No API key is needed for the local fake path.
 
 ```powershell
+git clone https://github.com/Tayebbb/signbridge.git
+cd signbridge
 npm ci
 npm run db:migrate
 npm run db:seed:local
@@ -30,46 +66,63 @@ $env:PROCESSING_ENABLED = 'true'
 npm run dev
 ```
 
-With DATABASE_URL unset, local persistence uses PGlite under .data/. Blob uses the filesystem and jobs run in process. Unit tests use isolated databases. Configuration is documented in [.env.example](.env.example). The migration script uses exported variables and does not load .env.local itself. Use real secrets or Vercel settings only within the owner's approved scope; keep all credentials and owner/admin capabilities out of Git and logs.
+Open the loopback URL printed by Next.js. With `DATABASE_URL` unset, persistence uses PGlite and source files remain local under `.data/`. The migration script reads exported environment values rather than loading `.env.local` itself.
 
-## Checks
+See [.env.example](.env.example) for every setting. Keep API keys, database URLs, owner/recovery capabilities, operational tokens and backups out of Git. Private environment files, `.data/`, `.vercel/` and dependency/build directories are ignored.
+
+## Verify a change
 
 ```powershell
 npm run typecheck
 npm run lint
 npm test
-npm run build
-npm run check:secrets
+npm audit --omit=dev --audit-level=moderate
 npm run test:race:native
 npm run test:product
+npm run test:e2e
+npm run build
+npm run check:secrets
 ```
 
-Native race tests need PostgreSQL binaries (PG_TEST_BIN); they create a disposable loopback-only cluster and never use the production database. Browser tests need Playwright Chromium, Edge where installed, WebGL and network access to UEA. Test-only evidence routing preserves earlier phase artifacts. Stage files before check:secrets; the scanner permits only exact documented pre-existing nonsecret lines.
+Native tests require PostgreSQL binaries through `PG_TEST_BIN`; the Windows default is `C:/Program Files/PostgreSQL/16/bin`. They create disposable loopback clusters, never production connections. Browser checks need Playwright Chromium/Edge, WebGL and UEA access for real-engine integration. Install browsers with `npx playwright install chromium msedge`.
 
-## Architecture and recovery
+CI uses fake/local processing without model credentials. The separate operations workflow monitors and reconciles the live service using approved encrypted secrets. Exact results and boundaries are in the [release report](docs/HARDENING-REPORT.md).
 
-[SYSTEM-DESIGN.md](SYSTEM-DESIGN.md) is the immutable architecture specification. Next.js routes coordinate domain validation, SQL transitions, storage, model and dispatcher adapters. Neon stores owners, transcript versions, outbox/run claims, content-addressed stages, epochs, spend reservations and immutable playback manifests. Vercel Workflows processes stages; private Blob holds signed source media. UEA CWASA runs remotely, unmodified, in an opaque sandboxed iframe.
+## Reliability and privacy
 
-Edits invalidate affected work. SQL checks active job/epoch on publication, so late replies cannot replace newer output. Disposable renderer instances and generation-tagged IDs reject stale callbacks. Exact ordered unit completion is required; missing callbacks, timeouts and skips do not count as completed signing. The final smoke includes an explicitly controlled dropped-callback/retry check, not a claimed production incident.
+- Immutable manifests, SQL epochs/run claims and client refresh generations prevent old work from becoming current.
+- Ordered unit checks, watchdogs and disposable iframe ownership prevent stale callbacks from manufacturing completion.
+- Every real model attempt reserves spend first. Uncertain billing remains charged; deleting a project never refunds it.
+- Metadata polling transfers no video bytes. Actual reads pass the monthly allowance, including pinned clips. Range reads reserve a conservative full-object upper bound.
+- Creator cookies are host-only, Secure, HttpOnly, SameSite=Lax and valid for 180 days. Recovery keys are stored only as hashes; recovery invalidates previous creator sessions.
+- Videos normally expire after 72 hours. Captions and manifests persist until project deletion. [Data lifecycle](docs/DATA-LIFECYCLE.md) explains cleanup, provider retention and recovery limits.
 
-## Limits and operations
+## Evidence and limits
 
-- Limited corpus coverage, conservative Bangla detectors and incomplete nonmanual grammar can block output or produce unsuitable signing. No accuracy or comprehension claim is made. Unsupported critical concepts remain visible.
-- Source video/captions require permission. Real processing sends captions, title and context to OpenAI. store:false does not establish zero provider retention.
-- The remote UEA service and WebGL are required for avatar replay. Saved captions and gaps remain available during renderer failure. Real mobile memory/performance is unverified.
-- Public sample links are intentionally read-only. Other projects are private until sharing is enabled. Revocation stops future reads; signed source URLs can remain valid for 15 minutes. Owner-cookie loss has no account recovery in this scope.
-- Non-pinned media expires after 72 hours. Cleanup targets 96 hours when daily reconciliation runs; jitter/outages can delay it. Upload leases delay safe physical purge. Pinned demos are excluded.
-- OpenAI error-rate and budget gates can stop processing while preserving replay. Verification used USD 0.101634 of an approved USD 4 existing-credit ceiling; no new model calls are requested for Phase 8. SQL lifetime/day caps remain USD 0.30 preview and USD 0.70 production. Free infrastructure only; no purchases/upgrades/billing changes.
-- Production uses Workflows; no lease fallback is claimed. Preview is a separate Neon Free project rather than a branch, as recorded in [deviations](docs/DEVIATIONS.md). Anchors, learner pace presets, simultaneous overlay, embeddings and ASR were cut at the feature freeze.
+| Category | Evidence |
+|---|---|
+| Technical renderability | Curated corpus/production replay, deterministic regressions, native SQL contention and browser integration checks. Exact current counts are in the release report. |
+| Linguistic correctness | **None.** No qualified BdSL signer assessed these exact rendered versions. |
+| User comprehension | **None.** No consented comprehension evaluation with Deaf/BdSL users. |
 
-See [limitations](docs/LIMITATIONS.md), [production runbook](docs/PRODUCTION-RUNBOOK.md) and [dated fallback recordings](docs/UEA-FALLBACK-CAPTURE.md).
+Production currently enables 12 hash-matched, technically probed assets. Conservative detectors, unsupported nonmanual features and composed sequences can produce blocked or unsuitable output. Automated gap checks, mobile emulation and accessibility scans do not replace qualified review, comprehension research or physical-device observations.
 
-## Attribution and prior work
+Clips are limited to 90 seconds, 15 MB and 20 segments. Free infrastructure and a small credit allocation impose capacity limits. UEA, WebGL and the configured providers remain runtime dependencies. See [limitations](docs/LIMITATIONS.md) and [operations](docs/OPERATIONS.md).
 
-IsharaKotha V2, DOI [10.17632/6ykgx65ks5.2](https://data.mendeley.com/datasets/6ykgx65ks5/2), CC BY 4.0: MD. Ashikul Islam, Prato Dewan, Md Fuadul Islam, Md Ataullha Saim and M Shahidur Rahman. Only gloss identifiers are derived as lowercase ASCII; motion XML is retained. Renderer: remote unmodified [UEA CWASA vhg2026](https://vhg.cmp.uea.ac.uk/tech/jas/vhg2026/), Anna avatar; [conditions](https://vh.cmp.uea.ac.uk/index.php/CWASA_Conditions_of_Use). No engine/avatar redistribution is claimed.
+## Project map
 
-SignOLight and IsharaKotha are prior video/text-to-avatar work. SignBridge claims the tested integration of source-frame holds, durable caption edits, saved replay and explicit gaps, not invention of those research categories. Corpus-level review does not establish quality of a newly composed track. Full [attribution](docs/ATTRIBUTION.md).
+| Path | Responsibility |
+|---|---|
+| `app/` | Pages, components and thin route adapters |
+| `lib/domain/`, `lib/contracts/` | Pure validation, segmentation, retrieval and structured contracts |
+| `lib/db/queries/`, `lib/db/migrations/` | Authoritative transitions, ledgers and schema changes |
+| `lib/ai/`, `lib/jobs/` | Provider boundaries, metering and durable execution |
+| `lib/player/` | Scheduling, isolation, event validation and client track state |
+| `tests/` | Unit, API, PostgreSQL race and browser checks |
+| `docs/phase-reports/`, `docs/evidence/` | Historical gates and dated evidence |
 
-## Submission package
+The original `phase-1` through `phase-8` tags are preserved. Later rechecks and hardening retain their historical meaning; design changes are recorded in [DEVIATIONS.md](docs/DEVIATIONS.md).
 
-[Five-slide Markdown](submission/deck.md) · [PDF](submission/deck.pdf) · [Devpost draft](submission/devpost.md) · [English recording script](submission/demo-video-script.md) · [handoff](submission/HANDOFF.md). The owner records the optional video and submits; no Devpost publication or user study has been performed by this build.
+## Attribution
+
+Sign data: **IsharaKotha v2**, **CC BY 4.0**. Renderer: the unmodified remote **University of East Anglia CWASA vhg2026 / Anna**, under its own terms. The official event sticker was supplied and confirmed by the owner; its original bytes are retained with responsive delivery optimization. See [ATTRIBUTION.md](docs/ATTRIBUTION.md) for provenance and prior work.

@@ -1,0 +1,24 @@
+name: Live health and recovery
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: live-recovery
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      APP_URL: ${{ vars.SIGNBRIDGE_URL }}
+      CRON_SECRET: ${{ secrets.SIGNBRIDGE_CRON_SECRET }}
+      ADMIN_TOKEN: ${{ secrets.SIGNBRIDGE_ADMIN_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/monitor-production.mjs

@@ -1,0 +1,27 @@
+name: Public release browser verification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: public-release-browser
+  cancel-in-progress: false
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/verify-public-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-browser-evidence
+          path: docs/evidence/hardening-2026-11-05/public-*
+          retention-days: 14
