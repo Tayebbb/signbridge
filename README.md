@@ -69,7 +69,7 @@ Run `npm test`, `npm run test:race:native`, `npm run typecheck`, `npm run lint` 
 
 Create a project on `/`, upload a short MP4/WebM and paste SRT/VTT or timestamped captions, preview/merge/split, then build the companion. The workspace shows technical, source-confirmation and review states separately. Signing waits for each source segment; critical gaps block before play, and incomplete/skip outcomes never count as complete. Pause discards the renderer and Resume starts signing at the first sign. UEA remains a remote runtime dependency.
 
-`npm run test:workspace` runs the dedicated, isolated fake-model browser harness plus real CWASA technical rendering in Chromium/Edge. `npm test` includes the 1,000-interleaving scheduler matrix. See [Phase 5 evidence](docs/evidence/phase-5/notes.md). The sample-project button is a labelled placeholder until Phase 7 verifies demos.
+`npm run test:workspace` runs the dedicated, isolated fake-model browser harness plus real CWASA technical rendering in Chromium/Edge. `npm test` includes the 1,000-interleaving scheduler matrix. See [Phase 5 evidence](docs/evidence/phase-5/notes.md). Verified synthetic sample projects are now linked from the production home page.
 
 ## Product freeze (Phase 6)
 
@@ -83,8 +83,12 @@ Evidence categories: technical renderability = 20/20 sampled files on one Window
 
 Feature freeze cuts optional anchors, learner pace presets, simultaneous overlay, embeddings and ASR. Deployment/content and fixes remain; the sticker is blocked, not cut. See `docs/phase-reports/phase-6.md` and `docs/DEVIATIONS.md`.
 
-## Production preparation (Phase 7 gate still open)
+## Production (Phase 7)
 
-See `docs/PRODUCTION-RUNBOOK.md`, `docs/MOBILE-TEST.md` and `docs/UEA-FALLBACK-CAPTURE.md`. `npx tsx scripts/seed-demo.ts --help` describes the dry-first content tool. Copy `demo-input.example.json` into ignored `demo-input/demo.json` only after supplying permitted real files and measured metadata. Apply requires explicit owner approval, an approved deployment/Neon URL and bounded SQL budgets; it never raises caps and does not automatically retry paid failures. Private owner/checkpoint data stays under ignored `.data`.
+[Open SignBridge](https://signbridge-mdtayebibne-4755s-projects.vercel.app). [Play covered sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg) · [See unsupported sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs). These are original silent synthetic source fixtures, not language-quality evidence. A is 45 seconds / six technically ready segments; B has deliberate unsupported negation. The links are intentionally public and read-only. Owner/admin/database/model credentials are never published.
 
-The probe accepts a second positional evidence directory: `npm run corpus:probe -- .data/phase7-probe.json docs/evidence/phase-7`. Import Phase 7 checks with `npm run corpus:import -- --checks docs/evidence/phase-7/asset-render-checks.json --output-dir .data/phase7-corpus --evidence-dir docs/evidence/phase-7`; this preserves original corpus files, fixtures and earlier evidence. No curated demo selection or production result exists until the real inputs and approval arrive. Phase 8 remains gated.
+T1/T2/T9/T14 passed. Measured OpenAI usage is USD 0.101634 from existing credits; the approved ceiling is USD 4. SQL lifetime/day caps remain USD 0.30 preview plus USD 0.70 production, with no automatic increase. Infrastructure stays on free plans. See docs/phase-reports/phase-7.md and docs/evidence/phase-7/gates.json for actual browser versions, checks and limitations. Official sticker missing; physical-device tests await owner observations. Linguistic correctness and comprehension remain unevaluated.
+
+The preview database is a separate Neon Free project rather than a branch; this deviation is logged. The no-key preview replays saved tracks with processing disabled. Workflows remains the production driver and survived an actual production cutover; no lease fallback is claimed. See docs/PRODUCTION-RUNBOOK.md for maintenance, docs/MOBILE-TEST.md for real devices, and docs/UEA-FALLBACK-CAPTURE.md for dated source recordings.
+
+Use the dry-first seed/probe tools only with explicitly approved credentials and bounded budgets. Private durable checkpoints remain in ignored .data/. The curated import and raw verification artifacts preserve their provenance; verification-artifacts.json indexes the lossless archive.

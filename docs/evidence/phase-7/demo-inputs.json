@@ -1,0 +1,32 @@
+{
+  "createdAt": "2026-11-04T05:55:32.797Z",
+  "source": "Original project-generated text cards; no external footage, people, voices, music or signer performance",
+  "license": "CC0-1.0 for these generated source clips and captions",
+  "limitation": "Synthetic technical fixtures, not a linguistic evaluation or production-model result",
+  "clips": [
+    {
+      "id": "sample-a",
+      "title": "Synthetic source-label demo",
+      "video": "sample-a.mp4",
+      "captions": "sample-a.srt",
+      "durationMs": 45000,
+      "width": 1280,
+      "height": 720,
+      "expectUnsupported": false,
+      "sizeBytes": 112087,
+      "sha256": "2f5636378553888e67113eea549a411e66e544629b344ae985e3e66d1432d7aa"
+    },
+    {
+      "id": "unsupported-b",
+      "title": "Synthetic unsupported-negation demo",
+      "video": "unsupported-b.mp4",
+      "captions": "unsupported-b.srt",
+      "durationMs": 15000,
+      "width": 1280,
+      "height": 720,
+      "expectUnsupported": true,
+      "sizeBytes": 42719,
+      "sha256": "818766ced0fca9029afc93fd9f598c990eefff1f1aa6363132172236a0d3fe54"
+    }
+  ]
+}

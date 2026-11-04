@@ -1,0 +1,35 @@
+{
+  "purpose": "Synthetic source-label demo plus common words; technical rendering only",
+  "selection": "First accepted asset by lexical ID for each exact corpus label; no alias or motion changes",
+  "sourceManifestSha256": "a59156829c11a6a5096824f59a3f00a122dad81b42ffb719cb0e7097f416df13",
+  "assetIds": [
+    "ik2_029a14eea1fa",
+    "ik2_24fc4305a13a",
+    "ik2_3d9095d328c7",
+    "ik2_85add6d08d02",
+    "ik2_f85ef43799a6",
+    "ik2_5d6d84070313",
+    "ik2_657ced2637d1",
+    "ik2_d6a944a1f832",
+    "ik2_9c5906dfa866",
+    "ik2_72a195d855cb",
+    "ik2_23bd0913b38b",
+    "ik2_aad5f1ba5335"
+  ],
+  "labels": [
+    "বই",
+    "হাত",
+    "দুধ",
+    "খাবার",
+    "মানুষ",
+    "কলম",
+    "পানি",
+    "মাছ",
+    "ফুল",
+    "গাছ",
+    "বৃষ্টি",
+    "সূর্য"
+  ],
+  "intentionallyUncovered": "নেই (negation)",
+  "linguisticReview": "none"
+}

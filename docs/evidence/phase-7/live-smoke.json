@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-04T05:54:58.683Z",
+  "status": "partial",
+  "model": "gpt-6.1-sol",
+  "fixtureSegments": 2,
+  "ceilingUsd": 0.2,
+  "attempts": [
+    {
+      "segment_idx": 0,
+      "stage": "meaning",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "input_tokens": 546,
+      "output_tokens": 443,
+      "reasoning_tokens": 186,
+      "cost_usd_micros": 5522
+    },
+    {
+      "segment_idx": 0,
+      "stage": "plan",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "input_tokens": 600,
+      "output_tokens": 187,
+      "reasoning_tokens": 58,
+      "cost_usd_micros": 3070
+    },
+    {
+      "segment_idx": 1,
+      "stage": "meaning",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "input_tokens": 546,
+      "output_tokens": 559,
+      "reasoning_tokens": 147,
+      "cost_usd_micros": 6682
+    },
+    {
+      "segment_idx": 1,
+      "stage": "plan",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "input_tokens": 621,
+      "output_tokens": 210,
+      "reasoning_tokens": 46,
+      "cost_usd_micros": 3342
+    }
+  ],
+  "budgets": [
+    {
+      "scope": "day:2026-11-04",
+      "cap_micros": 200000,
+      "reserved_micros": 0,
+      "spent_micros": 18616
+    },
+    {
+      "scope": "lifetime",
+      "cap_micros": 200000,
+      "reserved_micros": 0,
+      "spent_micros": 18616
+    }
+  ]
+}

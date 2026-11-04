@@ -1,4 +1,5 @@
 import {playbackManifestSchema,currentTrackResponseSchema,type PlaybackManifest,type CurrentTrackResponse} from "../contracts/manifest";
+import {sameEntityTag} from "../domain/entityTag";
 export class TrackStore {
   manifest:PlaybackManifest|null=null;current:CurrentTrackResponse|null=null;stale=new Set<number>();
   private manifests=new Map<string,{etag:string;manifest:PlaybackManifest}>();
@@ -10,10 +11,10 @@ export class TrackStore {
     const current=currentTrackResponseSchema.parse(await response.json()),cached=this.manifests.get(current.trackVersionId);
     const manifestResponse=await this.fetcher(this.path(`/api/tracks/${current.trackVersionId}/manifest`),{cache:"no-cache",signal,headers:cached?{"If-None-Match":cached.etag}:{}});
     let manifest:PlaybackManifest;
-    if(manifestResponse.status===304&&cached){if(cached.etag!==`"${current.manifestHash}"`)throw Error("Manifest identity did not match revalidation.");manifest=cached.manifest;}
-    else{if(!manifestResponse.ok)throw Error("Saved track is no longer available.");const parsed=playbackManifestSchema.parse(await manifestResponse.json()),etag=manifestResponse.headers.get("etag");if(etag!==`"${current.manifestHash}"`)throw Error("Manifest identity did not match the current track.");
+    if(manifestResponse.status===304&&cached){if(!sameEntityTag(cached.etag,`"${current.manifestHash}"`))throw Error("Manifest identity did not match revalidation.");manifest=cached.manifest;}
+    else{if(!manifestResponse.ok)throw Error("Saved track is no longer available.");const parsed=playbackManifestSchema.parse(await manifestResponse.json()),etag=manifestResponse.headers.get("etag");if(!sameEntityTag(etag,`"${current.manifestHash}"`))throw Error("Manifest identity did not match the current track.");
       // Browsers can merge a network 304 into a cached 200; preserve the immutable object identity too.
-      manifest=cached?.etag===etag?cached.manifest:parsed;this.manifests.set(current.trackVersionId,{etag,manifest});}
+      manifest=cached&&sameEntityTag(cached.etag,etag)?cached.manifest:parsed;this.manifests.set(current.trackVersionId,{etag:etag!,manifest});}
     if(manifest.projectId!==this.projectId||manifest.trackVersionId!==current.trackVersionId)throw Error("Saved track binding did not match.");
     const changed=this.current?.manifestHash!==current.manifestHash;
     // Avoid reloading the source video on every pointer poll; its current signed URL is still valid.

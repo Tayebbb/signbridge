@@ -1,0 +1,244 @@
+{
+  "checkedAt": "2026-11-04T05:43:29.025Z",
+  "renderer": "cwasa-vhg2026/anna/speed0",
+  "browser": "msedge",
+  "environment": {
+    "platform": "win32",
+    "headless": true,
+    "webgl": "SwiftShader"
+  },
+  "limitation": "Technical rendering only; no linguistic review or comprehension evidence.",
+  "passed": 12,
+  "attempted": 12,
+  "browserErrors": [],
+  "asset_render_checks": [
+    {
+      "assetId": "ik2_029a14eea1fa",
+      "labelBn": "বই",
+      "derivedSha256": "6526bc99c54d08a4e71be689c4daa9cf45fc6597ac43aa2ebe790d1b4f4c0ff9",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 26,
+      "frameEvents": 26,
+      "elapsedMs": 1413,
+      "expectedIds": [
+        "g1_s0a0u0"
+      ],
+      "observedIds": [
+        "g1_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_24fc4305a13a",
+      "labelBn": "হাত",
+      "derivedSha256": "a630fe7c9cb69aeaa9f2ee4b6172cbf1d54fc16c8efd9760720efc832d491a8a",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 19,
+      "frameEvents": 19,
+      "elapsedMs": 760,
+      "expectedIds": [
+        "g2_s0a0u0"
+      ],
+      "observedIds": [
+        "g2_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_657ced2637d1",
+      "labelBn": "পানি",
+      "derivedSha256": "1a7761779d3aa96b363d1f9965b3fa2442943b0586f63dd10efa089cde4f8bbd",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 18,
+      "frameEvents": 18,
+      "elapsedMs": 717,
+      "expectedIds": [
+        "g3_s0a0u0"
+      ],
+      "observedIds": [
+        "g3_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_85add6d08d02",
+      "labelBn": "খাবার",
+      "derivedSha256": "e6f5635ff68233776fb2ce450513487f42a0db3cfc5ac05b1032f87fde201bab",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 26,
+      "frameEvents": 26,
+      "elapsedMs": 962,
+      "expectedIds": [
+        "g4_s0a0u0"
+      ],
+      "observedIds": [
+        "g4_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_f85ef43799a6",
+      "labelBn": "মানুষ",
+      "derivedSha256": "ca4495d9c571d9deaf1838bb980f0beab20bc2460c842b4b30cdcaafc90250ca",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 42,
+      "frameEvents": 42,
+      "elapsedMs": 1517,
+      "expectedIds": [
+        "g5_s0a0u0"
+      ],
+      "observedIds": [
+        "g5_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_5d6d84070313",
+      "labelBn": "কলম",
+      "derivedSha256": "321d1a753da422159a9c350de71ec9f01cd3056268fa1982305d67fafb7addf8",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 29,
+      "frameEvents": 29,
+      "elapsedMs": 1050,
+      "expectedIds": [
+        "g6_s0a0u0"
+      ],
+      "observedIds": [
+        "g6_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_d6a944a1f832",
+      "labelBn": "মাছ",
+      "derivedSha256": "3c0e08dce7696fa58f3447179279a26a6326e158312e1507c2e52196219877a3",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 57,
+      "frameEvents": 57,
+      "elapsedMs": 2012,
+      "expectedIds": [
+        "g7_s0a0u0"
+      ],
+      "observedIds": [
+        "g7_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_9c5906dfa866",
+      "labelBn": "ফুল",
+      "derivedSha256": "9dd272fd2b09dffeaaccf0116a81fe20fa03482411dfea9c77a7b41d4a487ad2",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 26,
+      "frameEvents": 26,
+      "elapsedMs": 965,
+      "expectedIds": [
+        "g8_s0a0u0"
+      ],
+      "observedIds": [
+        "g8_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_72a195d855cb",
+      "labelBn": "গাছ",
+      "derivedSha256": "34e3f72682a1ddffcfca0ff508713c1bc6290a571bd68d61a3a90f178c0dbd37",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 20,
+      "frameEvents": 20,
+      "elapsedMs": 733,
+      "expectedIds": [
+        "g9_s0a0u0"
+      ],
+      "observedIds": [
+        "g9_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_3d9095d328c7",
+      "labelBn": "দুধ",
+      "derivedSha256": "f79848786aea5ce5120c2efd4855411eacfcc4e51a17ad5ba186949b426c1d75",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 59,
+      "frameEvents": 59,
+      "elapsedMs": 2071,
+      "expectedIds": [
+        "g10_s0a0u0"
+      ],
+      "observedIds": [
+        "g10_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_23bd0913b38b",
+      "labelBn": "বৃষ্টি",
+      "derivedSha256": "265b3c0aa25690713c6b0125aa71252cfff2b818bf0761dfafa4376c37fd9140",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 51,
+      "frameEvents": 51,
+      "elapsedMs": 1829,
+      "expectedIds": [
+        "g11_s0a0u0"
+      ],
+      "observedIds": [
+        "g11_s0a0u0"
+      ]
+    },
+    {
+      "assetId": "ik2_aad5f1ba5335",
+      "labelBn": "সূর্য",
+      "derivedSha256": "478f39e3d028a4ce62cef2f477b0b167b85b4ca9b1bc9f7b02d920f8a8f484b8",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-04T05:43:29.025Z",
+      "passed": true,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 18,
+      "frameEvents": 17,
+      "elapsedMs": 737,
+      "expectedIds": [
+        "g12_s0a0u0"
+      ],
+      "observedIds": [
+        "g12_s0a0u0"
+      ]
+    }
+  ]
+}

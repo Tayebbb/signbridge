@@ -4,7 +4,7 @@
   "description": "SignBridge experimental technical foundation",
   "scripts": {
     "dev": "npm run prepare:renderer && next dev --hostname 127.0.0.1",
-    "build": "npm run prepare:renderer && next build",
+    "build": "npm run prepare:renderer && next build && node scripts/check-workflow-build.mjs",
     "start": "next start --hostname 127.0.0.1",
     "prepare:renderer": "node scripts/prepare-renderer.mjs",
     "typecheck": "tsc --noEmit",

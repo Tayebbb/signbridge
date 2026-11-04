@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Dhaka",
+  "source": "Actual public production UI, Chrome for Testing, Windows software WebGL",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "deploymentId": "dpl_6kGYukQ7SzMjt5KD6RWpkKhPoRGf",
+  "trackVersionId": "a96e3557-0cb5-8072-8db0-f422af64ed2c",
+  "manifestHash": "939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc",
+  "browserVersion": "157.0.8103.38",
+  "recordings": [
+    {
+      "id": "covered",
+      "path": "docs/evidence/phase-7/captures/covered.webm",
+      "bytes": 3131614,
+      "sha256": "1fa79341aaba19050ebe21d2affddf0598c5a5189944e281e0f4712dad14d142",
+      "durationSeconds": 78.08,
+      "recordingCompletedAt": "2026-11-04T07:26:42.518Z",
+      "unmodifiedOriginal": true
+    },
+    {
+      "id": "unsupported",
+      "path": "docs/evidence/phase-7/captures/unsupported.webm",
+      "bytes": 602836,
+      "sha256": "064fa1adedcf1843ef4464a0f1dfc012572f12897f484d7602793c187e2b3f8e",
+      "durationSeconds": 16.16,
+      "recordingCompletedAt": "2026-11-04T07:26:58.289Z",
+      "unmodifiedOriginal": true
+    }
+  ],
+  "warning": "Recorded production playback; not evidence of current UEA availability, linguistic correctness or comprehension"
+}

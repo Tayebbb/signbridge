@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-04T07:42:52.947Z",
+  "approvedCeilingMicros": "4000000",
+  "countedUsageMicros": "101634",
+  "reservedMicros": "0",
+  "smokeMicros": "18616",
+  "funding": "Existing OpenAI API credits; no purchases or billing changes",
+  "note": "Returned usage and SQL metering; not a reconciled provider invoice",
+  "databases": [
+    {
+      "target": "preview",
+      "spentMicros": "36448",
+      "reservedMicros": "0",
+      "capMicros": "300000",
+      "projects": [
+        {
+          "clip": "sample-a",
+          "projectId": "cb3b672c-02e2-4ba8-8599-458e92b19d44",
+          "jobs": [
+            {
+              "id": "f3c61930-8643-405d-b105-6ce1db6c1452",
+              "status": "cancelled",
+              "driver": "workflows",
+              "runClaimed": false
+            },
+            {
+              "id": "99b923f0-dd1b-4829-9a89-f8066d66005a",
+              "status": "succeeded",
+              "driver": "workflows",
+              "runClaimed": true
+            }
+          ],
+          "attempts": 12,
+          "tracks": 1
+        },
+        {
+          "clip": "unsupported-b",
+          "projectId": "e1a2208f-d281-4e67-9e56-1fdf7ea42a1d",
+          "jobs": [
+            {
+              "id": "69ce8954-29d0-49a2-87c3-544d7e4792e8",
+              "status": "partial",
+              "driver": "workflows",
+              "runClaimed": true
+            }
+          ],
+          "attempts": 4,
+          "tracks": 1
+        }
+      ]
+    },
+    {
+      "target": "production",
+      "spentMicros": "46570",
+      "reservedMicros": "0",
+      "capMicros": "700000",
+      "projects": [
+        {
+          "clip": "sample-a",
+          "projectId": "b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+          "jobs": [
+            {
+              "id": "7123079b-3873-41ff-aa2b-2f11ec4f2187",
+              "status": "succeeded",
+              "driver": "workflows",
+              "runClaimed": true
+            }
+          ],
+          "attempts": 12,
+          "tracks": 1
+        },
+        {
+          "clip": "unsupported-b",
+          "projectId": "1ad052e9-bb09-4132-a98a-995917bfb86b",
+          "jobs": [
+            {
+              "id": "a326c847-5ef0-4f59-aaae-bbec2fd353e2",
+              "status": "partial",
+              "driver": "workflows",
+              "runClaimed": true
+            }
+          ],
+          "attempts": 4,
+          "tracks": 1
+        }
+      ]
+    }
+  ]
+}

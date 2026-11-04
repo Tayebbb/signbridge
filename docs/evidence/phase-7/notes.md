@@ -1,4 +1,14 @@
-# Phase 7 preparation evidence — 2026-11-03, Asia/Dhaka
+# Phase 7 evidence — 2026-11-04, Asia/Dhaka
+
+Final update: required production T1/T2/T9/T14 PASS; public home links and credential-free shared views pass. Chrome/Edge actual production playback, no-key replay preview, health/admin/cron/curl HEAD, 192 default tests, 51 native PostgreSQL races and 16 local browser regressions pass. Measured OpenAI use USD 0.101634, zero outstanding reservations. Original dated production WebM captures are preserved losslessly with hashes. The T9 job survived the cutover and published once; the initial checker falsely mixed reads across the publication commit, now protected by repeatable-read verification and a forced native race. Same-run revalidation spent nothing. Owner-approved public read-only capabilities expose only the two original synthetic samples. Official sticker missing; physical devices NOT RUN; linguistic correctness/comprehension NONE. All older notes below are historical preparation, superseded by this final update.
+
+Current update: owner approved up to USD 4 of existing OpenAI credits and new free Vercel/Neon projects plus the runbook settings. CLI authorization succeeded; Hobby project signbridge, isolated Free production/preview Neon projects and private Blob exist in iad1. Both databases have additive migrations, 12 hash-matched eligible assets, and lifetime/day caps of USD 0.70 production / USD 0.30 preview. No paid infrastructure or billing changes.
+
+T14 PASS: 12/12 actual UEA render checks in desktop Edge/Windows software rendering. Original silent, explicitly synthetic source clips and captions replace unavailable owner footage: A 45 seconds / six segments, B unsupported negation. The local real-controller upload/replay check passed with a labelled fake; it does not prove production behavior. The real model/persistence smoke passed four calls for USD 0.018616 from returned usage. No linguistic correctness or comprehension evidence is claimed.
+
+Production T1/T2/T9 remain pending deployment. Physical-device results and production fallback capture remain NOT RUN; official sticker missing. Both browser-control runtimes fail before opening UI, so the approved CLI is used. Separate preview Neon project instead of branch is logged. Deployment dry inspection caught private Git-ignored files before any upload; explicit .vercelignore exclusions and actual-input secret scan are required. Phase 8 remains unstarted while the full gate is open.
+
+## Historical preparation notes (2026-11-03; superseded by the update above)
 
 Status: production gate OPEN. No production URL or demo project exists. This session used no real secret, Vercel setting, managed database/blob operation or paid model call. Measured paid spend from these runs: USD 0; external account history is unknown and has not been queried.
 

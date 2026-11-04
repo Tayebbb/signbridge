@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-04T07:46:29.600Z",
+  "status": "PASS",
+  "productionOrigin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "demos": [
+    {
+      "id": "sample-a",
+      "label": "Play covered sample",
+      "projectId": "b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+      "href": "https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg",
+      "manifestHash": "939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc"
+    },
+    {
+      "id": "unsupported-b",
+      "label": "See unsupported sample",
+      "projectId": "1ad052e9-bb09-4132-a98a-995917bfb86b",
+      "href": "https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs",
+      "manifestHash": null
+    }
+  ],
+  "tests": {
+    "default": 192,
+    "nativePostgres": 51,
+    "localBrowsers": 16,
+    "previewBrowsers": 4,
+    "productionBrowsers": 4,
+    "noKeyReplayBrowsers": 4
+  },
+  "T1": {
+    "status": "PASS",
+    "seconds": 45,
+    "segments": 6,
+    "ready": 6,
+    "stageAttempts": 12,
+    "repairs": 0,
+    "browsers": [
+      {
+        "name": "Chrome",
+        "version": "157.0.8103.38"
+      },
+      {
+        "name": "Edge",
+        "version": "156.0.4314.58"
+      }
+    ],
+    "environment": "Windows headless software WebGL"
+  },
+  "T2": {
+    "status": "PASS",
+    "sameManifestHash": true,
+    "additionalModelCalls": 0,
+    "noKeyProcessingDisabledPreview": true,
+    "rangeStatus": 206,
+    "conditionalStatus": 304
+  },
+  "T9": {
+    "status": "PASS",
+    "jobId": "39453a8d-4b26-4337-9a19-2a2564a41793",
+    "runId": "wrun_41M6JQGTVY0GXGMABZQ8JX4QTR",
+    "driver": "workflows",
+    "publishedTracks": 1,
+    "checkerReadRaceFixed": true
+  },
+  "T14": {
+    "status": "PASS",
+    "curated": 12,
+    "eligible": 12,
+    "hashMatched": true
+  },
+  "operations": {
+    "health": 200,
+    "admin": 200,
+    "cron": 200,
+    "curlHead": 200,
+    "alerts": []
+  },
+  "spendMicros": "101634",
+  "reservedMicros": "0",
+  "approvedCeilingMicros": "4000000",
+  "infrastructure": "Vercel Hobby; two isolated Neon Free projects; private Blob; no purchases or upgrades",
+  "limitations": [
+    "official sticker missing",
+    "Physical Android/iPhone tests NOT RUN",
+    "Linguistic correctness NONE",
+    "Comprehension NONE"
+  ],
+  "artifactIndex": "verification-artifacts.json"
+}

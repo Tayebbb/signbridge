@@ -2,7 +2,7 @@ import {test,expect} from "@playwright/test";
 import {createServer,request as httpRequest,type IncomingHttpHeaders} from "node:http";
 import type {AddressInfo} from "node:net";
 import {mkdir,writeFile} from "node:fs/promises";
-const evidenceRoot=process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6":"docs/evidence/phase-5";
+const evidenceRoot=process.env.SIGNBRIDGE_EVIDENCE_PHASE==="7"?"docs/evidence/phase-7/recheck":process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6":"docs/evidence/phase-5";
 import {fakeEngine,create} from "./helpers";
 
 test("Fake end to end: upload, transcript, publish, playback, reload identity and stale-message barrier",async({page},info)=>{

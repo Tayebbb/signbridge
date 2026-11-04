@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-04T07:42:57.468Z",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "status": "PASS",
+  "health": {
+    "status": 200,
+    "body": {
+      "db": "ok",
+      "processing": "enabled",
+      "renderer": "remote"
+    }
+  },
+  "admin": {
+    "status": 200,
+    "body": {
+      "processing": true,
+      "windowStart": "2026-11-03T07:43:00.302Z",
+      "stageAttemptCount": 20,
+      "jobs": [
+        {
+          "status": "succeeded",
+          "count": 1
+        },
+        {
+          "status": "partial",
+          "count": 2
+        }
+      ],
+      "duration": {
+        "p50Ms": 19883,
+        "p95Ms": 134385.5
+      },
+      "stages": {
+        "attempts": 18,
+        "cacheHits": 2,
+        "repairs": 0,
+        "refusals": 0,
+        "errors": 0,
+        "errorRate": 0,
+        "repairRate": 0,
+        "cacheHitRate": 0.1
+      },
+      "budgets": [
+        {
+          "scope": "day:2026-11-04",
+          "cap_micros": "700000",
+          "reserved_micros": "0",
+          "spent_micros": "46570"
+        },
+        {
+          "scope": "lifetime",
+          "cap_micros": "700000",
+          "reserved_micros": "0",
+          "spent_micros": "46570"
+        }
+      ],
+      "storage": {
+        "id": 1,
+        "cap_bytes": "800000000",
+        "committed_bytes": "197525",
+        "pending_bytes": "0",
+        "est_transfer_bytes": "0",
+        "transfer_cap_bytes": "6000000000",
+        "transfer_month": "2026-11"
+      },
+      "segments": [
+        {
+          "status": "partial_blocked",
+          "count": 2
+        },
+        {
+          "status": "ready",
+          "count": 8
+        }
+      ],
+      "renderEvents": [
+        {
+          "kind": "played_complete",
+          "uaClass": "web",
+          "count": 12
+        }
+      ],
+      "alerts": [],
+      "warningCounts": {
+        "uncertain": 0,
+        "pending": 0,
+        "stalled": 0,
+        "engineFailures": 0,
+        "plays": 12,
+        "incomplete": 0
+      }
+    }
+  },
+  "cron": {
+    "status": 200,
+    "body": {
+      "redispatched": 0,
+      "fenced": 0,
+      "reservationsConverted": 0,
+      "storageReleased": 0,
+      "purged": 0
+    }
+  },
+  "curlHead": {
+    "exitCode": 0,
+    "status": 200,
+    "etag": "\"939f277230ebf40122de120e7877abdb822f259cf8d7e18f6a07bcaaf366e4cc\"",
+    "cacheControl": "private, no-cache"
+  },
+  "additionalModelCalls": 0
+}

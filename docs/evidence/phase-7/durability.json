@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-04T07:42:46.971Z",
+  "status": "PASS",
+  "verificationMode": "Same run rechecked after fixing inconsistent multi-query reads; zero additional processing",
+  "projectId": "12288fac-938e-4875-ab5f-1cd045f94dd4",
+  "jobId": "39453a8d-4b26-4337-9a19-2a2564a41793",
+  "workflowRunId": "wrun_41M6JQGTVY0GXGMABZQ8JX4QTR",
+  "driver": "workflows",
+  "oldDeploymentId": "dpl_6kGYukQ7SzMjt5KD6RWpkKhPoRGf",
+  "newDeploymentId": "dpl_2PPwyy3KZCeSFrAABuZStyEWYrBc",
+  "newDeploymentUrl": "https://signbridge-98pp8no96-mdtayebibne-4755s-projects.vercel.app",
+  "productionOrigin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "jobCreatedAt": "2026-11-04 07:31:34.831+00",
+  "deploymentCreatedAt": "2026-11-04T07:31:40.435Z",
+  "deploymentReadyAt": "2026-11-04T07:33:51.179Z",
+  "cutoverObservedAt": "2026-11-04T07:33:50.852Z",
+  "observerClockDeltaMs": -327,
+  "finishedAt": "2026-11-04 07:34:01.939+00",
+  "heldRunningThroughCutover": true,
+  "lockScope": "Only this verification project; original in-lock running/zero-track assertion passed before the final checker mismatch",
+  "finalJobStatus": "partial",
+  "trackVersionId": "3b560b73-2f13-86a3-8c6d-fb68b93d87c5",
+  "manifestHash": "dbd9467cec43882ef8d557ec82f380898330ed1638dd9c9acc35a0de2aa1b991",
+  "publishedTracks": 1,
+  "attempts": [
+    {
+      "job_id": "39453a8d-4b26-4337-9a19-2a2564a41793",
+      "segment_idx": 0,
+      "stage": "meaning",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "provider": "openai",
+      "input_tokens": 561,
+      "output_tokens": 144,
+      "cost_usd_micros": "2562"
+    },
+    {
+      "job_id": "39453a8d-4b26-4337-9a19-2a2564a41793",
+      "segment_idx": 1,
+      "stage": "meaning",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "provider": "openai",
+      "input_tokens": 561,
+      "output_tokens": 368,
+      "cost_usd_micros": "4802"
+    },
+    {
+      "job_id": "39453a8d-4b26-4337-9a19-2a2564a41793",
+      "segment_idx": 0,
+      "stage": "plan",
+      "attempt_no": 1,
+      "outcome": "cache_hit",
+      "provider": "openai",
+      "input_tokens": null,
+      "output_tokens": null,
+      "cost_usd_micros": "0"
+    },
+    {
+      "job_id": "39453a8d-4b26-4337-9a19-2a2564a41793",
+      "segment_idx": 1,
+      "stage": "plan",
+      "attempt_no": 1,
+      "outcome": "completed",
+      "provider": "openai",
+      "input_tokens": 619,
+      "output_tokens": 147,
+      "cost_usd_micros": "2708"
+    }
+  ],
+  "spendDeltaMicros": "10072",
+  "reservedMicros": "0"
+}

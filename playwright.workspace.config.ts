@@ -1,6 +1,6 @@
 import {defineConfig,devices} from "@playwright/test";
 import {existsSync} from "node:fs";
-const evidenceRoot=process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6":"docs/evidence/phase-5";
+const evidenceRoot=process.env.SIGNBRIDGE_EVIDENCE_PHASE==="7"?"docs/evidence/phase-7/recheck":process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6":"docs/evidence/phase-5";
 const edgeAvailable=existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")||existsSync("C:/Program Files/Microsoft/Edge/Application/msedge.exe");
 export default defineConfig({
   testDir:"./tests/browser",testMatch:"workspace.spec.ts",timeout:120000,workers:1,retries:0,

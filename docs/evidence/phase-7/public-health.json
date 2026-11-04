@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-04T07:24:09.671Z",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "status": 200,
+  "type": "application/json",
+  "withoutBypass": true,
+  "health": {
+    "db": "ok",
+    "processing": "enabled",
+    "renderer": "remote"
+  }
+}

@@ -1,6 +1,6 @@
 # Dated production capture plan
 
-Plan date: 2026-11-03, Asia/Dhaka. Capture status: NOT RUN. No production footage or successful production playback is claimed.
+Plan date: 2026-11-03; captured 2026-11-04, Asia/Dhaka. Capture status: PASS for original covered and unsupported Chrome production recordings. Metadata, recording completion times, durations and SHA-256 hashes are in docs/evidence/phase-7/production-capture.json; original WebM files are stored losslessly in verification-artifacts.zip. Controlled-outage recording NOT RUN; it is not invented. These recordings are technical evidence only.
 
 After Phase 7 deployment and T1/T2 pass, capture the actual production app in desktop Edge or Chrome. Record capture timestamp including timezone, public URL/deployment ID, track ID, manifest hash, browser/version and device in a sidecar. Hide private owner capabilities, administrative tools, signed media URLs and other people's data. Preserve the original recording and a hash.
 

@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-04T06:55:19.517Z",
+  "origin": "https://signbridge-q427fu66n-mdtayebibne-4755s-projects.vercel.app",
+  "projectId": "cb3b672c-02e2-4ba8-8599-458e92b19d44",
+  "originalJobId": "f3c61930-8643-405d-b105-6ce1db6c1452",
+  "newJobId": "99b923f0-dd1b-4829-9a89-f8066d66005a",
+  "reason": "Missing compiled step registrations, zero model calls on original run",
+  "build": {
+    "beforeRegisteredApplicationSteps": 0,
+    "afterRegisteredApplicationSteps": 4,
+    "totalSteps": 21
+  }
+}

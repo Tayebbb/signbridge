@@ -15,6 +15,7 @@ if(!process.argv.includes("--live")){
   process.exit(0);
 }
 if(!process.env.OPENAI_API_KEY)throw Error("Configure OPENAI_API_KEY locally after approving its use; never put a credential in an argument");
+const evidenceDir=process.argv.includes("--evidence-dir")?process.argv[process.argv.indexOf("--evidence-dir")+1]:"docs/evidence/phase-4";
 const db=await createDatabase();
 try{
   await db.migrate();
@@ -29,7 +30,8 @@ try{
   await runPipeline({store:db.state,model:new OpenAIModelClient(process.env.OPENAI_API_KEY)},job.id,randomUUID());
   const state=await loadJob(db.state,job.id),attempts=await db.state.query(sql`SELECT segment_idx,stage,attempt_no,outcome,input_tokens,output_tokens,reasoning_tokens,cost_usd_micros FROM stage_attempts WHERE job_id=${job.id} ORDER BY segment_idx,stage,attempt_no`),budgets=await db.state.query(sql`SELECT * FROM spend_budgets ORDER BY scope`);
   const result={date:new Date().toISOString(),status:state.job.status,model:state.job.model_profile,fixtureSegments:2,ceilingUsd:0.20,attempts,budgets};
-  await mkdir("docs/evidence/phase-4",{recursive:true});await writeFile("docs/evidence/phase-4/live-smoke.json",JSON.stringify(result,(_,v)=>typeof v==="bigint"?v.toString():v,2)+"\n");
-  if(!["succeeded","partial"].includes(state.job.status))throw Error("Smoke did not publish; inspect recorded nonsecret evidence");
+  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/live-smoke.json`,JSON.stringify(result,(_,v)=>typeof v==="bigint"?v.toString():v,2)+"\n");
+  const completePair=[0,1].every(idx=>["meaning","plan"].every(stage=>attempts.some(a=>a.segment_idx===idx&&a.stage===stage&&["completed","repair_completed"].includes(String(a.outcome))&&a.input_tokens!==null&&a.output_tokens!==null)));
+  if(!["succeeded","partial"].includes(state.job.status)||!completePair)throw Error("Smoke did not complete both metered stages per segment; inspect recorded nonsecret evidence");
   console.log(JSON.stringify(result,(_,v)=>typeof v==="bigint"?v.toString():v));
 }finally{await db.close();}

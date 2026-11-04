@@ -23,6 +23,7 @@ import {accessibleProject,projectForDelete,setSharing} from "../db/queries/shari
 import {createShareCapability,hashShareToken} from "../auth/share";
 import {purgeProject} from "../ops/purge";
 import {operationsStatus,applyErrorKillSwitch} from "../db/queries/operations";
+import {ifNoneMatch} from "../domain/entityTag";
 export interface ApiDependencies {
   store:StateStore;blobs:SignedBlobs;processingEnabled:boolean;adminToken?:string;cronSecret?:string;
   dispatcher:()=>Promise<Dispatcher>;defer:(work:()=>Promise<void>)=>void;
@@ -110,11 +111,11 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     }
     if(action==="getJob"){
       d.defer(async()=>{await reconcile(d.store,d.blobs,await d.dispatcher(),{projectId:p!.id});});
-      const progress=await q.jobProgress(d.store,params.jobId),etag=`"${hash(progress)}"`;return r.headers.get("if-none-match")===etag?new Response(null,{status:304,headers:{ETag:etag,"Cache-Control":"private, no-cache",Vary:"Cookie"}}):json(progress,200,{ETag:etag,"Cache-Control":"private, no-cache",Vary:"Cookie"});
+      const progress=await q.jobProgress(d.store,params.jobId),etag=`"${hash(progress)}"`;return ifNoneMatch(r.headers.get("if-none-match"),etag)?new Response(null,{status:304,headers:{ETag:etag,"Cache-Control":"private, no-cache",Vary:"Cookie"}}):json(progress,200,{ETag:etag,"Cache-Control":"private, no-cache",Vary:"Cookie"});
     }
     if(action==="cancelJob"){await cancelJob(d.store,params.jobId);return json({status:(await q.jobProgress(d.store,params.jobId)).status});}
     if(action==="manifest"){
-      if(!track)throw new StateError("not_found");const headers={ETag:`"${track.manifest_hash}"`,"Cache-Control":"private, no-cache",Vary:"Cookie"};return r.headers.get("if-none-match")===headers.ETag?new Response(null,{status:304,headers}):json(track.manifest,200,headers);
+      if(!track)throw new StateError("not_found");const headers={ETag:`"${track.manifest_hash}"`,"Cache-Control":"private, no-cache",Vary:"Cookie"};return ifNoneMatch(r.headers.get("if-none-match"),headers.ETag)?new Response(null,{status:304,headers}):json(track.manifest,200,headers);
     }
     if(action==="track"||action==="mediaUrl"){
       const saved=action==="track"&&p!.current_track_version_id?await q.trackRow(d.store,p!.current_track_version_id):null;if(action==="track"&&!saved)throw new StateError("not_found");

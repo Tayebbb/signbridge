@@ -30,18 +30,21 @@ export async function prepareDemos(configPath:string){
 interface SeedState {origin:string;ownerToken:string;clips:Record<string,{fingerprint:string;projectId?:string;mediaId?:string;transcriptVersionId?:string;jobId?:string}>}
 async function main(){
   const args=process.argv.slice(2),value=(flag:string)=>args[args.indexOf(flag)+1];
-  if(args.includes("--help")){console.log("seed-demo [--config demo-input/demo.json] [--apply --origin https://deployment --budget-micros APPROVED_LIMIT]. Default dry run reads only demo files. Apply requires owner-approved DATABASE_URL for that deployment; no environment file is loaded. Owner capability/checkpoints stay in ignored .data/phase7-demo-state.json. Never put credentials in arguments.");return;}
+  if(args.includes("--help")){console.log("seed-demo [--config demo-input/demo.json] [--state checkpoint-name.json] [--apply --origin https://deployment --budget-micros APPROVED_LIMIT]. Default dry run reads only demo files. Apply requires owner-approved DATABASE_URL for that deployment; no environment file is loaded. Optional VERCEL_AUTOMATION_BYPASS_SECRET is sent only to that deployment origin. Owner capability/checkpoints stay in ignored .data/. Never put credentials in arguments.");return;}
   const demos=await prepareDemos(args.includes("--config")?value("--config"):"demo-input/demo.json");
   if(!args.includes("--apply")){console.log(JSON.stringify({mode:"DRY RUN",clips:demos.map(d=>({id:d.id,bytes:d.bytes.length,sha256:d.sha256,segments:d.segments,expectUnsupported:d.expectUnsupported})),modelCalls:0}));return;}
   const origin=new URL(value("--origin"));if(origin.protocol!=="https:"||origin.pathname!=="/"||origin.search||origin.hash||origin.username||origin.password)throw Error("A bare HTTPS deployment origin is required");
   const maxMicros=BigInt(value("--budget-micros"));if(maxMicros<=0n||maxMicros>4000000n)throw Error("Explicit approved demo budget must be at most USD 4");
   if(!process.env.DATABASE_URL)throw Error("Approved DATABASE_URL is required; local fallback is forbidden");
-  const statePath=resolve(".data/phase7-demo-state.json"),db=await createDatabase({url:process.env.DATABASE_URL});
+  const stateName=args.includes("--state")?value("--state"):"phase7-demo-state.json";
+  if(!/^[a-z0-9-]+\.json$/u.test(stateName))throw Error("Checkpoint must be a JSON basename inside .data");
+  const statePath=resolve(".data",stateName),db=await createDatabase({url:process.env.DATABASE_URL});
   let state:SeedState;try{state=JSON.parse(await readFile(statePath,"utf8"));}catch(error){if((error as NodeJS.ErrnoException).code!=="ENOENT")throw error;state={origin:origin.origin,ownerToken:createOwnerCapability().token,clips:{}};}
   if(state.origin!==origin.origin)throw Error("Checkpoint belongs to another deployment; keep a separate checkpoint per preview/production origin");
   const save=async()=>{await mkdir(dirname(statePath),{recursive:true});await writeFile(statePath+".tmp",JSON.stringify(state),{mode:0o600});await rename(statePath+".tmp",statePath);};
   const request=async <T>(path:string,method="GET",body?:unknown,key?:string):Promise<T>=>{
-    const response=await fetch(new URL(path,origin),{method,redirect:"error",signal:AbortSignal.timeout(30000),headers:{Origin:origin.origin,Cookie:`${OWNER_COOKIE_NAME}=${state.ownerToken}`,"Content-Type":"application/json",...(key?{"Idempotency-Key":key}:{})},...(body===undefined?{}:{body:JSON.stringify(body)})});
+    const url=new URL(path,origin);if(url.origin!==origin.origin)throw Error("Demo requests must stay on the approved deployment origin");
+    const response=await fetch(url,{method,redirect:"error",signal:AbortSignal.timeout(30000),headers:{Origin:origin.origin,Cookie:`${OWNER_COOKIE_NAME}=${state.ownerToken}`,"Content-Type":"application/json",...(process.env.VERCEL_AUTOMATION_BYPASS_SECRET?{"x-vercel-protection-bypass":process.env.VERCEL_AUTOMATION_BYPASS_SECRET}:{}),...(key?{"Idempotency-Key":key}:{})},...(body===undefined?{}:{body:JSON.stringify(body)})});
     if(!response.ok)throw Error(`Demo API ${response.status}; inspect admin metrics (no response or captions logged)`);return response.json() as Promise<T>;
   };
   await save();
@@ -69,4 +72,4 @@ async function main(){
     try{if(before.length){const after=await demoBudgetSnapshot(db.state),lifeBefore=before.find(b=>b.scope==="lifetime")!,lifeAfter=after.find(b=>b.scope==="lifetime")!;console.log(JSON.stringify({seedSpendMicros:(BigInt(lifeAfter.spent_micros)-BigInt(lifeBefore.spent_micros)).toString(),lifetimeSpentMicros:lifeAfter.spent_micros,reservedMicros:lifeAfter.reserved_micros,capMicros:lifeAfter.cap_micros}));}}finally{await db.close();}
   }
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)main().catch(()=>{console.error("Demo seed stopped. Check inputs, checkpoint and admin metrics; credentials, signed URLs and captions are omitted.");process.exitCode=1;});
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)main().catch(async error=>{await mkdir(".data",{recursive:true});await writeFile(".data/demo-seed-error.json",JSON.stringify({name:error instanceof Error?error.name:"unknown",message:error instanceof Error?error.message:"unknown"}),{mode:0o600});console.error("Demo seed stopped. Check inputs, checkpoint and admin metrics; credentials, signed URLs and captions are omitted.");process.exitCode=1;});
