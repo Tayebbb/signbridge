@@ -1,0 +1,16 @@
+{
+  "title": "WIKITONGUES: Pradeep speaking Bengali",
+  "authors": "Wikitongues; Hardeep Singh",
+  "source": "https://commons.wikimedia.org/wiki/File:WIKITONGUES-_Pradeep_speaking_Bengali.webm",
+  "captions": "https://commons.wikimedia.org/wiki/TimedText:WIKITONGUES-_Pradeep_speaking_Bengali.webm.bn.srt",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "First 28.76 seconds; scaled to 640x360 and transcoded to H.264/AAC. Published caption wording unchanged; first eight cues retained.",
+  "speech": "Real human Bengali speech, not generated or simplified",
+  "sizeBytes": 780825,
+  "sha256": "0e2b1c2679db2fb2b94d3afede9a968e088e2a3c44c51476a303a07bdffb88c8",
+  "durationMs": 28763,
+  "width": 640,
+  "height": 360,
+  "cues": 8
+}

@@ -4,6 +4,8 @@
 
 This release addresses the [4 November audit](audits/production-readiness-2026-11-04/REPORT.md). It is a connected technical application with real production providers, with limited signing coverage and experimental output. It is not certified as a general BdSL translation service.
 
+**Later real-video finding:** a fresh browser upload exposed an omitted CSP upload endpoint, which was fixed and deployed in `f27ac08`. The unchanged-caption real speech test then recorded **zero signing units in all four segments**. General-video signing is not ready; the earlier saved-replay/API checks did not establish this capability. See [NORMAL-VIDEO-TEST.md](NORMAL-VIDEO-TEST.md). The dated hardening tag preserves the earlier report's historical bytes.
+
 ## Acceptance tests
 
 | ID | Result | Evidence / remaining boundary |

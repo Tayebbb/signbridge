@@ -11,6 +11,8 @@ SignBridge pairs a short captioned video with sequential avatar signing. The sou
 
 > Signing remains experimental and unreviewed. Rendering an animation does not establish correct BdSL or user comprehension. No qualified language review or comprehension study is claimed.
 
+**Real-world test:** a 29-second Bengali interview with published captions produced **0 signing units across four segments**. Missing vocabulary and conservative validation blocked every segment. The browser-upload failure found during that test is fixed, but general-video signing is not ready. See the [normal-video test report](docs/NORMAL-VIDEO-TEST.md).
+
 ## What works
 
 - Upload an MP4/WebM clip with Bangla SRT, WebVTT or timestamped captions.

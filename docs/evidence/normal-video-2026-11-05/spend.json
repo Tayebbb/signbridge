@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-04T21:19:23.255Z",
+  "currentCountedMicros": "235702",
+  "reservedMicros": "0",
+  "approvedCeilingMicros": "4000000",
+  "separateOriginalSmokeMicros": "18616",
+  "newNormalVideoSpentMicros": "131478",
+  "targets": [
+    {
+      "target": "preview",
+      "spentMicros": "36448",
+      "reservedMicros": "0",
+      "capMicros": "300000"
+    },
+    {
+      "target": "production",
+      "spentMicros": "180638",
+      "reservedMicros": "0",
+      "capMicros": "700000"
+    }
+  ]
+}

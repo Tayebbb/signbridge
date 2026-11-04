@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-04T21:15:22.856Z",
+  "origin": "https://signbridge-6ilm6f4me-mdtayebibne-4755s-projects.vercel.app",
+  "deploymentId": "dpl_SQncTxqg7feLWpCGpArrFbJbnQcB",
+  "browser": "156.0.8078.4",
+  "status": "PASS",
+  "scope": "Fresh actual browser upload, private Blob finalize and caption preview on staged production build; no model job",
+  "projectId": "989f6f52-6f61-47e8-9e7b-a51a228b78ab",
+  "cues": 8,
+  "segments": 4,
+  "newModelCalls": 0,
+  "events": [
+    {
+      "origin": "https://signbridge-6ilm6f4me-mdtayebibne-4755s-projects.vercel.app",
+      "path": "/api/projects/989f6f52-6f61-47e8-9e7b-a51a228b78ab/media/init",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "origin": "https://vercel.com",
+      "path": "/api/blob/",
+      "method": "PUT",
+      "status": 200
+    },
+    {
+      "origin": "https://signbridge-6ilm6f4me-mdtayebibne-4755s-projects.vercel.app",
+      "path": "/api/projects/989f6f52-6f61-47e8-9e7b-a51a228b78ab/media/finalize",
+      "method": "POST",
+      "status": 200
+    }
+  ]
+}

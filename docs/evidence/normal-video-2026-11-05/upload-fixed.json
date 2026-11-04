@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-04T21:16:55.819Z",
+  "origin": "https://signbridge-sable-sigma.vercel.app",
+  "deploymentId": "dpl_SQncTxqg7feLWpCGpArrFbJbnQcB",
+  "browser": "156.0.8078.4",
+  "status": "PASS",
+  "scope": "Fresh browser upload on public production without protection bypass; no model job",
+  "projectId": "1f371a12-d669-43bd-b358-49c2b6fbec70",
+  "cues": 8,
+  "segments": 4,
+  "newModelCalls": 0,
+  "events": [
+    {
+      "origin": "https://signbridge-sable-sigma.vercel.app",
+      "path": "/api/projects/1f371a12-d669-43bd-b358-49c2b6fbec70/media/init",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "origin": "https://vercel.com",
+      "path": "/api/blob/",
+      "method": "PUT",
+      "status": 200
+    },
+    {
+      "origin": "https://signbridge-sable-sigma.vercel.app",
+      "path": "/api/projects/1f371a12-d669-43bd-b358-49c2b6fbec70/media/finalize",
+      "method": "POST",
+      "status": 200
+    }
+  ]
+}

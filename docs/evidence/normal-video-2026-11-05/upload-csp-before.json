@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-04T21:03:27.432Z",
+  "events": [
+    {
+      "type": "requestFailed",
+      "method": "GET",
+      "origin": "https://signbridge-sable-sigma.vercel.app",
+      "path": "/",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "type": "requestFailed",
+      "method": "GET",
+      "origin": "https://signbridge-sable-sigma.vercel.app",
+      "path": "https://signbridge-sable-sigma.vercel.app/fed5ea48-d5ee-41ab-b60f-ff312597bea6",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "type": "initResponse",
+      "status": 200
+    },
+    {
+      "type": "console",
+      "text": "Connecting to 'https://vercel.com/[URL omitted]' violates the following Content Security Policy directive: \"connect-src 'self' https://*.blob.vercel-storage.com/[URL omitted] https://blob.vercel-storage.com/[URL omitted]\". The action has been blocked."
+    },
+    {
+      "type": "console",
+      "text": "Fetch API cannot load https://vercel.com/[URL omitted] Refused to connect because it violates the document's Content Security Policy."
+    },
+    {
+      "type": "uploadTarget",
+      "origin": "https://vercel.com",
+      "path": "/api/blob/"
+    }
+  ],
+  "alerts": [
+    "Failed to fetchReload current transcript",
+    ""
+  ]
+}
