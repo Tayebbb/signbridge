@@ -1,7 +1,7 @@
 import {chromium,expect,type BrowserContext} from "@playwright/test";
 import {mkdir,readFile,writeFile} from "node:fs/promises";
 import {parseEnv} from "node:util";
-import {resolve} from "node:path";
+import {resolve,sep} from "node:path";
 import {createHash} from "node:crypto";
 import {PUBLIC_DEMOS} from "../lib/domain/publicDemoCatalog";
 import {createDatabase} from "../lib/db/client";
@@ -9,7 +9,8 @@ import {operationsStatus} from "../lib/db/queries/operations";
 import {OWNER_COOKIE_NAME} from "../lib/auth/ownerCookie";
 if(!process.argv.includes("--live")){console.log("DRY RUN: --live checks approved production routes and saved replay, including a labelled browser-only dropped-callback fault; no model processing requested.");process.exit(0);}
 async function main(){
- const origin=new URL(PUBLIC_DEMOS[0].href).origin,root="docs/evidence/final";await mkdir(root,{recursive:true});
+ const origin=new URL(PUBLIC_DEMOS[0].href).origin,root=process.argv.find(arg=>arg.startsWith("--evidence-dir="))?.slice("--evidence-dir=".length)??"docs/evidence/final";
+ const base=resolve("docs/evidence/final"),output=resolve(root);if(output!==base&&!output.startsWith(base+sep))throw Error("Final evidence must stay under docs/evidence/final");await mkdir(root,{recursive:true});
  const vars=parseEnv(await readFile(".data/production.env","utf8")),owner=JSON.parse(await readFile(".data/production-demo-state.json","utf8")) as {ownerToken:string;clips:Record<string,{projectId:string}>};
  const db=await createDatabase({url:vars.DATABASE_URL}),before=await operationsStatus(db.state),browser=await chromium.launch({executablePath:resolve(".data/chrome/chrome-win64/chrome.exe"),args:["--use-angle=swiftshader","--enable-webgl","--enable-unsafe-swiftshader"]});
  const rows:object[]=[];

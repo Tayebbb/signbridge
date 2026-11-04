@@ -16,7 +16,7 @@ The two public samples use original silent synthetic source clips, not participa
 | Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered versions. |
 | User comprehension | None. No evaluation using tasks with Deaf/BdSL users. |
 
-[Phase reports](docs/phase-reports/) trace every engineering claim. Phase 7 has 192 default tests, 51 native PostgreSQL tests, 16 local browser regressions, and passing production T1/T2/T9/T14. Counts overlap across backends and do not measure language quality. Physical Android/iPhone testing remains NOT RUN; [checklist](docs/MOBILE-TEST.md).
+[Phase reports](docs/phase-reports/) trace every engineering claim. The verified release has 194 default tests, 51 native PostgreSQL tests, 16 local browser regressions, and passing production T1/T2/T9/T14. The dated Phase 6/7 rechecks preserve the original gates and distinguish fresh playback from retained processing/deployment evidence. Counts overlap across backends and do not measure language quality. Physical Android/iPhone testing remains NOT RUN; [checklist](docs/MOBILE-TEST.md).
 
 ## Local development
 

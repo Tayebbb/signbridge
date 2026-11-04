@@ -12,14 +12,14 @@ Source: SYSTEM-DESIGN.md section 0.3; phase reports 2, 5 and 7. Original synthet
 ---
 # Follow the source, then inspect the gap
 
-![Covered production segment: source held while the real avatar signs](../docs/evidence/final/signing-source.png)
-![Unsupported production negation: blocking gap before signing](../docs/evidence/final/gap-card.png)
+![Covered production segment: source held while the real avatar signs](../docs/evidence/final/recheck-2026-11-04/signing-source.png)
+![Unsupported production negation: blocking gap before signing](../docs/evidence/final/recheck-2026-11-04/gap-card.png)
 
 Upload captions -> validate a plan -> watch the source -> hold for signs -> replay the saved track.
 
 Production sample A: 45 seconds, six technically ready segments, 12 model calls. Sample B deliberately leaves negation unsupported. No plan was hand-edited.
 
-Source: phase-7 T1/T2/T14; final production captures, 4 November 2026, Windows software WebGL. Technical rendering only.
+Source: phase-7 T1/T2/T14; refreshed final production captures, 4 November 2026, Windows software WebGL. Technical rendering only.
 
 ---
 # Publish a durable companion track
@@ -45,11 +45,11 @@ Source: phase reports 3-7; T6/T7/T9/T16/T20/T22. One actual Workflow survived pr
 | Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered tracks. |
 | User comprehension | None. No evaluation using tasks with Deaf/BdSL users. |
 
-Engineering checks: 192 default tests, 51 native PostgreSQL tests, 16 local browser tests; production T1/T2/T9/T14 pass. These are not language-quality scores.
+Engineering checks: 194 release tests, 51 native PostgreSQL tests, 16 local browser tests; production T1/T2/T9/T14 pass. These are not language-quality scores.
 
 SignOLight documents video-to-avatar; IsharaKotha supplies prior text-to-avatar research and corpus assets. Our tested contribution is the combination of source-frame holds, durable caption edits, saved replay and visible critical gaps. No firstness claim.
 
-Source: phase reports 2, 3, 5, 6 and 7; SYSTEM-DESIGN.md H.3; competition-event.md prior-art audit (3 November 2026).
+Source: phase reports 2-7 and dated phase-6/7 rechecks; SYSTEM-DESIGN.md H.3; competition-event.md prior-art audit (3 November 2026).
 
 ---
 # Solo build, followed by formative evaluation

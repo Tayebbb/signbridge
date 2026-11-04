@@ -1,0 +1,20 @@
+{
+  "source": "submission/deck.md",
+  "output": "submission/deck.pdf",
+  "pages": 5,
+  "format": "960 x 540 pt landscape",
+  "markdownSlides": 5,
+  "requiredTextPresent": true,
+  "visualReview": "PASS",
+  "review": {
+    "date": "2026-11-04T11:54:23.200Z",
+    "renderedPagesInspected": 5,
+    "checks": [
+      "All five 1440px renders inspected",
+      "No clipped text, overlap, missing glyphs or blank pages",
+      "Fresh production captures, attribution, page numbers and source citations readable"
+    ],
+    "sourceSha256": "1ae3de09685d28b3e01af4f81498eabb45507185eb5eccba09290f074d9d043f",
+    "pdfSha256": "ce8a1deb05875d9159027d3ef466958443ca2312a6305533c26d70deb0fb30e4"
+  }
+}

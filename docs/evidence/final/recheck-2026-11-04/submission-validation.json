@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-04T11:54:23.569Z",
+  "status": "PASS",
+  "slides": 5,
+  "narrationLanguage": "English",
+  "scriptTargetSeconds": 165,
+  "videoRecorded": false,
+  "devpostSubmitted": false,
+  "existingReleaseOnly": true,
+  "concurrentSchedulerChangesExcluded": true,
+  "officialRules": {
+    "url": "https://yunet-aignite26.devpost.com/rules",
+    "checked": "2026-11-04",
+    "publicApplicationRequired": true,
+    "maxSlides": 5,
+    "officialStickerNearTopRequired": true,
+    "videoOptionalAndEnglish": true,
+    "individualParticipation": true,
+    "eligibilityAndRegistrationOwnerVerified": false,
+    "headerDeadline": "2026-11-05 22:00 +06",
+    "proseDeadline": "2026-11-05 23:59 +06",
+    "handoffUsesEarlierDeadline": true
+  },
+  "designSha256": "ad91e87cde437b3cd430ef7102d51d9c7e7093875d68faf24369330aba307e4d",
+  "phaseReportAndMobileInputs": [
+    {
+      "path": "docs/phase-reports/phase-1.md",
+      "sha256": "37362f22982236bc162b20347cf41f82cf51f23d224beae33b207954dd883894"
+    },
+    {
+      "path": "docs/phase-reports/phase-2.md",
+      "sha256": "23e6255e71acb51ed79aa5aebfba6981a34d8bed9018e00447eb4dfd3d622eef"
+    },
+    {
+      "path": "docs/phase-reports/phase-3.md",
+      "sha256": "bffbd6dd607c29f6c51b39e69c860fadc007a3d6bb284399d212b95f6f55e9c8"
+    },
+    {
+      "path": "docs/phase-reports/phase-4.md",
+      "sha256": "ffcb80454589676fb59d95955d8cd13901e400fe8770f1631ecdeace8bb9c55f"
+    },
+    {
+      "path": "docs/phase-reports/phase-5.md",
+      "sha256": "7fe6a99055965de38a26f598b7f2a345a6060190429a0048710e127cd8004874"
+    },
+    {
+      "path": "docs/phase-reports/phase-6-recheck-2026-11-04.md",
+      "sha256": "94e63535d640d4b64f96f74bfc671d6c0d8e0557c5fb16f1b8b9a0ff917c7df4"
+    },
+    {
+      "path": "docs/phase-reports/phase-6.md",
+      "sha256": "bab0291c26d4ddb853ac0728c965e4eca2be083d233f12f7a5fdf3c1e20437e9"
+    },
+    {
+      "path": "docs/phase-reports/phase-7-recheck-2026-11-04.md",
+      "sha256": "3699088cfb87f194648026fd72d93227229aa3012575c9a8e57759bb1f288f8f"
+    },
+    {
+      "path": "docs/phase-reports/phase-7.md",
+      "sha256": "ac17700e5ca2c1fcd75927af2a7d7c1ff3ea760c16ec81db914ce2eaf6adb4af"
+    },
+    {
+      "path": "docs/phase-reports/phase-8.md",
+      "sha256": "46f13315012475287f180835c89b058d732a9c5d6aa8b0283dd54ed109089c31"
+    },
+    {
+      "path": "docs/MOBILE-TEST.md",
+      "sha256": "1967655652d4d0abb250aad9528436d6324703cf7d1364a124bbc743a3c2b038"
+    }
+  ],
+  "researchInput": {
+    "path": "E:/AIgnite-Lab/research/2026-11-03-signbridge/competition-event.md",
+    "sha256": "4e1b9d3d1f5d4b35e2365cc5fe4bc1be9625cef13d5a91b63ce679783ea0983b"
+  }
+}

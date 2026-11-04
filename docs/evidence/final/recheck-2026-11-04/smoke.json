@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-04T11:51:46.804Z",
+  "timezone": "Asia/Dhaka",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "browser": "157.0.8103.38",
+  "routes": [
+    {
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/home.png"
+    },
+    {
+      "name": "about",
+      "path": "/about",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/about.png"
+    },
+    {
+      "name": "creator",
+      "path": "/p/b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/creator.png"
+    },
+    {
+      "name": "renderer-spike",
+      "path": "/renderer-spike",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/renderer-spike.png"
+    },
+    {
+      "name": "not-found",
+      "path": "/phase8-nonexistent-route",
+      "status": 404,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/not-found.png"
+    },
+    {
+      "name": "home-portrait",
+      "path": "/",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 43.984375,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/home-portrait.png"
+    },
+    {
+      "name": "shared-a",
+      "path": "/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/shared-a.png"
+    },
+    {
+      "name": "shared-b",
+      "path": "/s/1ad052e9-bb09-4132-a98a-995917bfb86b",
+      "status": 200,
+      "officialStickerVisible": true,
+      "stickerTop": 35,
+      "screenshot": "docs/evidence/final/recheck-2026-11-04/shared-b.png"
+    }
+  ],
+  "health": {
+    "status": 200,
+    "body": {
+      "db": "ok",
+      "processing": "enabled",
+      "renderer": "remote"
+    }
+  },
+  "savedReplay": "PASS",
+  "manifestIdentityUnchanged": true,
+  "additionalModelCalls": 0,
+  "controlledFault": {
+    "method": "Browser-only suppression of animidle; real UEA animation and unchanged saved manifest",
+    "incompleteVisible": true,
+    "retryRecovered": true,
+    "productionIncident": false
+  },
+  "officialSticker": {
+    "status": "PASS",
+    "httpStatus": 200,
+    "ownerAttestedOfficial": true,
+    "remoteBytesMatchOriginal": true,
+    "sha256": "385c7488a14dc9c8e75011477c4316b89fc7c198e66a4cdf5ae9eb6ed50a573c"
+  },
+  "environment": "Windows headless software WebGL",
+  "mobilePhysical": "NOT RUN",
+  "linguisticCorrectness": "NONE",
+  "userComprehension": "NONE"
+}

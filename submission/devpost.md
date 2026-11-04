@@ -25,7 +25,7 @@ Real deployment checks found two integration defects: inline Workflow directives
 2. **Linguistic correctness:** none. No qualified BdSL signer has assessed these exact rendered versions.
 3. **User comprehension:** none. No evaluation using tasks with Deaf/BdSL users has been performed.
 
-The phase reports record 192 default tests, 51 native PostgreSQL tests and 16 local browser regressions. Technical checks do not establish that signing is acceptable or usable for the intended audience. Real Android/iPhone results are still NOT RUN. UEA availability and WebGL remain runtime dependencies. The owner supplied the official event sticker, used unchanged in the app's top banner.
+The release reports record 194 default tests, 51 native PostgreSQL tests and 16 local browser regressions. The dated Phase 7 recheck repeats full Chrome/Edge production playback and verifies existing real-processing and redeploy evidence without claiming a new upload or cutover. Technical checks do not establish that signing is acceptable or usable for the intended audience. Real Android/iPhone results are still NOT RUN. UEA availability and WebGL remain runtime dependencies. The owner supplied the official event sticker, used unchanged in the app's top banner.
 
 Measured build verification used USD 0.101634 of existing OpenAI credits, against an approved USD 4 ceiling. Phase 8 replay checks request no additional model processing. This is metered usage, not a provider invoice. Infrastructure uses free plans; no purchases, upgrades or billing changes were made.
 
@@ -49,4 +49,4 @@ Prior work: [SignOLight original writeup](https://www.kaggle.com/competitions/bu
 - [Public application](https://signbridge-mdtayebibne-4755s-projects.vercel.app).
 - [Play covered sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg) - intentionally public, read-only original synthetic sample.
 - [See unsupported sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs) - intentionally public, read-only original synthetic sample.
-- Source of technical claims: `docs/phase-reports/phase-2.md`, `phase-3.md`, `phase-5.md`, `phase-6.md`, `phase-7.md`; final route/replay evidence is `docs/evidence/final/`.
+- Source of technical claims: `docs/phase-reports/phase-2.md`, `phase-3.md`, `phase-5.md`, `phase-6.md`, `phase-7.md`, `phase-6-recheck-2026-11-04.md`, `phase-7-recheck-2026-11-04.md`; refreshed route/replay evidence is `docs/evidence/final/recheck-2026-11-04/`.

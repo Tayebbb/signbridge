@@ -9,3 +9,5 @@ The five-slide Markdown/PDF, Devpost draft and English recording script are read
 - Keep the three evidence categories distinct. Technical rendering is observed; linguistic correctness and user comprehension have no evidence.
 
 Evidence trail: deck slide sources -> phase reports -> raw artifacts with hashes. Phase 7 measured usage is USD 0.101634, with no additional model calls requested for this submission pass. Current runtime budgets remain bounded; no plan upgrades or purchases were made.
+
+This package describes the existing deployed release, as the owner requested. Concurrent scheduler changes and their test/evidence edits are preserved separately and have not been deployed or included in these release claims. The dated Phase 7 recheck passed; refreshed Phase 8 captures and PDF review are stored under `docs/evidence/final/recheck-2026-11-04/`. Original phase tags and reports remain historical records.

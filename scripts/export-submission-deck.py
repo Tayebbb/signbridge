@@ -1,6 +1,6 @@
 """Export the five-slide Markdown source to a landscape PDF; no content is duplicated here."""
 from pathlib import Path
-import re, json, html
+import re, json, html, argparse
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor, white
 from reportlab.platypus import Paragraph, Table, TableStyle
@@ -11,6 +11,11 @@ from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'submission/deck.md'
 OUT=ROOT/'submission/deck.pdf'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--evidence-dir',default='docs/evidence/final')
+evidence=(ROOT/parser.parse_args().evidence_dir).resolve()
+assert evidence.is_relative_to((ROOT/'docs/evidence/final').resolve()), 'Evidence must stay under docs/evidence/final'
+evidence.mkdir(parents=True,exist_ok=True)
 W,H=960,540
 INK=HexColor('#17352E'); PAPER=HexColor('#F7F8F3'); MUTED=HexColor('#496459'); LINE=HexColor('#CCD7CF'); ACCENT=HexColor('#C55F25')
 text=SOURCE.read_text(encoding='utf-8')
@@ -94,7 +99,7 @@ for page,raw in enumerate(slides,1):
 c.save()
 pdf=PdfReader(OUT);assert len(pdf.pages)==5
 extracted='\n'.join(p.extract_text() for p in pdf.pages)
-for phrase in ['Technical renderability','Linguistic correctness','User comprehension','20/20','12/12','192','51','official']:
+for phrase in ['Technical renderability','Linguistic correctness','User comprehension','20/20','12/12','194','51','official']:
     assert phrase.lower() in extracted.lower(),f'Missing PDF content: {phrase}'
-(ROOT/'docs/evidence/final/deck-validation.json').write_text(json.dumps({'source':'submission/deck.md','output':'submission/deck.pdf','pages':len(pdf.pages),'format':'960 x 540 pt landscape','markdownSlides':len(slides),'requiredTextPresent':True,'visualReview':'PENDING'},indent=2)+'\n')
+(evidence/'deck-validation.json').write_text(json.dumps({'source':'submission/deck.md','output':'submission/deck.pdf','pages':len(pdf.pages),'format':'960 x 540 pt landscape','markdownSlides':len(slides),'requiredTextPresent':True,'visualReview':'PENDING'},indent=2)+'\n',encoding='utf-8',newline='\n')
 print(json.dumps({'pdf':str(OUT),'pages':len(pdf.pages),'requiredTextPresent':True}))

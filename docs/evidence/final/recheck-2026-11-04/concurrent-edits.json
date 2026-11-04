@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-04T11:56:27.486Z",
+  "ownerChoice": "Verify the existing release; preserve the concurrent edits",
+  "excludedFromCommitAndDeployment": true,
+  "files": [
+    {
+      "path": "docs/evidence/phase-5/browser-results.json",
+      "sha256": "b044a7db94648bd9415b18b51298a2fcde9af40c58c31ea1a48188e3e6d7a0ee"
+    },
+    {
+      "path": "docs/evidence/phase-5/gap-card-chromium.png",
+      "sha256": "384a302a3b9fbb6b1f57074f9f6d7f9f87cee1d132131a25d8eca6d8376fcd59"
+    },
+    {
+      "path": "docs/evidence/phase-5/gap-card-msedge.png",
+      "sha256": "186d6444526a3964708499f8a568ef93493fd198e5e0ae2d8a3b694e81e0dc84"
+    },
+    {
+      "path": "docs/evidence/phase-5/incomplete-chromium.png",
+      "sha256": "d767de317ec35f66273be6efe3e602586713f9d674c921389142d0cbe59c9c2c"
+    },
+    {
+      "path": "docs/evidence/phase-5/incomplete-msedge.png",
+      "sha256": "d767de317ec35f66273be6efe3e602586713f9d674c921389142d0cbe59c9c2c"
+    },
+    {
+      "path": "docs/evidence/phase-5/live-chromium.json",
+      "sha256": "7804961048809670bc30846852a9228063e85568c902bed409ce89eb74a09940"
+    },
+    {
+      "path": "docs/evidence/phase-5/live-chromium.png",
+      "sha256": "e4460f6c8229f77b9b1b46270c4e5dea1d3d9d646a751f089eb8a476a49ed965"
+    },
+    {
+      "path": "docs/evidence/phase-5/live-msedge.json",
+      "sha256": "86b3e7d7050fef428bea8366db89cd695e7a2bf63521a0ea2536fab8499856b1"
+    },
+    {
+      "path": "docs/evidence/phase-5/live-msedge.png",
+      "sha256": "874c985ba744daadcd906201cdaeafc05152feb89b942681d783eaacaf4bce1b"
+    },
+    {
+      "path": "docs/evidence/phase-5/ready-chromium.png",
+      "sha256": "46cadaf9027972014223c9e51beaf87f4714e4be06bb3cd7850ec1f85d5a0384"
+    },
+    {
+      "path": "docs/evidence/phase-5/ready-msedge.png",
+      "sha256": "46cadaf9027972014223c9e51beaf87f4714e4be06bb3cd7850ec1f85d5a0384"
+    },
+    {
+      "path": "docs/evidence/phase-5/ready-portrait-layout.png",
+      "sha256": "6ea10ed86a4a4d896dcffde9e23bfde41ac3766d741f1255e4aef3d8682e2f9b"
+    },
+    {
+      "path": "lib/player/scheduler.ts",
+      "sha256": "20e7aec9bd4fa4f82c3c7d19a426237223efc5bae43f975a14d9f74c825fde09"
+    },
+    {
+      "path": "tests/unit/scheduler.test.ts",
+      "sha256": "bef8162585102306c773fe5b08545ea2bb8379a58373a4c04521cf9450019c7c"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "revision": "bb75bb04ac7f0e746af4e5aa19b3725a8beb5732",
+  "isolatedDetachedWorktree": true,
+  "phase8OwnedScriptAndCopyChangesApplied": true,
+  "sharedInstalledDependencies": true,
+  "generatedRouteDeclarationFilesCopiedForUnchangedRoutes": true,
+  "concurrentSchedulerChangesExcluded": true,
+  "results": [
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "started": "2026-11-04T11:51:06.041Z",
+      "finished": "2026-11-04T11:51:32.345Z"
+    },
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "exitCode": 0,
+      "started": "2026-11-04T11:51:06.051Z",
+      "finished": "2026-11-04T11:51:33.643Z"
+    },
+    {
+      "name": "unit",
+      "command": "npm test -- --reporter=json --outputFile=E:\\AIgnite-Lab\\signbridge\\docs\\evidence\\final\\recheck-2026-11-04\\vitest-results.json",
+      "exitCode": 0,
+      "started": "2026-11-04T11:51:06.058Z",
+      "finished": "2026-11-04T11:52:07.734Z"
+    }
+  ],
+  "passed": 194,
+  "failed": 0,
+  "skipped": 0
+}

@@ -1,0 +1,386 @@
+{
+  "date": "2026-11-04T11:52:03.803Z",
+  "command": "rg -n -i 'accurate|correct|translat|understand|interpreter' over listed public copy and submission Markdown",
+  "status": "PASS",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "a8892801d096ea040e159cf13facfe8b1f2b726b4c1bd919af7f00a6370c4f1f"
+    },
+    {
+      "path": "app/EventSticker.tsx",
+      "sha256": "0170cf82dc7b23bacf74b84be0c1f027484637fa6a53846c0fa9b184caca8051"
+    },
+    {
+      "path": "app/about/page.tsx",
+      "sha256": "9efdf89883e6b286e17c5c22c2ec600517164b35f6413f992ef9b0bc6e11f045"
+    },
+    {
+      "path": "app/components/CreateProject.tsx",
+      "sha256": "488d2b78876c414c7e18ebac4c27c681dd4c3ecaad6971b70d171b6d4fb81162"
+    },
+    {
+      "path": "app/components/Player.tsx",
+      "sha256": "05ba36da63e6d81aa5635ba511d098b3bbb78f62e93fe00a8dbcb83c6f28ce33"
+    },
+    {
+      "path": "app/components/SharedView.tsx",
+      "sha256": "5d0c66d8b0128fb66f4668c9c1510fa8814a74194ce032f6f3b9beb3da4ab021"
+    },
+    {
+      "path": "app/components/Workspace.tsx",
+      "sha256": "44194b3282fe7c2c00228e08f4f04b3be59262ef4d3b7e8fef07537101727252"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "5b334004f968cd7ff104182dc759d5fc5a239108ef46088b9baf58d6ef73118d"
+    },
+    {
+      "path": "app/p/[projectId]/page.tsx",
+      "sha256": "85e39dc17d51541de62d8a75f005a7b1956dbc995fab07dc9f50b98501763c09"
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "990da57cb437b2318b689f2551e3ddf63be2dc18324d974a85c01d6fa378e085"
+    },
+    {
+      "path": "app/renderer-spike/Spike.tsx",
+      "sha256": "f337c7afed481e39e6e7e7884cc348a3077ab96bdf3a0a6128b74a2df5b75648"
+    },
+    {
+      "path": "app/renderer-spike/page.tsx",
+      "sha256": "1a96a4be7fca41f953189b1a4f496ee8bb96626f857bdd0f2495b6e6ed140959"
+    },
+    {
+      "path": "app/s/[projectId]/page.tsx",
+      "sha256": "952a363a70b5a490661ecd39a19f2dfb5a51f72c2c3c04e9c580a97594f50145"
+    },
+    {
+      "path": "docs/ATTRIBUTION.md",
+      "sha256": "83507b4bd67d7425185bcde56e47472bbb6f80b40b13d93f9cf0477a1a1ae002"
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "sha256": "337676296e8d49bbeadfbfabec282bd806ec531a2671ebd30a35bffd5ccc4de7"
+    },
+    {
+      "path": "lib/player/rendererFrame.js",
+      "sha256": "bdfc1b79d66bdb182d6319d5c5b232f5b74f53ef251f2b6af5337fa3facd6d44"
+    },
+    {
+      "path": "public/renderer.html",
+      "sha256": "2644a3db73662dbc8c2a666311c72a7f2784e13da46e173e889a16cadae8713f"
+    },
+    {
+      "path": "submission/HANDOFF.md",
+      "sha256": "5267d0588685f3943d08b648b473080e25580421c3a7bb2a312649fecfcae9ff"
+    },
+    {
+      "path": "submission/deck.md",
+      "sha256": "1ae3de09685d28b3e01af4f81498eabb45507185eb5eccba09290f074d9d043f"
+    },
+    {
+      "path": "submission/demo-video-script.md",
+      "sha256": "02a3c99af12a506a5ec4454eadac2dc7d58d6f7630e8ef26982c27be80f4471e"
+    },
+    {
+      "path": "submission/devpost.md",
+      "sha256": "f6676165c9995c6b111e44d78aca7a9bac0ba5938abddb41735d498813a2436d"
+    }
+  ],
+  "hits": [
+    {
+      "path": "README.md",
+      "line": 16,
+      "term": "correct",
+      "excerpt": "| Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered versions. |",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "app/about/page.tsx",
+      "line": 2,
+      "term": "correct",
+      "excerpt": "be reopened without another model call. Rendering a sequence does not establish correct BdSL or comprehension.</p>",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "app/about/page.tsx",
+      "line": 3,
+      "term": "correct",
+      "excerpt": " not mobile-hardware results or language assessment.</p></li><li><h3>Linguistic correctness</h3><p>None. No qualified BdSL signer has judged a specific rendered version acceptable.</p></li><li><h3>User comprehension</h3><p>None. Deaf/BdSL u",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "app/components/Workspace.tsx",
+      "line": 60,
+      "term": "correct",
+      "excerpt": "&&<form className=\"edit-form\" onSubmit={e=>{e.preventDefault();void run(\"Saving correction and regenerating affected segments…\",()=>mutateTranscript({baseVersionId:transcript.id,edits:[{segmentIdx:s.idx,text:draft}]}));}}><label>Correct seg",
+      "decision": "JUSTIFIED",
+      "justification": "Source-caption correction controls/state only; no claim about signing quality."
+    },
+    {
+      "path": "app/components/Workspace.tsx",
+      "line": 60,
+      "term": "correct",
+      "excerpt": "{baseVersionId:transcript.id,edits:[{segmentIdx:s.idx,text:draft}]}));}}><label>Correct segment {s.idx+1}<textarea value={draft} onChange={e=>setDraft(e.target.value)} required maxLength={65536} rows={3} /></label><p className=\"field-note\">",
+      "decision": "JUSTIFIED",
+      "justification": "Source-caption correction controls/state only; no claim about signing quality."
+    },
+    {
+      "path": "app/components/Workspace.tsx",
+      "line": 60,
+      "term": "correct",
+      "excerpt": "</p><div className=\"button-row\"><button disabled={Boolean(busy)||conflict}>Save correction</button><button type=\"button\" className=\"secondary\" onClick={()=>setEditIdx(null)}>Cancel edit</button></div></form>}",
+      "decision": "JUSTIFIED",
+      "justification": "Source-caption correction controls/state only; no claim about signing quality."
+    },
+    {
+      "path": "app/layout.tsx",
+      "line": 5,
+      "term": "correct",
+      "excerpt": "· Experimental prototype\", description: \"Technical rendering prototype. No BdSL correctness or comprehension evidence.\" };",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "app/page.tsx",
+      "line": 7,
+      "term": "correct",
+      "excerpt": "rimental · not reviewed by a BdSL signer. Renderability does not establish BdSL correctness or comprehension.</p><p>Keep the source visible. See missing concepts before signs play. Reopen the same saved track without another model call.</p>",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "app/renderer-spike/page.tsx",
+      "line": 3,
+      "term": "translat",
+      "excerpt": "ies are combined to test animation and message isolation. This fixture is not a translation. Experimental · not reviewed by a BdSL signer.</p><Spike /></>;",
+      "decision": "JUSTIFIED",
+      "justification": "Explicitly denies treating the fixture as a translation; no accuracy claim."
+    },
+    {
+      "path": "docs/ATTRIBUTION.md",
+      "line": 8,
+      "term": "correct",
+      "excerpt": "ted corpus entries. Animation is technical evidence only; it is not evidence of correct BdSL or comprehension.",
+      "decision": "JUSTIFIED",
+      "justification": "Attribution/limitation explicitly denies inheriting BdSL quality or comprehension from rendered corpus data."
+    },
+    {
+      "path": "docs/ATTRIBUTION.md",
+      "line": 12,
+      "term": "correct",
+      "excerpt": "d or stripped of unsupported annotations. Rendering evidence does not establish correct BdSL or comprehension.",
+      "decision": "JUSTIFIED",
+      "justification": "Attribution/limitation explicitly denies inheriting BdSL quality or comprehension from rendered corpus data."
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "line": 5,
+      "term": "correct",
+      "excerpt": "ws host with software WebGL. These sets are not claimed as disjoint. Linguistic correctness: none. User comprehension: none.",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "line": 6,
+      "term": "translat",
+      "excerpt": "- The unrelated corpus entries in the fixture do not form a claimed translation.",
+      "decision": "JUSTIFIED",
+      "justification": "Explicitly denies treating the fixture as a translation; no accuracy claim."
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "line": 9,
+      "term": "correct",
+      "excerpt": "al tests still use explicit labelled fake fixtures. The local player/workspace, corrections, sharing and deletion UI are implemented. There is no qualified review UI or claimed language-quality result.",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "line": 10,
+      "term": "correct",
+      "excerpt": "B connectivity; it does not claim that migrations have been applied, signing is correct, or production processing is enabled.",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "submission/HANDOFF.md",
+      "line": 9,
+      "term": "correct",
+      "excerpt": "three evidence categories distinct. Technical rendering is observed; linguistic correctness and user comprehension have no evidence.",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "submission/deck.md",
+      "line": 45,
+      "term": "correct",
+      "excerpt": "| Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered tracks. |",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "submission/demo-video-script.md",
+      "line": 13,
+      "term": "correct",
+      "excerpt": "\"Our evidence is technical rendering on Windows with software WebGL. Linguistic correctness: none. User comprehension: none. SignOLight and IsharaKotha are prior work; we combine source-frame holds, durable caption edits and explicit gaps. ",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "submission/devpost.md",
+      "line": 11,
+      "term": "correct",
+      "excerpt": " tracks can be replayed and shared without another model call. A source-caption correction invalidates affected work; stale replies cannot replace the current track. Completion requires the expected ordered sign-unit callbacks. Timeouts, sk",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    },
+    {
+      "path": "submission/devpost.md",
+      "line": 25,
+      "term": "correct",
+      "excerpt": "2. **Linguistic correctness:** none. No qualified BdSL signer has assessed these exact rendered versions.",
+      "decision": "JUSTIFIED",
+      "justification": "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+    }
+  ],
+  "grouped": [
+    {
+      "path": "README.md",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "app/about/page.tsx",
+      "hits": 2,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "app/components/Workspace.tsx",
+      "hits": 3,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Source-caption correction controls/state only; no claim about signing quality."
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "app/page.tsx",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "app/renderer-spike/page.tsx",
+      "hits": 1,
+      "terms": [
+        "translat"
+      ],
+      "justifications": [
+        "Explicitly denies treating the fixture as a translation; no accuracy claim."
+      ]
+    },
+    {
+      "path": "docs/ATTRIBUTION.md",
+      "hits": 2,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Attribution/limitation explicitly denies inheriting BdSL quality or comprehension from rendered corpus data."
+      ]
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "hits": 4,
+      "terms": [
+        "correct",
+        "translat"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate.",
+        "Explicitly denies treating the fixture as a translation; no accuracy claim."
+      ]
+    },
+    {
+      "path": "submission/HANDOFF.md",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "submission/deck.md",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "submission/demo-video-script.md",
+      "hits": 1,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    },
+    {
+      "path": "submission/devpost.md",
+      "hits": 2,
+      "terms": [
+        "correct"
+      ],
+      "justifications": [
+        "Linguistic correctness is explicitly unevaluated, or source-caption editing is described; technical completion is kept separate."
+      ]
+    }
+  ],
+  "unresolved": 0,
+  "grepSha256": "3428751edd47fb60ad3cf67c2f0c700e96054380b977b96abf0ea77e9f5eb6d3",
+  "manualReview": {
+    "date": "2026-11-04T11:54:23.196Z",
+    "all20ExcerptsReviewed": true,
+    "standard": "SYSTEM-DESIGN.md §0.3 / §H.3",
+    "supplementalTypeScriptAndJavaScriptScan": "No additional hits in app/ and lib/ .ts/.js",
+    "decisions": "Source-caption editing or explicit absence of quality/comprehension evidence; two fixture statements explicitly deny translation."
+  }
+}
