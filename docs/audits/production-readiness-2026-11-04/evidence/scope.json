@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-04T13:17:39.136Z",
+  "sourceCommit": "a3e0a8dbc629a329c8bbb64fc9af24753dd309ff",
+  "isolatedSourceCommit": "bb75bb04ac7f0e746af4e5aa19b3725a8beb5732",
+  "appLibDiffEmpty": true,
+  "productionUrl": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_DaNDUZQ8KeS1qDsAh9rooxtioUXZ",
+    "state": "READY",
+    "nodeVersion": "24.x"
+  },
+  "newModelCalls": 0,
+  "sourceMutations": 0,
+  "configurationChanges": 0,
+  "notes": [
+    "Production GET/browser playback and read-only SQL; normal render telemetry can be emitted by the player",
+    "Controlled local fixtures use no remote writes",
+    "Concurrent shared-checkout frontend/scheduler/package/test changes excluded and preserved",
+    "Physical devices, Safari, load/soak, restore, qualified linguistic and comprehension evaluation not run"
+  ],
+  "systemDesignSha256": "ad91e87cde437b3cd430ef7102d51d9c7e7093875d68faf24369330aba307e4d",
+  "evidence": [
+    {
+      "path": "evidence/browser-audit.json",
+      "bytes": 21063,
+      "sha256": "c0a42de96ae457fd4eca8517952d28c35d69d5baba097c8bd9311e4cb543866e"
+    },
+    {
+      "path": "evidence/bundle-secret-scan.json",
+      "bytes": 716,
+      "sha256": "4a10753066dbc4a6ed77e6a169f143013beac9e3f3a3931cbe22c3cf7c30973b"
+    },
+    {
+      "path": "evidence/database-readonly.json",
+      "bytes": 15900,
+      "sha256": "d76da5b328b8650cb9cf3b6e8601561c7f17182e860e622972c5356bd3deb1d3"
+    },
+    {
+      "path": "evidence/dependency-audit.json",
+      "bytes": 1648,
+      "sha256": "43fcab18f87b4db300e538b06d67768032e98934f594f4872f6f013c58ae89ea"
+    },
+    {
+      "path": "evidence/desktop-home.png",
+      "bytes": 107295,
+      "sha256": "5ad7152459e104d428b2ef95ae2c8b6af318461bd9c4f8116ca6b650c8d0b64b"
+    },
+    {
+      "path": "evidence/desktop-shared.png",
+      "bytes": 193117,
+      "sha256": "ee428caf4d77671455dcba5be790c01db60b142d5287e6de8b7d5a23a642ae67"
+    },
+    {
+      "path": "evidence/idle-tab-return.png",
+      "bytes": 193626,
+      "sha256": "b6396fd1025250124cf2c06a341c6b3f19760f79be6c060ea89109619e56b8a3"
+    },
+    {
+      "path": "evidence/local-reproductions.json",
+      "bytes": 1562,
+      "sha256": "0940f607d42da3ad235c6fc37f5822a8119e879c84cc9fe17fbec66543fb4459"
+    },
+    {
+      "path": "evidence/mobile-after-play.png",
+      "bytes": 22793,
+      "sha256": "4a4d278b3d0c794c6aef7e8bdb70c9f9f315c5a67ca6820eb42cb2c69cfda260"
+    },
+    {
+      "path": "evidence/mobile-controls.json",
+      "bytes": 437,
+      "sha256": "92df607492d6f17bbdac52e107c14c6f2ad237c6286b0405d33ac207914c4011"
+    },
+    {
+      "path": "evidence/mobile-home.png",
+      "bytes": 76672,
+      "sha256": "50594e041e678e107b18b37453620e2885cf5192d59df70feafbf48eaa3e3c90"
+    },
+    {
+      "path": "evidence/mobile-shared.png",
+      "bytes": 133323,
+      "sha256": "8a93ffc7c688265606b3cca528ad9d488603d4f37d090f447e53987852e1205e"
+    },
+    {
+      "path": "evidence/renderer-resources.json",
+      "bytes": 4721,
+      "sha256": "10deeb883daca29ed8a7df21f79081cc87c85a553f017c6f0e20530109b1bcb4"
+    },
+    {
+      "path": "evidence/reproduce-local.ts.txt",
+      "bytes": 7394,
+      "sha256": "2bad3a315edd317964acacd4698ad393f63977fe05692cb0190c1a5e052111b8"
+    },
+    {
+      "path": "evidence/ui-detector-desktop.json",
+      "bytes": 695,
+      "sha256": "23fdc0ae41211e7bfd25c69ceef1c8cb5bf368ab849472e9562403635d7d7edc"
+    },
+    {
+      "path": "evidence/ui-detector-mobile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ]
+}

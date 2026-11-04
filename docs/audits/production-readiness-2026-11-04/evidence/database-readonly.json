@@ -1,0 +1,496 @@
+{
+  "date": "2026-11-04T12:55:38.212Z",
+  "readOnly": true,
+  "indexes": [
+    {
+      "tablename": "anchor_storage",
+      "indexname": "anchor_storage_pkey",
+      "indexdef": "CREATE UNIQUE INDEX anchor_storage_pkey ON public.anchor_storage USING btree (anchor_id)"
+    },
+    {
+      "tablename": "api_requests",
+      "indexname": "api_requests_scope_key_pk",
+      "indexdef": "CREATE UNIQUE INDEX api_requests_scope_key_pk ON public.api_requests USING btree (scope, key)"
+    },
+    {
+      "tablename": "asset_aliases",
+      "indexname": "asset_aliases_alias_norm_asset_id_pk",
+      "indexdef": "CREATE UNIQUE INDEX asset_aliases_alias_norm_asset_id_pk ON public.asset_aliases USING btree (alias_norm, asset_id)"
+    },
+    {
+      "tablename": "corpus_releases",
+      "indexname": "corpus_releases_pkey",
+      "indexdef": "CREATE UNIQUE INDEX corpus_releases_pkey ON public.corpus_releases USING btree (id)"
+    },
+    {
+      "tablename": "jobs",
+      "indexname": "jobs_active",
+      "indexdef": "CREATE INDEX jobs_active ON public.jobs USING btree (project_id) WHERE (status = ANY (ARRAY['queued'::job_status, 'running'::job_status]))"
+    },
+    {
+      "tablename": "jobs",
+      "indexname": "jobs_dispatch",
+      "indexdef": "CREATE INDEX jobs_dispatch ON public.jobs USING btree (created_at) WHERE (dispatch_state = 'pending'::dispatch_state)"
+    },
+    {
+      "tablename": "jobs",
+      "indexname": "jobs_pkey",
+      "indexdef": "CREATE UNIQUE INDEX jobs_pkey ON public.jobs USING btree (id)"
+    },
+    {
+      "tablename": "jobs",
+      "indexname": "jobs_project_id_idempotency_key_unique",
+      "indexdef": "CREATE UNIQUE INDEX jobs_project_id_idempotency_key_unique ON public.jobs USING btree (project_id, idempotency_key)"
+    },
+    {
+      "tablename": "media",
+      "indexname": "media_blob_pathname_unique",
+      "indexdef": "CREATE UNIQUE INDEX media_blob_pathname_unique ON public.media USING btree (blob_pathname)"
+    },
+    {
+      "tablename": "media",
+      "indexname": "media_pkey",
+      "indexdef": "CREATE UNIQUE INDEX media_pkey ON public.media USING btree (id)"
+    },
+    {
+      "tablename": "ops_settings",
+      "indexname": "ops_settings_pkey",
+      "indexdef": "CREATE UNIQUE INDEX ops_settings_pkey ON public.ops_settings USING btree (key)"
+    },
+    {
+      "tablename": "owner_daily_quotas",
+      "indexname": "owner_daily_quotas_owner_id_day_scope_pk",
+      "indexdef": "CREATE UNIQUE INDEX owner_daily_quotas_owner_id_day_scope_pk ON public.owner_daily_quotas USING btree (owner_id, day_scope)"
+    },
+    {
+      "tablename": "owners",
+      "indexname": "owners_pkey",
+      "indexdef": "CREATE UNIQUE INDEX owners_pkey ON public.owners USING btree (id)"
+    },
+    {
+      "tablename": "owners",
+      "indexname": "owners_token_hash_unique",
+      "indexdef": "CREATE UNIQUE INDEX owners_token_hash_unique ON public.owners USING btree (token_hash)"
+    },
+    {
+      "tablename": "projects",
+      "indexname": "projects_pkey",
+      "indexdef": "CREATE UNIQUE INDEX projects_pkey ON public.projects USING btree (id)"
+    },
+    {
+      "tablename": "projects",
+      "indexname": "projects_share_token_hash_unique",
+      "indexdef": "CREATE UNIQUE INDEX projects_share_token_hash_unique ON public.projects USING btree (share_token_hash)"
+    },
+    {
+      "tablename": "rate_windows",
+      "indexname": "rate_windows_scope_window_start_pk",
+      "indexdef": "CREATE UNIQUE INDEX rate_windows_scope_window_start_pk ON public.rate_windows USING btree (scope, window_start)"
+    },
+    {
+      "tablename": "render_events",
+      "indexname": "render_events_pkey",
+      "indexdef": "CREATE UNIQUE INDEX render_events_pkey ON public.render_events USING btree (id)"
+    },
+    {
+      "tablename": "reviews",
+      "indexname": "reviews_pkey",
+      "indexdef": "CREATE UNIQUE INDEX reviews_pkey ON public.reviews USING btree (id)"
+    },
+    {
+      "tablename": "segments",
+      "indexname": "segments_pkey",
+      "indexdef": "CREATE UNIQUE INDEX segments_pkey ON public.segments USING btree (id)"
+    },
+    {
+      "tablename": "segments",
+      "indexname": "segments_transcript_version_id_idx_unique",
+      "indexdef": "CREATE UNIQUE INDEX segments_transcript_version_id_idx_unique ON public.segments USING btree (transcript_version_id, idx)"
+    },
+    {
+      "tablename": "sign_assets",
+      "indexname": "sign_assets_original_sha256_unique",
+      "indexdef": "CREATE UNIQUE INDEX sign_assets_original_sha256_unique ON public.sign_assets USING btree (original_sha256)"
+    },
+    {
+      "tablename": "sign_assets",
+      "indexname": "sign_assets_pkey",
+      "indexdef": "CREATE UNIQUE INDEX sign_assets_pkey ON public.sign_assets USING btree (id)"
+    },
+    {
+      "tablename": "spend_budgets",
+      "indexname": "spend_budgets_pkey",
+      "indexdef": "CREATE UNIQUE INDEX spend_budgets_pkey ON public.spend_budgets USING btree (scope)"
+    },
+    {
+      "tablename": "spend_reservations",
+      "indexname": "spend_reservations_attempt_key_unique",
+      "indexdef": "CREATE UNIQUE INDEX spend_reservations_attempt_key_unique ON public.spend_reservations USING btree (attempt_key)"
+    },
+    {
+      "tablename": "spend_reservations",
+      "indexname": "spend_reservations_pkey",
+      "indexdef": "CREATE UNIQUE INDEX spend_reservations_pkey ON public.spend_reservations USING btree (id)"
+    },
+    {
+      "tablename": "stage_attempts",
+      "indexname": "stage_attempts_job_id_segment_idx_stage_attempt_no_unique",
+      "indexdef": "CREATE UNIQUE INDEX stage_attempts_job_id_segment_idx_stage_attempt_no_unique ON public.stage_attempts USING btree (job_id, segment_idx, stage, attempt_no)"
+    },
+    {
+      "tablename": "stage_attempts",
+      "indexname": "stage_attempts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX stage_attempts_pkey ON public.stage_attempts USING btree (id)"
+    },
+    {
+      "tablename": "stage_result_refs",
+      "indexname": "stage_result_refs_project_id_cache_key_pk",
+      "indexdef": "CREATE UNIQUE INDEX stage_result_refs_project_id_cache_key_pk ON public.stage_result_refs USING btree (project_id, cache_key)"
+    },
+    {
+      "tablename": "stage_results",
+      "indexname": "stage_results_pkey",
+      "indexdef": "CREATE UNIQUE INDEX stage_results_pkey ON public.stage_results USING btree (cache_key)"
+    },
+    {
+      "tablename": "storage_ledger",
+      "indexname": "storage_ledger_pkey",
+      "indexdef": "CREATE UNIQUE INDEX storage_ledger_pkey ON public.storage_ledger USING btree (id)"
+    },
+    {
+      "tablename": "track_versions",
+      "indexname": "track_versions_pkey",
+      "indexdef": "CREATE UNIQUE INDEX track_versions_pkey ON public.track_versions USING btree (id)"
+    },
+    {
+      "tablename": "track_versions",
+      "indexname": "track_versions_project_id_track_fingerprint_unique",
+      "indexdef": "CREATE UNIQUE INDEX track_versions_project_id_track_fingerprint_unique ON public.track_versions USING btree (project_id, track_fingerprint)"
+    },
+    {
+      "tablename": "transcript_versions",
+      "indexname": "transcript_versions_pkey",
+      "indexdef": "CREATE UNIQUE INDEX transcript_versions_pkey ON public.transcript_versions USING btree (id)"
+    },
+    {
+      "tablename": "transcript_versions",
+      "indexname": "transcript_versions_project_id_request_key_unique",
+      "indexdef": "CREATE UNIQUE INDEX transcript_versions_project_id_request_key_unique ON public.transcript_versions USING btree (project_id, request_key)"
+    },
+    {
+      "tablename": "transcript_versions",
+      "indexname": "transcript_versions_project_id_version_no_unique",
+      "indexdef": "CREATE UNIQUE INDEX transcript_versions_project_id_version_no_unique ON public.transcript_versions USING btree (project_id, version_no)"
+    },
+    {
+      "tablename": "visual_anchors",
+      "indexname": "visual_anchors_pkey",
+      "indexdef": "CREATE UNIQUE INDEX visual_anchors_pkey ON public.visual_anchors USING btree (id)"
+    }
+  ],
+  "statistics": [
+    {
+      "relname": "jobs",
+      "n_live_tup": "3",
+      "n_dead_tup": "15",
+      "seq_scan": "217",
+      "idx_scan": "464"
+    },
+    {
+      "relname": "media",
+      "n_live_tup": "3",
+      "n_dead_tup": "5",
+      "seq_scan": "133",
+      "idx_scan": "217"
+    },
+    {
+      "relname": "render_events",
+      "n_live_tup": "40",
+      "n_dead_tup": "0",
+      "seq_scan": "103",
+      "idx_scan": "0"
+    },
+    {
+      "relname": "stage_attempts",
+      "n_live_tup": "20",
+      "n_dead_tup": "1",
+      "seq_scan": "90",
+      "idx_scan": "83"
+    },
+    {
+      "relname": "spend_budgets",
+      "n_live_tup": "2",
+      "n_dead_tup": "12",
+      "seq_scan": "39",
+      "idx_scan": "147"
+    },
+    {
+      "relname": "spend_reservations",
+      "n_live_tup": "18",
+      "n_dead_tup": "18",
+      "seq_scan": "27",
+      "idx_scan": "72"
+    },
+    {
+      "relname": "visual_anchors",
+      "n_live_tup": "0",
+      "n_dead_tup": "0",
+      "seq_scan": "21",
+      "idx_scan": "0"
+    },
+    {
+      "relname": "projects",
+      "n_live_tup": "3",
+      "n_dead_tup": "16",
+      "seq_scan": "19",
+      "idx_scan": "746"
+    },
+    {
+      "relname": "sign_assets",
+      "n_live_tup": "2934",
+      "n_dead_tup": "0",
+      "seq_scan": "18",
+      "idx_scan": "8868"
+    },
+    {
+      "relname": "asset_aliases",
+      "n_live_tup": "5908",
+      "n_dead_tup": "0",
+      "seq_scan": "16",
+      "idx_scan": "5908"
+    },
+    {
+      "relname": "track_versions",
+      "n_live_tup": "3",
+      "n_dead_tup": "0",
+      "seq_scan": "16",
+      "idx_scan": "407"
+    },
+    {
+      "relname": "rate_windows",
+      "n_live_tup": "9",
+      "n_dead_tup": "36",
+      "seq_scan": "15",
+      "idx_scan": "102"
+    },
+    {
+      "relname": "transcript_versions",
+      "n_live_tup": "3",
+      "n_dead_tup": "3",
+      "seq_scan": "5",
+      "idx_scan": "332"
+    },
+    {
+      "relname": "stage_results",
+      "n_live_tup": "18",
+      "n_dead_tup": "0",
+      "seq_scan": "3",
+      "idx_scan": "118"
+    },
+    {
+      "relname": "stage_result_refs",
+      "n_live_tup": "20",
+      "n_dead_tup": "0",
+      "seq_scan": "3",
+      "idx_scan": "20"
+    },
+    {
+      "relname": "segments",
+      "n_live_tup": "10",
+      "n_dead_tup": "0",
+      "seq_scan": "3",
+      "idx_scan": "201"
+    },
+    {
+      "relname": "reviews",
+      "n_live_tup": "0",
+      "n_dead_tup": "0",
+      "seq_scan": "2",
+      "idx_scan": "0"
+    },
+    {
+      "relname": "owner_daily_quotas",
+      "n_live_tup": "2",
+      "n_dead_tup": "3",
+      "seq_scan": "2",
+      "idx_scan": "6"
+    },
+    {
+      "relname": "owners",
+      "n_live_tup": "2",
+      "n_dead_tup": "0",
+      "seq_scan": "2",
+      "idx_scan": "198"
+    },
+    {
+      "relname": "anchor_storage",
+      "n_live_tup": "0",
+      "n_dead_tup": "0",
+      "seq_scan": "2",
+      "idx_scan": "0"
+    },
+    {
+      "relname": "corpus_releases",
+      "n_live_tup": "1",
+      "n_dead_tup": "0",
+      "seq_scan": "1",
+      "idx_scan": "2938"
+    },
+    {
+      "relname": "storage_ledger",
+      "n_live_tup": "1",
+      "n_dead_tup": "6",
+      "seq_scan": "1",
+      "idx_scan": "231"
+    },
+    {
+      "relname": "ops_settings",
+      "n_live_tup": "0",
+      "n_dead_tup": "0",
+      "seq_scan": "1",
+      "idx_scan": "86"
+    },
+    {
+      "relname": "api_requests",
+      "n_live_tup": "3",
+      "n_dead_tup": "0",
+      "seq_scan": "1",
+      "idx_scan": "3"
+    }
+  ],
+  "budgets": [
+    {
+      "scope": "day:2026-11-04",
+      "cap_micros": "700000",
+      "spent_micros": "46570",
+      "reserved_micros": "0"
+    },
+    {
+      "scope": "lifetime",
+      "cap_micros": "700000",
+      "spent_micros": "46570",
+      "reserved_micros": "0"
+    }
+  ],
+  "counts": [
+    {
+      "projects": 3,
+      "media": 3,
+      "attempts": 20,
+      "renders": 40,
+      "eligible": 12
+    }
+  ],
+  "mediaPlan": [
+    {
+      "QUERY PLAN": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 15.11,
+            "Total Cost": 15.12,
+            "Plan Rows": 1,
+            "Plan Width": 209,
+            "Actual Startup Time": 0.026,
+            "Actual Total Time": 0.027,
+            "Actual Rows": 1,
+            "Actual Loops": 1,
+            "Disabled": false,
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Startup Cost": 15.11,
+                "Total Cost": 15.12,
+                "Plan Rows": 1,
+                "Plan Width": 209,
+                "Actual Startup Time": 0.026,
+                "Actual Total Time": 0.026,
+                "Actual Rows": 1,
+                "Actual Loops": 1,
+                "Disabled": false,
+                "Sort Key": [
+                  "created_at DESC",
+                  "id DESC"
+                ],
+                "Sort Method": "quicksort",
+                "Sort Space Used": 25,
+                "Sort Space Type": "Memory",
+                "Shared Hit Blocks": 1,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Seq Scan",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Relation Name": "media",
+                    "Alias": "media",
+                    "Startup Cost": 0,
+                    "Total Cost": 15.1,
+                    "Plan Rows": 1,
+                    "Plan Width": 209,
+                    "Actual Startup Time": 0.016,
+                    "Actual Total Time": 0.017,
+                    "Actual Rows": 1,
+                    "Actual Loops": 1,
+                    "Disabled": false,
+                    "Filter": "((project_id = 'b0a2b6b2-fbab-4936-829e-620b0a937ed4'::uuid) AND (status = 'ready'::media_status))",
+                    "Rows Removed by Filter": 2,
+                    "Shared Hit Blocks": 1,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 0,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.074,
+          "Triggers": [],
+          "Execution Time": 0.049
+        }
+      ]
+    }
+  ]
+}

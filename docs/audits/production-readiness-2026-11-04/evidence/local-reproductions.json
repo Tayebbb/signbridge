@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-04T13:05:09.009Z",
+  "source": "Pinned committed app source from bb75bb0 (same app as a3e0a8d/deployed release); concurrent edits excluded",
+  "modelCalls": 0,
+  "remoteWrites": 0,
+  "pollingTransfer": {
+    "findingReproduced": true,
+    "refreshCalls": 4,
+    "videoSizeBytes": 12000000,
+    "chargedTransferBytes": 48000000,
+    "actualBlobDownloads": 0,
+    "playerRetainedFirstUrl": true,
+    "distinctIssuedUrls": 4,
+    "httpStatuses": [
+      200,
+      200,
+      200,
+      304,
+      200,
+      304,
+      200,
+      304
+    ],
+    "sqlStatementsThroughStateStore": 56,
+    "statementsPerRefresh": 14,
+    "sharedPollIntervalSeconds": 10,
+    "globalGateBytes": 6000000000,
+    "minutesForOne15MBTabToConsumeGate": 66.66666666666667
+  },
+  "staleResponseRace": {
+    "findingReproduced": true,
+    "newerVersionInitiallyAccepted": true,
+    "olderDelayedResponseReplacedNewer": true,
+    "staleMarkersCleared": true,
+    "usesRealTrackStore": true,
+    "networkOnlyControlled": true
+  },
+  "cleanupCoupling": {
+    "findingReproduced": true,
+    "newUnrelatedUploadBlocked": true,
+    "deleteAttempts": 1,
+    "storageCommittedBeforeBytes": 12000000,
+    "storageCapBytes": 800000000,
+    "requestedUploadBytes": 32,
+    "spareCapacityAvailable": true,
+    "fault": "One unrelated expired media DELETE fails"
+  },
+  "circuitBreaker": {
+    "findingReproduced": true,
+    "providerRowsAreSynthetic": true,
+    "oneErrorDisablesGlobalProcessing": true,
+    "stillDisabledAfterErrorWindowClears": true,
+    "realModelCalls": 0
+  }
+}

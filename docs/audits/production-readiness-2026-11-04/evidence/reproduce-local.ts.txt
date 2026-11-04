@@ -1,0 +1,46 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {randomUUID} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {sql} from 'drizzle-orm';
+import {createDatabase} from './phase8-release/lib/db/client';
+import {makeApi} from './phase8-release/lib/server/api';
+import {LocalSignedBlobs} from './phase8-release/lib/storage/urls';
+import {createOwnerCapability,ownerCookieHeader} from './phase8-release/lib/auth/ownerCookie';
+import {ensureOwner,processingAllowed} from './phase8-release/lib/db/queries/api';
+import {applyErrorKillSwitch} from './phase8-release/lib/db/queries/operations';
+import {reserveMedia,finalizeMedia} from './phase8-release/lib/db/queries/storage';
+import {claimRun} from './phase8-release/lib/db/queries/execution';
+import {publishTrack} from './phase8-release/lib/db/queries/publish';
+import {projectFixture,trackFor,NOW} from './phase8-release/tests/race/support';
+import {trackIdFor,trackFingerprint,manifestHash} from './phase8-release/lib/domain/fingerprints';
+import {TrackStore} from './phase8-release/lib/player/store';
+import {initMedia} from './phase8-release/lib/ops/storage';
+const root=resolve('docs/audits/production-readiness-2026-11-04/evidence');await mkdir(root,{recursive:true});process.chdir(resolve('.data/phase8-release'));
+const db=await createDatabase();await db.migrate();
+try{
+ const cap=createOwnerCapability(),ownerId=await ensureOwner(db.state,cap.tokenHash),f=await projectFixture(db.state,{ownerId});
+ const media=await reserveMedia(db.state,{projectId:f.projectId,declaredBytes:12_000_000,contentType:'video/mp4',clientSha256:'a'.repeat(64),clientDurationMs:2000},NOW);await finalizeMedia(db.state,media.id,{size:12_000_000,contentType:'video/mp4'},NOW);
+ const runId=randomUUID();assert.ok(await claimRun(db.state,f.jobId,runId,NOW));const manifest=trackFor(f);manifest.media.sizeBytes=12_000_000;manifest.trackVersionId=trackIdFor(f.jobId,trackFingerprint(manifest));assert.equal((await publishTrack(db.state,f.jobId,{runId},manifest,NOW)).status,'published');
+ const blobs=new LocalSignedBlobs('.data/audit-unused-blobs');let blobDownloads=0;blobs.get=async()=>{blobDownloads++;return new Uint8Array();};
+ let sqlStatements=0;const measured={...db.state,query:async(...args:any[])=>{sqlStatements++;return (db.state.query as any)(...args);},transaction:(work:any)=>db.state.transaction(q=>work({query:async(...args:any[])=>{sqlStatements++;return (q.query as any)(...args);}}))};
+ const api=makeApi({store:measured,blobs,processingEnabled:false,dispatcher:async()=>({dispatch:async()=>{}}),defer:()=>{}});
+ const serverUrls:string[]=[],statuses:number[]=[];
+ const fetcher:typeof fetch=async(input,init)=>{const response=await api(new Request('https://audit.invalid'+String(input),{headers:{...Object.fromEntries(new Headers(init?.headers)),Cookie:ownerCookieHeader(cap.token)}}),String(input).endsWith('/track')?'track':'manifest',String(input).endsWith('/track')?{projectId:f.projectId}:{trackId:manifest.trackVersionId});statuses.push(response.status);if(String(input).endsWith('/track'))serverUrls.push((await response.clone().json()).media.url);return response;};
+ const store=new TrackStore(f.projectId,fetcher);const initial=await store.refresh();for(let n=0;n<3;n++)await store.refresh();const [ledger]=await db.state.query<{est_transfer_bytes:string;cap_bytes:string;committed_bytes:string}>(sql`SELECT est_transfer_bytes,cap_bytes,committed_bytes FROM storage_ledger WHERE id=1`);
+ assert.equal(BigInt(ledger.est_transfer_bytes),48_000_000n);assert.equal(blobDownloads,0);assert.equal(store.current!.media.url,initial!.current.media.url);
+ const polling={findingReproduced:true,refreshCalls:4,videoSizeBytes:12_000_000,chargedTransferBytes:ledger.est_transfer_bytes,actualBlobDownloads:blobDownloads,playerRetainedFirstUrl:true,distinctIssuedUrls:new Set(serverUrls).size,httpStatuses:statuses,sqlStatementsThroughStateStore:sqlStatements,statementsPerRefresh:sqlStatements/4,sharedPollIntervalSeconds:10,globalGateBytes:6_000_000_000,minutesForOne15MBTabToConsumeGate:6_000_000_000/15_000_000*10/60};
+ const a=trackFor({projectId:randomUUID(),jobId:randomUUID(),transcriptVersionId:randomUUID()}),b=trackFor({projectId:a.projectId,jobId:randomUUID(),transcriptVersionId:randomUUID()});let release!:(r:Response)=>void,round=0;
+ const pointer=(m:typeof a)=>Response.json({trackVersionId:m.trackVersionId,manifestHash:manifestHash(m),overlays:{sourceChecks:[],review:{status:'unreviewed',validFor:null}},media:{state:'missing',url:null,expiresAt:null,reason:null}});
+ const racing:typeof fetch=async input=>{if(String(input).endsWith('/track')){round++;return round===1?new Promise<Response>(r=>release=r):pointer(b);}const m=String(input).includes(b.trackVersionId)?b:a;return Response.json(m,{headers:{ETag:`"${manifestHash(m)}"`}});};
+ const race=new TrackStore(a.projectId,racing),old=race.refresh();await race.refresh();assert.equal(race.manifest?.trackVersionId,b.trackVersionId);race.markStale([0]);assert.ok(race.stale.has(0));release(pointer(a));await old;assert.equal(race.manifest?.trackVersionId,a.trackVersionId);assert.equal(race.stale.size,0);
+ const stale={findingReproduced:true,newerVersionInitiallyAccepted:true,olderDelayedResponseReplacedNewer:true,staleMarkersCleared:race.stale.size===0,usesRealTrackStore:true,networkOnlyControlled:true};
+ const other=await projectFixture(db.state,{ownerId,job:false});let removals=0;blobs.remove=async()=>{removals++;throw Error('Controlled DELETE outage');};let uploadError:string|null=null;
+ try{await initMedia(db.state,blobs,{projectId:other.projectId,declaredBytes:32,contentType:'video/mp4',clientSha256:'b'.repeat(64),clientDurationMs:2000},new Date(NOW.getTime()+73*3600000));}catch(e){uploadError=(e as Error).message;}
+ assert.equal(uploadError,'Controlled DELETE outage');const cleanup={findingReproduced:true,newUnrelatedUploadBlocked:true,deleteAttempts:removals,storageCommittedBeforeBytes:ledger.committed_bytes,storageCapBytes:ledger.cap_bytes,requestedUploadBytes:32,spareCapacityAvailable:true,fault:'One unrelated expired media DELETE fails'};
+ // Independent local SQL fixture: one simulated provider error, not a real API call.
+ await db.state.query(sql`INSERT INTO stage_attempts(job_id,segment_idx,stage,cache_key,attempt_no,outcome,error_code,provider,created_at) VALUES (${f.jobId},0,'meaning','audit-error-fixture',1,'error','model_network','openai',${NOW})`);
+ assert.equal(await applyErrorKillSwitch(db.state,NOW),true);assert.equal(await processingAllowed(db.state,true),false);await applyErrorKillSwitch(db.state,new Date(NOW.getTime()+11*60_000));assert.equal(await processingAllowed(db.state,true),false);
+ const circuit={findingReproduced:true,providerRowsAreSynthetic:true,oneErrorDisablesGlobalProcessing:true,stillDisabledAfterErrorWindowClears:true,realModelCalls:0};
+ await writeFile(root+'/local-reproductions.json',JSON.stringify({date:new Date().toISOString(),source:'Pinned committed app source from bb75bb0 (same app as a3e0a8d/deployed release); concurrent edits excluded',modelCalls:0,remoteWrites:0,pollingTransfer:polling,staleResponseRace:stale,cleanupCoupling:cleanup,circuitBreaker:circuit},null,2)+'\n');console.log(JSON.stringify({pollingTransfer:polling,staleResponseRace:stale,cleanupCoupling:cleanup,circuitBreaker:circuit}));
+}finally{await db.close();}

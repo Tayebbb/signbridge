@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-04T13:01:25.130Z",
+  "scenario": "390x844 Chromium mobile viewport with synthesized touch; not physical hardware",
+  "state": "SignPlaying",
+  "viewportHeight": 844,
+  "scrollY": 1386,
+  "renderer": {
+    "top": -651.015625,
+    "bottom": -231.015625,
+    "height": 420
+  },
+  "playButton": {
+    "top": 395.828125,
+    "bottom": 449.015625
+  },
+  "visibleRendererPixels": 0,
+  "avatarOffscreenWhileSigning": true
+}

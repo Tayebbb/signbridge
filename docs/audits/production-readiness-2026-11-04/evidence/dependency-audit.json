@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-04T13:17:39.070Z",
+  "command": "npm audit --omit=dev --json",
+  "scope": "Pinned isolated release dependencies; no package edits",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 23,
+      "high": 0,
+      "critical": 0,
+      "total": 23
+    },
+    "dependencies": {
+      "prod": 433,
+      "dev": 425,
+      "optional": 199,
+      "peer": 25,
+      "peerOptional": 0,
+      "total": 978
+    }
+  },
+  "uniqueAdvisories": [
+    {
+      "source": 1244012,
+      "name": "minimatch",
+      "dependency": "minimatch",
+      "title": "minimatch has potential denial of service via globparts amplification",
+      "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+      "severity": "moderate",
+      "cwe": [
+        "CWE-405"
+      ],
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "range": "<11.0.1"
+    }
+  ],
+  "affectedPackageEntries": [
+    "@oclif/core",
+    "@oclif/plugin-help",
+    "@swc/cli",
+    "@vercel/queue",
+    "@workflow/astro",
+    "@workflow/builders",
+    "@workflow/cli",
+    "@workflow/core",
+    "@workflow/nest",
+    "@workflow/next",
+    "@workflow/nitro",
+    "@workflow/nuxt",
+    "@workflow/rollup",
+    "@workflow/sveltekit",
+    "@workflow/vite",
+    "@workflow/web",
+    "@workflow/world-local",
+    "@workflow/world-vercel",
+    "ejs",
+    "filelist",
+    "jake",
+    "minimatch",
+    "workflow"
+  ],
+  "automaticFixWarning": "Suggested fix changes Workflow major version; do not force without compatibility review",
+  "packageLockSha256": "10bcbaedd0b20e96d19570b8f57ef3e58c9d2ab8df16e3aa4cb4d8b5fdbcf8d2"
+}

@@ -1,0 +1,721 @@
+[
+  {
+    "date": "2026-11-04T12:49:19.175Z",
+    "browser": "157.0.8103.38",
+    "home": {
+      "mode": "desktop unthrottled",
+      "home": {
+        "metrics": {
+          "lcp": 880,
+          "cls": 0.003215412507233796,
+          "longTasks": [
+            56
+          ]
+        },
+        "navigation": [
+          {
+            "ttfb": 173.30000001192093,
+            "domContentLoaded": 838.1999999880791,
+            "load": 841.5,
+            "transferSize": 4055
+          }
+        ],
+        "overflow": false,
+        "images": [
+          {
+            "src": "/event-sticker.png",
+            "naturalWidth": 2000,
+            "renderedWidth": 218,
+            "loading": "eager"
+          }
+        ],
+        "targets": [
+          {
+            "tag": "INPUT",
+            "width": 483.71875,
+            "height": 49.1875,
+            "name": "Clip title"
+          },
+          {
+            "tag": "INPUT",
+            "width": 18,
+            "height": 18,
+            "name": "I have permission to use the clip and captions."
+          },
+          {
+            "tag": "BUTTON",
+            "width": 483.71875,
+            "height": 53.1875,
+            "name": "Create a project"
+          }
+        ]
+      },
+      "axeVersion": "4.14.0",
+      "a11y": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 1
+          }
+        ],
+        "passes": 24
+      },
+      "elapsedMs": 6195,
+      "resources": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Document",
+          "bytes": 4781
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/25kvgcvbp6c14.js",
+          "type": "Script",
+          "bytes": 2317
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/turbopack-3h_ctkfaeun7f.js",
+          "type": "Script",
+          "bytes": 4772
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0w7g8m3soye1t.css",
+          "type": "Stylesheet",
+          "bytes": 3047
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/1vkbvs5cv4r1l.js",
+          "type": "Script",
+          "bytes": 8165
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/event-sticker.png",
+          "type": "Image",
+          "bytes": 1119211
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0j18tdw7hoosp.js",
+          "type": "Script",
+          "bytes": 1749
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/3k-imx13uscrn.js",
+          "type": "Script",
+          "bytes": 7147
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/2aarm68dci36x.js",
+          "type": "Script",
+          "bytes": 47431
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0c75x1kz8q0zl.js",
+          "type": "Script",
+          "bytes": 73519
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/favicon.ico",
+          "type": "Other",
+          "bytes": 175
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 844
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 751
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 642
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/renderer-spike",
+          "type": "Fetch",
+          "bytes": 814
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 1180
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 1277
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/renderer-spike",
+          "type": "Fetch",
+          "bytes": 1055
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 1049
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 802
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 710
+        }
+      ]
+    },
+    "shared": {
+      "ready": true,
+      "readyWaitMs": 7395,
+      "initialResources": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0w7g8m3soye1t.css",
+          "type": "Stylesheet",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/25kvgcvbp6c14.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/1vkbvs5cv4r1l.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0c75x1kz8q0zl.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/2aarm68dci36x.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/turbopack-3h_ctkfaeun7f.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/3k-imx13uscrn.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Document",
+          "bytes": 3602
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/event-sticker.png",
+          "type": "Image",
+          "bytes": 113
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/35vs38qtwmspj.js",
+          "type": "Script",
+          "bytes": 8393
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/09mtg0me5e426.js",
+          "type": "Script",
+          "bytes": 35474
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 871
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Fetch",
+          "bytes": 633
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1099
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Fetch",
+          "bytes": 1065
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 1046
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 876
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 3329
+        }
+      ],
+      "polling21Seconds": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1102
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 871
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 132
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1104
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 853
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 83
+        }
+      ],
+      "a11y": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 1
+          },
+          {
+            "id": "video-caption",
+            "nodes": 1
+          }
+        ],
+        "passes": 31
+      }
+    },
+    "idleVisibility": {
+      "before": "Ready",
+      "after": "Paused",
+      "idleStatePreserved": false,
+      "controlledVisibilityEvent": true,
+      "nativeTabSwitchResult": "NOT RUN: headless tab switching did not change document.hidden"
+    }
+  },
+  {
+    "date": "2026-11-04T12:50:22.270Z",
+    "browser": "157.0.8103.38",
+    "home": {
+      "mode": "emulated slow4G (1.6 Mbps,150ms),4x CPU",
+      "home": {
+        "metrics": {
+          "lcp": 1220,
+          "cls": 0,
+          "longTasks": [
+            408
+          ]
+        },
+        "navigation": [
+          {
+            "ttfb": 237.0999999642372,
+            "domContentLoaded": 1229.199999988079,
+            "load": 7137.199999988079,
+            "transferSize": 4054
+          }
+        ],
+        "overflow": false,
+        "images": [
+          {
+            "src": "/event-sticker.png",
+            "naturalWidth": 2000,
+            "renderedWidth": 124,
+            "loading": "eager"
+          }
+        ],
+        "targets": [
+          {
+            "tag": "INPUT",
+            "width": 350,
+            "height": 49.1875,
+            "name": "Clip title"
+          },
+          {
+            "tag": "INPUT",
+            "width": 18,
+            "height": 18,
+            "name": "I have permission to use the clip and captions."
+          },
+          {
+            "tag": "BUTTON",
+            "width": 350,
+            "height": 53.1875,
+            "name": "Create a project"
+          }
+        ]
+      },
+      "axeVersion": "4.14.0",
+      "a11y": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 1
+          }
+        ],
+        "passes": 24
+      },
+      "elapsedMs": 17255,
+      "resources": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Document",
+          "bytes": 4776
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0w7g8m3soye1t.css",
+          "type": "Stylesheet",
+          "bytes": 3066
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/25kvgcvbp6c14.js",
+          "type": "Script",
+          "bytes": 2292
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0j18tdw7hoosp.js",
+          "type": "Script",
+          "bytes": 1750
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/3k-imx13uscrn.js",
+          "type": "Script",
+          "bytes": 7013
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/1vkbvs5cv4r1l.js",
+          "type": "Script",
+          "bytes": 8143
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/turbopack-3h_ctkfaeun7f.js",
+          "type": "Script",
+          "bytes": 4794
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/2aarm68dci36x.js",
+          "type": "Script",
+          "bytes": 47470
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0c75x1kz8q0zl.js",
+          "type": "Script",
+          "bytes": 73640
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 917
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/renderer-spike",
+          "type": "Fetch",
+          "bytes": 648
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 739
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 745
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 1184
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/renderer-spike",
+          "type": "Fetch",
+          "bytes": 1180
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 1177
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 1038
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 722
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Fetch",
+          "bytes": 789
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/event-sticker.png",
+          "type": "Image",
+          "bytes": 1119185
+        }
+      ]
+    },
+    "shared": {
+      "ready": true,
+      "readyWaitMs": 12612,
+      "initialResources": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0w7g8m3soye1t.css",
+          "type": "Stylesheet",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/25kvgcvbp6c14.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/1vkbvs5cv4r1l.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/0c75x1kz8q0zl.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/2aarm68dci36x.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/turbopack-3h_ctkfaeun7f.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/3k-imx13uscrn.js",
+          "type": "Script",
+          "bytes": 0
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/s/:id",
+          "type": "Document",
+          "bytes": 3625
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/event-sticker.png",
+          "type": "Image",
+          "bytes": 113
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/35vs38qtwmspj.js",
+          "type": "Script",
+          "bytes": 8387
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/_next/static/immutable/chunks/09mtg0me5e426.js",
+          "type": "Script",
+          "bytes": 35474
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1130
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Fetch",
+          "bytes": 743
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 746
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/",
+          "type": "Fetch",
+          "bytes": 1065
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/about",
+          "type": "Fetch",
+          "bytes": 1035
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 879
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 3306
+        }
+      ],
+      "polling21Seconds": [
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1127
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 975
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 109
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id",
+          "type": "Fetch",
+          "bytes": 1081
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/projects/:id/track",
+          "type": "Fetch",
+          "bytes": 848
+        },
+        {
+          "host": "signbridge-mdtayebibne-4755s-projects.vercel.app",
+          "path": "/api/tracks/:id/manifest",
+          "type": "Fetch",
+          "bytes": 83
+        }
+      ],
+      "a11y": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 1
+          },
+          {
+            "id": "video-caption",
+            "nodes": 1
+          }
+        ],
+        "passes": 31
+      }
+    }
+  }
+]

@@ -1,0 +1,171 @@
+{
+  "date": "2026-11-04T13:00:15.844Z",
+  "browser": "157.0.8103.38",
+  "scenario": "New browser context; unthrottled Windows software WebGL; no model processing",
+  "timeFromNavigationToReadyMs": 10438,
+  "rendererIframes": 2,
+  "ueaResources": [
+    {
+      "path": "/tech/jas/vhg2026/cwa/cwasa.css",
+      "type": "stylesheet",
+      "requestBodySize": 0,
+      "requestHeadersSize": 547,
+      "responseBodySize": 606,
+      "responseHeadersSize": 461
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/cwasa.css",
+      "type": "stylesheet",
+      "requestBodySize": 0,
+      "requestHeadersSize": 547,
+      "responseBodySize": 606,
+      "responseHeadersSize": 461
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/allcsa.js",
+      "type": "script",
+      "requestBodySize": 0,
+      "requestHeadersSize": 533,
+      "responseBodySize": 543612,
+      "responseHeadersSize": 478
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/allcsa.js",
+      "type": "script",
+      "requestBodySize": 0,
+      "requestHeadersSize": 533,
+      "responseBodySize": 543620,
+      "responseHeadersSize": 478
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/cwacfg.json",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 511,
+      "responseBodySize": 962,
+      "responseHeadersSize": 417
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/cwacfg.json",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 511,
+      "responseBodySize": 962,
+      "responseHeadersSize": 417
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/COMMON.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 515,
+      "responseBodySize": 0,
+      "responseHeadersSize": 427
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/anna.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 513,
+      "responseBodySize": 0,
+      "responseHeadersSize": 432
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/COMMON.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 515,
+      "responseBodySize": 0,
+      "responseHeadersSize": 427
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/anna.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 513,
+      "responseBodySize": 0,
+      "responseHeadersSize": 432
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/COMMON.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 514,
+      "responseBodySize": 8621,
+      "responseHeadersSize": 427
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/COMMON.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 514,
+      "responseBodySize": 8621,
+      "responseHeadersSize": 427
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/h2s.xsl",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 507,
+      "responseBodySize": 98025,
+      "responseHeadersSize": 425
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/h2s.xsl",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 507,
+      "responseBodySize": 98025,
+      "responseHeadersSize": 425
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/anna.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 512,
+      "responseBodySize": 1650938,
+      "responseHeadersSize": 432
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/shaders/qskin.frag",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 518,
+      "responseBodySize": 1022,
+      "responseHeadersSize": 386
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/shaders/qskin.vert",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 518,
+      "responseBodySize": 14760,
+      "responseHeadersSize": 388
+    },
+    {
+      "path": "/tech/jas/vhg2026/avatars/anna.jar",
+      "type": "xhr",
+      "requestBodySize": 0,
+      "requestHeadersSize": 512,
+      "responseBodySize": 1650938,
+      "responseHeadersSize": 432
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/shaders/qskin.frag",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 518,
+      "responseBodySize": 1022,
+      "responseHeadersSize": 386
+    },
+    {
+      "path": "/tech/jas/vhg2026/cwa/shaders/qskin.vert",
+      "type": "fetch",
+      "requestBodySize": 0,
+      "requestHeadersSize": 518,
+      "responseBodySize": 14760,
+      "responseHeadersSize": 388
+    }
+  ],
+  "reportedResponseBodyBytes": 4637100,
+  "limitation": "Request payload sizes may include cache-served payloads; not a physical-mobile memory test or aggregate wire-byte measurement."
+}
