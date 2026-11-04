@@ -1,0 +1,5 @@
+
+> signbridge@0.1.0 test:race:native
+> vitest run --config vitest.native.config.ts --reporter=json --outputFile=docs/evidence/rechecks/phase-6-2026-11-04/native-results.json
+
+JSON report written to E:/AIgnite-Lab/signbridge/docs/evidence/rechecks/phase-6-2026-11-04/native-results.json

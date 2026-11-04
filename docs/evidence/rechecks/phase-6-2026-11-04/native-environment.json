@@ -1,0 +1,8 @@
+{
+  "version": "postgres (PostgreSQL) 16.11",
+  "bind": "127.0.0.1",
+  "authentication": "trust in a new disposable cluster; no existing credentials",
+  "maxConnections": 32,
+  "poolMax": 20,
+  "purpose": "Independent sessions for real row-lock contention; PGlite has one connection and serializes transactions."
+}

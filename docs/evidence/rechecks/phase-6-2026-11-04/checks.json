@@ -1,0 +1,54 @@
+{
+  "revision": "3b0813165c80a20a920247ac10eebf7e3da1a982",
+  "environment": "Local deterministic fake model; no key; Windows software WebGL",
+  "results": [
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "start": "2026-11-04T11:20:48.633Z",
+      "finished": "2026-11-04T11:20:51.950Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\typecheck.log"
+    },
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "exitCode": 0,
+      "start": "2026-11-04T11:20:48.634Z",
+      "finished": "2026-11-04T11:20:57.720Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\lint.log"
+    },
+    {
+      "name": "native",
+      "command": "npm run test:race:native -- --reporter=json --outputFile=docs/evidence/rechecks/phase-6-2026-11-04/native-results.json",
+      "exitCode": 0,
+      "start": "2026-11-04T11:20:57.721Z",
+      "finished": "2026-11-04T11:21:24.067Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\native.log"
+    },
+    {
+      "name": "unit",
+      "command": "npm test -- --reporter=json --outputFile=docs/evidence/rechecks/phase-6-2026-11-04/vitest-results.json",
+      "exitCode": 0,
+      "start": "2026-11-04T11:20:57.721Z",
+      "finished": "2026-11-04T11:21:41.110Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\unit.log"
+    },
+    {
+      "name": "product",
+      "command": "npm run test:product",
+      "exitCode": 0,
+      "start": "2026-11-04T11:21:41.111Z",
+      "finished": "2026-11-04T11:24:56.879Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\product.log"
+    },
+    {
+      "name": "foundation",
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "start": "2026-11-04T11:24:56.880Z",
+      "finished": "2026-11-04T11:25:40.711Z",
+      "log": "docs\\evidence\\rechecks\\phase-6-2026-11-04\\foundation.log"
+    }
+  ]
+}

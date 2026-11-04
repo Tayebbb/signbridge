@@ -1,0 +1,85 @@
+
+> signbridge@0.1.0 test:product
+> playwright test --config playwright.product.config.ts
+
+[WebServer] (node:16564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:6148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:20556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:32740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:28740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:10508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:28368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:31652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:10640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:27940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:34548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38668) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:29756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:38508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:31980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:28308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:28880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:8468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:14820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:30548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:18340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:10676) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:23788) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:38280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\browser\product.spec.ts:8:1 › T2 / T12 / T18: saved owner and foreign shared replay, revocation and deletion, without new stage attempts (8.2s)
+  ok  2 [chromium] › tests\browser\product.spec.ts:17:1 › P0-6: edit stops old signing before the response, CAS conflict keeps the draft, reload and regenerate recover (8.3s)
+  ok  3 [chromium] › tests\browser\product.spec.ts:29:1 › T10: UEA blocked and slow fetch keep captions/gaps readable; retry after unblocking recovers and telemetry is stored (32.0s)
+  ok  4 [chromium] › tests\browser\product.spec.ts:35:1 › T10: disabled WebGL leaves captions and gaps usable (2.7s)
+  ok  5 [chromium] › tests\browser\product.spec.ts:41:1 › T12: caption markup remains literal and production script CSP uses a fresh nonce (3.6s)
+  ok  6 [chromium] › tests\browser\workspace.spec.ts:8:1 › Fake end to end: upload, transcript, publish, playback, reload identity and stale-message barrier (7.4s)
+  ok  7 [chromium] › tests\browser\workspace.spec.ts:20:1 › T22 browser: gap card precedes signing and incomplete units never increment header (7.1s)
+  ok  8 [chromium] › tests\browser\workspace.spec.ts:26:1 › T3 / T23 live: five units via workspace frame, forged messages dropped and opaque mutation rejected (14.6s)
+(node:38532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  9 [msedge] › tests\browser\product.spec.ts:8:1 › T2 / T12 / T18: saved owner and foreign shared replay, revocation and deletion, without new stage attempts (6.1s)
+  ok 10 [msedge] › tests\browser\product.spec.ts:17:1 › P0-6: edit stops old signing before the response, CAS conflict keeps the draft, reload and regenerate recover (8.4s)
+  ok 11 [msedge] › tests\browser\product.spec.ts:29:1 › T10: UEA blocked and slow fetch keep captions/gaps readable; retry after unblocking recovers and telemetry is stored (32.1s)
+  ok 12 [msedge] › tests\browser\product.spec.ts:35:1 › T10: disabled WebGL leaves captions and gaps usable (2.8s)
+  ok 13 [msedge] › tests\browser\product.spec.ts:41:1 › T12: caption markup remains literal and production script CSP uses a fresh nonce (3.6s)
+  ok 14 [msedge] › tests\browser\workspace.spec.ts:8:1 › Fake end to end: upload, transcript, publish, playback, reload identity and stale-message barrier (7.0s)
+  ok 15 [msedge] › tests\browser\workspace.spec.ts:20:1 › T22 browser: gap card precedes signing and incomplete units never increment header (7.1s)
+  ok 16 [msedge] › tests\browser\workspace.spec.ts:26:1 › T3 / T23 live: five units via workspace frame, forged messages dropped and opaque mutation rejected (16.7s)
+
+  16 passed (3.2m)

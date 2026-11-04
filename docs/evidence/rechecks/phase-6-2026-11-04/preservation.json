@@ -1,0 +1,139 @@
+{
+  "restored": [
+    "docs/evidence/phase-6/browser-results.json",
+    "docs/evidence/phase-6/foundation-browser-results.json",
+    "docs/evidence/phase-6/foundation-t23-chromium.json",
+    "docs/evidence/phase-6/foundation-t23-msedge.json",
+    "docs/evidence/phase-6/live-chromium.json",
+    "docs/evidence/phase-6/live-msedge.json"
+  ],
+  "relocatedNewArtifacts": [
+    "docs/evidence/phase-6/corrected-chromium.png",
+    "docs/evidence/phase-6/corrected-msedge.png",
+    "docs/evidence/phase-6/deleted-chromium.png",
+    "docs/evidence/phase-6/deleted-msedge.png",
+    "docs/evidence/phase-6/foundation-t23-chromium.png",
+    "docs/evidence/phase-6/foundation-t23-msedge.png",
+    "docs/evidence/phase-6/gap-card-chromium.png",
+    "docs/evidence/phase-6/gap-card-msedge.png",
+    "docs/evidence/phase-6/incomplete-chromium.png",
+    "docs/evidence/phase-6/incomplete-msedge.png",
+    "docs/evidence/phase-6/live-chromium.png",
+    "docs/evidence/phase-6/live-msedge.png",
+    "docs/evidence/phase-6/ready-chromium.png",
+    "docs/evidence/phase-6/ready-msedge.png",
+    "docs/evidence/phase-6/ready-portrait-layout.png",
+    "docs/evidence/phase-6/recovered-chromium.png",
+    "docs/evidence/phase-6/recovered-msedge.png",
+    "docs/evidence/phase-6/webgl-disabled-chromium.png",
+    "docs/evidence/phase-6/webgl-disabled-msedge.png"
+  ],
+  "captured": [
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/browser-results.json",
+      "sha256": "6a4d4a5c53d2c7bfc4976f1d8b0eacd42d5b3ae13f1c944e2d0f8d74a72b0e2b"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/corrected-chromium.png",
+      "sha256": "cca47e53614a2687534caeaa496f6b57328f0bf370ada6cc63499c0ceb52649c"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/corrected-msedge.png",
+      "sha256": "cca47e53614a2687534caeaa496f6b57328f0bf370ada6cc63499c0ceb52649c"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/deleted-chromium.png",
+      "sha256": "8fbb51d2a14b9b01e375a0347a289250273d7cae0856019cb193388753efa343"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/deleted-msedge.png",
+      "sha256": "8fbb51d2a14b9b01e375a0347a289250273d7cae0856019cb193388753efa343"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/foundation-browser-results.json",
+      "sha256": "1e2c9bd930f3fed62df24e0674387be94c9e77fc403bda3b13be1d084ecdad84"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/foundation-t23-chromium.json",
+      "sha256": "b5c46508c7c43288da1b4e17b51e062e99328730a0719e922245424bf3f35f2f"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/foundation-t23-chromium.png",
+      "sha256": "655f4a7421470681331045231dfcbd88421858e23fc7dc55a8b4cfe6ac084642"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/foundation-t23-msedge.json",
+      "sha256": "d84b389982e914ea3b221651f91ea5214aeef6e57e70db01a5a36c2e7e8fc8d3"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/foundation-t23-msedge.png",
+      "sha256": "655f4a7421470681331045231dfcbd88421858e23fc7dc55a8b4cfe6ac084642"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/gap-card-chromium.png",
+      "sha256": "384a302a3b9fbb6b1f57074f9f6d7f9f87cee1d132131a25d8eca6d8376fcd59"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/gap-card-msedge.png",
+      "sha256": "d010899a943ac845c41ce094ef40fea0e0d6fa566ea08b9c3ba67e4fc80fd245"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/incomplete-chromium.png",
+      "sha256": "d767de317ec35f66273be6efe3e602586713f9d674c921389142d0cbe59c9c2c"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/incomplete-msedge.png",
+      "sha256": "d767de317ec35f66273be6efe3e602586713f9d674c921389142d0cbe59c9c2c"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/live-chromium.json",
+      "sha256": "c6c8cec52e16b76c51de77c1d46a70d42374584eafd993dfdbe7f12c91aa419e"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/live-chromium.png",
+      "sha256": "e4460f6c8229f77b9b1b46270c4e5dea1d3d9d646a751f089eb8a476a49ed965"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/live-msedge.json",
+      "sha256": "acd9361ca5223c0e15eda70f5b7844d549631e0e2eecf0b9c239cf84a315fcef"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/live-msedge.png",
+      "sha256": "d6c2a75a2627106e6483fc731ce25fe4f79b1cba625c2a5f5a366c23a2e224f9"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/ready-chromium.png",
+      "sha256": "46cadaf9027972014223c9e51beaf87f4714e4be06bb3cd7850ec1f85d5a0384"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/ready-msedge.png",
+      "sha256": "e1ed4673ba48cee09b70a7d48b3b48d62fc8ce64ed46a7ade45f190ecfc6d318"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/ready-portrait-layout.png",
+      "sha256": "6ea10ed86a4a4d896dcffde9e23bfde41ac3766d741f1255e4aef3d8682e2f9b"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/recovered-chromium.png",
+      "sha256": "f35490a8b7a7aa1e5ea90c6b73a87fe5d130fc74f474d96a87acb89a33d4f046"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/recovered-msedge.png",
+      "sha256": "ab9694c8a6ac9f7536f6ce096ece23ffb535970e3137ae6a4c3009454258dc0a"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/webgl-disabled-chromium.png",
+      "sha256": "b4e2ccfc91eeb2d113421f59d844f2f283dbc8cbf6e0cac6c2e2bea171a06f93"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/webgl-disabled-msedge.png",
+      "sha256": "b4e2ccfc91eeb2d113421f59d844f2f283dbc8cbf6e0cac6c2e2bea171a06f93"
+    },
+    {
+      "path": "docs/evidence/rechecks/phase-6-2026-11-04/native-environment.json",
+      "sha256": "2f43a17b012ca1895c1b5831150d25b38847902562f9877cb06aca568db41e14"
+    }
+  ],
+  "historicalBytesPreserved": true,
+  "failure": null
+}

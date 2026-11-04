@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-04T11:21:51.549Z",
+  "origin": "https://signbridge-mdtayebibne-4755s-projects.vercel.app",
+  "readOnly": true,
+  "modelProcessingRequested": false,
+  "environmentChanges": false,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "stickerSourcePresent": true
+    },
+    {
+      "path": "/about",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "body": {
+        "db": "ok",
+        "processing": "enabled",
+        "renderer": "remote"
+      }
+    },
+    {
+      "path": "/event-sticker.png",
+      "status": 200,
+      "originalBytesMatch": true,
+      "sha256": "385c7488a14dc9c8e75011477c4316b89fc7c198e66a4cdf5ae9eb6ed50a573c"
+    }
+  ]
+}
