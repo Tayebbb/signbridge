@@ -49,7 +49,7 @@ export class RendererHost implements RendererPort {
   constructor(private readonly container:HTMLElement,private readonly options:{loadTimeoutMs?:number;onDrop?:(count:number)=>void;onReadyChange?:(ready:boolean)=>void}={}){
     window.addEventListener("message",this.receive);
     if(!this.supportsWebGL()){queueMicrotask(()=>this.error("webgl_unavailable"));return;}
-    this.active=this.create(false);this.standby=this.create(true);this.barrier.promote(this.active.frame.contentWindow,this.active.id);
+    this.active=this.create(false);this.barrier.promote(this.active.frame.contentWindow,this.active.id);
   }
   private supportsWebGL(){try{const canvas=document.createElement("canvas"),context=canvas.getContext("webgl2")??canvas.getContext("webgl");if(!context)return false;context.getExtension("WEBGL_lose_context")?.loseContext();return true;}catch{return false;}}
   private create(standby:boolean):Instance{
@@ -70,10 +70,10 @@ export class RendererHost implements RendererPort {
     if(this.active?.played)this.replaceInstance();
     this.queued={text:withGeneration(text,gen),gen};this.flush();
   }
-  private flush(){if(!this.active?.ready||!this.queued)return;const {text,gen}=this.queued;this.queued=null;this.active.played=true;this.active.frame.contentWindow?.postMessage({instanceId:this.active.id,type:"play",gen,sigml:text},"*");}
+  private flush(){if(!this.active?.ready||!this.queued)return;const {text,gen}=this.queued;this.queued=null;this.active.played=true;this.active.frame.contentWindow?.postMessage({instanceId:this.active.id,type:"play",gen,sigml:text},"*");this.standby??=this.create(true);}
   replaceInstance(){
     if(this.disposed)return;if(!this.active&&!this.supportsWebGL()){queueMicrotask(()=>this.error("webgl_unavailable"));return;}this.queued=null;if(this.active){clearTimeout(this.active.timer);this.active.frame.remove();}
-    this.active=this.standby??this.create(false);this.active.frame.className="renderer-instance";this.active.frame.title="Isolated signing renderer";this.active.frame.setAttribute("aria-hidden","false");this.barrier.promote(this.active.frame.contentWindow,this.active.id);this.standby=this.create(true);
+    this.active=this.standby??this.create(false);this.standby=null;this.active.frame.className="renderer-instance";this.active.frame.title="Isolated signing renderer";this.active.frame.setAttribute("aria-hidden","false");this.barrier.promote(this.active.frame.contentWindow,this.active.id);
     this.options.onReadyChange?.(this.active.ready);if(this.active.failed)this.error("engine_load_failed");
     else if(this.active.ready){const id=this.active.id;queueMicrotask(()=>{if(this.active?.id===id&&!this.disposed)this.onEvent({instanceId:id,gen:0,type:"avatarready",payload:null});});}
   }

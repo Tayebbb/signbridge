@@ -3,14 +3,18 @@ import {useEffect,useRef,useState} from "react";
 import type {PlaybackManifest,CurrentTrackResponse} from "@/lib/contracts/manifest";
 import {Scheduler,type PlayerSnapshot,type PlayerTelemetry} from "@/lib/player/scheduler";
 import {RendererHost} from "@/lib/player/rendererHost";
+import {sendRenderTelemetry} from "@/lib/player/telemetry";
 const initial:PlayerSnapshot={state:"EngineLoading",idx:0,gen:0,seen:[],expected:[],progress:0,loadedUnits:null,rawSigns:0,step:null,completed:[],message:"Loading signing avatar…",dropped:0};
 export interface PlayerHandle {markStale:(indices:number[])=>void;reload:(manifest:PlaybackManifest)=>void}
 export default function Player({manifest,current,stale=[],shareToken,controlRef}:{manifest:PlaybackManifest;current:CurrentTrackResponse;stale?:number[];shareToken?:string;controlRef?:{current:PlayerHandle|null}}){
   const video=useRef<HTMLVideoElement>(null),container=useRef<HTMLDivElement>(null),scheduler=useRef<Scheduler|null>(null),[snapshot,setSnapshot]=useState(initial),[captions,setCaptions]=useState(true),[size,setSize]=useState(400),[auto,setAuto]=useState(false);
+  const signingPanel=useRef<HTMLElement>(null);
+  const revealSigning=()=>{if(window.matchMedia("(max-width:700px)").matches)signingPanel.current?.scrollIntoView({block:"start",behavior:"instant"});};
+  const act=(work:()=>void)=>{work();revealSigning();};
   useEffect(()=>{
     if(!video.current||!container.current)return;
     const host=new RendererHost(container.current,{onDrop:count=>setSnapshot(s=>({...s,dropped:count+(scheduler.current?.snapshot().dropped??0)}))});
-    const telemetry=(e:PlayerTelemetry)=>{void fetch(`/api/telemetry/render${shareToken?`?s=${encodeURIComponent(shareToken)}`:""}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({trackVersionId:manifest.trackVersionId,segmentIdx:e.segmentIdx,kind:e.kind,detail:e.detail,uaClass:"web"}),keepalive:true}).catch(()=>{});};
+    const telemetry=(e:PlayerTelemetry)=>{void sendRenderTelemetry(manifest.trackVersionId,e,shareToken);};
     const player=new Scheduler(video.current,host,manifest,s=>setSnapshot({...s,dropped:s.dropped+host.barrier.dropped}),telemetry);scheduler.current=player;
     if(controlRef)controlRef.current={markStale:indices=>player.onManifestStale(indices),reload:m=>player.replaceManifest(m)};
     const hidden=()=>{if(document.hidden)player.onVisibilityHidden();};document.addEventListener("visibilitychange",hidden);
@@ -19,6 +23,7 @@ export default function Player({manifest,current,stale=[],shareToken,controlRef}
   },[manifest,shareToken,controlRef]);
   useEffect(()=>{if(scheduler.current){scheduler.current.sourceAvailable=current.media.state==="available"&&Boolean(current.media.url);scheduler.current.autoAdvance=auto;}},[current.media.state,current.media.url,auto]);
   useEffect(()=>{if(stale.length)scheduler.current?.onManifestStale(stale);},[stale]);
+  useEffect(()=>{if(snapshot.state==="SignLoading")revealSigning();},[snapshot.state]);
   const segment=manifest.segments[snapshot.idx],blocked=snapshot.state==="GapBlocking",incomplete=snapshot.state==="SignIncomplete",unavailable=snapshot.state==="RendererUnavailable",engineBusy=snapshot.state==="EngineLoading"||unavailable;
   const forceCaption=blocked||incomplete||unavailable||snapshot.state==="StaleWait"||Boolean(segment?.criticalGaps.length),signing=["SignLoading","SignPlaying"].includes(snapshot.state);
   if(!segment)return <p>No segments in this saved track.</p>;
@@ -28,7 +33,7 @@ export default function Player({manifest,current,stale=[],shareToken,controlRef}
       {current.media.state!=="available"&&<p className="error-note">{current.media.reason==="transfer_cap"?"Source-video viewing is paused by the transfer limit.":current.media.reason==="storage_unavailable"?"Source video is temporarily unavailable.":"Source video expired or missing — re-attach the same file to watch with video."} Captions and the saved signing track remain available.</p>}
       {(captions||forceCaption)&&<p className="caption" lang="bn" data-testid="source-caption">{segment.sourceTextBn}</p>}
       <p className="field-note">{signing?"Source held while signs play.":"Source plays first, then waits for signing."} Signing pace: engine default 1×.</p>
-    </section><section className="signing-panel" aria-label="Signing panel"><div className="signing-title"><h3>Signing companion</h3><label>Panel size <select aria-label="Signing panel size" value={size} onChange={e=>setSize(Number(e.target.value))}><option value={320}>S</option><option value={400}>M</option><option value={520}>L</option></select></label></div>
+    </section><section ref={signingPanel} className="signing-panel" aria-label="Signing panel"><div className="signing-title"><h3>Signing companion</h3><label>Panel size <select aria-label="Signing panel size" value={size} onChange={e=>setSize(Number(e.target.value))}><option value={320}>S</option><option value={400}>M</option><option value={520}>L</option></select></label></div>
       <div className={`renderer-area size-${size}`} ref={container} />
       <div className="player-state" role="status" data-testid="player-state">{snapshot.state}</div>
       {snapshot.message&&<p className="state-message">{snapshot.message}</p>}
@@ -40,9 +45,9 @@ export default function Player({manifest,current,stale=[],shareToken,controlRef}
       <p className="strategy">{segment.strategy==="exact_corpus_phrase"?"Corpus phrase (IsharaKotha) · not reviewed in this context":"Composed by SignBridge · experimental"}</p>
       <ol className="sign-timeline">{segment.timeline.map((step,i)=><li key={i} aria-current={snapshot.step===i?"step":undefined} className={step.kind==="gap"?"timeline-gap":""}>{step.kind==="asset"?<span lang="bn">{step.labelBn}</span>:<>Gap: <span lang="bn">{step.surfaceBn}</span> ({step.reason.replaceAll("_"," ")})</>}</li>)}</ol>
     </section></div>
-    <div className="player-controls"><div className="button-row"><button disabled={engineBusy||snapshot.idx===0} className="secondary" onClick={()=>scheduler.current?.prev()}>Previous</button><button disabled={engineBusy} onClick={()=>snapshot.state==="Paused"?scheduler.current?.resume():scheduler.current?.playSegment(snapshot.idx)}>{snapshot.state==="Paused"?"Resume":"Play segment"}</button><button disabled={engineBusy||["Ready","Paused"].includes(snapshot.state)} className="secondary" onClick={()=>scheduler.current?.pause()}>Pause</button><button disabled={engineBusy} className="secondary" onClick={()=>scheduler.current?.replay()}>Replay segment</button><button disabled={engineBusy||snapshot.idx+1===manifest.segments.length} className="secondary" onClick={()=>scheduler.current?.next()}>Next</button></div>
+    <div className="player-controls"><div className="button-row"><button disabled={engineBusy||snapshot.idx===0} className="secondary" onClick={()=>act(()=>scheduler.current?.prev())}>Previous</button><button disabled={engineBusy} onClick={()=>act(()=>snapshot.state==="Paused"?scheduler.current?.resume():scheduler.current?.playSegment(snapshot.idx))}>{snapshot.state==="Paused"?"Resume":"Play segment"}</button><button disabled={engineBusy||["Ready","Paused"].includes(snapshot.state)} className="secondary" onClick={()=>scheduler.current?.pause()}>Pause</button><button disabled={engineBusy} className="secondary" onClick={()=>act(()=>scheduler.current?.replay())}>Replay segment</button><button disabled={engineBusy||snapshot.idx+1===manifest.segments.length} className="secondary" onClick={()=>act(()=>scheduler.current?.next())}>Next</button></div>
       <div className="settings-row"><label>Source speed <select defaultValue="1" onChange={e=>scheduler.current?.setSourceSpeed(Number(e.target.value))}><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1">1×</option></select></label><label className="check"><input type="checkbox" checked={captions||forceCaption} disabled={forceCaption} onChange={e=>setCaptions(e.target.checked)} />Show captions</label><label className="check"><input type="checkbox" checked={auto} onChange={e=>setAuto(e.target.checked)} />Auto-advance after playback</label></div>
-      <label>Segment <select value={snapshot.idx} onChange={e=>scheduler.current?.browseSegment(Number(e.target.value))}>{manifest.segments.map(s=><option key={s.idx} value={s.idx}>{s.idx+1} · {(s.startMs/1000).toFixed(1)}–{(s.endMs/1000).toFixed(1)}s</option>)}</select></label>
+      <label>Segment <select value={snapshot.idx} onChange={e=>act(()=>scheduler.current?.browseSegment(Number(e.target.value)))}>{manifest.segments.map(s=><option key={s.idx} value={s.idx}>{s.idx+1} · {(s.startMs/1000).toFixed(1)}–{(s.endMs/1000).toFixed(1)}s</option>)}</select></label>
     </div>
   </section>;
 }

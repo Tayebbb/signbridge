@@ -8,6 +8,7 @@ import type {Segment} from "@/lib/domain/segmentation";
 import {TrackStore} from "@/lib/player/store";
 import {apiRequest,RequestError} from "./api";
 import Player,{type PlayerHandle} from "./Player";
+import OwnerRecovery from "./OwnerRecovery";
 interface Details {project:{id:string;title:string;visibility:string};currentTranscript:{id:string;cues:Cue[]}|null;segments:(Segment&{sourceCheck:string;sourceConfirmedAt:string|null})[];job:JobProgress|null;trackSummary:{id:string}|null}
 interface Version {transcriptVersion:{id:string;cues:Cue[]};segments:Details["segments"];staleSegments:number[];jobId:string|null}
 async function metadata(file:File){return new Promise<{durationMs:number;width:number;height:number}>((resolve,reject)=>{const url=URL.createObjectURL(file),video=document.createElement("video");const done=()=>{URL.revokeObjectURL(url);video.removeAttribute("src");clearTimeout(timer);};const timer=setTimeout(()=>{done();reject(Error("Video metadata could not be read. Try an MP4 or WebM clip."));},15000);video.preload="metadata";video.onloadedmetadata=()=>{const data={durationMs:Math.ceil(video.duration*1000),width:video.videoWidth,height:video.videoHeight};done();resolve(data);};video.onerror=()=>{done();reject(Error("This browser could not read the clip."));};video.src=url;});}
@@ -37,7 +38,7 @@ export default function Workspace({projectId}:{projectId:string}){
   if(deleting)return <section><h1>Project is deleting</h1><p>It is hidden and all share links are revoked. Cleanup may wait for existing upload URLs to expire, then reconciliation completes it.</p><Link href="/">Return to SignBridge</Link></section>;
   if(!details)return <section><h1>Creator workspace</h1><p role={error?"alert":"status"}>{error||"Loading your project…"}</p>{error&&<button onClick={()=>void run("Loading…",reload)}>Retry loading</button>}</section>;
   const processing=job&&["queued","running"].includes(job.status),transcript=details.currentTranscript;
-  return <><div className="workspace-heading"><div><h1>{details.project.title}</h1><p className="field-note">Private creator workspace · keep this browser’s owner cookie to reopen it.</p></div><Link href="/">New project</Link></div>
+  return <><div className="workspace-heading"><div><h1>{details.project.title}</h1><p className="field-note">Private creator workspace · creator access lasts 180 days in this browser. Save a recovery key before clearing browser data.</p></div><Link href="/">New project</Link></div><OwnerRecovery />
     {error&&<div className="error-note" role="alert"><p>{error}</p><button className="secondary" onClick={()=>void run("Reloading current transcript…",reload)}>Reload current transcript</button>{conflict&&<p>Your draft is retained. Reload, check the current segment, then save again.</p>}</div>}{busy&&<p className="busy-note" role="status">{busy}</p>}
     {!track&&<section className="upload-section" aria-labelledby="upload-heading"><h2 id="upload-heading">Attach your clip and captions</h2><form onSubmit={e=>{e.preventDefault();const form=e.currentTarget,data=new FormData(form);void run("Uploading clip and saving captions…",async()=>{
       const file=data.get("clip") as File;if(!file?.size||file.size>15_728_640||!["video/mp4","video/webm"].includes(file.type))throw Error("Choose an MP4 or WebM file up to 15 MB.");

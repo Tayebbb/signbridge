@@ -41,7 +41,7 @@ export class Scheduler {
   }
   onEvent(event:RendererEvent){
     if(this.disposed)return;
-    if(event.type==="engineerror"){this.bump();this.video.pause();clearTimeout(this.engineRetry);this.telemetry({kind:"engine_load_failed",segmentIdx:this.idx,detail:{reason:event.payload.message}});this.transition("RendererUnavailable",event.payload.message==="webgl_unavailable"?"Signing avatar needs WebGL, which this browser has disabled.":"Signing avatar service (University of East Anglia) is unreachable. Your track is saved.");if(event.payload.message!=="webgl_unavailable"&&this.engineRetries<3){const delay=[5000,15000,45000][this.engineRetries++];this.engineRetry=setTimeout(()=>{if(!this.disposed)this.retryRenderer(false);},delay);}return;}
+    if(event.type==="engineerror"){this.bump();this.video.pause();clearTimeout(this.engineRetry);this.telemetry({kind:"engine_load_failed",segmentIdx:this.idx,detail:{reason:event.payload.message==="webgl_unavailable"?"webgl_unavailable":"engine_load_failed"}});this.transition("RendererUnavailable",event.payload.message==="webgl_unavailable"?"Signing avatar needs WebGL, which this browser has disabled.":"Signing avatar service (University of East Anglia) is unreachable. Your track is saved.");if(event.payload.message!=="webgl_unavailable"&&this.engineRetries<3){const delay=[5000,15000,45000][this.engineRetries++];this.engineRetry=setTimeout(()=>{if(!this.disposed)this.retryRenderer(false);},delay);}return;}
     if(event.type==="avatarready"){clearTimeout(this.engineRetry);this.engineRetries=0;if(this.state==="EngineLoading")this.transition("Ready");return;}
     if(event.gen!==this.gen){this.dropped++;this.emit();return;}
     if(event.type==="avatarfps"){this.fps=Math.max(8,event.payload);return;}
@@ -69,7 +69,7 @@ export class Scheduler {
     if(this.autoAdvance&&this.idx+1<this.manifest.segments.length)this.playSegment(this.idx+1);else this.transition("Ready",this.message);
   }
   skip(){if(["GapBlocking","SignIncomplete"].includes(this.state)){this.bump();this.host.replaceInstance();this.finish("skipped");}}
-  pause(message="Resume restarts signing from the first sign."){if(["EngineLoading","RendererUnavailable"].includes(this.state)){this.video.pause();return;}this.bump();this.host.replaceInstance();this.video.pause();this.transition("Paused",message);}
+  pause(message="Resume restarts signing from the first sign."){if(["Ready","SegmentComplete","SegmentSkipped","EngineLoading","RendererUnavailable"].includes(this.state)){this.video.pause();return;}this.bump();this.host.replaceInstance();this.video.pause();this.transition("Paused",message);}
   resume(){if(this.state!=="Paused")return;if(this.phase==="signing"){this.bump();this.startSigning();}else if(this.phase==="gap")this.transition("GapBlocking");else{const g=this.gen;this.transition("SourcePlaying");this.video.play().then(()=>{if(g===this.gen)this.waitForSourceEnd();}).catch(()=>this.transition("Paused","Tap Resume to start."));}}
   retry(){if(this.state==="SignIncomplete"){this.bump();this.host.replaceInstance();this.telemetry({kind:"retry",segmentIdx:this.idx,detail:{}});this.startSigning();}}
   retryRenderer(manual=true){clearTimeout(this.engineRetry);if(manual)this.engineRetries=0;this.bump();this.transition("EngineLoading","Restarting signing…");this.host.replaceInstance();}
