@@ -6,7 +6,7 @@ import {lockJob,hasAuthority,validProof,failLocked,StateError,type RunProof} fro
 interface BudgetRow {scope:string;cap_micros:string;spent_micros:string;reserved_micros:string}
 export async function budgetsLocked(q:SqlSession,now:Date) {
   const day=dayScope(now);
-  await q.query(sql`INSERT INTO spend_budgets(scope,cap_micros) VALUES ('lifetime',${LIFETIME_CAP.toString()}),(${day},${DAILY_CAP.toString()}) ON CONFLICT DO NOTHING`);
+  await q.query(sql`INSERT INTO spend_budgets(scope,cap_micros) VALUES ('lifetime',${LIFETIME_CAP.toString()}),(${day},least(coalesce((SELECT cap_micros FROM spend_budgets WHERE scope='lifetime'),${LIFETIME_CAP.toString()}::bigint),coalesce((SELECT cap_micros FROM spend_budgets WHERE scope LIKE 'day:%' ORDER BY scope DESC LIMIT 1),${DAILY_CAP.toString()}::bigint))) ON CONFLICT DO NOTHING`);
   return q.query<BudgetRow>(sql`SELECT * FROM spend_budgets WHERE scope IN ('lifetime',${day}) ORDER BY scope FOR UPDATE`);
 }
 export async function budgetSignalLocked(q:SqlSession,now:Date) {const rows=await budgetsLocked(q,now);return {downgrade:rows.some(r=>(BigInt(r.spent_micros)+BigInt(r.reserved_micros))*100n>=BigInt(r.cap_micros)*80n),closed:rows.some(r=>BigInt(r.spent_micros)+BigInt(r.reserved_micros)>=BigInt(r.cap_micros))};}
@@ -20,7 +20,7 @@ export async function reserveAttempt(store:StateStore,input:ReserveAttempt,now=n
   if(!Number.isInteger(input.attemptNo)||input.attemptNo<1||input.attemptNo>4||input.upperBound<0n||!Number.isInteger(input.segmentIdx)||input.segmentIdx<0)throw new StateError("attempt_cap");
   return store.transaction(async q=>{
     const locked=await lockJob(q,input.jobId);if(!locked||!hasAuthority(locked.project,locked.job)||!validProof(locked.job,input.proof,now))return {status:"fenced" as const};
-    const [switchRow]=await q.query<{value:boolean}>(sql`SELECT value FROM ops_settings WHERE key='processing'`);if(switchRow?.value===false){await failLocked(q,locked.project,locked.job,"processing_disabled",now);return {status:"processing_disabled" as const};}
+    const switches=await q.query<{key:string;value:boolean|string|null}>(sql`SELECT key,value FROM ops_settings WHERE key IN ('processing','model_circuit_open_until')`);if(switches.some(r=>r.key==='processing'&&r.value===false||r.key==='model_circuit_open_until'&&typeof r.value==='string'&&Date.parse(r.value)>now.getTime())){await failLocked(q,locked.project,locked.job,"processing_disabled",now);return {status:"processing_disabled" as const};}
     const key=`${input.jobId}|${input.segmentIdx}|${input.stage}|${input.attemptNo}`;
     const existing=(await q.query<{id:string;state:string;amount_micros:string}>(sql`SELECT * FROM spend_reservations WHERE attempt_key=${key} FOR UPDATE`))[0];
     if(existing)return {status:"reserved" as const,id:existing.id,created:false,state:existing.state,upperBound:BigInt(existing.amount_micros)};

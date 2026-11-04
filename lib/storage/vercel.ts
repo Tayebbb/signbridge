@@ -3,6 +3,7 @@ import type {SignedBlobs} from "./urls";
 export class VercelBlobs implements SignedBlobs {
   async put(pathname:string,bytes:Uint8Array){await put(pathname,new Blob([bytes as Uint8Array<ArrayBuffer>]),{access:"private",addRandomSuffix:false,allowOverwrite:false});}
   async get(pathname:string){const r=await get(pathname,{access:"private",useCache:false});if(!r?.stream)throw Error("Blob unavailable");return new Uint8Array(await new Response(r.stream).arrayBuffer());}
+  async stream(pathname:string){const r=await get(pathname,{access:"private",useCache:false});if(!r?.stream)throw Error("Blob unavailable");return r.stream;}
   async head(pathname:string){const r=await head(pathname);return {size:r.size,contentType:r.contentType};}
   async remove(pathname:string){await del(pathname);}
   async list(prefix:string){const result:{pathname:string;size:number}[]=[];let cursor:string|undefined;

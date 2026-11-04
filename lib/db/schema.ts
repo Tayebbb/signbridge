@@ -21,6 +21,7 @@ export const reviewerKind = pgEnum("reviewer_kind", ["qualified_bdsl_reviewer"])
 export const reviewVerdict = pgEnum("review_verdict", ["reviewed_acceptable", "reviewed_needs_changes", "reviewed_unacceptable"]);
 
 export const owners = pgTable("owners", {
+  recoveryHash:bytea("recovery_hash").unique(),
   id: uuid("id").primaryKey().defaultRandom(), tokenHash: bytea("token_hash").notNull().unique(),
   createdAt: time("created_at").notNull().defaultNow(), lastSeenAt: time("last_seen_at").notNull().defaultNow(),
 });
@@ -40,7 +41,7 @@ export const media = pgTable("media", {
   sizeBytes: integer("size_bytes"), clientSha256: text("client_sha256").notNull(), clientDurationMs: integer("client_duration_ms").notNull(), width: integer("width"), height: integer("height"),
   status: mediaStatus("status").notNull().default("pending_upload"), reservationExpiresAt: time("reservation_expires_at").notNull(), expiresAt: time("expires_at").notNull(),
   pinned: boolean("pinned").notNull().default(false), createdAt: time("created_at").notNull().defaultNow(),
-}, t => [check("media_storage_charge_check",sql`${t.storageCharge} IN ('pending','committed','released')`),check("media_content_type_check", sql`${t.contentType} IN ('video/mp4','video/webm')`), check("media_declared_bytes_check", sql`${t.declaredBytes} BETWEEN 1 AND 15728640`), check("media_client_duration_ms_check", sql`${t.clientDurationMs} <= 90000`)]);
+}, t => [index("media_project_ready").on(t.projectId,t.status,t.clientSha256,t.createdAt,t.id),index("media_cleanup").on(t.status,t.expiresAt),check("media_storage_charge_check",sql`${t.storageCharge} IN ('pending','committed','released')`),check("media_content_type_check", sql`${t.contentType} IN ('video/mp4','video/webm')`), check("media_declared_bytes_check", sql`${t.declaredBytes} BETWEEN 1 AND 15728640`), check("media_client_duration_ms_check", sql`${t.clientDurationMs} <= 90000`)]);
 export const storageLedger = pgTable("storage_ledger", {
   transferMonth:text("transfer_month").notNull().default("1970-01"),
   id: smallint("id").primaryKey(), capBytes: big("cap_bytes").notNull(), committedBytes: big("committed_bytes").notNull().default(sql`0`), pendingBytes: big("pending_bytes").notNull().default(sql`0`),
@@ -85,20 +86,20 @@ export const stageResults = pgTable("stage_results", {
 });
 export const stageResultRefs = pgTable("stage_result_refs", {
   projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }), cacheKey: text("cache_key").notNull().references(() => stageResults.cacheKey, { onDelete: "cascade" }),
-}, t => [primaryKey({ columns: [t.projectId, t.cacheKey] })]);
+}, t => [primaryKey({ columns: [t.projectId, t.cacheKey] }),index("stage_refs_cache_key").on(t.cacheKey)]);
 export const stageAttempts = pgTable("stage_attempts", {
   provider:text("provider").notNull().default("unknown"),
   id: bigserial("id", { mode: "bigint" }).primaryKey(), jobId: uuid("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }), segmentIdx: integer("segment_idx").notNull(),
   stage: stageKind("stage").notNull(), cacheKey: text("cache_key").notNull(), attemptNo: integer("attempt_no").notNull(), outcome: text("outcome").notNull(), errorCode: text("error_code"), latencyMs: integer("latency_ms"),
   inputTokens: integer("input_tokens"), outputTokens: integer("output_tokens"), reasoningTokens: integer("reasoning_tokens"), reservationId: uuid("reservation_id"), costUsdMicros: big("cost_usd_micros").notNull().default(sql`0`), createdAt: time("created_at").notNull().defaultNow(),
-}, t => [check("stage_provider_check",sql`${t.provider} IN ('unknown','openai','fake')`),check("stage_attempts_attempt_no_check", sql`${t.attemptNo} BETWEEN 1 AND 4`), unique().on(t.jobId, t.segmentIdx, t.stage, t.attemptNo)]);
+}, t => [index("stage_attempts_provider_time").on(t.provider,t.createdAt),check("stage_provider_check",sql`${t.provider} IN ('unknown','openai','fake')`),check("stage_attempts_attempt_no_check", sql`${t.attemptNo} BETWEEN 1 AND 4`), unique().on(t.jobId, t.segmentIdx, t.stage, t.attemptNo)]);
 export const spendBudgets = pgTable("spend_budgets", {
   scope: text("scope").primaryKey(), capMicros: big("cap_micros").notNull(), reservedMicros: big("reserved_micros").notNull().default(sql`0`), spentMicros: big("spent_micros").notNull().default(sql`0`),
 });
 export const spendReservations = pgTable("spend_reservations", {
   id: uuid("id").primaryKey().defaultRandom(), attemptKey: text("attempt_key").notNull().unique(), dayScope: text("day_scope").notNull(), amountMicros: big("amount_micros").notNull(),
   actualMicros: big("actual_micros"), state: reservationState("state").notNull().default("reserved"), createdAt: time("created_at").notNull().defaultNow(), resolvedAt: time("resolved_at"),
-});
+},t=>[index("spend_reservations_state_time").on(t.state,t.createdAt)]);
 export const trackVersions = pgTable("track_versions", {
   id: uuid("id").primaryKey(), projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }), transcriptVersionId: uuid("transcript_version_id").notNull().references(() => transcriptVersions.id, { onDelete: "cascade" }),
   mediaContentSha256: text("media_content_sha256").notNull(), trackFingerprint: text("track_fingerprint").notNull(), manifest: jsonb("manifest").notNull(), manifestHash: text("manifest_hash").notNull(), technicalStatus: trackTech("technical_status").notNull(),
@@ -121,7 +122,7 @@ export const anchorStorage=pgTable("anchor_storage",{
 },t=>[check("anchor_declared_bytes_check",sql`${t.declaredBytes} BETWEEN 1 AND 300000`),check("anchor_size_bytes_check",sql`${t.sizeBytes} IS NULL OR ${t.sizeBytes} BETWEEN 1 AND ${t.declaredBytes}`),check("anchor_state_check",sql`${t.state} IN ('pending_upload','ready','deleting')`)]);
 export const renderEvents = pgTable("render_events", {
   id: bigserial("id", { mode: "bigint" }).primaryKey(), trackVersionId: uuid("track_version_id").references(() => trackVersions.id, { onDelete: "cascade" }), segmentIdx: integer("segment_idx"), kind: text("kind").notNull(), detail: jsonb("detail"), uaClass: text("ua_class"), createdAt: time("created_at").notNull().defaultNow(),
-});
+},t=>[index("render_events_kind_time").on(t.kind,t.createdAt),index("render_events_time").on(t.createdAt),index("render_events_track").on(t.trackVersionId)]);
 export const apiRequests=pgTable("api_requests",{
   scope:text("scope").notNull(),key:text("key").notNull(),requestHash:text("request_hash").notNull(),response:jsonb("response").notNull(),createdAt:time("created_at").notNull().defaultNow(),
 },t=>[primaryKey({columns:[t.scope,t.key]})]);

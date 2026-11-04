@@ -21,10 +21,15 @@ export async function operationsStatus(store:StateStore,now=new Date()){
   const [allAttempts]=await store.query<{n:number}>(sql`SELECT count(*)::int AS n FROM stage_attempts`);
   return {windowStart:since.toISOString(),stageAttemptCount:allAttempts.n,jobs,duration,stages:{...stages,errorRate:stages.attempts?stages.errors/stages.attempts:0,repairRate:stages.attempts?stages.repairs/stages.attempts:0,cacheHitRate:stages.attempts+stages.cacheHits?stages.cacheHits/(stages.attempts+stages.cacheHits):0},budgets,storage:storage??null,segments,renderEvents,alerts,warningCounts:warnings};
 }
-/** Automatic fail-closed processing switch; replay is unaffected. No external calls. */
+/** A bounded automatic cooldown is separate from the persistent administrator kill switch. */
 export async function applyErrorKillSwitch(store:StateStore,now=new Date()){
-  return store.transaction(async q=>{const [r]=await q.query<{calls:number;errors:number}>(sql`SELECT count(*)::int AS calls,count(*) FILTER(WHERE regexp_replace(outcome,'^repair_','') NOT IN ('completed','usage'))::int AS errors FROM stage_attempts WHERE provider='openai' AND created_at>=greatest(${new Date(now.getTime()-600000)}::timestamptz,coalesce((SELECT (value#>>'{}')::timestamptz FROM ops_settings WHERE key='error_acknowledged_at'),'-infinity'::timestamptz)) AND outcome NOT IN ('cache_hit','reserved','repair_reserved')`);
-    if(!r.calls||r.errors/r.calls<=.2)return false;await q.query(sql`INSERT INTO ops_settings(key,value) VALUES ('processing','false') ON CONFLICT(key) DO UPDATE SET value='false'`);return true;
+  return store.transaction(async q=>{
+    await q.query(sql`INSERT INTO ops_settings(key,value) VALUES ('model_circuit_open_until','null') ON CONFLICT DO NOTHING`);
+    const [circuit]=await q.query<{value:string|null}>(sql`SELECT value FROM ops_settings WHERE key='model_circuit_open_until' FOR UPDATE`);
+    if(circuit.value&&Date.parse(circuit.value)>now.getTime())return true;
+    const [r]=await q.query<{calls:number;errors:number}>(sql`SELECT count(*)::int AS calls,count(*) FILTER(WHERE regexp_replace(outcome,'^repair_','') NOT IN ('completed','usage'))::int AS errors FROM stage_attempts WHERE provider='openai' AND created_at>=greatest(${new Date(now.getTime()-600000)}::timestamptz,coalesce((SELECT (value#>>'{}')::timestamptz FROM ops_settings WHERE key='error_acknowledged_at'),'-infinity'::timestamptz)) AND outcome NOT IN ('cache_hit','reserved','repair_reserved')`);
+    if(r.calls<5||r.errors<3||r.errors/r.calls<=.2)return false;
+    await q.query(sql`UPDATE ops_settings SET value=${JSON.stringify(new Date(now.getTime()+600000).toISOString())}::jsonb WHERE key='model_circuit_open_until'`);return true;
   });
 }
 export async function sweepOperations(store:StateStore,now=new Date()){

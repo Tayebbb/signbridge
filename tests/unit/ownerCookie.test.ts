@@ -14,7 +14,8 @@ test("P1-COOKIE: host-only cookie is HttpOnly, Secure, SameSite=Lax", () => {
   expect(cookie).toContain("__Host-signbridge-owner=");
   expect(cookie).toContain("; Path=/; HttpOnly; Secure; SameSite=Lax");
   expect(cookie).not.toContain("Domain=");
-  expect(ownerCookieOptions).toEqual({ httpOnly: true, secure: true, sameSite: "lax", path: "/" });
+  expect(cookie).toContain("Max-Age=15552000");
+  expect(ownerCookieOptions).toEqual({ httpOnly: true, secure: true, sameSite: "lax", path: "/",maxAge:15552000 });
 });
 test.each(["", "invalid", "a".repeat(42), "a".repeat(44), "a".repeat(42) + ";", "a".repeat(42) + "b"])("P1-COOKIE: malformed/noncanonical capability rejected (%s)", value => {
   expect(() => hashOwnerToken(value)).toThrow("Invalid owner capability");

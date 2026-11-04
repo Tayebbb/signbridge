@@ -17,6 +17,7 @@ beforeAll(async () => {
   await reference.exec(await readFile("tests/fixtures/phase-3-schema.sql","utf8"));
   await reference.exec(await readFile("tests/fixtures/phase-4-schema.sql","utf8"));
   await reference.exec(await readFile("tests/fixtures/phase-6-schema.sql","utf8"));
+  await reference.exec(await readFile("tests/fixtures/hardening-schema.sql","utf8"));
 });
 afterAll(async () => { await database?.close(); await reference?.close(); });
 
@@ -46,6 +47,7 @@ test("P1-SCHEMA: both partial indexes have the exact C.2 predicates", async () =
     from pg_index i join pg_class c on c.oid=i.indexrelid where c.relname in ('jobs_active','jobs_dispatch') order by c.relname`);
 });
 test("P1-SCHEMA: migrations are idempotent", async () => { await database.migrate(); await database.ping(); });
+test("Hardening query indexes match the independent schema reference",async()=>{await sameCatalog(`SELECT tablename,indexname,indexdef FROM pg_indexes WHERE schemaname='public' AND indexname IN ('media_project_ready','media_cleanup','render_events_kind_time','render_events_time','render_events_track','spend_reservations_state_time','stage_attempts_provider_time','stage_refs_cache_key') ORDER BY indexname`);});
 test("P1-SCHEMA: circular pointers SET NULL, project cascade and retained spend/shared results work", async () => {
   if (database.kind !== "pglite") throw new Error("PGlite required");
   const db = database.client;

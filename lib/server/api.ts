@@ -6,9 +6,9 @@ import type {Dispatcher} from "../jobs/dispatcher";
 import * as q from "../db/queries/api";
 import {StateError} from "../db/queries/common";
 import {startJob,retryJob,cancelJob,submitTranscriptVersion,failJob,deleteProject} from "../db/queries/authority";
-import {finalizeMedia,admitTransfer} from "../db/queries/storage";
+import {finalizeMedia,admitTransfer,transferClosed} from "../db/queries/storage";
 import {budgetSignal} from "../db/queries/spend";
-import {recordDispatchFailure} from "../db/queries/execution";
+import {recordDispatchFailure,canDispatch} from "../db/queries/execution";
 import {initMedia} from "../ops/storage";
 import {reconcile} from "../ops/reconcile";
 import {hash,sha256} from "../domain/fingerprints";
@@ -24,11 +24,13 @@ import {createShareCapability,hashShareToken} from "../auth/share";
 import {purgeProject} from "../ops/purge";
 import {operationsStatus,applyErrorKillSwitch} from "../db/queries/operations";
 import {ifNoneMatch} from "../domain/entityTag";
+import {byteRange,selectBytes} from "./mediaStream";
+import {setRecovery,recoverOwner} from "../db/queries/recovery";
 export interface ApiDependencies {
   store:StateStore;blobs:SignedBlobs;processingEnabled:boolean;adminToken?:string;cronSecret?:string;
   dispatcher:()=>Promise<Dispatcher>;defer:(work:()=>Promise<void>)=>void;
 }
-export type Action="createProject"|"getProject"|"mediaInit"|"mediaFinalize"|"mediaUrl"|"transcripts"|"sourceCheck"|"startJob"|"getJob"|"retryJob"|"cancelJob"|"track"|"manifest"|"cron"|"telemetry"|"adminStatus"|"killSwitch"|"share"|"deleteProject";
+export type Action="createProject"|"getProject"|"mediaInit"|"mediaFinalize"|"mediaUrl"|"mediaStream"|"transcripts"|"sourceCheck"|"startJob"|"getJob"|"retryJob"|"cancelJob"|"track"|"manifest"|"cron"|"telemetry"|"adminStatus"|"killSwitch"|"share"|"deleteProject"|"ownerRecovery"|"recoverOwner";
 const uuid=z.uuid(),idx=z.coerce.number().int().min(0).max(19),keySchema=z.string().min(8).max(120).regex(/^[A-Za-z0-9_.:-]+$/u);
 const edit=z.strictObject({segmentIdx:z.number().int().min(0).max(19),text:z.string().min(1).max(65536).optional(),startMs:z.number().int().min(0).max(89999).optional(),endMs:z.number().int().min(1).max(90000).optional()});
 const transcriptInput=z.union([
@@ -44,6 +46,7 @@ function bearer(r:Request,expected?:string){if(!expected)return false;const actu
 async function body(r:Request){const reader=r.body?.getReader();if(!reader)throw new StateError("invalid_json");let size=0;const chunks:Uint8Array[]=[];
   for(;;){const item=await reader.read();if(item.done)break;size+=item.value.byteLength;if(size>262144){await reader.cancel();throw new StateError("request_too_large");}chunks.push(item.value);}try{return JSON.parse(Buffer.concat(chunks).toString("utf8")) as unknown;}catch{throw new StateError("invalid_json");}}
 export function makeApi(d:ApiDependencies){return async function handle(r:Request,action:Action,params:Record<string,string>={}){
+  const requestId=crypto.randomUUID();
   let projectId:string|undefined;
   try{
     const mutation=!["GET","HEAD"].includes(r.method);
@@ -53,27 +56,40 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     let ownerId:string|null=null;const token=ownerToken(r);if(token){try{ownerId=await q.ownerForToken(d.store,hashOwnerToken(token));}catch{/* An invalid capability never authorizes access. */}}
     let shareHash:Buffer|null=null;try{const share=new URL(r.url).searchParams.get("s");if(share)shareHash=hashShareToken(share);}catch{/* Invalid share tokens grant no access. */}
     if(mutation){const ip=process.env.VERCEL?r.headers.get("x-forwarded-for")?.split(",")[0]?.trim()??"unknown":"local",scope=action==="telemetry"?"render":"mutation";await q.consumeRate(d.store,[`${scope}:ip:${sha256(ip)}`,...(ownerId?[`${scope}:owner:${ownerId}`]:[])],action==="telemetry"?60:120);}
+    else if(!isAdmin&&!isCron){const ip=process.env.VERCEL?r.headers.get("x-forwarded-for")?.split(",")[0]?.trim()??"unknown":"local";await q.consumeRate(d.store,[`read:ip:${sha256(ip)}`],1200,new Date(),60000);}
+    if(action==="ownerRecovery"){if(!ownerId)throw new StateError("not_found");const recovery=createOwnerCapability();await setRecovery(d.store,ownerId,recovery.tokenHash);return json({recoveryKey:recovery.token});}
+    if(action==="recoverOwner"){
+      const input=z.strictObject({recoveryKey:z.string().regex(/^[A-Za-z0-9_-]{43}$/u).refine(value=>{try{hashOwnerToken(value);return true;}catch{return false;}})}).parse(await body(r)),cap=createOwnerCapability();
+      await recoverOwner(d.store,hashOwnerToken(input.recoveryKey),cap.tokenHash);return json({restored:true},200,{"Set-Cookie":ownerCookieHeader(cap.token)});
+    }
     if(params.projectId)projectId=uuid.parse(params.projectId);
     if(params.jobId)projectId=await q.jobProjectId(d.store,uuid.parse(params.jobId))??undefined;
     let track:Awaited<ReturnType<typeof q.trackRow>>|null=null;
     if(action==="manifest"){track=await q.trackRow(d.store,uuid.parse(params.trackId));projectId=track?.project_id;}
     if(action==="telemetry"){
-      const input=z.strictObject({trackVersionId:uuid,segmentIdx:z.number().int().min(0).max(19),kind:z.enum(["played_complete","played_incomplete","renderer_error","renderer_timeout","stale_message_dropped","retry","skip","skipped","engine_load_failed"]),detail:z.record(z.string().max(40),z.union([z.string().max(200),z.number().finite(),z.boolean(),z.null()])),uaClass:z.string().max(60)}).parse(await body(r));
+      const input=z.strictObject({trackVersionId:uuid,segmentIdx:z.number().int().min(0).max(19),kind:z.enum(["played_complete","played_incomplete","renderer_error","renderer_timeout","stale_message_dropped","retry","skip","skipped","engine_load_failed"]),detail:z.strictObject({reason:z.string().max(60).regex(/^[a-z0-9_]*$/u).optional(),seen:z.number().int().nonnegative().max(10000).optional(),expected:z.number().int().nonnegative().max(10000).optional(),dropped:z.number().int().nonnegative().optional()}),uaClass:z.enum(["web","desktop:chrome","desktop:edge","desktop:firefox","desktop:safari","desktop:other","ios:chrome","ios:edge","ios:firefox","ios:safari","ios:other","android:chrome","android:edge","android:firefox","android:safari","android:other"])}).parse(await body(r));
       track=await q.trackRow(d.store,input.trackVersionId);if(!track)throw new StateError("not_found");await accessibleProject(d.store,track.project_id,ownerId,shareHash);if(!track.manifest.segments.some(s=>s.idx===input.segmentIdx))throw new StateError("not_found");
       await q.recordRenderEvent(d.store,input);return new Response(null,{status:204,headers:{"Cache-Control":"no-store"}});
     }
-    const sharedRead=["getProject","track","manifest","mediaUrl"].includes(action);
+    const sharedRead=["getProject","track","manifest","mediaUrl","mediaStream"].includes(action);
     const p=projectId?(action==="deleteProject"?await projectForDelete(d.store,projectId,ownerId):sharedRead?await accessibleProject(d.store,projectId,ownerId,shareHash):await q.ownedProject(d.store,projectId,ownerId)):null;
     if(!p&&!["createProject","cron","adminStatus","killSwitch"].includes(action))throw new StateError("not_found");
     const requireKey=()=>keySchema.parse(r.headers.get("idempotency-key"));
     const canProcess=async()=>{await applyErrorKillSwitch(d.store);if(!await q.processingAllowed(d.store,d.processingEnabled))throw new StateError("processing_disabled");const signal=await budgetSignal(d.store);if(signal.closed)throw new StateError("spend_cap");};
-    const dispatch=(jobId:string)=>d.defer(async()=>{try{await (await d.dispatcher()).dispatch(jobId);}catch(error){await recordDispatchFailure(d.store,jobId);console.error(JSON.stringify({code:"dispatch_interrupted",jobId,error:error instanceof StateError?error.code:"internal"}));}});
+    const dispatch=(jobId:string)=>d.defer(async()=>{
+      // after() survives a closed browser; bounded retries fit inside the 300-second function limit.
+      for(const delay of [0,1000,5000,15000,45000]){
+        if(delay)await new Promise(resolve=>setTimeout(resolve,delay));
+        if(!await canDispatch(d.store,jobId))return;
+        try{await (await d.dispatcher()).dispatch(jobId);return;}catch(error){await recordDispatchFailure(d.store,jobId);console.error(JSON.stringify({code:"dispatch_interrupted",jobId,requestId,error:error instanceof StateError?error.code:"internal"}));}
+      }
+    });
     if(action==="createProject"){
       const input=z.strictObject({title:z.string().trim().min(1).max(120),rightsAttested:z.literal(true)}).parse(await body(r)),key=requireKey();
       const capability=ownerId?null:createOwnerCapability();ownerId??=await q.ensureOwner(d.store,capability!.tokenHash);
       return json(await q.createProject(d.store,ownerId,input.title,key),201,capability?{"Set-Cookie":ownerCookieHeader(capability.token)}:{});
     }
-    if(action==="getProject")return json(await q.projectDetails(d.store,p!,p!.owner_id===ownerId));
+    if(action==="getProject")return json(await q.projectDetails(d.store,p!,p!.owner_id===ownerId),200,token&&p!.owner_id===ownerId?{"Set-Cookie":ownerCookieHeader(token)}:{});
     if(action==="share"){const {enable}=z.strictObject({enable:z.boolean()}).parse(await body(r)),cap=enable?createShareCapability():null;await setSharing(d.store,p!.id,cap?.tokenHash??null);return json({shareUrl:cap?`${requestOrigin(r)}/s/${p!.id}?s=${encodeURIComponent(cap.token)}`:null});}
     if(action==="deleteProject"){await deleteProject(d.store,p!.id);d.defer(async()=>{await purgeProject(d.store,d.blobs,p!.id);});return json({status:"deleting"},202);}
     if(action==="mediaInit"){
@@ -117,10 +133,23 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     if(action==="manifest"){
       if(!track)throw new StateError("not_found");const headers={ETag:`"${track.manifest_hash}"`,"Cache-Control":"private, no-cache",Vary:"Cookie"};return ifNoneMatch(r.headers.get("if-none-match"),headers.ETag)?new Response(null,{status:304,headers}):json(track.manifest,200,headers);
     }
+    if(action==="mediaStream"){
+      const version=new URL(r.url).searchParams.get("track");const saved=version?await q.trackRow(d.store,uuid.parse(version)):null;
+      if(version&&(!saved||saved.project_id!==p!.id))throw new StateError("not_found");
+      const media=await q.readyMedia(d.store,p!.id,saved?.manifest.media.contentSha256);if(!media)throw new StateError("media_unavailable");
+      const range=byteRange(r.headers.get("range"),media.size_bytes);if(!range)return new Response(null,{status:416,headers:{"Content-Range":`bytes */${media.size_bytes}`,"Cache-Control":"no-store"}});
+      // Charge a conservative full-object upper bound for each actual upstream read, including pinned clips.
+      await admitTransfer(d.store,media.id);
+      const source=d.blobs.stream?await d.blobs.stream(media.blob_pathname):new Response((await d.blobs.get(media.blob_pathname)) as Uint8Array<ArrayBuffer>).body!;
+      return new Response(selectBytes(source,range.start,range.end),{status:range.partial?206:200,headers:{"Content-Type":media.content_type,"Content-Length":String(range.end-range.start+1),"Cache-Control":"private, no-store","Accept-Ranges":"bytes","X-Content-Type-Options":"nosniff",...(range.partial?{"Content-Range":`bytes ${range.start}-${range.end}/${media.size_bytes}`}:{})}});
+    }
     if(action==="track"||action==="mediaUrl"){
       const saved=action==="track"&&p!.current_track_version_id?await q.trackRow(d.store,p!.current_track_version_id):null;if(action==="track"&&!saved)throw new StateError("not_found");
       const media=await q.readyMedia(d.store,p!.id,saved?.manifest.media.contentSha256);let state:"available"|"expired"|"missing"=media?"available":await q.expiredMediaExists(d.store,p!.id,saved?.manifest.media.contentSha256)?"expired":"missing",mediaUrl:string|null=null,expiresAt:string|null=null,reason:"transfer_cap"|"storage_unavailable"|null=null;
-      if(media){if(!media.pinned&&new Date(media.expires_at)<=new Date())state="expired";else{try{await admitTransfer(d.store,media.id);expiresAt=new Date(Date.now()+900000).toISOString();mediaUrl=await d.blobs.sign(media.blob_pathname,"get",new Date(expiresAt));}catch(error){if(action==="mediaUrl")throw error;state="missing";expiresAt=null;reason=error instanceof StateError&&error.code==="transfer_cap"?"transfer_cap":"storage_unavailable";}}}
+      if(media){if(!media.pinned&&new Date(media.expires_at)<=new Date())state="expired";else {
+        if(await transferClosed(d.store,media.size_bytes)){if(action==="mediaUrl")throw new StateError("transfer_cap");state="missing";reason="transfer_cap";}
+        else if(action==="mediaUrl"||new URL(r.url).searchParams.get("media")!=="none"){expiresAt=new Date(Date.now()+900000).toISOString();const search=new URLSearchParams();if(saved)search.set("track",saved.id);const share=new URL(r.url).searchParams.get("s");if(share)search.set("s",share);mediaUrl=`/api/projects/${p!.id}/media/stream?${search}`;}
+      }}
       if(action==="mediaUrl"){if(!mediaUrl)throw new StateError("media_unavailable");return json({url:mediaUrl,expiresAt});}
       return json({trackVersionId:saved!.id,manifestHash:saved!.manifest_hash,overlays:await q.trackOverlays(d.store,saved!.transcript_version_id),media:{state,url:mediaUrl,expiresAt,reason}});
     }
@@ -133,9 +162,10 @@ export function makeApi(d:ApiDependencies){return async function handle(r:Reques
     if(error instanceof CaptionError)return json({error:{code:error.code,message:error.message,retryable:false}},400);
     if(error instanceof StateError){const headers:Record<string,string>={};let currentVersionId:string|null=null;
       if(error.code==="version_conflict"&&projectId){try{currentVersionId=(await q.ownedProject(d.store,projectId,await ownerIdForRequest(d.store,r))).current_transcript_version_id;}catch{}}
+      if(error.code==="rate_limited")headers["Retry-After"]="60";
       return json({error:{code:error.code,message:error.code.replaceAll("_"," "),retryable:["spend_cap","storage_cap","transfer_cap","not_uploaded","processing_disabled"].includes(error.code)},...(currentVersionId?{currentVersionId}:{})},statuses[error.code]??(error.code==="not_uploaded"?409:400),headers);
     }
-    console.error(JSON.stringify({code:"api_internal",action}));return json({error:{code:"internal",message:"Request could not be completed",retryable:true}},500);
+    console.error(JSON.stringify({code:"api_internal",action,requestId}));return json({error:{code:"internal",message:"Request could not be completed",retryable:true},requestId},500,{"X-Request-ID":requestId});
   }
 };}
 async function ownerIdForRequest(store:StateStore,r:Request){try{const token=ownerToken(r);return token?await q.ownerForToken(store,hashOwnerToken(token)):null;}catch{return null;}}

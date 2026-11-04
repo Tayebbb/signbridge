@@ -18,7 +18,9 @@ export async function reconcile(store:StateStore,blobs:BlobStore,dispatcher:Pick
   for(const job of await pendingDispatches(store,now,options.projectId))try{await dispatcher.dispatch(job.id);counters.redispatched++;}catch{await recordDispatchFailure(store,job.id);reportError("dispatch_failed",job.id);}
   for(const job of await stalledJobs(store,now,options.projectId))counters.fenced+=Number(await stallFence(store,job.id,now));
   counters.reservationsConverted=await sweepSpend(store,now);
-  do{counters.storageReleased+=await sweepStorage(store,blobs,now,limit,options.projectId);}while(options.opportunistic===false&&(await storageCleanupCandidates(store,now,1,options.projectId)).length);
+  // Drain successful batches, but stop on zero progress so an unavailable object cannot spin the cron.
+  let released:number;
+  do{released=await sweepStorage(store,blobs,now,limit,options.projectId,id=>reportError("storage_cleanup_failed",id));counters.storageReleased+=released;}while(released>0&&options.opportunistic===false&&(await storageCleanupCandidates(store,now,1,options.projectId)).length);
   let afterId:string|undefined;
   for(;;){const batch=await deletingProjects(store,limit,options.projectId,afterId);for(const project of batch)try{counters.purged+=Number(await purgeProject(store,blobs,project.id,now));}catch{reportError("purge_incomplete",project.id);}
     if(options.opportunistic!==false||batch.length<limit)break;afterId=batch.at(-1)!.id;}

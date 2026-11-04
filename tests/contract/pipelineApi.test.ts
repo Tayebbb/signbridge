@@ -133,7 +133,7 @@ test("Transcript and job idempotency survive a newer version and a disabled proc
 });
 test("Sol unavailability selects Terra on the next recovery job and keeps separate cache provenance",async()=>{
   const f=await project();pipeline.model={kind:"openai",respond:async()=>{throw new ModelFailure("model_http_404",false);}};const {jobId}=await start(f);await drain();
-  pipeline.model=deterministicFake();expect((await request("retryJob","/retry","POST",undefined,{jobId})).status).toBe(503);await request("killSwitch","/kill","POST",{processing:true},{},{authorization:"Bearer fixture-admin"});const retried=await request("retryJob","/retry","POST",undefined,{jobId});expect(retried.status).toBe(202);const id=(await retried.json()).jobId;await drain();
+  pipeline.model=deterministicFake();const before=await request("adminStatus","/admin","GET",undefined,{},{authorization:"Bearer fixture-admin"});expect((await before.json()).processing).toBe(true);await request("killSwitch","/kill","POST",{processing:false},{},{authorization:"Bearer fixture-admin"});expect((await request("retryJob","/retry","POST",undefined,{jobId})).status).toBe(503);await request("killSwitch","/kill","POST",{processing:true},{},{authorization:"Bearer fixture-admin"});const retried=await request("retryJob","/retry","POST",undefined,{jobId});expect(retried.status).toBe(202);const id=(await retried.json()).jobId;await drain();
   expect((await loadJob(db.state,id)).job.model_profile).toBe("gpt-6.1-terra");expect((await current(f)).manifest.provenance.modelProfile).toBe("fake/gpt-6.1-terra");
 });
 

@@ -166,15 +166,15 @@ export function registerStateSuite(factory:()=>Promise<Backend>) {
     await initMedia(store,files.blobs,mediaInput(f.projectId,1000),later(900_001));expect(BigInt((await totals()).pending_bytes)).toBe(1000n);
     const bad=await reserveMedia(store,mediaInput(f.projectId,100),later(900_001));await files.blobs.put(bad.pathname,new Uint8Array(101));expect((await finalizeMedia(store,bad.id,{size:101,contentType:"video/mp4"},later(900_001))).status).toBe("rejected");
     expect(await sweepStorage(store,files.blobs,later(900_001),5)).toBe(0);expect(BigInt((await totals()).pending_bytes)).toBe(1100n);
-    files.blobs.failAt=files.blobs.removes+1;await expect(sweepStorage(store,files.blobs,later(1_800_002),5)).rejects.toThrow("interrupted");expect(BigInt((await totals()).pending_bytes)).toBe(1100n);
-    files.blobs.failAt=null;expect(await sweepStorage(store,files.blobs,later(1_800_002),5)).toBe(2);expect(BigInt((await totals()).pending_bytes)).toBe(0n);
+    files.blobs.failAt=files.blobs.removes+1;let cleanupErrors=0;expect(await sweepStorage(store,files.blobs,later(1_800_002),5,undefined,()=>{cleanupErrors++;})).toBe(1);expect(cleanupErrors).toBe(1);expect([100n,1000n]).toContain(BigInt((await totals()).pending_bytes));
+    files.blobs.failAt=null;expect(await sweepStorage(store,files.blobs,later(1_800_002),5)).toBe(1);expect(BigInt((await totals()).pending_bytes)).toBe(0n);
   });
-  test("T21: transfer gate blocks non-pinned only and monthly rollover occurs exactly once",async()=>{
+  test("T21: transfer gate includes pinned reads and monthly rollover occurs exactly once",async()=>{
     const f=await projectFixture(store,{job:false}),end=new Date("2026-11-30T17:59:59Z"),next=new Date("2026-11-30T18:00:01Z");
     const video=await readyVideo(f.projectId,false,end),pinned=await readyVideo(f.projectId,true,end);await store.query(sql`UPDATE storage_ledger SET transfer_cap_bytes=64 WHERE id=1`);
     const requests=await Promise.allSettled(Array.from({length:10},()=>admitTransfer(store,video.id,end)));expect(requests.filter(r=>r.status==="fulfilled")).toHaveLength(2);
-    await Promise.all(Array.from({length:10},()=>admitTransfer(store,pinned.id,end)));expect(BigInt((await totals()).est_transfer_bytes)).toBe(64n);
-    const fresh=await Promise.allSettled(Array.from({length:10},()=>admitTransfer(store,video.id,next)));expect(fresh.filter(r=>r.status==="fulfilled")).toHaveLength(2);expect(BigInt((await totals()).est_transfer_bytes)).toBe(64n);
+    const pinnedBlocked=await Promise.allSettled(Array.from({length:10},()=>admitTransfer(store,pinned.id,end)));expect(pinnedBlocked.every(r=>r.status==="rejected")).toBe(true);expect(BigInt((await totals()).est_transfer_bytes)).toBe(64n);
+    const fresh=await Promise.allSettled(Array.from({length:10},()=>admitTransfer(store,pinned.id,next)));expect(fresh.filter(r=>r.status==="fulfilled")).toHaveLength(2);expect(BigInt((await totals()).est_transfer_bytes)).toBe(64n);
     await expect(admitTransfer(store,video.id,end)).rejects.toMatchObject({code:"clock_regressed"});
   });
   test("Anchor reservations share the cap and finalized/abandoned bytes remain exact",async()=>{

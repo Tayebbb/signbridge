@@ -4,6 +4,7 @@ import { dirname, resolve, sep } from "node:path";
 export interface BlobStore {
   put(pathname: string, bytes: Uint8Array): Promise<void>;
   get(pathname: string): Promise<Uint8Array>;
+  stream?(pathname:string):Promise<ReadableStream<Uint8Array>>;
   head(pathname: string): Promise<{ size: number;contentType?:string }>;
   remove(pathname: string): Promise<void>;
   list(prefix:string):Promise<{pathname:string;size:number}[]>;

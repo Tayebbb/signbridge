@@ -35,9 +35,10 @@ export async function finalizeMedia(store:StateStore,id:string,head:{size:number
 export async function admitTransfer(store:StateStore,mediaId:string,now=new Date()) {
   return store.transaction(async q=>{const ref=(await q.query<{project_id:string}>(sql`SELECT project_id FROM media WHERE id=${mediaId}`))[0];if(!ref)throw new StateError("not_found");await lockProject(q,ref.project_id,true);
     const row=(await q.query<MediaRow>(sql`SELECT * FROM media WHERE id=${mediaId} FOR UPDATE`))[0];if(!row||row.status!=="ready"||!row.pinned&&new Date(row.expires_at)<=now)throw new StateError("media_unavailable");
-    await ledgerLocked(q,now);if(!row.pinned){const updated=await q.query(sql`UPDATE storage_ledger SET est_transfer_bytes=est_transfer_bytes+${row.size_bytes} WHERE id=1 AND est_transfer_bytes+${row.size_bytes}<=transfer_cap_bytes RETURNING id`);if(!updated.length)throw new StateError("transfer_cap");}
+    await ledgerLocked(q,now);const updated=await q.query(sql`UPDATE storage_ledger SET est_transfer_bytes=est_transfer_bytes+${row.size_bytes} WHERE id=1 AND est_transfer_bytes+${row.size_bytes}<=transfer_cap_bytes RETURNING id`);if(!updated.length)throw new StateError("transfer_cap");
     return {pathname:row.blob_pathname,size:row.size_bytes!};});
 }
+export async function transferClosed(store:StateStore,size:number){const [ledger]=await store.query<{closed:boolean}>(sql`SELECT est_transfer_bytes+${size}>transfer_cap_bytes AND transfer_month=to_char(now() AT TIME ZONE 'Asia/Dhaka','YYYY-MM') AS closed FROM storage_ledger WHERE id=1`);return ledger?.closed??false;}
 export async function reserveAnchor(store:StateStore,input:{projectId:string;declaredBytes:number;frameMs:number;segmentStartMs:number;segmentEndMs:number;mediaSha256:string;labelBn:string|null},now=new Date()) {
   if(!Number.isInteger(input.declaredBytes)||input.declaredBytes<1||BigInt(input.declaredBytes)>ANCHOR_BOUND)throw new StateError("anchor_limits");
   return store.transaction(async q=>{await lockProject(q,input.projectId,true);const [count]=await q.query<{n:number}>(sql`SELECT count(*)::int AS n FROM visual_anchors WHERE project_id=${input.projectId}`);if(count.n>=3)throw new StateError("anchor_limits");await allocate(q,input.declaredBytes,now);
