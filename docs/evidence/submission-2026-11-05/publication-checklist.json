@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-05T12:47:57.756Z",
+  "sourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "requiredItems": {
+    "liveApp": "https://signbridge-sable-sigma.vercel.app",
+    "repository": "https://github.com/Tayebbb/signbridge",
+    "youtube": "https://youtu.be/goRXOQeq9lQ",
+    "deck": "Owner-supplied five-page PDF, attached and filename verified",
+    "contact": "Saved only in organizers form; intentionally omitted here",
+    "eligibility": "Confirmed by owner",
+    "legalAcknowledgments": "Approved by owner at action point",
+    "officialSticker": "Owner-confirmed official organizer PNG, original bytes preserved"
+  },
+  "status": "SUBMITTED",
+  "confirmation": "Project submitted!"
+}

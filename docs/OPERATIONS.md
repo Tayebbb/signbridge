@@ -4,7 +4,7 @@ Updated 5 November 2026. Keep this procedure alongside the immutable design and 
 
 ## Release gates
 
-Run `npm ci`, typecheck, lint, default tests, production dependency audit, native PostgreSQL checks, product/foundation browser checks, production build and the secret scan against one isolated candidate. Do not skip a failing gate. Apply additive migrations to preview first and smoke there before migrating/staging production. Never promote a preview build containing preview credentials to production.
+Run `npm ci`, typecheck, lint, default tests, complete dependency audit (including development tools), native PostgreSQL checks, product/foundation browser checks, production build and the secret scan against one isolated candidate. Do not skip a failing gate. Apply additive migrations to preview first and smoke there before migrating/staging production. Never promote a preview build containing preview credentials to production.
 
 The additive hardening migration adds nullable owner-recovery hashes and query indexes. Existing owners and older deployments remain compatible with those additions. The new deployment's health check rejects an incompatible schema or missing production adapter configuration. Real-provider reachability requires an explicit smoke; health does not make a paid model call.
 

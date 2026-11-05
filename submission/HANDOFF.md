@@ -1,8 +1,8 @@
 # Submission handoff — 5 November 2026, Asia/Dhaka
 
-**Status: DRAFT, 4/5 Devpost steps saved; final release checks and submission are being completed.**
+**Status: SUBMITTED — Devpost displayed “Project submitted!” on 5 November 2026. The public engineering release is verified.**
 
-- [Devpost project](https://devpost.com/software/signbridge-6pw9f7), submission ID `1281751`: project name/pitch, current story, technology tags and live/repository links saved.
+- [Submitted Devpost project](https://devpost.com/software/signbridge-6pw9f7), submission ID `1281751`: final terms acknowledgment accepted under the owner’s approval; “Project submitted!” and the buildathon under “SUBMITTED TO” were observed. [Confirmation and evidence](../docs/SUBMISSION-REPORT.md).
 - The owner-supplied five-page `SignBridge-deck.pdf` is attached and its filename verified. [Repository copy](deck.pdf) preserves the supplied bytes. Its earlier evidence counts are identified as a snapshot; [current results](../docs/COVERAGE-FOLLOWUP.md) are separate. [Current text outline](deck.md) is not claimed as that PDF's exact export source.
 - [English narrated video](https://youtu.be/goRXOQeq9lQ) is published as Unlisted on the owner's existing channel, with both Devpost video-link fields saved. Verified source: `ad/signbridge-explainer-voiced.mp4`, 1080p, 5:05, H.264/AAC, 34,558,638 bytes. [Upload metadata and description](youtube.md).
 - Participant name and WhatsApp contact were supplied by the owner and saved only in the organizers' form. The owner explicitly confirmed eligibility and approved YouTube Terms/Guidelines and Devpost/event Rules/Terms at the action point. No further permission is needed for the authorized submission.

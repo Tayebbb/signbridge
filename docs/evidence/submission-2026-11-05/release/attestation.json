@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-05T12:45:35.902Z",
+  "status": "PASS for engineering release; language/comprehension evidence NONE",
+  "runtimeSourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "hostedGate": {
+    "conclusion": "success",
+    "headSha": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+    "status": "completed",
+    "url": "https://github.com/Tayebbb/signbridge/actions/runs/42028680928"
+  },
+  "deployment": {
+    "id": "dpl_3VFGNNh2rGMsSkAjpWdHfiLjKctP",
+    "url": "https://signbridge-qb85288j8-mdtayebibne-4755s-projects.vercel.app",
+    "target": "production",
+    "state": "READY",
+    "publicUrl": "https://signbridge-sable-sigma.vercel.app",
+    "publicAliasResolvedToTestedId": true
+  },
+  "checks": {
+    "defaultTests": 234,
+    "nativePostgresTests": 53,
+    "productBrowserTests": 22,
+    "foundationTestsHosted": 10,
+    "foundationTestsLocal": 10,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "productionBuild": "PASS",
+    "fullDependencyAuditVulnerabilities": 0,
+    "schemaLoader": "PASS",
+    "freshStagedUpload": "PASS",
+    "freshPublicUpload": "PASS",
+    "savedManifestAndReplay": "PASS",
+    "extraModelCalls": 0,
+    "extraStageRows": 0,
+    "budgetsUnchanged": true
+  },
+  "normalVideo": {
+    "segments": 4,
+    "availableUnitsActuallyPlayed": 9,
+    "fullySignedSegments": 0,
+    "allSegmentsHaveCriticalGaps": true,
+    "languageEvidence": "NONE",
+    "comprehensionEvidence": "NONE"
+  },
+  "combinedCountedVerificationMicros": "338618",
+  "physicalAndroidIphone": "NOT RUN",
+  "designSha256": "AD91E87CDE437B3CD430EF7102D51D9C7E7093875D68FAF24369330ABA307E4D"
+}

@@ -81,7 +81,7 @@ See [.env.example](.env.example) for every setting. Keep API keys, database URLs
 npm run typecheck
 npm run lint
 npm test
-npm audit --omit=dev --audit-level=moderate
+npm audit --audit-level=moderate
 npm run test:race:native
 npm run test:product
 npm run test:e2e
@@ -137,5 +137,7 @@ The original `phase-1` through `phase-8` tags are preserved. Later rechecks and 
 Sign data: **IsharaKotha v2**, **CC BY 4.0**. Renderer: the unmodified remote **University of East Anglia CWASA vhg2026 / Anna**, under its own terms. The official event sticker was supplied and confirmed by the owner; its original bytes are retained with responsive delivery optimization. See [ATTRIBUTION.md](docs/ATTRIBUTION.md) for provenance and prior work.
 
 ## Buildathon submission
+
+[Submitted Devpost project](https://devpost.com/software/signbridge-6pw9f7) · [English narrated video, Unlisted](https://youtu.be/goRXOQeq9lQ) · [Submission confirmation and checks](docs/SUBMISSION-REPORT.md).
 
 The project story, five-slide deck and English narrated explainer describe an experimental technical application. Older counts shown in the supplied media are an earlier release snapshot; current evidence is linked above. Submission requirements and actual publication state are recorded in [submission/HANDOFF.md](submission/HANDOFF.md). Participant contact details stay in the organizers' form and are excluded from this repository.

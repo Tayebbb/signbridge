@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-05T12:47:57.756Z",
+  "status": "SUBMITTED",
+  "project": "https://devpost.com/software/signbridge-6pw9f7",
+  "submissionId": "1281751",
+  "event": "Ostad Presents YUNet AIgnite Buildathon 2026",
+  "observedConfirmation": "Project submitted!",
+  "submittedToEventVisible": true,
+  "termsAcknowledgment": "Checked under the owner's explicit action-point approval",
+  "eligibility": "Owner explicitly confirmed; no independent identity verification claimed",
+  "deck": {
+    "filename": "SignBridge-deck.pdf",
+    "pages": 5,
+    "sha256": "47eb4b6af464f54f220f3827a764c0be6b5f69fcf4bcc50be34534150f47cf2b"
+  },
+  "youtube": {
+    "url": "https://youtu.be/goRXOQeq9lQ",
+    "visibility": "Unlisted",
+    "publicProjectVideoFieldSaved": true,
+    "organizerVideoFieldSaved": true
+  },
+  "contact": "Private organizer contact intentionally omitted",
+  "runtimeSourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "releaseAttestation": "release/attestation.json",
+  "screenshot": "devpost-submitted.png"
+}

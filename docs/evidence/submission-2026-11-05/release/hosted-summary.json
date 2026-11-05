@@ -1,0 +1,35 @@
+{
+  "sourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "runUrl": "https://github.com/Tayebbb/signbridge/actions/runs/42028680928",
+  "environment": "GitHub-hosted Ubuntu, Node 24",
+  "defaultTests": 234,
+  "nativePostgresTests": 53,
+  "product": {
+    "chromium": {
+      "startTime": "2026-11-05T12:40:31.391Z",
+      "duration": 95505.075,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "msedge": {
+      "startTime": "2026-11-05T12:42:07.465Z",
+      "duration": 77504.835,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "foundation": {
+    "startTime": "2026-11-05T12:43:25.754Z",
+    "duration": 43135.835,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "fullAuditVulnerabilities": 0,
+  "drizzleSchemaLoader": "PASS, disposable local output, no database mutation"
+}

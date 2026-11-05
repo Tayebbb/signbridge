@@ -21,10 +21,10 @@ The actual Devpost form also requires:
 - Full name and WhatsApp number — supplied by the owner and saved for judges and organizers. The number is stored in international digits to preserve the Bangladesh country code in the numeric field; its DOM value was verified. Contact details are not committed to Git.
 - Product name and brief — saved.
 - Optional YouTube URL in both the public project-media field and the organizers' additional-info field.
-- Final submission step — inspect its current attestations before submitting; draft saves do not establish final submission.
+- Final submission step — owner-approved Rules/Terms acknowledgment checked, Submit clicked, and Devpost’s “Project submitted!” confirmation observed.
 
 Image gallery: optional JPG/PNG/GIF, up to 15 images, each at most 5 MB. Thumbnail: JPG/PNG/GIF at most 5 MB; recommended 3:2 ratio.
 
-The draft is `SignBridge`, submission ID `1281751`, **4/5 steps done**; its project preview is https://devpost.com/software/signbridge-6pw9f7 . The owner explicitly accepted the YouTube Terms/Guidelines and confirmed eligibility/acceptance of the event Rules and Devpost Terms. Final submission waits for the release checks, not further owner permission. Draft saves alone do not establish final submission.
+The project is `SignBridge`, submission ID `1281751`, **SUBMITTED** at https://devpost.com/software/signbridge-6pw9f7 . The owner explicitly accepted the YouTube Terms/Guidelines and confirmed eligibility/acceptance of the event Rules and Devpost Terms. The actual “Project submitted!” confirmation and the event’s “SUBMITTED TO” entry were observed. [Publication record](../docs/SUBMISSION-REPORT.md).
 
 All public text must distinguish technical behavior from language quality. Qualified BdSL correctness and comprehension evidence remain **NONE**; physical-phone observations remain **NOT RUN**. Keep current counts in the release report and label older deck/video evidence as an earlier snapshot until refreshed.

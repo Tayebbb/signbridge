@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05T09:36:27.258Z",
+  "date": "2026-11-05T12:47:57.756Z",
   "ownerSupplied": true,
   "files": [
     {
@@ -22,12 +22,14 @@
   "devpost": {
     "project": "https://devpost.com/software/signbridge-6pw9f7",
     "submissionId": "1281751",
-    "savedSteps": "4/5",
+    "savedSteps": "5/5, finalized",
     "deckAttached": true,
     "bothVideoFieldsSaved": true,
     "eligibilityConfirmedByOwner": true,
     "termsApprovedByOwner": true,
-    "submitted": false
+    "submitted": true,
+    "confirmation": "Project submitted!",
+    "confirmationObservedAt": "2026-11-05T12:47:57.756Z"
   },
   "contact": "Private organizer contact intentionally omitted"
 }

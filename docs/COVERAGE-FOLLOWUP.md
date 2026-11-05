@@ -1,6 +1,6 @@
 # Coverage and submission follow-up — 5 November 2026
 
-**Status: PARTIAL — technical coverage improved; ordinary-video signing still has critical gaps. The engineering release is live and verified; the submission publication state is recorded below.**
+**Status: PARTIAL — technical coverage improved; ordinary-video signing still has critical gaps. The engineering release is live and verified, and Devpost publication is complete.**
 
 The live services are real. This report does not certify general BdSL translation, language correctness or comprehension. The [initial normal-video failure](NORMAL-VIDEO-TEST.md) remains part of the evidence.
 
@@ -61,7 +61,7 @@ These are individual observations with differing network/cache conditions, not l
 | Product browsers | 22 PASS: 11 Chromium + 11 Edge |
 | Initial foundation checks | 6 PASS |
 | First-load hydration regressions | 2 reproduced failures; fixed foundation suite passes 10 checks across Chromium/Edge |
-| Production dependency audit (`--omit=dev`) | 0 vulnerabilities |
+| Complete dependency audit (including development tools) | 0 vulnerabilities after the final toolchain fixes |
 | Configured-credential / history / startup-bundle scan | No findings before publication |
 | Original design | SHA-256 unchanged: `AD91E87CDE437B3CD430EF7102D51D9C7E7093875D68FAF24369330ABA307E4D` |
 | Qualified language / comprehension evaluation | NOT RUN; evidence NONE |
@@ -73,10 +73,10 @@ Combined counted usage after this real job is **USD 0.338618**, with zero outsta
 
 The hosted run passed 234 default, 53 native PostgreSQL and 22 product-browser checks. Its foundation configuration selected five Chromium checks on Ubuntu; all five also passed in Edge locally, giving ten local foundation checks. [Hosted summary](evidence/hydration-2026-11-05/release/hosted-summary.json). Browser emulation is not physical-phone evidence.
 
-The final toolchain follow-up removes all 12 moderate development-tree audit entries through two narrowly scoped transitive overrides. The complete dependency audit now reports **zero vulnerabilities**, and the actual Drizzle schema loader generates successfully into a disposable local directory without accessing a database. CI now gates the complete audit and checks that loader. Foundation configuration also detects the installed Linux Edge binary, so its next hosted gate includes both browsers. [Before](evidence/hydration-2026-11-05/release/full-audit-before.json), [after](evidence/hydration-2026-11-05/release/full-audit-after.json), [loader check](evidence/hydration-2026-11-05/release/schema-tooling.json). The subsequent exact-source hosted result and deployment are recorded separately after completion.
+The final toolchain follow-up removes all 12 moderate development-tree audit entries through two narrowly scoped transitive overrides. The complete dependency audit now reports **zero vulnerabilities**, and the actual Drizzle schema loader generates successfully into a disposable local directory without accessing a database. CI now gates the complete audit and checks that loader. Foundation configuration also detects the installed Linux Edge binary, so its next hosted gate includes both browsers. [Before](evidence/hydration-2026-11-05/release/full-audit-before.json), [after](evidence/hydration-2026-11-05/release/full-audit-after.json), [loader check](evidence/hydration-2026-11-05/release/schema-tooling.json). The final runtime source is `65a390780459c2d2ecdf9a50b2a6516e523ff162`; [its full hosted gate passed](https://github.com/Tayebbb/signbridge/actions/runs/42028680928), including ten foundation checks across Chromium/Edge on Ubuntu. Deployment `dpl_3VFGNNh2rGMsSkAjpWdHfiLjKctP` is promoted to the public app and its alias was resolved back to that exact tested deployment. Fresh staged/public uploads and saved real-avatar replay passed with zero extra model calls, stage rows or ledger changes. [Final attestation](evidence/submission-2026-11-05/release/attestation.json).
 
 ## Submission state
 
-The existing Devpost draft has its name/pitch, current story, technology tags, live/repository links, owner-supplied five-page PDF, participant name and organizer contact saved: **4/5 steps done**. Contact details are not published in this repository. The voiced English MP4 is published as Unlisted at https://youtu.be/goRXOQeq9lQ and its link is saved in both Devpost video fields. Its older on-screen counts are explicitly described as an earlier evidence snapshot.
+The Devpost entry has its name/pitch, current story, technology tags, live/repository links, owner-supplied five-page PDF, participant name and organizer contact saved and finalized: **SUBMITTED**. Contact details are not published in this repository. The voiced English MP4 is published as Unlisted at https://youtu.be/goRXOQeq9lQ and its link is saved in both Devpost video fields. Its older on-screen counts are explicitly described as an earlier evidence snapshot.
 
-The owner explicitly confirmed event eligibility and approved both sites' required legal acknowledgments at the action point. Final submission follows the completed release checks. [Requirements](../submission/REQUIREMENTS.md), [video metadata](../submission/youtube.md).
+The owner explicitly confirmed event eligibility and approved both sites' required legal acknowledgments at the action point. After the completed release checks, Devpost displayed “Project submitted!” and listed SignBridge under the buildathon’s “SUBMITTED TO” section. [Submission confirmation](SUBMISSION-REPORT.md). [Requirements](../submission/REQUIREMENTS.md), [video metadata](../submission/youtube.md).

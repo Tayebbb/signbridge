@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05T12:39:41.397Z",
+  "sourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "deploymentId": "dpl_3VFGNNh2rGMsSkAjpWdHfiLjKctP",
+  "origin": "https://signbridge-qb85288j8-mdtayebibne-4755s-projects.vercel.app",
+  "scope": "staged",
+  "status": "PASS",
+  "health": {
+    "db": "ok",
+    "processing": "enabled",
+    "renderer": "remote"
+  },
+  "browser": "156.0.8078.4",
+  "firstNavigation": "domcontentloaded",
+  "freshUpload": {
+    "projectId": "4d98604a-fb09-4d15-b73b-cb6fc5c51312",
+    "cues": 8,
+    "segments": 4,
+    "job": null,
+    "events": [
+      {
+        "origin": "https://signbridge-qb85288j8-mdtayebibne-4755s-projects.vercel.app",
+        "path": "/api/projects/4d98604a-fb09-4d15-b73b-cb6fc5c51312/media/init",
+        "method": "POST",
+        "status": 200
+      },
+      {
+        "origin": "https://vercel.com",
+        "path": "/api/blob/",
+        "method": "PUT",
+        "status": 200
+      },
+      {
+        "origin": "https://signbridge-qb85288j8-mdtayebibne-4755s-projects.vercel.app",
+        "path": "/api/projects/4d98604a-fb09-4d15-b73b-cb6fc5c51312/media/finalize",
+        "method": "POST",
+        "status": 200
+      }
+    ]
+  },
+  "savedReplay": {
+    "manifestHash": "a015161efaf8218c0b4540cf6b871eb48789ad791d0b5d0b5b630c7c50a19e62",
+    "segment": 0,
+    "seen": [
+      "g1_s0a2u0"
+    ],
+    "expected": [
+      "g1_s0a2u0"
+    ],
+    "complete": false
+  },
+  "newModelCalls": 0,
+  "newStageRows": 0,
+  "budgetsUnchanged": true,
+  "secretHeadersRestrictedToExactAppOrigin": true
+}

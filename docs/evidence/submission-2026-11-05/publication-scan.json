@@ -1,0 +1,11 @@
+{
+  "releaseArtifactFiles": 92,
+  "startupBundleFiles": 17,
+  "date": "2026-11-05T12:48:46.457Z",
+  "head": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "historyBlobs": 845,
+  "workingFiles": 703,
+  "configuredCredentialValues": 33,
+  "filesOver90MB": [],
+  "findings": []
+}

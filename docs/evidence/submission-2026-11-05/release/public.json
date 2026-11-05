@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05T12:45:08.416Z",
+  "sourceCommit": "65a390780459c2d2ecdf9a50b2a6516e523ff162",
+  "deploymentId": "dpl_3VFGNNh2rGMsSkAjpWdHfiLjKctP",
+  "origin": "https://signbridge-sable-sigma.vercel.app",
+  "scope": "public",
+  "status": "PASS",
+  "health": {
+    "db": "ok",
+    "processing": "enabled",
+    "renderer": "remote"
+  },
+  "browser": "156.0.8078.4",
+  "firstNavigation": "domcontentloaded",
+  "freshUpload": {
+    "projectId": "7c25f11b-b4ab-48aa-8b8a-a90b5b29ff41",
+    "cues": 8,
+    "segments": 4,
+    "job": null,
+    "events": [
+      {
+        "origin": "https://signbridge-sable-sigma.vercel.app",
+        "path": "/api/projects/7c25f11b-b4ab-48aa-8b8a-a90b5b29ff41/media/init",
+        "method": "POST",
+        "status": 200
+      },
+      {
+        "origin": "https://vercel.com",
+        "path": "/api/blob/",
+        "method": "PUT",
+        "status": 200
+      },
+      {
+        "origin": "https://signbridge-sable-sigma.vercel.app",
+        "path": "/api/projects/7c25f11b-b4ab-48aa-8b8a-a90b5b29ff41/media/finalize",
+        "method": "POST",
+        "status": 200
+      }
+    ]
+  },
+  "savedReplay": {
+    "manifestHash": "a015161efaf8218c0b4540cf6b871eb48789ad791d0b5d0b5b630c7c50a19e62",
+    "segment": 0,
+    "seen": [
+      "g1_s0a2u0"
+    ],
+    "expected": [
+      "g1_s0a2u0"
+    ],
+    "complete": false
+  },
+  "newModelCalls": 0,
+  "newStageRows": 0,
+  "budgetsUnchanged": true,
+  "secretHeadersRestrictedToExactAppOrigin": true
+}
