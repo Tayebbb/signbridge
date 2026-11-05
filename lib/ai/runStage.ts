@@ -15,7 +15,7 @@ import {ModelFailure,type ModelClient,type ModelRequest} from "./protocol";
 import {operationLog} from "../ops/log";
 import {applyErrorKillSwitch} from "../db/queries/operations";
 const prompts=new Map<string,Promise<string>>();
-export function stagePrompt(stage:"meaning"|"plan"){let value=prompts.get(stage);if(!value){value=readFile(resolve(`lib/ai/prompts/${stage}.v1.md`),"utf8");prompts.set(stage,value);}return value;}
+export function stagePrompt(stage:"meaning"|"plan"){let value=prompts.get(stage);if(!value){value=readFile(resolve(`lib/ai/prompts/${PROMPT_VERSIONS[stage].replace(/-v(?=\d+$)/u,".v")}.md`),"utf8");prompts.set(stage,value);}return value;}
 export class StageFailure extends Error {constructor(public readonly code:string){super(code);}}
 export interface StageHooks {afterModel?:(stage:string,idx:number)=>Promise<void>;sleep?:(ms:number)=>Promise<void>}
 export async function runStage<T>(store:StateStore,client:ModelClient,input:{processingEnabled?:()=>boolean;jobId:string;proof:RunProof;idx:number;stage:"meaning"|"plan";key:string;model:ModelId;ownerId:string;data:Record<string,unknown>;schema:z.ZodType<T>;jsonSchema:Record<string,unknown>;validate:(output:T,final:boolean)=>{value:T;issues:unknown[]}},hooks:StageHooks={}){

@@ -1,0 +1,211 @@
+{
+  "renderer": "cwasa-vhg2026/anna/speed0",
+  "checkedAt": "2026-11-05T08:10:48.818Z",
+  "workers": 1,
+  "total": 7,
+  "attempted": 7,
+  "passed": 0,
+  "limitation": "Technical renderability only; no linguistic correctness or comprehension evidence.",
+  "asset_render_checks": [
+    {
+      "assetId": "ik2_3d9b177607f8",
+      "labelBn": "জলচৌকি",
+      "derivedSha256": "3c8d4145d87a781da6e22030d652bc4ab2a9a103293af1e797de46199f5b71d1",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:00.348Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 35,
+      "frameEvents": 35,
+      "elapsedMs": 1497,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1",
+        "g1_s0a0u2"
+      ],
+      "observedIds": [
+        "g1_s0a0u1"
+      ],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_82da4fb790ad",
+      "labelBn": "ক্ষত",
+      "derivedSha256": "02cf85ebee52e22684d6f0ca6b66c2a0ac7099ac87544f41ddead48c486cfeff",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:01.638Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 18,
+      "frameEvents": 18,
+      "elapsedMs": 805,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1"
+      ],
+      "observedIds": [
+        "g1_s0a0u0"
+      ],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_8ae3146cf588",
+      "labelBn": "ক্ষত",
+      "derivedSha256": "3ded7431ab3b3d8cc98535291be9d6ba85474d82afc2e9be1b12b5ad94974fbb",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:02.888Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 18,
+      "frameEvents": 18,
+      "elapsedMs": 821,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1"
+      ],
+      "observedIds": [
+        "g1_s0a0u0"
+      ],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_9133b35242d5",
+      "labelBn": "সেন্টিমিটার",
+      "derivedSha256": "3f3c2f6e009a8cf5fb1c7eb4b5c682859b3eeadc62eb356426fbae51b343f60e",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:05.368Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 2,
+      "frames": 54,
+      "frameEvents": 54,
+      "elapsedMs": 2017,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1",
+        "g1_s0a0u2"
+      ],
+      "observedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u2"
+      ],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_aae5dff380e5",
+      "labelBn": "অসুবিধা",
+      "derivedSha256": "36500c007889feab016bb4dc545d41603f117d84cc0e26b9c90e1f8ac81fe569",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:40.846Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": true,
+      "signs": 0,
+      "frames": 0,
+      "frameEvents": 0,
+      "elapsedMs": 35014,
+      "expectedIds": [
+        "g1_s0a0u0"
+      ],
+      "observedIds": [],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_b6d78316b82a",
+      "labelBn": "রাধা কৃষ্ণ",
+      "derivedSha256": "98273cd897494da343784c3a43b0b171c0f1597206519ddd204059d68d0ac66a",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:46.775Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 3,
+      "frames": 155,
+      "frameEvents": 155,
+      "elapsedMs": 5443,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1",
+        "g1_s0a0u2",
+        "g1_s0a0u3"
+      ],
+      "observedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1",
+        "g1_s0a0u3"
+      ],
+      "pageErrors": []
+    },
+    {
+      "assetId": "ik2_c8d5b3119968",
+      "labelBn": "এই_দিকে_This Way",
+      "derivedSha256": "19749d6ab2b576ed65013763722d1699a3ec60886040809c0869bf4a3fa2057c",
+      "rendererProfile": "cwasa-vhg2026/anna/speed0",
+      "checkedAt": "2026-11-05T08:10:48.655Z",
+      "browser": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "environment": {
+        "platform": "win32",
+        "headless": true,
+        "webgl": "SwiftShader"
+      },
+      "passed": false,
+      "timedOut": false,
+      "signs": 1,
+      "frames": 35,
+      "frameEvents": 35,
+      "elapsedMs": 1373,
+      "expectedIds": [
+        "g1_s0a0u0",
+        "g1_s0a0u1"
+      ],
+      "observedIds": [
+        "g1_s0a0u0"
+      ],
+      "pageErrors": []
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { segmentMeaningSchema, type SegmentMeaning, type ConceptRole } from "../
 import { segmentPlanSchema, type SegmentPlan } from "../contracts/plan";
 import { sourceForm, phraseForm } from "./captions/textForms";
 import { detectSource } from "./detectors";
-import type { Candidate } from "./retrieval";
+import type { Candidate, SignAssetMetadata } from "./retrieval";
 export interface ValidationIssue { code: string; message: string; conceptId: string | null }
 const forced = new Set<ConceptRole>(["actor", "action", "object", "quantity", "negation", "question"]);
 const surfaceForm=(text:string)=>text.normalize("NFC").replace(/\s+/gu," ").trim();
@@ -43,7 +43,7 @@ export function validateMeaning(input: unknown, text: string, before: readonly s
   if (options.final) for (const problem of issues) value.ambiguities.push({conceptId:problem.conceptId,description:`${problem.code}: ${problem.message}`,blocking:true});
   return { value, issues, repairRequired: issues.length > 0 && !options.final };
 }
-export function validatePlan(input: unknown, meaning: SegmentMeaning, candidates: readonly Candidate[]) {
+export function validatePlan(input: unknown, meaning: SegmentMeaning, candidates: readonly Candidate<SignAssetMetadata>[]) {
   const value = segmentPlanSchema.parse(input), issues: ValidationIssue[] = [];
   const byId = new Map(candidates.map(c=>[c.asset.id,c])), concepts = new Map(meaning.concepts.map(c=>[c.id,c]));
   const gap = (step: SegmentPlan["steps"][number], reason: "no_candidate" | "candidate_meaning_mismatch") => { step.kind="gap"; step.assetId=null; step.gapReason=reason; };

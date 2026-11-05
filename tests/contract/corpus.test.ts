@@ -20,6 +20,18 @@ test("Corpus: render eligibility requires successful evidence bound to the exact
   expect(importCorpus(inputs,[evidence]).assets.filter(a=>a.eligible)).toHaveLength(1);
   for(const wrong of [{...evidence,passed:false},{...evidence,derivedSha256:"wrong"},{...evidence,rendererProfile:"wrong"},{...evidence,signs:99},{...evidence,elapsedMs:0},{...evidence,frameEvents:0},{...evidence,frames:0}])expect(importCorpus(inputs,[wrong]).assets.some(a=>a.eligible)).toBe(false);
 });
+
+test("Corpus: lexical filename translations do not hide the original Bangla label or invent aliases",async()=>{
+  const [sample]=JSON.parse(await readFile("tests/fixtures/corpus-samples.json","utf8")) as CorpusInput[];
+  const input={...sample,sourceName:"বলি_Say.sigml",sourcePath:"Words/বলি_Say.sigml",category:"Words"};
+  const corpus=importCorpus([input]);
+  expect(corpus.assets[0].labelBn).toBe("বলি");
+  expect(corpus.assets[0].aliases).toEqual(["বলি_Say","বলি"]);
+  expect(corpus.assets[0].derivedSha256).toBe(importCorpus([sample]).assets[0].derivedSha256);
+  expect(corpus.assets[0].eligible).toBe(false);
+  const sentence=importCorpus([{...input,category:"Sentence",sourceName:"বলি_Say.sigml"}]);
+  expect(sentence.assets[0].labelBn).toBe("বলি_Say");
+});
 test("Corpus: unsafe files are quarantined rather than repaired or silently dropped",()=>{
   const xml='<sigml><hns_sign><hamnosys_nonmanual><hnm_head/></hamnosys_nonmanual></hns_sign></sigml>';
   const result=importCorpus([{xml,sha256:sha256(xml),sourcePath:"unsafe",sourceName:"unsafe.sigml",category:"fixture",sourceUrl:"https://example.invalid"}]);

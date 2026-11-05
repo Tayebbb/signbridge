@@ -1,17 +1,18 @@
 import type { SegmentMeaning } from "../contracts/meaning";
 import { phraseForm, retrievalForm } from "./captions/textForms";
 import { NUMBER_WORDS } from "./detectors";
-export interface SignAsset {
+export interface SignAssetMetadata {
   id: string; kind: "lexical" | "sentence"; labelBn: string; labelPhraseForm: string; aliases: string[];
-  derivedSigml: string; derivedSha256: string; unitCount: number; eligible: boolean; estimatedDurationMs: number;
+  derivedSha256: string; unitCount: number; eligible: boolean; estimatedDurationMs: number;
 }
-export interface Candidate { asset: SignAsset; conceptIds: string[]; exactPhrase: boolean; score: number }
+export interface SignAsset extends SignAssetMetadata { derivedSigml: string }
+export interface Candidate<Asset extends SignAssetMetadata = SignAsset> { asset: Asset; conceptIds: string[]; exactPhrase: boolean; score: number }
 const compare = (a: string, b: string) => a < b ? -1 : a > b ? 1 : 0;
 const exactAlias = (text: string) => phraseForm(text).toLowerCase().replace(/[০-৯]/gu, d => String(d.charCodeAt(0) - 0x09e6));
-export function retrieveCandidates(sourceText: string, meaning: SegmentMeaning, assets: readonly SignAsset[]): Candidate[] {
-  const found = new Map<string, Candidate>();
+export function retrieveCandidates<Asset extends SignAssetMetadata>(sourceText: string, meaning: SegmentMeaning, assets: readonly Asset[]): Candidate<Asset>[] {
+  const found = new Map<string, Candidate<Asset>>();
   const eligible = assets.filter(a => a.eligible).slice().sort((a,b) => compare(a.id,b.id));
-  const add = (asset: SignAsset, conceptIds: string[], exactPhrase: boolean, score: number) => {
+  const add = (asset: Asset, conceptIds: string[], exactPhrase: boolean, score: number) => {
     const existing = found.get(asset.id);
     found.set(asset.id, { asset, conceptIds: [...new Set([...(existing?.conceptIds ?? []), ...conceptIds])].sort(compare), exactPhrase: exactPhrase || !!existing?.exactPhrase, score: Math.max(score, existing?.score ?? 0) });
   };

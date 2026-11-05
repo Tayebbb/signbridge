@@ -8,7 +8,7 @@ import type {Cue} from "../../domain/captions/shared";
 import type {Segment} from "../../domain/segmentation";
 import type {PlaybackManifest} from "../../contracts/manifest";
 import {jobProgressSchema} from "../../contracts/progress";
-import type {SignAsset} from "../../domain/retrieval";
+export {eligibleAssets} from "./corpusRead";
 export async function applicationStore(){return (await getDatabase()).state;}
 export async function ownerForToken(store:StateStore,tokenHash:Buffer){return (await store.query<{id:string}>(sql`SELECT id FROM owners WHERE token_hash=${tokenHash}`))[0]?.id??null;}
 export async function ensureOwner(store:StateStore,tokenHash:Buffer){return store.transaction(async q=>{await q.query(sql`INSERT INTO owners(token_hash) VALUES (${tokenHash}) ON CONFLICT DO NOTHING`);return (await q.query<{id:string}>(sql`SELECT id FROM owners WHERE token_hash=${tokenHash}`))[0].id;});}
@@ -71,5 +71,4 @@ export async function updateProgress(store:StateStore,jobId:string,proof:RunProo
   const segments=Array.isArray(locked.job.progress.segments)?locked.job.progress.segments as {idx:number;stage:string;state:string;errorCode:string|null}[]:[],next=segments.filter(s=>s.idx!==idx);next.push({idx,stage,state,errorCode});next.sort((a,b)=>a.idx-b.idx);
   await q.query(sql`UPDATE jobs SET progress=${JSON.stringify({...locked.job.progress,segments:next})}::jsonb,heartbeat_at=now(),updated_at=now() WHERE id=${jobId}`);
 });}
-export async function eligibleAssets(store:StateStore):Promise<SignAsset[]>{return store.query<SignAsset>(sql`SELECT a.id,a.kind,a.label_bn AS "labelBn",a.label_phrase_form AS "labelPhraseForm",a.derived_sigml AS "derivedSigml",a.derived_sha256 AS "derivedSha256",a.unit_count AS "unitCount",a.eligible,coalesce((a.render_evidence->>'frames')::float*40,a.unit_count*3000) AS "estimatedDurationMs",coalesce(array_agg(x.alias_norm) FILTER(WHERE x.alias_norm IS NOT NULL),'{}') AS aliases FROM sign_assets a LEFT JOIN asset_aliases x ON x.asset_id=a.id WHERE a.eligible=true AND a.render_state='rendered_ok' GROUP BY a.id ORDER BY a.id`);}
 export async function corpusAttribution(store:StateStore){const [row]=await store.query<{attribution:string}>(sql`SELECT attribution FROM corpus_releases WHERE id='ik2-mendeley-v2'`);if(!row)throw new StateError("corpus_unavailable");return row.attribution;}

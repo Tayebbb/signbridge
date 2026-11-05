@@ -1,0 +1,149 @@
+{
+  "date": "2026-11-05T08:25:58.802Z",
+  "existingMotionBytesUnchanged": true,
+  "assets": 2934,
+  "localEligible": 20,
+  "manifestSha256": "8b8edaafad195865fcff86857703c453f84e2bdca06be372f9a1cc99f34d7bc5",
+  "files": [
+    {
+      "original": "docs/evidence/hardening-2026-11-05/browser-chromium.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/hardening-2026-11-05/browser-chromium.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/hardening-2026-11-05/browser-msedge.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/hardening-2026-11-05/browser-msedge.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/hardening-2026-11-05/local-load.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/hardening-2026-11-05/local-load.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/phase-6/browser-results.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/browser-results.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/phase-6/live-chromium.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/live-chromium.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/phase-6/live-msedge.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/live-msedge.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/playwright-results.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/playwright-results.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/t23-chromium.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/t23-chromium.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/t23-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/t23-chromium.png",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/t23-msedge.json",
+      "current": "docs/evidence/coverage-2026-11-05/checks/t23-msedge.json",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/t23-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/t23-msedge.png",
+      "historicalBytesRestored": true
+    },
+    {
+      "original": "docs/evidence/phase-6/corrected-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/corrected-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/corrected-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/corrected-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/deleted-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/deleted-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/deleted-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/deleted-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/gap-card-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/gap-card-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/gap-card-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/gap-card-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/incomplete-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/incomplete-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/incomplete-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/incomplete-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/live-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/live-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/live-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/live-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/ready-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/ready-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/ready-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/ready-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/ready-portrait-layout.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/ready-portrait-layout.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/recovered-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/recovered-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/recovered-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/recovered-msedge.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/webgl-disabled-chromium.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/webgl-disabled-chromium.png",
+      "historicalBytesRestored": false
+    },
+    {
+      "original": "docs/evidence/phase-6/webgl-disabled-msedge.png",
+      "current": "docs/evidence/coverage-2026-11-05/checks/phase-6/webgl-disabled-msedge.png",
+      "historicalBytesRestored": false
+    }
+  ]
+}

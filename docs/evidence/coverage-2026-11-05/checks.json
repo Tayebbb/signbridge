@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-05T08:27:20.001Z",
+  "scope": "Release worktree, post-phase coverage follow-up",
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npx vitest run",
+      "exitCode": 0,
+      "passed": 234,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm run test:race:native",
+      "exitCode": 0,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm run test:product (includes production build)",
+      "exitCode": 0,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm run test:e2e (includes production build)",
+      "exitCode": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm audit --omit=dev --audit-level=moderate",
+      "exitCode": 0,
+      "vulnerabilities": 0
+    },
+    {
+      "command": "npm run check:secrets",
+      "exitCode": 0,
+      "trackedFiles": 616
+    }
+  ],
+  "corpusObservations": {
+    "fullSweepExitCode": 1,
+    "attempted": 2934,
+    "passed": 0,
+    "failedAndExcluded": 7,
+    "singleWorkerRecheckExitCode": 1,
+    "rechecked": 7,
+    "originalXmlQuarantines": 174,
+    "interpretation": "Observed corpus failures are retained and excluded; no failing asset is admitted."
+  },
+  "designSha256": "AD91E87CDE437B3CD430EF7102D51D9C7E7093875D68FAF24369330ABA307E4D",
+  "deploymentInputs": {
+    "files": 298,
+    "bytes": 29154970,
+    "forbiddenFiles": 0
+  },
+  "linguisticEvidence": "NONE",
+  "comprehensionEvidence": "NONE",
+  "physicalDevices": "NOT RUN"
+}

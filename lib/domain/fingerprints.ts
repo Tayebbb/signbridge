@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { SOURCE_FORM_VERSION, TEXT_FORMS_VERSION, sourceForm } from "./captions/textForms";
 import { SEGMENTER_VERSION } from "./segmentation";
-export const RETRIEVAL_VERSION = "retrieval-v1", CORPUS_RELEASE_ID = "ik2-mendeley-v2", VALIDATOR_VERSION = "validator-v1";
+export const RETRIEVAL_VERSION = "retrieval-v2", CORPUS_RELEASE_ID = "ik2-mendeley-v2", VALIDATOR_VERSION = "validator-v2";
 export function canonicalJson(value: unknown): string {
   const ancestors = new Set<object>();
   function encode(item: unknown): string {

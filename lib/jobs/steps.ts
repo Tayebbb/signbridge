@@ -6,7 +6,8 @@ import {publishTrack} from "../db/queries/publish";
 import {StateError} from "../db/queries/common";
 import {meaningKey,planKey,segmentKey,hash,candidatesHash,trackIdFor,trackFingerprint,VALIDATOR_VERSION} from "../domain/fingerprints";
 import {contextWindow} from "../domain/segmentation";
-import {retrieveCandidates} from "../domain/retrieval";
+import {retrieveCandidates,type Candidate,type SignAssetMetadata} from "../domain/retrieval";
+import {eligibleAssetMetadata} from "../db/queries/corpusRead";
 import {validateMeaning,validatePlan} from "../domain/validators";
 import {buildManifest,type SegmentBuildInput} from "../domain/manifest";
 import {segmentMeaningSchema,meaningJsonSchema,type SegmentMeaning} from "../contracts/meaning";
@@ -29,7 +30,7 @@ export async function processStage(p:Pipeline,jobId:string,runId:string,idx:numb
   try{
     if(stage==="meaning")await runStage(p.store,p.model,{processingEnabled:p.processingEnabled,jobId,proof,idx,stage,key:mKey,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},context_before:context.before,context_after:context.after,title:context.title},schema:segmentMeaningSchema,jsonSchema:meaningJsonSchema,validate:(m,final)=>validateMeaning(m,segment.sourceText,context.before,{final})},p.hooks);
     else{
-      const record=await stageRecord(p.store,mKey);if(!record)throw new StageFailure("meaning_failed");const meaning=segmentMeaningSchema.parse(record.output),candidates=retrieveCandidates(segment.sourceText,meaning,await eligibleAssets(p.store));
+      const record=await stageRecord(p.store,mKey);if(!record)throw new StageFailure("meaning_failed");const meaning=segmentMeaningSchema.parse(record.output),candidates=retrieveCandidates(segment.sourceText,meaning,await eligibleAssetMetadata(p.store));
       const key=planKey(hash(meaning),candidatesHash(candidates.map(c=>({id:c.asset.id,derivedSha256:c.asset.derivedSha256}))),config(profile(p,model),"plan"));
       await runStage(p.store,p.model,{processingEnabled:p.processingEnabled,jobId,proof,idx,stage,key,model,ownerId:data.project.owner_id,data:{segment:{text:segment.sourceText},meaning,context_before:context.before,context_after:context.after,candidates:candidates.map(c=>({id:c.asset.id,label_bn:c.asset.labelBn,kind:c.asset.kind,unit_count:c.asset.unitCount,concept_ids:c.conceptIds,exact_phrase:c.exactPhrase}))},schema:createPlanSchema(candidates.map(c=>c.asset.id)),jsonSchema:planJsonSchema(candidates.map(c=>c.asset.id)),validate:m=>validatePlan(m,meaning,candidates)},p.hooks);
     }
@@ -39,11 +40,14 @@ export async function processStage(p:Pipeline,jobId:string,runId:string,idx:numb
 export async function finishPipeline(p:Pipeline,jobId:string,runId:string){
   const proof={runId};if(!await heartbeat(p.store,jobId,proof))return {status:"fenced" as const};
   const data=await loadJob(p.store,jobId),media=await readyMedia(p.store,data.project.id);if(!media){await failJob(p.store,jobId,"media_unavailable");return {status:"failed" as const};}
-  const assets=await eligibleAssets(p.store),inputs:SegmentBuildInput[]=[];
+  const assets=await eligibleAssetMetadata(p.store),pending:{input:Omit<SegmentBuildInput,"candidates">;candidates:Candidate<SignAssetMetadata>[];assetIds:string[]}[]=[];
   for(const segment of data.segments){const context=contextWindow(data.segments,segment.idx,data.project.title),mKey=meaningKey(segmentKey(segment,context),config(profile(p,data.job.model_profile),"meaning")),m=await stageRecord(p.store,mKey),meaning=m?segmentMeaningSchema.parse(m.output):emptyMeaning(segment.sourceText),candidates=retrieveCandidates(segment.sourceText,meaning,assets);
     const pKey=planKey(hash(meaning),candidatesHash(candidates.map(c=>({id:c.asset.id,derivedSha256:c.asset.derivedSha256}))),config(profile(p,data.job.model_profile),"plan")),plan=await stageRecord(p.store,pKey);
-    inputs.push({segment,meaning,plan:plan?segmentPlanSchema.parse(plan.output):emptyPlan(),candidates,before:context.before,meaningResultKey:mKey,planResultKey:pKey,failed:!m||!plan});
+    const value=plan?segmentPlanSchema.parse(plan.output):emptyPlan();
+    pending.push({input:{segment,meaning,plan:value,before:context.before,meaningResultKey:mKey,planResultKey:pKey,failed:!m||!plan},candidates,assetIds:value.steps.flatMap(step=>step.kind==="asset"&&step.assetId?[step.assetId]:[])});
   }
+  const hydrated=new Map((await eligibleAssets(p.store,pending.flatMap(item=>item.assetIds))).map(a=>[a.id,a]));
+  const inputs:SegmentBuildInput[]=pending.map(item=>({...item.input,candidates:item.candidates.flatMap(candidate=>{const asset=hydrated.get(candidate.asset.id);return asset?[{...candidate,asset}]:[];})}));
   const manifest=buildManifest({trackVersionId:"pending",projectId:data.project.id,transcriptVersion:{id:data.transcript.id,versionNo:data.transcript.version_no,textHash:data.transcript.text_hash},media:{contentSha256:media.client_sha256,sizeBytes:media.size_bytes,durationMs:media.client_duration_ms},provenance:{corpusReleaseId:"ik2-mendeley-v2",corpusLicense:"CC-BY-4.0",corpusAttribution:await corpusAttribution(p.store),sourceFormVersion:"src-v1",sigmlBuilderVersion:"sigml-builder-v2",modelProfile:profile(p,data.job.model_profile),promptVersions:PROMPT_VERSIONS,validatorVersion:VALIDATOR_VERSION},anchors:[],segments:inputs});
   manifest.trackVersionId=trackIdFor(jobId,trackFingerprint(manifest));const result=await publishTrack(p.store,jobId,proof,manifest);return result;
 }

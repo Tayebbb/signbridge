@@ -19,14 +19,20 @@ export function importCorpus(inputs:readonly CorpusInput[], checks:readonly Asse
       const derived=deriveSigml(group[0].xml), derivedSha256=sha256(derived.derivedSigml), id=`ik2_${originalSha256.slice(0,12)}`;
       const stems=group.map(g=>g.sourceName.replace(/\.sigml$/iu,""));
       const primary=group.findIndex(g=>g.category.startsWith("Sentence")), selected=primary>=0?primary:0;
-      const labelBn=stems[selected].split(/\s+\(/u)[0].trim();
+      const labels=stems.map(stem=>{
+        const label=stem.split(/\s+\(/u)[0].trim();
+        // Strip only a filename's explicit English translation suffix from
+        // lexical entries. Keep the original filename as an alias/provenance.
+        return primary<0 && /\p{Script=Bengali}/u.test(label) ? label.replace(/_+[A-Za-z].*$/u,"").trim() : label;
+      });
+      const labelBn=labels[selected];
       const renderEvidence=checks.find(c=>c.assetId===id&&c.derivedSha256===derivedSha256&&c.rendererProfile==="cwasa-vhg2026/anna/speed0");
       const eligible=Boolean(renderEvidence?.passed&&renderEvidence.signs===derived.unitCount&&Number.isInteger(renderEvidence.frames)&&renderEvidence.frames>0&&renderEvidence.frameEvents>0&&Number.isFinite(renderEvidence.elapsedMs)&&renderEvidence.elapsedMs>0);
       assets.push({id,corpusReleaseId:CORPUS_RELEASE_ID,kind:primary>=0?"sentence" as const:"lexical" as const,labelBn,labelPhraseForm:phraseForm(labelBn),
         sourcePaths:group.map(g=>g.sourcePath),sourceUrls:group.map(g=>g.sourceUrl),originalSha256,derivedSha256,derivedSigml:derived.derivedSigml,unitCount:derived.unitCount,
         units:derived.units.map((sigml,idx)=>({idx,gloss:`u${idx}`,sigml})),derivationVersion:"gloss-ascii-v2",renderState:eligible?"rendered_ok" as const:renderEvidence?"render_failed" as const:"untested" as const,
         renderEvidence:renderEvidence??null,eligible,estimatedDurationMs:eligible?Math.ceil(renderEvidence!.elapsedMs*1.1):derived.unitCount*1000,
-        aliases:[...new Set([...stems,labelBn])],
+        aliases:[...new Set([...stems,...labels])],
       });
     }catch(error){if(!(error instanceof SigmlError))throw error;rejected.push({originalSha256,sourcePaths:group.map(g=>g.sourcePath),reason:String(error)});}
   }
@@ -40,7 +46,7 @@ const literal=(value:unknown):string=>value===null?"NULL":typeof value==="boolea
 export function corpusSeedSql(corpus:CorpusImport):string {
   const release=corpus.release;
   const lines=[`INSERT INTO corpus_releases(id,doi,license,attribution,manifest_sha256) VALUES (${[release.id,release.doi,release.license,release.attribution,release.manifestSha256].map(literal).join(",")}) ON CONFLICT(id) DO UPDATE SET manifest_sha256=excluded.manifest_sha256;`];
-  for(const a of corpus.assets)lines.push(`INSERT INTO sign_assets(id,corpus_release_id,kind,label_bn,label_phrase_form,source_paths,original_sha256,derived_sha256,derived_sigml,unit_count,units,derivation_version,render_state,render_evidence,eligible) VALUES (${[a.id,a.corpusReleaseId,a.kind,a.labelBn,a.labelPhraseForm].map(literal).join(",")},ARRAY[${a.sourcePaths.map(literal).join(",")}],${[a.originalSha256,a.derivedSha256,a.derivedSigml,a.unitCount,JSON.stringify(a.units),a.derivationVersion,a.renderState,a.renderEvidence?JSON.stringify(a.renderEvidence):null,a.eligible].map(literal).join(",")}) ON CONFLICT(id) DO UPDATE SET render_state=excluded.render_state,render_evidence=excluded.render_evidence,eligible=excluded.eligible;`);
+  for(const a of corpus.assets)lines.push(`INSERT INTO sign_assets(id,corpus_release_id,kind,label_bn,label_phrase_form,source_paths,original_sha256,derived_sha256,derived_sigml,unit_count,units,derivation_version,render_state,render_evidence,eligible) VALUES (${[a.id,a.corpusReleaseId,a.kind,a.labelBn,a.labelPhraseForm].map(literal).join(",")},ARRAY[${a.sourcePaths.map(literal).join(",")}],${[a.originalSha256,a.derivedSha256,a.derivedSigml,a.unitCount,JSON.stringify(a.units),a.derivationVersion,a.renderState,a.renderEvidence?JSON.stringify(a.renderEvidence):null,a.eligible].map(literal).join(",")}) ON CONFLICT(id) DO UPDATE SET label_bn=excluded.label_bn,label_phrase_form=excluded.label_phrase_form,render_state=excluded.render_state,render_evidence=excluded.render_evidence,eligible=excluded.eligible;`);
   for(const a of corpus.aliases)lines.push(`INSERT INTO asset_aliases(alias_norm,asset_id,source) VALUES (${[a.aliasNorm,a.assetId,a.source].map(literal).join(",")}) ON CONFLICT DO NOTHING;`);
   return lines.join("\n")+"\n";
 }
@@ -62,8 +68,8 @@ async function main() {
   await writeFile(`${outputDir}/assets.json`,JSON.stringify(corpus,null,2)+"\n");
   await writeFile(`${outputDir}/seed.sql`,corpusSeedSql(corpus));
   const sampleIds=new Set(samples.map(s=>`ik2_${s.sha256.slice(0,12)}`));
-  const probe=corpus.assets.filter(a=>sampleIds.has(a.id)).map(a=>({assetId:a.id,labelBn:a.labelBn,derivedSha256:a.derivedSha256,unitCount:a.unitCount,xml:buildSigml(0,[{stepIdx:0,derivedSigml:a.derivedSigml,unitCount:a.unitCount}]).text}));
-  await writeFile(`${outputDir}/sample-probe.json`,JSON.stringify(probe,null,2)+"\n");
+  const probe=corpus.assets.filter(a=>args.includes("--probe-all")||sampleIds.has(a.id)).map(a=>({assetId:a.id,labelBn:a.labelBn,derivedSha256:a.derivedSha256,unitCount:a.unitCount,xml:buildSigml(0,[{stepIdx:0,derivedSigml:a.derivedSigml,unitCount:a.unitCount}]).text}));
+  await writeFile(`${outputDir}/${args.includes("--probe-all")?"asset-probe":"sample-probe"}.json`,JSON.stringify(probe,null,2)+"\n");
   if(!args.includes("--output-dir"))await writeFile("tests/fixtures/corpus-samples.json",JSON.stringify(inputs.filter(i=>sampleIds.has(`ik2_${i.sha256.slice(0,12)}`)),null,2)+"\n");
   const summary={files:corpus.files,distinctHashes:corpus.distinctHashes,assets:corpus.assets.length,aliases:corpus.aliases.length,units:corpus.assets.reduce((s,a)=>s+a.unitCount,0),eligible:corpus.assets.filter(a=>a.eligible).length,manifestSha256:corpus.release.manifestSha256,rejected:corpus.rejected};
   await writeFile(`${evidenceDir}/import.json`,JSON.stringify(summary,null,2)+"\n");console.log(JSON.stringify({...summary,rejected:summary.rejected.length}));
