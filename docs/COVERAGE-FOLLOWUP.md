@@ -1,6 +1,6 @@
 # Coverage and submission follow-up — 5 November 2026
 
-**Status: PARTIAL — technical coverage improved; ordinary-video signing still has critical gaps. Final release promotion and submission are being completed.**
+**Status: PARTIAL — technical coverage improved; ordinary-video signing still has critical gaps. The engineering release is live and verified; the submission publication state is recorded below.**
 
 The live services are real. This report does not certify general BdSL translation, language correctness or comprehension. The [initial normal-video failure](NORMAL-VIDEO-TEST.md) remains part of the evidence.
 
@@ -61,15 +61,19 @@ These are individual observations with differing network/cache conditions, not l
 | Product browsers | 22 PASS: 11 Chromium + 11 Edge |
 | Initial foundation checks | 6 PASS |
 | First-load hydration regressions | 2 reproduced failures; fixed foundation suite passes 10 checks across Chromium/Edge |
-| Dependency audit | 0 vulnerabilities |
+| Production dependency audit (`--omit=dev`) | 0 vulnerabilities |
 | Configured-credential / history / startup-bundle scan | No findings before publication |
 | Original design | SHA-256 unchanged: `AD91E87CDE437B3CD430EF7102D51D9C7E7093875D68FAF24369330ABA307E4D` |
 | Qualified language / comprehension evaluation | NOT RUN; evidence NONE |
 | Physical Android/iPhone | NOT RUN |
 
-Core source commit: `ff4379fd948b1c09ac2cde8f350058e0d1336efe`. [Its exact-SHA hosted gate passed](https://github.com/Tayebbb/signbridge/actions/runs/41994741758). First-load controls were subsequently found clickable before JavaScript attached, causing a native GET. Creation/recovery now remain disabled until hydration, retain the existing layout and use POST as fallback. The final UI source/deployment and hosted attestation are recorded when that gate closes.
+Core source commit: `ff4379fd948b1c09ac2cde8f350058e0d1336efe`. [Its exact-SHA hosted gate passed](https://github.com/Tayebbb/signbridge/actions/runs/41994741758). First-load controls were subsequently found clickable before JavaScript attached, causing a native GET. Creation/recovery now remain disabled until hydration, retain the existing layout and use POST as fallback. The final UI source is `30f00979a73e7df9d58cd570c1e1ef99b31a1690`; [its exact-SHA hosted gate passed](https://github.com/Tayebbb/signbridge/actions/runs/42026962791). Production deployment `dpl_wSuGqYthumvLFBSTCyyWFr7kHrco` is promoted to the public app. Fresh staged/public uploads and saved playback passed with zero additional model calls or ledger changes. [Release attestation](evidence/hydration-2026-11-05/release/attestation.json). A replay-harness attempt initially used the old deployment's host-only cookie on a new origin; the corrected harness maps the same approved creator credential only to the same project's tested origin. This was a harness authorization error, not a widened application permission.
 
 Combined counted usage after this real job is **USD 0.338618**, with zero outstanding reservations, below the approved USD 4 ceiling. No purchases, plan upgrades, billing changes or allowance increases were made.
+
+The hosted run passed 234 default, 53 native PostgreSQL and 22 product-browser checks. Its foundation configuration selected five Chromium checks on Ubuntu; all five also passed in Edge locally, giving ten local foundation checks. [Hosted summary](evidence/hydration-2026-11-05/release/hosted-summary.json). Browser emulation is not physical-phone evidence.
+
+The final toolchain follow-up removes all 12 moderate development-tree audit entries through two narrowly scoped transitive overrides. The complete dependency audit now reports **zero vulnerabilities**, and the actual Drizzle schema loader generates successfully into a disposable local directory without accessing a database. CI now gates the complete audit and checks that loader. Foundation configuration also detects the installed Linux Edge binary, so its next hosted gate includes both browsers. [Before](evidence/hydration-2026-11-05/release/full-audit-before.json), [after](evidence/hydration-2026-11-05/release/full-audit-after.json), [loader check](evidence/hydration-2026-11-05/release/schema-tooling.json). The subsequent exact-source hosted result and deployment are recorded separately after completion.
 
 ## Submission state
 

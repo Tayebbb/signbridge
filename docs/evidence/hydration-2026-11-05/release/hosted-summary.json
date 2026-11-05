@@ -1,0 +1,38 @@
+{
+  "sourceCommit": "30f00979a73e7df9d58cd570c1e1ef99b31a1690",
+  "runUrl": "https://github.com/Tayebbb/signbridge/actions/runs/42026962791",
+  "artifactId": "13413923785",
+  "environment": "GitHub-hosted Ubuntu, Node 24",
+  "defaultTests": 234,
+  "nativePostgresTests": 53,
+  "product": {
+    "chromium": {
+      "startTime": "2026-11-05T12:27:36.526Z",
+      "duration": 99271.528,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "msedge": {
+      "startTime": "2026-11-05T12:29:16.376Z",
+      "duration": 83899.629,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "foundation": {
+    "chromium": {
+      "startTime": "2026-11-05T12:30:41.054Z",
+      "duration": 26613.300000000003,
+      "expected": 5,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "msedge": "Not selected by the foundation config Windows path detection on Ubuntu; all 5 cases pass in Edge locally (10 total local checks)."
+  },
+  "productionDependencyAuditVulnerabilities": 0
+}

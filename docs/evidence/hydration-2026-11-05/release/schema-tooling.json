@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-05T12:36:34.344Z",
+  "command": "node node_modules/drizzle-kit/bin.cjs generate --dialect postgresql --schema ./lib/db/schema.ts --out ./.data/dev-tool-check/generated",
+  "exitCode": 0,
+  "scope": "Local disposable output only; no DB connection or migration applied",
+  "esbuildOverride": "@esbuild-kit/core-utils > esbuild 0.25.12",
+  "minimatchOverride": "@typescript-eslint/typescript-estree > minimatch 11.0.4",
+  "fullAuditVulnerabilitiesBefore": 12,
+  "fullAuditVulnerabilitiesAfter": 0
+}
