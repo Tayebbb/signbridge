@@ -7,11 +7,11 @@
 
 SignBridge pairs a short captioned video with sequential avatar signing. The source plays first, then holds while the avatar signs. Missing critical concepts block completion, and corrections produce a new saved track while older work is fenced out.
 
-[Live application](https://signbridge-mdtayebibne-4755s-projects.vercel.app) · [Architecture](SYSTEM-DESIGN.md) · [Release verification](docs/HARDENING-REPORT.md) · [Operations](docs/OPERATIONS.md)
+[Live application](https://signbridge-sable-sigma.vercel.app) · [Architecture](SYSTEM-DESIGN.md) · [Current verification](docs/COVERAGE-FOLLOWUP.md) · [Operations](docs/OPERATIONS.md)
 
 > Signing remains experimental and unreviewed. Rendering an animation does not establish correct BdSL or user comprehension. No qualified language review or comprehension study is claimed.
 
-**Real-world test:** a 29-second Bengali interview with published captions produced **0 signing units across four segments**. Missing vocabulary and conservative validation blocked every segment. The browser-upload failure found during that test is fixed, but general-video signing is not ready. See the [normal-video test report](docs/NORMAL-VIDEO-TEST.md).
+**Real-world test:** the same 29-second Bengali interview improved from **zero to nine playable signing units** after the coverage fixes. All nine played in order, but **all four segments still have critical gaps and none count as fully signed**. General-video BdSL signing remains unverified. Read the [follow-up and exact limits](docs/COVERAGE-FOLLOWUP.md) and the [initial failure report](docs/NORMAL-VIDEO-TEST.md).
 
 ## What works
 
@@ -112,7 +112,9 @@ The manual public-browser workflow verifies the saved production sample with the
 | Linguistic correctness | **None.** No qualified BdSL signer assessed these exact rendered versions. |
 | User comprehension | **None.** No consented comprehension evaluation with Deaf/BdSL users. |
 
-Production currently enables 12 hash-matched, technically probed assets. Conservative detectors, unsupported nonmanual features and composed sequences can produce blocked or unsuitable output. Automated gap checks, mobile emulation and accessibility scans do not replace qualified review, comprehension research or physical-device observations.
+Production enables **2,927 hash-matched assets** that passed real technical rendering checks. Seven accepted assets failed rendering and remain ineligible; 174 original XML hashes remain quarantined. The local default fixture retains its historical 20-asset gate. Conservative detectors, unsupported nonmanual features and composed sequences can produce blocked or unsuitable output. Automated checks do not replace qualified review, comprehension research or physical-device observations.
+
+Planning reads corpus metadata; publication fetches motion XML only for selected eligible assets. This avoids repeatedly loading the full motion inventory. The [follow-up report](docs/COVERAGE-FOLLOWUP.md) records measured bytes/timings, unchanged saved tracks, current checks and metered use.
 
 Clips are limited to 90 seconds, 15 MB and 20 segments. Free infrastructure and a small credit allocation impose capacity limits. UEA, WebGL and the configured providers remain runtime dependencies. See [limitations](docs/LIMITATIONS.md) and [operations](docs/OPERATIONS.md).
 
@@ -133,3 +135,7 @@ The original `phase-1` through `phase-8` tags are preserved. Later rechecks and 
 ## Attribution
 
 Sign data: **IsharaKotha v2**, **CC BY 4.0**. Renderer: the unmodified remote **University of East Anglia CWASA vhg2026 / Anna**, under its own terms. The official event sticker was supplied and confirmed by the owner; its original bytes are retained with responsive delivery optimization. See [ATTRIBUTION.md](docs/ATTRIBUTION.md) for provenance and prior work.
+
+## Buildathon submission
+
+The project story, five-slide deck and English narrated explainer describe an experimental technical application. Older counts shown in the supplied media are an earlier release snapshot; current evidence is linked above. Submission requirements and actual publication state are recorded in [submission/HANDOFF.md](submission/HANDOFF.md). Participant contact details stay in the organizers' form and are excluded from this repository.

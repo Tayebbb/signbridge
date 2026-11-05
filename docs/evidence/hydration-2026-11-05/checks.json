@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-05T09:36:27.206Z",
+  "beforeFix": {
+    "heldFirstPartyScripts": true,
+    "failed": 2,
+    "scope": "Creation and recovery were enabled before hydration"
+  },
+  "afterFix": {
+    "defaultTests": 234,
+    "nativePostgresRetainedFromCore": 53,
+    "productBrowsers": 22,
+    "foundation": 10,
+    "failed": 0,
+    "skipped": 0
+  },
+  "visualReview": {
+    "desktop": true,
+    "width390": true,
+    "loading": true,
+    "ready": true,
+    "overflow": false,
+    "environment": "Windows Chromium/Edge, local fake/processing-disabled fixture; not physical phones"
+  },
+  "detectorFindings": [],
+  "coreHostedGate": "https://github.com/Tayebbb/signbridge/actions/runs/41994741758",
+  "status": "PASS for first-load engineering checks; no language-quality inference"
+}

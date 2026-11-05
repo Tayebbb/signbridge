@@ -1,4 +1,4 @@
-<!-- Five submission slides. Export: python scripts/export-submission-deck.py -->
+<!-- Current five-slide technical outline. deck.pdf is the separately authored PDF supplied by the owner, an earlier evidence snapshot; do not describe this outline as its exact export source. -->
 # SignBridge
 
 A signing companion that shows its gaps.
@@ -27,7 +27,7 @@ Source: phase-7 T1/T2/T14; refreshed final production captures, 4 November 2026,
 ```text
 Browser -> Next.js API -> Workflow steps -> OpenAI Responses
 Neon SQL: owner, epoch, stage cache, budgets, versioned manifest
-Private Blob: signed source video | UEA CWASA: isolated signing iframe
+Private Blob: authorized range streaming | UEA CWASA: isolated signing iframe
 ```
 
 - Propose meaning and corpus-asset steps; validate structure and critical gaps; allow one repair, then persist the result.
@@ -41,19 +41,20 @@ Source: phase reports 3-7; T6/T7/T9/T16/T20/T22. One actual Workflow survived pr
 
 | Category | Current evidence |
 |---|---|
-| Technical renderability | 20/20 sampled corpus files in Phase 2; 12/12 curated assets in Phase 7. One Windows host, software WebGL. Six production segments replayed in Chrome and Edge. |
+| Technical renderability | 2,927 of 2,934 accepted corpus hashes passed; seven failed and remain ineligible. One Windows host, software WebGL. The ordinary-video follow-up played nine units, but all four segments remain blocked. |
 | Linguistic correctness | None. No qualified BdSL signer assessed these exact rendered tracks. |
 | User comprehension | None. No evaluation using tasks with Deaf/BdSL users. |
 
-Engineering checks: 194 release tests, 51 native PostgreSQL tests, 16 local browser tests; production T1/T2/T9/T14 pass. These are not language-quality scores.
+Engineering checks: 234 default tests, 53 native PostgreSQL tests, 22 product-browser checks and 10 foundation checks. Original production T1/T2/T9/T14 remain historical gates. These are not language-quality scores.
 
 SignOLight documents video-to-avatar; IsharaKotha supplies prior text-to-avatar research and corpus assets. Our tested contribution is the combination of source-frame holds, durable caption edits, saved replay and visible critical gaps. No firstness claim.
 
-Source: phase reports 2-7 and dated phase-6/7 rechecks; SYSTEM-DESIGN.md H.3; competition-event.md prior-art audit (3 November 2026).
+Source: docs/COVERAGE-FOLLOWUP.md; original phase reports and dated rechecks; SYSTEM-DESIGN.md H.3; competition-event.md prior-art audit (3 November 2026).
 
 ---
 # Solo build, followed by formative evaluation
 
+- Participant: **Md Tayeb Ibne Sayed**, solo entry. The owner-supplied PDF contains the participant introduction and personal motivation.
 - Built as a solo project using AI coding tools. Next: consented formative sessions with qualified Deaf/BdSL reviewers, assessing exact rendered versions and critical gaps.
 - Run separate comprehension tasks with Deaf/BdSL users; report participant numbers, errors and uncertainty before making outcome claims.
 - Check real Android and iPhone performance. The owner supplied the official event sticker; it is used unchanged in the top banner.

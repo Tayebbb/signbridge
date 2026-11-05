@@ -2,6 +2,8 @@
 
 Updated 2026-11-04, Asia/Dhaka. Original Phase 7 T1/T2/T9/T14 PASS. Public production: https://signbridge-mdtayebibne-4755s-projects.vercel.app. Preview and production each processed/pinned A (six ready segments) and deliberately unsupported B. The original verification used USD 0.101634, zero outstanding reservations; USD 4 existing-credit ceiling. Phase 8 is committed/tagged and resolved the sticker blocker with the owner's official asset. Repeat-check evidence is recorded separately under docs/evidence/rechecks/phase-7-2026-11-04/.
 
+Later hardening and corpus changes are documented in [COVERAGE-FOLLOWUP.md](COVERAGE-FOLLOWUP.md) and [OPERATIONS.md](OPERATIONS.md). Current combined counted use is USD 0.338618, not the original Phase 7 total. Existing approvals remain limited to free infrastructure and the USD 4 overall credit ceiling; do not restore larger caps. The full corpus promotion has separate exact-hash evidence and must not be replaced by the local 20-asset fixture. CLI 65.11.0 uses `deploy --dry --json` to inspect inputs and `deploy --prod --skip-domain` to stage production configuration; no environment change is needed for this follow-up.
+
 ## Required owner inputs
 
 - Owner approved up to USD 4 total of existing OpenAI credits, with minimum practical use, and identified the local credential file privately. No credit purchases, upgrades or billing-setting changes. Actual metered smoke cost: USD 0.018616; count subsequent use across both databases against the single ceiling.

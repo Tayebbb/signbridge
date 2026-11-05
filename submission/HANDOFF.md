@@ -1,13 +1,14 @@
-# Submission handoff - 4 November 2026, Asia/Dhaka
+# Submission handoff — 5 November 2026, Asia/Dhaka
 
-The five-slide Markdown/PDF, Devpost draft and English recording script are ready for review. Nothing has been submitted to Devpost and no eligibility or registration claim has been made.
+**Status: DRAFT, 4/5 Devpost steps saved; final release checks and submission are being completed.**
 
-- The owner supplied `public/event-sticker.png` and confirmed it is the official organizer asset. It is used unchanged; final smoke checks each full-page route and compares served bytes with the original.
-- Verify your existing event registration and student eligibility. The public header says 5 November at 22:00 +06; rules prose says 23:59. Use the earlier 22:00 deadline. Individual participation and at most five slides are required; the English video is optional. [Official rules](https://yunet-aignite26.devpost.com/rules).
-- Record the optional script yourself. Its fresh-processing scene has not been recorded for you; the included fault/recovery captures are explicitly controlled technical tests.
-- Physical Android/iPhone observations remain NOT RUN. Use `docs/MOBILE-TEST.md`; do not turn portrait-layout captures into physical-device results.
-- Keep the three evidence categories distinct. Technical rendering is observed; linguistic correctness and user comprehension have no evidence.
+- [Devpost project](https://devpost.com/software/signbridge-6pw9f7), submission ID `1281751`: project name/pitch, current story, technology tags and live/repository links saved.
+- The owner-supplied five-page `SignBridge-deck.pdf` is attached and its filename verified. [Repository copy](deck.pdf) preserves the supplied bytes. Its earlier evidence counts are identified as a snapshot; [current results](../docs/COVERAGE-FOLLOWUP.md) are separate. [Current text outline](deck.md) is not claimed as that PDF's exact export source.
+- [English narrated video](https://youtu.be/goRXOQeq9lQ) is published as Unlisted on the owner's existing channel, with both Devpost video-link fields saved. Verified source: `ad/signbridge-explainer-voiced.mp4`, 1080p, 5:05, H.264/AAC, 34,558,638 bytes. [Upload metadata and description](youtube.md).
+- Participant name and WhatsApp contact were supplied by the owner and saved only in the organizers' form. The owner explicitly confirmed eligibility and approved YouTube Terms/Guidelines and Devpost/event Rules/Terms at the action point. No further permission is needed for the authorized submission.
+- The official organizer PNG is unchanged and visible near the top of the live app.
+- Deadline: use **5 November, 22:00 Bangladesh time**, the earlier live-form deadline; rules prose also lists 23:59. [Official rules](https://yunet-aignite26.devpost.com/rules).
 
-Evidence trail: deck slide sources -> phase reports -> raw artifacts with hashes. Phase 7 measured usage is USD 0.101634, with no additional model calls requested for this submission pass. Current runtime budgets remain bounded; no plan upgrades or purchases were made.
+The real normal-video follow-up played nine units, but all four segments retain critical gaps and none counts as fully signed. Linguistic correctness/comprehension evidence remains NONE; physical Android/iPhone observations remain NOT RUN. The submission is described honestly as an experimental connected application.
 
-This package describes the existing deployed release, as the owner requested. Concurrent scheduler changes and their test/evidence edits are preserved separately and have not been deployed or included in these release claims. The dated Phase 7 recheck passed; refreshed Phase 8 captures and PDF review are stored under `docs/evidence/final/recheck-2026-11-04/`. Original phase tags and reports remain historical records.
+Combined counted verification usage is USD 0.338618, zero outstanding reservations, below the approved USD 4 ceiling. No purchases, plan upgrades, billing changes or cap increases were made. Existing phase tags/reports and concurrent main-checkout work are preserved.

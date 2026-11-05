@@ -1,0 +1,369 @@
+{
+  "date": "2026-11-05T08:53:08.491Z",
+  "origin": "https://signbridge-4u5ollv4m-mdtayebibne-4755s-projects.vercel.app",
+  "projectId": "54a53244-9043-4ad1-90e4-7fbe1d59eed9",
+  "jobId": "f96ad5e8-1300-42d6-8899-dc5352c1de8c",
+  "jobStatus": "partial",
+  "source": {
+    "title": "WIKITONGUES: Pradeep speaking Bengali",
+    "authors": "Wikitongues; Hardeep Singh",
+    "source": "https://commons.wikimedia.org/wiki/File:WIKITONGUES-_Pradeep_speaking_Bengali.webm",
+    "captions": "https://commons.wikimedia.org/wiki/TimedText:WIKITONGUES-_Pradeep_speaking_Bengali.webm.bn.srt",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "First 28.76 seconds; scaled to 640x360 and transcoded to H.264/AAC. Published caption wording unchanged; first eight cues retained.",
+    "speech": "Real human Bengali speech, not generated or simplified",
+    "sizeBytes": 780825,
+    "sha256": "0e2b1c2679db2fb2b94d3afede9a968e088e2a3c44c51476a303a07bdffb88c8",
+    "durationMs": 28763,
+    "width": 640,
+    "height": 360,
+    "cues": 8
+  },
+  "browserVersion": "156.0.8078.4",
+  "workflow": "Actual live frontend upload, preview, build, saved result, source playback and sharing; no mocked engine or model",
+  "browserUploadPassed": true,
+  "modelProfile": "gpt-6.1-sol",
+  "manifestHash": "a015161efaf8218c0b4540cf6b871eb48789ad791d0b5d0b5b630c7c50a19e62",
+  "segments": [
+    {
+      "idx": 0,
+      "startMs": 0,
+      "endMs": 3318,
+      "sourceTextBn": "আমি প্রদীপ ভট্টাচার্য বলছি।",
+      "technicalStatus": "partial_blocked",
+      "unitCount": 1,
+      "criticalGaps": [
+        {
+          "role": "actor",
+          "reason": "no_candidate",
+          "conceptId": "c1",
+          "surfaceBn": "আমি"
+        },
+        {
+          "role": "attribute",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c2",
+          "surfaceBn": "প্রদীপ ভট্টাচার্য"
+        }
+      ],
+      "ambiguities": []
+    },
+    {
+      "idx": 1,
+      "startMs": 3320,
+      "endMs": 14171,
+      "sourceTextBn": "আজ থেকে প্রায় ৪০ বছর আগে, ১৯৮০ সালে আমরা, বোকারো স্টিল প্ল্যান্টে চাকরিসূত্রে আসা আমার।",
+      "technicalStatus": "partial_blocked",
+      "unitCount": 1,
+      "criticalGaps": [
+        {
+          "role": "time",
+          "reason": "no_candidate",
+          "conceptId": "c1",
+          "surfaceBn": "আজ থেকে"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c2",
+          "surfaceBn": "প্রায়"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c3",
+          "surfaceBn": "৪০"
+        },
+        {
+          "role": "time",
+          "reason": "no_candidate",
+          "conceptId": "c4",
+          "surfaceBn": "বছর আগে"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c5",
+          "surfaceBn": "১৯৮০"
+        },
+        {
+          "role": "time",
+          "reason": "no_candidate",
+          "conceptId": "c6",
+          "surfaceBn": "সালে"
+        },
+        {
+          "role": "actor",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c7",
+          "surfaceBn": "আমরা"
+        },
+        {
+          "role": "location",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c8",
+          "surfaceBn": "বোকারো স্টিল প্ল্যান্টে"
+        },
+        {
+          "role": "other",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c9",
+          "surfaceBn": "চাকরিসূত্রে"
+        },
+        {
+          "role": "action",
+          "reason": "ambiguous_source",
+          "conceptId": "c10",
+          "surfaceBn": "আসা"
+        },
+        {
+          "role": "other",
+          "reason": "ambiguous_source",
+          "conceptId": "c10",
+          "surfaceBn": "বাক্যটি অসম্পূর্ণ। «আমরা» এবং «আসা আমার» থেকে আসার কর্তা সমষ্টিগত «আমরা», নাকি বক্তা নিজে, তা নিশ্চিত নয়।"
+        },
+        {
+          "role": "other",
+          "reason": "ambiguous_source",
+          "conceptId": "c11",
+          "surfaceBn": "শেষের «আমার»-এর বাক্যগত সংযোগ অসম্পূর্ণ।"
+        }
+      ],
+      "ambiguities": [
+        {
+          "blocking": true,
+          "description": "বাক্যটি অসম্পূর্ণ। «আমরা» এবং «আসা আমার» থেকে আসার কর্তা সমষ্টিগত «আমরা», নাকি বক্তা নিজে, তা নিশ্চিত নয়।"
+        },
+        {
+          "blocking": true,
+          "description": "শেষের «আমার»-এর বাক্যগত সংযোগ অসম্পূর্ণ।"
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "startMs": 14175,
+      "endMs": 25119,
+      "sourceTextBn": "এবং আমার সঙ্গে প্রায় ৭০-৮০ জন একই সাথে একই বয়সের নবীন ইঞ্জিনিয়াররা একসাথে আমরা বোকারোতে জয়েন করেছিলাম।",
+      "technicalStatus": "partial_blocked",
+      "unitCount": 2,
+      "criticalGaps": [
+        {
+          "role": "other",
+          "reason": "no_candidate",
+          "conceptId": "c3",
+          "surfaceBn": "সঙ্গে"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c4",
+          "surfaceBn": "প্রায়"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c5",
+          "surfaceBn": "৭০-৮০"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c6",
+          "surfaceBn": "৭০"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c7",
+          "surfaceBn": "৮০"
+        },
+        {
+          "role": "quantity",
+          "reason": "no_candidate",
+          "conceptId": "c8",
+          "surfaceBn": "জন"
+        },
+        {
+          "role": "time",
+          "reason": "no_candidate",
+          "conceptId": "c9",
+          "surfaceBn": "একই সাথে"
+        },
+        {
+          "role": "attribute",
+          "reason": "no_candidate",
+          "conceptId": "c10",
+          "surfaceBn": "একই বয়সের"
+        },
+        {
+          "role": "attribute",
+          "reason": "no_candidate",
+          "conceptId": "c11",
+          "surfaceBn": "নবীন"
+        },
+        {
+          "role": "actor",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c12",
+          "surfaceBn": "ইঞ্জিনিয়াররা"
+        },
+        {
+          "role": "other",
+          "reason": "no_candidate",
+          "conceptId": "c13",
+          "surfaceBn": "একসাথে"
+        },
+        {
+          "role": "actor",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c14",
+          "surfaceBn": "আমরা"
+        },
+        {
+          "role": "location",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c15",
+          "surfaceBn": "বোকারোতে"
+        },
+        {
+          "role": "action",
+          "reason": "no_candidate",
+          "conceptId": "c16",
+          "surfaceBn": "জয়েন করেছিলাম"
+        }
+      ],
+      "ambiguities": []
+    },
+    {
+      "idx": 3,
+      "startMs": 25120,
+      "endMs": 28759,
+      "sourceTextBn": "বোকারো স্টিলও অনেক এগিয়ে গেছে এবং আমাদের জীবনযাত্রায়ও অনেক পরিবর্তন হয়েছে।",
+      "technicalStatus": "partial_blocked",
+      "unitCount": 5,
+      "criticalGaps": [
+        {
+          "role": "actor",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c1",
+          "surfaceBn": "বোকারো স্টিলও"
+        },
+        {
+          "role": "quantity",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c2",
+          "surfaceBn": "অনেক"
+        },
+        {
+          "role": "other",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c5",
+          "surfaceBn": "আমাদের"
+        },
+        {
+          "role": "location",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c6",
+          "surfaceBn": "জীবনযাত্রায়ও"
+        },
+        {
+          "role": "quantity",
+          "reason": "candidate_meaning_mismatch",
+          "conceptId": "c7",
+          "surfaceBn": "অনেক"
+        }
+      ],
+      "ambiguities": []
+    }
+  ],
+  "observations": [
+    {
+      "idx": 0,
+      "sourcePlayed": true,
+      "gapCardVisible": true,
+      "captionVisible": true,
+      "gapCardText": "Incomplete — actor, attribute not signed\n\nআমি · প্রদীপ ভট্টাচার্য\n\nAvailable signs may convey a different or opposite meaning. Read the caption before continuing.\n\nPlay available signs\nSkip segment",
+      "fullySigned": false,
+      "rendering": {
+        "seen": [
+          "g2_s0a2u0"
+        ],
+        "expected": [
+          "g2_s0a2u0"
+        ],
+        "allAvailableUnitsRendered": true
+      }
+    },
+    {
+      "idx": 1,
+      "sourcePlayed": true,
+      "gapCardVisible": true,
+      "captionVisible": true,
+      "gapCardText": "Incomplete — time, quantity, quantity, time, quantity, time, actor, location, other, action, other, other not signed\n\nআজ থেকে · প্রায় · ৪০ · বছর আগে · ১৯৮০ · সালে · আমরা · বোকারো স্টিল প্ল্যান্টে · চাকরিসূত্রে · আসা · বাক্যটি অসম্পূর্ণ। «আমরা» এবং «আসা আমার» থেকে আসার কর্তা সমষ্টিগত «আমরা», নাকি বক্তা নিজে, তা নিশ্চিত নয়। · শেষের «আমার»-এর বাক্যগত সংযোগ অসম্পূর্ণ।\n\nAvailable signs may convey a different or opposite meaning. Read the caption before continuing.\n\nPlay available signs\nSkip segment",
+      "fullySigned": false,
+      "rendering": {
+        "seen": [
+          "g4_s1a5u0"
+        ],
+        "expected": [
+          "g4_s1a5u0"
+        ],
+        "allAvailableUnitsRendered": true
+      }
+    },
+    {
+      "idx": 2,
+      "sourcePlayed": true,
+      "gapCardVisible": true,
+      "captionVisible": true,
+      "gapCardText": "Incomplete — other, quantity, quantity, quantity, quantity, quantity, time, attribute, attribute, actor, other, actor, location, action not signed\n\nসঙ্গে · প্রায় · ৭০-৮০ · ৭০ · ৮০ · জন · একই সাথে · একই বয়সের · নবীন · ইঞ্জিনিয়াররা · একসাথে · আমরা · বোকারোতে · জয়েন করেছিলাম\n\nAvailable signs may convey a different or opposite meaning. Read the caption before continuing.\n\nPlay available signs\nSkip segment",
+      "fullySigned": false,
+      "rendering": {
+        "seen": [
+          "g6_s2a0u0",
+          "g6_s2a1u0"
+        ],
+        "expected": [
+          "g6_s2a0u0",
+          "g6_s2a1u0"
+        ],
+        "allAvailableUnitsRendered": true
+      }
+    },
+    {
+      "idx": 3,
+      "sourcePlayed": true,
+      "gapCardVisible": true,
+      "captionVisible": true,
+      "gapCardText": "Incomplete — actor, quantity, other, location, quantity not signed\n\nবোকারো স্টিলও · অনেক · আমাদের · জীবনযাত্রায়ও · অনেক\n\nAvailable signs may convey a different or opposite meaning. Read the caption before continuing.\n\nPlay available signs\nSkip segment",
+      "fullySigned": false,
+      "rendering": {
+        "seen": [
+          "g8_s3a2u0",
+          "g8_s3a2u1",
+          "g8_s3a3u0",
+          "g8_s3a7u0",
+          "g8_s3a7u1"
+        ],
+        "expected": [
+          "g8_s3a2u0",
+          "g8_s3a2u1",
+          "g8_s3a3u0",
+          "g8_s3a7u0",
+          "g8_s3a7u1"
+        ],
+        "allAvailableUnitsRendered": true
+      }
+    }
+  ],
+  "fullySignedSegments": 0,
+  "totalSegments": 4,
+  "newStageRows": 10,
+  "newSpentMicros": "102916",
+  "reservedMicros": "0",
+  "savedReloadSameHash": true,
+  "linguisticEvidence": "NONE",
+  "comprehensionEvidence": "NONE"
+}

@@ -8,6 +8,8 @@ Run `npm ci`, typecheck, lint, default tests, production dependency audit, nativ
 
 The additive hardening migration adds nullable owner-recovery hashes and query indexes. Existing owners and older deployments remain compatible with those additions. The new deployment's health check rejects an incompatible schema or missing production adapter configuration. Real-provider reachability requires an explicit smoke; health does not make a paid model call.
 
+The [coverage follow-up](COVERAGE-FOLLOWUP.md) enables 2,927 exact-hash technical successes and keeps seven failed assets ineligible. Corpus updates must be atomic and performed with no active jobs, since candidate membership participates in plan fingerprints. Verify existing manifest hashes and budget ledgers before/after seeding. Planning reads metadata; only selected XML is hydrated at publication. The local default seed retains its original 20-asset gate, so do not accidentally reseed production with that fixture. Keep older saved tracks/provenance unchanged.
+
 ## Monitoring and bounded recovery
 
 `scripts/monitor-production.mjs` checks health, runs authenticated reconciliation and examines authenticated alerts without logging credentials or content. The public GitHub Actions workflow schedules it every five minutes. GitHub scheduling can be delayed and is not an SLA; Vercel's daily cron remains an independent fallback. Enable workflow-failure notifications for the responsible repository operator.

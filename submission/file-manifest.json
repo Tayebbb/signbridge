@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-05T09:36:27.258Z",
+  "ownerSupplied": true,
+  "files": [
+    {
+      "name": "signbridge-explainer-voiced.mp4",
+      "sizeBytes": 34558638,
+      "sha256": "476b08479e96cbd72dee410c75327599e4428ba29f6214c152ab9f20bcc0610e"
+    },
+    {
+      "name": "SignBridge-deck.pdf",
+      "sizeBytes": 1404281,
+      "sha256": "47eb4b6af464f54f220f3827a764c0be6b5f69fcf4bcc50be34534150f47cf2b"
+    }
+  ],
+  "youtube": {
+    "url": "https://youtu.be/goRXOQeq9lQ",
+    "visibility": "unlisted",
+    "published": true,
+    "automatedCopyrightCheck": "No issues found"
+  },
+  "devpost": {
+    "project": "https://devpost.com/software/signbridge-6pw9f7",
+    "submissionId": "1281751",
+    "savedSteps": "4/5",
+    "deckAttached": true,
+    "bothVideoFieldsSaved": true,
+    "eligibilityConfirmedByOwner": true,
+    "termsApprovedByOwner": true,
+    "submitted": false
+  },
+  "contact": "Private organizer contact intentionally omitted"
+}

@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-05T08:12:52.381Z",
+  "target": "preview",
+  "mode": "apply",
+  "before": {
+    "assets": 2934,
+    "eligible": 12
+  },
+  "after": {
+    "assets": 2934,
+    "eligible": 2927,
+    "invalid_eligible": 0
+  },
+  "activeJobs": 0,
+  "existingTracks": 2,
+  "existingTrackHashesUnchanged": true,
+  "existingTrackDigest": "2b1d232e917eedc5b3356e5e4bbb44a697fc498ee43f4651761fe2c2f749750b",
+  "budgetsUnchanged": true,
+  "seedSha256": "9aaaee6b5ed9dbc8f7622f8dfe26aad7e4eab1f7ed219e3b3ebe6006d77034a9",
+  "eligibleQueryMs": 20350,
+  "eligibleSerializedBytes": 4076918,
+  "budgets": [
+    {
+      "scope": "day:2026-11-04",
+      "cap_micros": "300000",
+      "spent_micros": "36448",
+      "reserved_micros": "0"
+    },
+    {
+      "scope": "lifetime",
+      "cap_micros": "300000",
+      "spent_micros": "36448",
+      "reserved_micros": "0"
+    }
+  ]
+}

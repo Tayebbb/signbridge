@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-05T08:34:02.315Z",
+  "target": "production",
+  "mode": "apply",
+  "before": {
+    "assets": 2934,
+    "eligible": 12
+  },
+  "after": {
+    "assets": 2934,
+    "eligible": 2927,
+    "invalid_eligible": 0
+  },
+  "activeJobs": 0,
+  "existingTracks": 5,
+  "existingTrackHashesUnchanged": true,
+  "existingTrackDigest": "3d8b73009e9aa1ee9cc75b6b69dfc0cad1a28f6a8964a69091027a72d500e8d8",
+  "budgetsUnchanged": true,
+  "seedSha256": "9aaaee6b5ed9dbc8f7622f8dfe26aad7e4eab1f7ed219e3b3ebe6006d77034a9",
+  "metadataQueryMs": 8284,
+  "metadataSerializedBytes": 975035,
+  "selectedQueryMs": 502,
+  "selectedBytes": 39366,
+  "budgets": [
+    {
+      "scope": "day:2026-11-04",
+      "cap_micros": "700000",
+      "spent_micros": "46570",
+      "reserved_micros": "0"
+    },
+    {
+      "scope": "day:2026-11-05",
+      "cap_micros": "700000",
+      "spent_micros": "134068",
+      "reserved_micros": "0"
+    },
+    {
+      "scope": "lifetime",
+      "cap_micros": "700000",
+      "spent_micros": "180638",
+      "reserved_micros": "0"
+    }
+  ]
+}

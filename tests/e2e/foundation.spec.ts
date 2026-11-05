@@ -1,4 +1,31 @@
 import { test, expect } from "@playwright/test";
+import {mkdir} from "node:fs/promises";
+
+for(const entry of [{path:"/",field:"Clip title",button:"Create a project"},{path:"/recover",field:"Recovery key",button:"Restore access"}]){
+  test(`Hydration: ${entry.path} controls wait for their event handlers`,async({page},info)=>{
+    let release!:()=>void;const gate=new Promise<void>(resolve=>{release=resolve;});
+    await page.route("**/_next/static/**",async route=>{if(route.request().resourceType()==="script")await gate;await route.continue();});
+    try{
+      await page.goto(entry.path,{waitUntil:"domcontentloaded"});
+      await expect(page.getByLabel(entry.field,{exact:true})).toBeDisabled();
+      await expect(page.getByRole("button",{name:entry.button,exact:true})).toBeDisabled();
+      expect(new URL(page.url()).search).toBe("");
+      await mkdir(".data/hydration-visual",{recursive:true});const image=`.data/hydration-visual/${info.project.name}-${entry.path==="/"?"create":"recover"}`;
+      await page.screenshot({path:image+"-loading.png",fullPage:true});
+      release();
+      await expect(page.getByLabel(entry.field,{exact:true})).toBeEnabled();
+      await expect(page.getByRole("button",{name:entry.button,exact:true})).toBeEnabled();
+      await page.screenshot({path:image+"-ready.png",fullPage:true});await page.setViewportSize({width:390,height:844});
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:image+"-mobile.png",fullPage:true});await page.setViewportSize({width:1400,height:1100});
+      if(entry.path==="/"){
+        await page.getByLabel("Clip title",{exact:true}).fill("Hydrated project creation");
+        await page.getByRole("checkbox",{name:"I have permission to use the clip and captions.",exact:true}).check();
+        await page.getByRole("button",{name:entry.button,exact:true}).click();
+        await expect(page).toHaveURL(/\/p\/[a-f0-9-]+$/u);
+      }
+    }finally{release();await page.unrouteAll({behavior:"wait"});}
+  });
+}
 test("P1-HEALTH: live DB round trip and honest global banner/footer", async ({ page, request }) => {
   const response = await request.get("/api/health");
   expect(response.status()).toBe(200);

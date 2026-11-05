@@ -1,5 +1,7 @@
 # Normal Bangla video test — 5 November 2026
 
+**Later follow-up:** the same source/captions produced nine playable units after the coverage fixes, while all four segments remained blocked and the completion count stayed zero. See [COVERAGE-FOLLOWUP.md](COVERAGE-FOLLOWUP.md). The initial failure and accounting below are preserved.
+
 **Status: FAIL for ordinary-video signing — zero of four segments produced any signing. Browser upload was repaired and verified live.**
 
 The owner requested an internet-downloaded normal video. This test used actual human speech and the original published Bengali caption wording, with real production services. It did not substitute isolated words, fake the model/renderer or edit the resulting plan.

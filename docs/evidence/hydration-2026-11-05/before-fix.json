@@ -1,0 +1,293 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project",
+      "chromium",
+      "--grep",
+      "Hydration"
+    ],
+    "configFile": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\playwright.config.ts",
+    "rootDir": "E:/AIgnite-Lab/signbridge/.data/production-hardening/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/AIgnite-Lab/signbridge/.data/production-hardening/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "E:/AIgnite-Lab/signbridge/.data/production-hardening/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "E:/AIgnite-Lab/signbridge/.data/production-hardening/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "msedge",
+        "name": "msedge",
+        "testDir": "E:/AIgnite-Lab/signbridge/.data/production-hardening/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e",
+        "snapshotDir": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:43181",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "launchOptions": {
+            "args": [
+              "--use-angle=swiftshader",
+              "--enable-webgl",
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run db:migrate && npm run build && npm run start -- --port 43181",
+      "url": "http://127.0.0.1:43181/api/health",
+      "reuseExistingServer": false,
+      "timeout": 180000,
+      "env": {
+        "DATABASE_URL": "",
+        "PGLITE_DATA_DIR": ".data/browser-phase8-foundation",
+        "PROCESSING_ENABLED": "false",
+        "MODEL_DRIVER": "fake",
+        "JOB_DRIVER": "in-process",
+        "BLOB_DRIVER": "filesystem",
+        "LOCAL_BLOB_DIR": ".data/browser-phase8-foundation-blob",
+        "OPENAI_API_KEY": "",
+        "VERCEL": ""
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "foundation.spec.ts",
+      "file": "foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Hydration: / controls wait for their event handlers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5360,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Clip title', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Clip title', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clip title', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input required=\"\" name=\"title\" maxlength=\"120\" id=\"project-title\" placeholder=\"A short lesson or announcement\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Clip title', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Clip title', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clip title', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input required=\"\" name=\"title\" maxlength=\"120\" id=\"project-title\" placeholder=\"A short lesson or announcement\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts:9:63",
+                    "location": {
+                      "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                      "column": 63,
+                      "line": 9
+                    },
+                    "snippet": "   7 |     try{\n   8 |       await page.goto(entry.path,{waitUntil:\"domcontentloaded\"});\n>  9 |       await expect(page.getByLabel(entry.field,{exact:true})).toBeDisabled();\n     |                                                               ^\n  10 |       await expect(page.getByRole(\"button\",{name:entry.button,exact:true})).toBeDisabled();\n  11 |       expect(new URL(page.url()).search).toBe(\"\");\n  12 |       release();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                        "column": 63,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Clip title', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Clip title', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clip title', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input required=\"\" name=\"title\" maxlength=\"120\" id=\"project-title\" placeholder=\"A short lesson or announcement\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n   7 |     try{\n   8 |       await page.goto(entry.path,{waitUntil:\"domcontentloaded\"});\n>  9 |       await expect(page.getByLabel(entry.field,{exact:true})).toBeDisabled();\n     |                                                               ^\n  10 |       await expect(page.getByRole(\"button\",{name:entry.button,exact:true})).toBeDisabled();\n  11 |       expect(new URL(page.url()).search).toBe(\"\");\n  12 |       release();\n    at E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts:9:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:45:09.406Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\test-results\\foundation-Hydration-controls-wait-for-their-event-handlers-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                    "column": 63,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-3de7824fc409364f020f",
+          "file": "foundation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "Hydration: /recover controls wait for their event handlers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5223,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Recovery key', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Recovery key', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Recovery key', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input value=\"\" required=\"\" minlength=\"43\" maxlength=\"43\" type=\"password\" autocomplete=\"off\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Recovery key', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Recovery key', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Recovery key', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input value=\"\" required=\"\" minlength=\"43\" maxlength=\"43\" type=\"password\" autocomplete=\"off\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts:9:63",
+                    "location": {
+                      "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                      "column": 63,
+                      "line": 9
+                    },
+                    "snippet": "   7 |     try{\n   8 |       await page.goto(entry.path,{waitUntil:\"domcontentloaded\"});\n>  9 |       await expect(page.getByLabel(entry.field,{exact:true})).toBeDisabled();\n     |                                                               ^\n  10 |       await expect(page.getByRole(\"button\",{name:entry.button,exact:true})).toBeDisabled();\n  11 |       expect(new URL(page.url()).search).toBe(\"\");\n  12 |       release();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                        "column": 63,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Recovery key', { exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByLabel('Recovery key', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Recovery key', { exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <input value=\"\" required=\"\" minlength=\"43\" maxlength=\"43\" type=\"password\" autocomplete=\"off\"/>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n   7 |     try{\n   8 |       await page.goto(entry.path,{waitUntil:\"domcontentloaded\"});\n>  9 |       await expect(page.getByLabel(entry.field,{exact:true})).toBeDisabled();\n     |                                                               ^\n  10 |       await expect(page.getByRole(\"button\",{name:entry.button,exact:true})).toBeDisabled();\n  11 |       expect(new URL(page.url()).search).toBe(\"\");\n  12 |       release();\n    at E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts:9:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:45:15.360Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\test-results\\foundation-Hydration-recov-3d2e6-it-for-their-event-handlers-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\AIgnite-Lab\\signbridge\\.data\\production-hardening\\tests\\e2e\\foundation.spec.ts",
+                    "column": 63,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6b60d0cacd30be8ae473-8dd2d7588abbe3640cd6",
+          "file": "foundation.spec.ts",
+          "line": 4,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-05T08:44:56.300Z",
+    "duration": 24762.021,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
