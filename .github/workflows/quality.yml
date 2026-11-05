@@ -27,7 +27,9 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm test
-      - run: npm audit --omit=dev --audit-level=moderate
+      - run: npm audit --audit-level=moderate
+      - name: Check patched schema loader
+        run: node node_modules/drizzle-kit/bin.cjs generate --dialect postgresql --schema ./lib/db/schema.ts --out ./.data/ci-schema
       - run: npm run check:secrets
       - name: Locate disposable PostgreSQL binaries
         run: printf 'PG_TEST_BIN=%s\n' "$(pg_config --bindir)" >> "$GITHUB_ENV"

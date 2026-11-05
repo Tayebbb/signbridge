@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 import { existsSync } from "node:fs";
-const edgeAvailable = existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe") || existsSync("C:/Program Files/Microsoft/Edge/Application/msedge.exe");
+const edgeAvailable = existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe") || existsSync("C:/Program Files/Microsoft/Edge/Application/msedge.exe") || existsSync("/opt/microsoft/msedge/msedge");
 export default defineConfig({
   testDir: "./tests/e2e", timeout: 120_000, workers: 1, retries: 0,
   reporter: [["list"], ["json", { outputFile: process.env.SIGNBRIDGE_EVIDENCE_PHASE==="8"?"docs/evidence/final/foundation-browser-results.json":process.env.SIGNBRIDGE_EVIDENCE_PHASE==="6"?"docs/evidence/phase-6/foundation-browser-results.json":"docs/evidence/playwright-results.json" }]],
