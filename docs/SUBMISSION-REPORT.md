@@ -47,3 +47,11 @@ The ordinary Bengali video produces nine available units, all actually played, b
 Combined counted verification remains **USD 0.338618**, zero outstanding reservations, under the approved USD 4 ceiling. Infrastructure uses free plans; no purchases, upgrades, billing changes or allowance increases were made. Free-plan capacity, external renderer availability and provider budgets still apply.
 
 No blocking submission questions remain. Original phase tags/reports, immutable design, source motion and concurrent main-checkout edits are preserved.
+
+## Description update — 5 November 2026
+
+The Devpost pitch, public story and organizers' brief now explain the upload-and-play workflow first, define partial signing, and present the technology, verified results and remaining limits in separate sections. The YouTube description uses the same explanation with numbered instructions. GitHub's short description and README introduction are aligned.
+
+The saved Devpost story and organizers' brief were reopened and matched to their source text; the public page displays the new pitch and story. The editor retained **SUBMITTED, 5/5 steps done**. YouTube's saved description matched all 2,941 characters, with Save disabled and visibility still Unlisted. [Publication checks and text hashes](evidence/submission-2026-11-05/description-update.json).
+
+Published copy: [Devpost story](../submission/devpost.md), [short summaries](../submission/listing-copy.json), [YouTube description](../submission/youtube.md). This update changes public copy and repository documentation; the technical evidence above remains the basis for its claims.

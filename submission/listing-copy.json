@@ -1,0 +1,5 @@
+{
+  "devpostPitch": "An experimental companion for captioned Bangla videos that plays available avatar signs and shows what could not be signed.",
+  "organizerBrief": "SignBridge is an experimental web app for short videos with Bangla captions. Creators upload a video and captions, check the text, and generate a saved avatar-signing track. During playback, each video segment plays first, then pauses while its available signs play; captions remain visible. Detected gaps are clearly marked, and incomplete segments never count as fully signed. Saved tracks can be replayed and shared through revocable view-only links. The live app connects Vercel, Neon PostgreSQL, private Blob storage, Vercel Workflows and OpenAI. Captions are required; audio transcription is not included. Signing coverage remains limited and unreviewed. In a real 29-second test, nine animation units played, but all four segments retained critical gaps and none was fully signed. No qualified BdSL review or comprehension study is claimed.",
+  "githubDescription": "Experimental Bangla video companion: supplied captions, saved avatar-signing tracks, and clear warnings for missing meaning."
+}

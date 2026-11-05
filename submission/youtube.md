@@ -16,22 +16,34 @@ SignBridge | Bangla Video Signing Companion | YUNet AIgnite 2026
 
 ## Description
 
-SignBridge pairs a short video and supplied Bangla captions with a saved, source-timed avatar signing companion. Unsupported critical meaning stays visible as a gap rather than silently counting as completed signing.
+SignBridge is an experimental web app that pairs a short video and Bangla captions with a saved avatar-signing track. Each video segment plays first, then pauses while its available avatar signs play. The captions remain visible.
 
-Built for Ostad Presents YUNet AIgnite Buildathon 2026.
+Try the live app: https://signbridge-sable-sigma.vercel.app
+Source code: https://github.com/Tayebbb/signbridge
+Current results and limitations: https://github.com/Tayebbb/signbridge/blob/main/docs/COVERAGE-FOLLOWUP.md
+Devpost project: https://devpost.com/software/signbridge-6pw9f7
 
-Live app: https://signbridge-sable-sigma.vercel.app
-Source code and current evidence: https://github.com/Tayebbb/signbridge
-Latest coverage follow-up: https://github.com/Tayebbb/signbridge/blob/main/docs/COVERAGE-FOLLOWUP.md
+HOW TO USE IT
+1. Upload a permitted MP4/WebM video and Bangla SRT, WebVTT or timestamped captions. Videos can be up to 90 seconds and 15 MB.
+2. Preview the caption segments and correct the text if needed.
+3. Generate a signing track from the available sign-animation library.
+4. Watch the original video and avatar signs in sequence. Replay or share the saved result without another AI request.
 
-This English narrated explainer combines illustrations and earlier technical captures. Its on-screen test, corpus and spending figures describe an earlier release snapshot. The linked repository contains the latest results.
+WHEN SIGNS ARE MISSING
+The app shows a warning before partial signing can play. You can read the caption, choose to play the available signs, or skip the segment. A segment with missing critical meaning stays incomplete, even after its animations finish. Captions are required; automatic audio transcription is not included.
 
-The live app connects Next.js on Vercel, Neon PostgreSQL, private Vercel Blob, Vercel Workflows and the OpenAI Responses API. Creators can upload and correct captions, build tracks, replay saved results without another model call, recover creator access, and revoke shared links. Captions are required; automatic audio transcription is not included.
+WHAT IS WORKING
+The live app uses real Next.js/Vercel hosting, Neon PostgreSQL, private Vercel Blob storage, Vercel Workflows and OpenAI Responses. Uploads, caption editing, background processing, saved playback, creator recovery and revocable sharing are implemented. The avatar uses existing IsharaKotha sign animations through UEA CWASA / Anna.
 
-Important limits: signing is experimental and unreviewed. Technical animation does not establish correct Bangla Sign Language or comprehension. A later normal-video test produced nine playable units across four segments, but every segment still had critical gaps and none counted as fully signed. No qualified BdSL review or Deaf-user comprehension study is claimed.
+CURRENT LIMITS
+Signing is experimental and unreviewed. SignBridge is not a validated Bangla Sign Language translator. Animated output may omit or misrepresent meaning. In a real 29-second Bengali interview test, nine animation units played in order, but all four segments retained critical gaps and zero counted as fully signed. No qualified BdSL review or Deaf-user comprehension study has been completed. Physical Android/iPhone testing is also still pending.
 
-Sign data: IsharaKotha v2, by MD. Ashikul Islam, Prato Dewan, Md Fuadul Islam, Md Ataullha Saim and M Shahidur Rahman. DOI: https://doi.org/10.17632/6ykgx65ks5.2 . CC BY 4.0. Gloss identifiers are derived as lowercase ASCII; motion XML is unchanged.
+ABOUT THIS VIDEO
+This English narrated explainer was made for Ostad Presents YUNet AIgnite Buildathon 2026. It combines illustrations and earlier technical captures. The test, corpus and spending figures shown in the video are an earlier snapshot; use the current-results link above for the latest evidence.
 
-Avatar: the unmodified remote University of East Anglia CWASA / Anna engine, under its own terms: https://vh.cmp.uea.ac.uk/index.php/CWASA_Conditions_of_Use . Related work including SignOLight is credited in the repository.
+CREDITS
+IsharaKotha v2 sign data: MD. Ashikul Islam, Prato Dewan, Md Fuadul Islam, Md Ataullha Saim and M Shahidur Rahman. DOI: https://doi.org/10.17632/6ykgx65ks5.2 . License: CC BY 4.0. Gloss identifiers were adapted for the app; source motion XML is unchanged.
 
-Built with AI coding assistance. This project does not claim to be the first video-to-avatar tool.
+Renderer: the unmodified remote University of East Anglia CWASA / Anna engine, under its conditions of use: https://vh.cmp.uea.ac.uk/index.php/CWASA_Conditions_of_Use . Related work, including SignOLight, is credited in the repository.
+
+Built with AI coding assistance. No claim of being the first video-to-avatar tool.

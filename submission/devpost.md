@@ -1,54 +1,67 @@
-# SignBridge
+## What SignBridge does
 
-## Tagline
-An experimental signing companion for captioned Bangla video, with saved playback and explicit gaps when signs are missing.
+**SignBridge is an experimental web app that pairs a short video and Bangla captions with a saved avatar-signing track.** It plays one section of the original video, pauses the video, and then plays the available avatar signs for that section. The Bangla captions remain visible so viewers can refer to the original words.
 
-## Description
-SignBridge is an experimental application for short videos with supplied Bangla captions. Its intended users are Deaf and hard-of-hearing viewers and video creators; that audience hypothesis has not been validated through participant research.
+Warnings identify detected gaps in the signing track. A segment marked as incomplete stays incomplete, even after its available animations have played.
 
-Creators upload a permitted MP4/WebM and captions, inspect the source text, and build a saved companion track. The source plays first and holds while corpus-based signs play. An unresolved critical concept creates a blocking gap card. Captions remain visible. New compositions are labelled **Experimental - not reviewed by a BdSL signer**.
+## How to use it
 
-Saved tracks can be replayed and shared without another model call. A source-caption correction invalidates affected work; stale replies cannot replace the current track. Completion requires the expected ordered sign-unit callbacks. Timeouts, skips and incomplete playback do not count as completed signing.
+1. **Upload your video and captions.** Use a permitted MP4 or WebM, up to 90 seconds and 15 MB. Supply Bangla SRT, WebVTT or timestamped captions. The app does not transcribe audio.
+2. **Check the text.** Preview the caption segments and correct anything that needs changing.
+3. **Build a signing track.** The app analyses the captions, selects from its available sign-animation library, and saves the resulting track.
+4. **Watch each segment.** The original video plays first; the avatar signs afterward while the video holds. Captions stay visible during signing.
+5. **Replay or share.** Replaying a saved track does not make another AI request. You can create a view-only link, revoke it, or correct captions and generate a new track.
 
-## How we built it
-The solo build uses Next.js App Router, TypeScript, React, Zod and Drizzle. Production runs on Vercel Hobby with two isolated Neon Free databases and private Vercel Blob. Vercel Workflows dispatches meaning and asset-planning stages through OpenAI Responses with strict output schemas. SQL owns authority, outbox recovery, cached stages, publication, spend reservations and the kill switch. Local development substitutes PGlite, filesystem storage, a deterministic labelled fake model and an in-process dispatcher.
+When the app flags unsupported meaning in a segment, a warning appears before its available signs can play. Viewers can read the caption, choose to play the partial signs, or skip the segment. Partial signing never counts as fully signed.
 
-Plans reference actual eligible IsharaKotha asset IDs. The app derives lowercase ASCII gloss IDs while preserving motion XML, embeds SiGML and provenance in a versioned manifest, and plays it through the unmodified remote UEA CWASA renderer in an isolated iframe. Separate source/avatar clocks and disposable renderer instances prevent stale animation callbacks from advancing playback.
+## Inspiration
 
-## Challenges
-The corpus has incomplete coverage and cannot establish sentence-level signing quality. We quarantined 174 of 3,108 distinct input hashes rather than widening the XML whitelist. A later full sweep admitted 2,927 technically rendered assets; seven failures stayed excluded even after a separate recheck. No motion was edited or invented to force coverage.
+SignBridge explores an additional way to present Bangla video for Deaf and hard-of-hearing audiences. Its central design goal is to keep the source words available and make missing information visible. The intended accessibility benefit still needs evaluation with the people who would use it.
 
-The expanded inventory exposed a 4 MB / 20-second all-motion read. Planning now reads metadata and publication hydrates only selected eligible XML. An early first-load click also exposed native form submission before JavaScript attached; creation/recovery controls now wait for their handlers. Both defects have behavior regressions.
+## How it is built
 
-Real deployment checks found two integration defects: inline Workflow directives were missing from the built step registry, and edge compression changed strong ETags to weak validators. We fixed both and added regression checks. A further verification race mixed rows from before and after atomic publication; a forced native PostgreSQL race now protects the verifier. The same real Workflow survived a production cutover and published once.
+The live application connects real services:
 
-## Evidence and limits
-1. **Technical renderability:** 20/20 sampled assets in Phase 2 and 12/12 curated assets in Phase 7, on one Windows host with software WebGL. These sets are not claimed as 32 unique assets. Production sample A is a 45-second, six-segment original synthetic clip; all six segments played in Chrome and Edge after 12 model calls. Sample B deliberately has unsupported negation. No plans were hand-edited. Reload/share retained the manifest hash with zero additional calls; a no-key preview also replayed saved tracks.
-2. **Linguistic correctness:** none. No qualified BdSL signer has assessed these exact rendered versions.
-3. **User comprehension:** none. No evaluation using tasks with Deaf/BdSL users has been performed.
+- **Next.js, React and TypeScript on Vercel** provide the interface and server API.
+- **Neon PostgreSQL with Drizzle** stores projects, captions, jobs, saved tracks and usage records.
+- **Private Vercel Blob storage** holds uploaded videos. Authorization is checked before streaming.
+- **OpenAI Responses and Vercel Workflows** analyse supplied captions and process plans in the background. Plans can reference only retrieved entries from the available animation library.
+- **UEA CWASA with the Anna avatar** plays the selected IsharaKotha sign animations. Source motion is not modified to force a result.
 
-The latest checks record 234 default tests, 53 native PostgreSQL tests, 22 product-browser checks and 10 foundation checks. A real 29-second Bengali interview initially produced zero units. The same clip/captions now produce nine units, all played in order, but all four segments retain critical gaps and none count as fully signed. Technical checks do not establish that signing is acceptable or usable for the intended audience. Real Android/iPhone results are still NOT RUN. UEA availability and WebGL remain runtime dependencies. The owner supplied the official event sticker, used unchanged in the app's top banner.
+Saved results retain the selected motion and its provenance. Caption edits produce a new result; an older job cannot replace newer work. Recovery keys allow creator access to be restored after losing the browser session.
 
-Combined measured verification used USD 0.338618 of existing OpenAI credits, against an approved USD 4 ceiling, with zero outstanding reservations. The latest real job added USD 0.102916; subsequent playback requested no new model job. This is metered usage, not a provider invoice. Infrastructure uses free plans; no purchases, upgrades or billing changes were made. The supplied deck and narrated video show an earlier verification snapshot; current evidence is in docs/COVERAGE-FOLLOWUP.md.
+## What has been verified
 
-## Prior work and differentiation
-SignOLight already documents video-to-avatar workflows. IsharaKotha is prior text-to-avatar research and the source of the corpus assets. SignBridge does not claim to invent either category. The contribution demonstrated here is a working combination of sequential source-frame holds, durable source-caption edits, saved replay, and visible unsupported spans. We do not infer that other projects lack those features from an incomplete public inspection.
+Upload, caption preview, real AI processing, database persistence, private video storage, saved playback and sharing have been exercised against the connected services.
 
-## What's next
-Co-design consented formative evaluation with qualified Deaf/BdSL reviewers, assess specific rendered versions, then run separate comprehension tasks with Deaf/BdSL users. Publish failures and participant counts before making outcome claims. Validate real mobile memory/performance and improve vocabulary coverage without silent semantic substitution. No outreach or evaluation is claimed as completed.
+- **Animation library:** 2,927 of 2,934 accepted entries passed technical rendering checks. The seven failures remain excluded. This establishes playback, not correct BdSL.
+- **Ordinary-video test:** a real 29-second Bengali interview produced nine signing units, meaning nine pieces of avatar motion. All nine played in order. All four video segments still contained critical gaps, so **zero segments counted as fully signed**.
+- **Software checks:** the verified release passed 234 default tests, 53 PostgreSQL tests and 32 browser checks across Chromium and Edge. The complete dependency audit reported zero vulnerabilities.
 
-## Built with
-Next.js; React; TypeScript; Node.js 24; npm; Zod; Drizzle ORM; Neon PostgreSQL; PGlite; Vercel Workflows; Vercel private Blob; OpenAI Responses API; IsharaKotha SiGML; UEA CWASA; Vitest; Playwright.
+Exact results and known failures are recorded in the repository. The ordinary-video result shows both the functioning pipeline and the remaining coverage problem.
 
-## Attribution
-IsharaKotha V2: MD. Ashikul Islam, Prato Dewan, Md Fuadul Islam, Md Ataullha Saim and M Shahidur Rahman, DOI [10.17632/6ykgx65ks5.2](https://data.mendeley.com/datasets/6ykgx65ks5/2), CC BY 4.0. Gloss identifiers were derived as lowercase ASCII; motion XML is unchanged. Dataset-level review is not inherited as review of SignBridge tracks.
+## Challenges and lessons
 
-Renderer: remote, unmodified [UEA CWASA/JASigning vhg2026](https://vhg.cmp.uea.ac.uk/tech/jas/vhg2026/), Anna avatar. Original synthetic source clips/captions were generated for this project under CC0-1.0; they contain no external footage, voices or signer performance.
+The difficult parts included caption edits during processing, delayed playback events, failed uploads, private video streaming and bounded AI usage. These needed explicit rules and regression tests.
 
-Prior work: [SignOLight original writeup](https://www.kaggle.com/competitions/build-with-gemma-ml-ai-deep-learning-nlp-communityofficial/writeups/signolight); [IsharaKotha paper](https://arxiv.org/html/2511.16896v1). Our evidence is in the phase reports, not inferred from their evaluation results.
+The main lesson was that a working animation pipeline is only one part of a signing tool. Names, quantities, context and relationships may be missing from the available library. Those gaps must remain visible.
 
-## Production and demos
-- [Public application](https://signbridge-mdtayebibne-4755s-projects.vercel.app).
-- [Play covered sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/b0a2b6b2-fbab-4936-829e-620b0a937ed4?s=8EdVJxY2BO-DDccdy6bQu-M7r5Oq5aSyH4ma9NaE6Fg) - intentionally public, read-only original synthetic sample.
-- [See unsupported sample](https://signbridge-mdtayebibne-4755s-projects.vercel.app/s/1ad052e9-bb09-4132-a98a-995917bfb86b?s=v-7iWygWd90ePqFdKQV4ZLu_9NGMwYCB9f-3bsllpVs) - intentionally public, read-only original synthetic sample.
-- Source of technical claims: `docs/phase-reports/phase-2.md`, `phase-3.md`, `phase-5.md`, `phase-6.md`, `phase-7.md`, `phase-6-recheck-2026-11-04.md`, `phase-7-recheck-2026-11-04.md`; refreshed route/replay evidence is `docs/evidence/final/recheck-2026-11-04/`.
+## Current limitations and next steps
+
+**SignBridge is experimental and unreviewed. It is not a validated Bangla Sign Language translator.** Output may omit or misrepresent meaning even when the avatar animates successfully. No qualified BdSL review or Deaf-user comprehension study has been completed. Physical Android and iPhone testing is also still pending.
+
+Next steps are to improve source-grounded vocabulary coverage, review specific outputs with qualified Deaf/BdSL reviewers, evaluate comprehension separately, and test physical mobile devices. The intended accessibility benefits are not claimed as proven.
+
+## Try it and inspect the evidence
+
+- [Open the live application](https://signbridge-sable-sigma.vercel.app)
+- [View the source code](https://github.com/Tayebbb/signbridge)
+- [Read current results and limitations](https://github.com/Tayebbb/signbridge/blob/main/docs/COVERAGE-FOLLOWUP.md)
+
+The supplied five-slide deck and English narrated explainer include an earlier release snapshot. Their on-screen counts may differ from the current results linked above. The video combines illustrations and earlier technical captures.
+
+## Credits
+
+Sign data: **IsharaKotha v2**, by MD. Ashikul Islam, Prato Dewan, Md Fuadul Islam, Md Ataullha Saim and M Shahidur Rahman; [DOI 10.17632/6ykgx65ks5.2](https://doi.org/10.17632/6ykgx65ks5.2), **CC BY 4.0**. Gloss identifiers were adapted for the app; source motion XML is unchanged. Dataset-level review is not claimed as review of SignBridge's generated tracks.
+
+Avatar renderer: the unmodified remote **University of East Anglia CWASA / Anna** engine, under its [conditions of use](https://vh.cmp.uea.ac.uk/index.php/CWASA_Conditions_of_Use). Related work, including SignOLight, is credited in the repository. Built with AI coding assistance; no claim to be the first video-to-avatar tool.

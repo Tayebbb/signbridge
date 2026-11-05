@@ -5,7 +5,7 @@
 
 **Bangla captions. Saved signing companions. Visible gaps.**
 
-SignBridge pairs a short captioned video with sequential avatar signing. The source plays first, then holds while the avatar signs. Missing critical concepts block completion, and corrections produce a new saved track while older work is fenced out.
+SignBridge is an experimental web app that pairs a short video and Bangla captions with a saved avatar-signing track. Each video segment plays first, then pauses while its available avatar signs play. Captions remain visible, and the app clearly marks meaning it could not sign. A segment with missing critical meaning stays incomplete, even after its animations finish.
 
 [Live application](https://signbridge-sable-sigma.vercel.app) · [Architecture](SYSTEM-DESIGN.md) · [Current verification](docs/COVERAGE-FOLLOWUP.md) · [Operations](docs/OPERATIONS.md)
 
@@ -14,6 +14,8 @@ SignBridge pairs a short captioned video with sequential avatar signing. The sou
 **Real-world test:** the same 29-second Bengali interview improved from **zero to nine playable signing units** after the coverage fixes. All nine played in order, but **all four segments still have critical gaps and none count as fully signed**. General-video BdSL signing remains unverified. Read the [follow-up and exact limits](docs/COVERAGE-FOLLOWUP.md) and the [initial failure report](docs/NORMAL-VIDEO-TEST.md).
 
 ## What works
+
+To use the app, upload a permitted MP4/WebM and Bangla captions, preview and correct the text, then build a signing track. Videos can be up to 90 seconds and 15 MB. Supply SRT, WebVTT or timestamped captions; the app does not transcribe audio.
 
 - Upload an MP4/WebM clip with Bangla SRT, WebVTT or timestamped captions.
 - Preview and edit segments, build a companion, and follow source-first sequential playback.

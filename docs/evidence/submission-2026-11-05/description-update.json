@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-05T14:56:15.857Z",
+  "status": "PUBLISHED",
+  "devpost": {
+    "url": "https://devpost.com/software/signbridge-6pw9f7",
+    "pitch": "An experimental companion for captioned Bangla videos that plays available avatar signs and shows what could not be signed.",
+    "pitchCharacters": 123,
+    "publicPitchAndStoryVisible": true,
+    "storySha256": "c9b3cda8a4224ab64ba79666db5057211aa92c350ceaa511e93ff37eaa90ba3d",
+    "savedStoryMatchedSource": true,
+    "organizerBriefSha256": "ef23c68e100c7c8a864e5479ab216b4105e1f8728fff1da94e1c4f55b0234f6a",
+    "organizerBriefCharacters": 847,
+    "savedOrganizerBriefMatchedSource": true,
+    "submissionStatus": "SUBMITTED",
+    "completedSteps": "5/5"
+  },
+  "youtube": {
+    "url": "https://youtu.be/goRXOQeq9lQ",
+    "descriptionCharacters": 2941,
+    "descriptionSha256": "039e0904411525aa73a67d831bc9505002edab07f7b3095a1ca73c8c28222ae6",
+    "savedTextMatchedSource": true,
+    "saveButtonDisabledAfterSave": true,
+    "visibility": "Unlisted"
+  },
+  "github": {
+    "url": "https://github.com/Tayebbb/signbridge",
+    "description": "Experimental Bangla video companion: supplied captions, saved avatar-signing tracks, and clear warnings for missing meaning.",
+    "remoteDescriptionReadBack": true
+  },
+  "checks": {
+    "devpostPitchWithinObservedLimit": true,
+    "youtubeWithin5000Characters": true,
+    "originalLanguageLimitsRetained": true
+  },
+  "contact": "Private organizer contact intentionally omitted"
+}
